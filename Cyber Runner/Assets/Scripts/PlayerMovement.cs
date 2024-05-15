@@ -5,110 +5,182 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D _rb;
-    private Collider2D _collider;
-    private ConstantForce2D _force;
-    [SerializeField] private Collider2D _floorTrigger;
-    public Vector2 JumpForce;
-    public Vector2 DashForce;
-    public float CurrentRunSpeed;
-    public float DashDisableBuffer;
-    [SerializeField]public float _dashCooldown;
+    
+    //TODO: ADD Double Jump (Perhaps only reset by dash)
+    //TODO: SPeed up camera depending on Constant Force
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    [SerializeField] private PlayerState _activeState;
+    public PlayerState ActiveState
+    {
+        get
+        {
+            return _activeState;
+        }
+        set
+        {
+            if (value == null)
+            {
+                Help.Debug(GetType(), "ActiveState", "Cannot Transition to null state.");
+            }
+            if (_activeState == null)
+            {
+                Help.Debug(GetType(), "ActiveState", "Previous state was null. Make sure it is initialised before referencing it.");
+            }
+            
+            _activeState.OnExit(value);
+            _activeState = value;
+            _activeState.OnEnter();
+        }
+    }
 
+    [SerializeField] public RunState RunState;
+    [SerializeField] public JumpState JumpState;
+    [SerializeField] public FallState FallState;
+    [SerializeField] public DashState DashState;
+    [SerializeField] public AirDashState AirDashState;
+    
+    [HideInInspector] public Rigidbody2D RB;
+    [HideInInspector] public Collider2D Collider;
+    [HideInInspector] public ConstantForce2D ConstantForce;
+    
+    //public Collider2D FloorTrigger;
+ 
 
-    private bool _isDashing = false;
-    private bool _dashCoolDownActive = false;
+    public float CurrentRunSpeed => RB.velocity.x;
+    [SerializeField] private float _speed;
 
-    private bool _isJumping = false;
+    public bool IsDashing = false;
+    public bool IsJumping = false;
+
+    private bool _gravity;
+    public bool Gravity
+    {
+        get
+        {
+            return RB.gravityScale != 0;
+        }
+        set
+        {
+            if (value)
+            {
+                RB.gravityScale = _startingGravityScale;
+            }
+            else
+            {
+                RB.gravityScale = 0;
+            }
+        }
+    }
 
     private float _startingGravityScale;
 
     private Coroutine DashHandle;
-    
+
+    private void Awake()
+    {
+        RB = GetComponent<Rigidbody2D>();
+        Collider = GetComponent<Collider2D>();
+        ConstantForce = GetComponent<ConstantForce2D>();
+        
+        _startingGravityScale = RB.gravityScale;
+    }
+
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _collider = GetComponent<Collider2D>();
-        _force = GetComponent<ConstantForce2D>();
-        
-        _startingGravityScale = _rb.gravityScale;
+        RunState.Init(this);
+        JumpState.Init(this);
+        FallState.Init(this);
+        DashState.Init(this);
+        AirDashState.Init(this);
 
-        if (_rb == null || _collider == null || _force == null)
+        _activeState = RunState;
+        ActiveState = RunState;
+        
+        if (RB == null || Collider == null || ConstantForce == null)
         {
-           Help.Debug(GetType(), "Start", "Rigidbody or collider is null");
+           Help.Debug(GetType(), "Start", "Rigidbody, Constant FOrce or collider is null");
         }
     }
 
-    
     void Update()
     {
-
+        //For Inspector display only
+        _speed = CurrentRunSpeed;
+        
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (_isJumping)
+            if (IsJumping)
             {
                 return;
             }
-
-            _isJumping = true;
-            _rb.velocity = new Vector2(_rb.velocity.x, 0f);
-            _rb.AddForce(JumpForce);
+            ActiveState = JumpState;
         }
         
         if (Input.GetKeyDown(KeyCode.X))
         {
-            if (_isDashing)
+            if (IsDashing)
             {
                 return;
             }
-            _isDashing = true;
-
-            if (_isJumping)
+            
+            if (IsJumping)
             {
-                _rb.gravityScale = 0;
-                _rb.velocity = new Vector2(_rb.velocity.x, 0f);
+                ActiveState = AirDashState;
             }
             else
             {
-                
+                ActiveState = DashState;
             }
-            
-            _rb.AddForce(DashForce);
-            DashHandle = StartCoroutine(DashCooldown());
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            ConstantForce.force += new Vector2(5,0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            ConstantForce.force -= new Vector2(5,0);
         }
         
+        
+        _activeState.OnUpdate();
     }
-
-    private IEnumerator DashCooldown()
-    {
-        _dashCoolDownActive = true;
-        yield return new WaitForSecondsRealtime(_dashCooldown);
-        _dashCoolDownActive = false;
-        DashHandle = null;
-    }
-
+    
     private void FixedUpdate()
     {
-        CurrentRunSpeed = _rb.velocity.x;
-        float theoreticalMaxSpeed = _force.force.x / _rb.drag;
-
-        if ( Math.Abs( CurrentRunSpeed - theoreticalMaxSpeed) < DashDisableBuffer  && !_dashCoolDownActive)
-        {
-            DisableDash();
-        }
+        _activeState.OnFixedUpdate();
     }
 
+    public event Action OnLanded;
+    private bool _ignoreFirstFloorTriggerFlag = true;
     private void OnTriggerEnter2D(Collider2D col)
     {
+        
         if (col.CompareTag("Floor"))
         {
-            _isJumping = false;
+            if (_ignoreFirstFloorTriggerFlag)
+            {
+                _ignoreFirstFloorTriggerFlag = false;
+                return;
+            }
+            OnLanded?.Invoke();
         }
     }
 
-    private void DisableDash()
-    {
-        _isDashing = false;
-        _rb.gravityScale = _startingGravityScale;
-    }
+   
+
+    
 }
