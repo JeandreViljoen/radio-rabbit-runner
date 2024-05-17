@@ -9010,8 +9010,8 @@ Transform:
   m_GameObject: {fileID: 504064099}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1033.3582, y: 0, z: 0}
-  m_LocalScale: {x: 38.256645, y: 1, z: 1}
+  m_LocalPosition: {x: -1033.3582, y: 1.7127, z: 0}
+  m_LocalScale: {x: 38.256645, y: 4.4253283, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1751201229}
@@ -9468,9 +9468,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9221f988af2e0ee4fa319a72f341d355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1720444608}
+  _player: {fileID: 1720444609}
   _offset: {x: 12.63, y: 1.26, z: -13.5}
   _smoothing: 0.3
+  _smoothingMax: 1
+  _smoothingMin: 0.075
+  _smoothingRatio: 7.5
 --- !u!1 &536592407
 GameObject:
   m_ObjectHideFlags: 0
@@ -31128,7 +31131,6 @@ GameObject:
   - component: {fileID: 1720444605}
   - component: {fileID: 1720444609}
   - component: {fileID: 1720444610}
-  - component: {fileID: 1720444611}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -31302,18 +31304,6 @@ ConstantForce2D:
   m_Force: {x: 50, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
---- !u!114 &1720444611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720444604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8ba7aa150bc174cb9689e8b1c2a9c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1724166421
 GameObject:
   m_ObjectHideFlags: 0

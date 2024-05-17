@@ -21,11 +21,17 @@ public class JumpState : PlayerState
         }
     }
 
-    public override void OnEnter()
+    public void Jump()
     {
+        _player.Gravity = true;
         _player.IsJumping = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
         _player.RB.AddForce(_jumpForce);
+    }
+
+    public override void OnEnter()
+    {
+        Jump();
     }
 
     public override void OnUpdate()

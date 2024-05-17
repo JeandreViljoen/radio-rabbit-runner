@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     
     //TODO: ADD Double Jump (Perhaps only reset by dash)
-    //TODO: SPeed up camera depending on Constant Force
+    //TODO: Affect camera offset based on speed.
     
     
     
@@ -36,10 +37,15 @@ public class PlayerMovement : MonoBehaviour
             }
             if (_activeState == null)
             {
-                Help.Debug(GetType(), "ActiveState", "Previous state was null. Make sure it is initialised before referencing it.");
+                Help.Log(GetType(), "ActiveState", $"Previous state was null. Initialised with {value}");
+            }
+            if (_activeState == value)
+            {
+                Help.Debug(GetType(), "ActiveState", $"!!!!!!!!!!!!!!!!!!!!!! - Tried to enter {value} state that is already active, returning early");
+                return;
             }
             
-            _activeState.OnExit(value);
+            if (_activeState != null) _activeState.OnExit(value);
             _activeState = value;
             _activeState.OnEnter();
         }
@@ -62,7 +68,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
 
     public bool IsDashing = false;
-    public bool IsJumping = false;
+
+    private bool _isJumping = false;
+    public bool IsJumping
+    {
+        get => _isJumping;
+        set
+        {
+            if (!value)
+            {
+                _hasDoubleJumped = false;
+            }
+            _isJumping = value;
+        }
+    }
+    public bool CanDoubleJump = true;
+    private bool _hasDoubleJumped = false;
 
     private bool _gravity;
     public bool Gravity
@@ -104,8 +125,7 @@ public class PlayerMovement : MonoBehaviour
         FallState.Init(this);
         DashState.Init(this);
         AirDashState.Init(this);
-
-        _activeState = RunState;
+        
         ActiveState = RunState;
         
         if (RB == null || Collider == null || ConstantForce == null)
@@ -121,11 +141,21 @@ public class PlayerMovement : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (IsJumping)
+            if (IsJumping && _hasDoubleJumped)
             {
                 return;
             }
-            ActiveState = JumpState;
+            
+            if (CanDoubleJump && IsJumping && !_hasDoubleJumped)
+            {
+                JumpState.Jump();
+                _hasDoubleJumped = true;
+            }
+            else
+            {
+                ActiveState = JumpState;
+            }
+            
         }
         
         if (Input.GetKeyDown(KeyCode.X))
@@ -156,12 +186,12 @@ public class PlayerMovement : MonoBehaviour
         }
         
         
-        _activeState.OnUpdate();
+        if(_activeState) _activeState.OnUpdate();
     }
     
     private void FixedUpdate()
     {
-        _activeState.OnFixedUpdate();
+        if(_activeState) _activeState.OnFixedUpdate();
     }
 
     public event Action OnLanded;
