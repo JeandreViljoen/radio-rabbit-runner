@@ -60,9 +60,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public Rigidbody2D RB;
     [HideInInspector] public Collider2D Collider;
     [HideInInspector] public ConstantForce2D ConstantForce;
-    
-    //public Collider2D FloorTrigger;
- 
 
     public float CurrentRunSpeed => RB.velocity.x;
     [SerializeField] private float _speed;
