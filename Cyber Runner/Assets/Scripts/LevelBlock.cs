@@ -33,6 +33,7 @@ public class LevelBlock : MonoBehaviour
         set
         {
             _distanceFromPlayer = value;
+            gameObject.name = $"LevelBlock [{value}]";
 
             if (NextBlock && _distanceFromPlayer >= 0)
             {

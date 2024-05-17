@@ -40,7 +40,7 @@ public class LevelBlockManager : MonoService
         LevelBlock workingBlock = StartBlock;
         LoadedBlocks.Add(StartBlock);
         
-        for (int i = 0; i < FrontBlockBuffer; i++)
+        for (int i = 0; i < FrontBlockBuffer-1; i++)
         {
             LevelBlock newBlock = SpawnBlock(workingBlock);
 
@@ -56,6 +56,7 @@ public class LevelBlockManager : MonoService
         newBlock.transform.position = previousBlock.EndConnection.position;
         newBlock.PreviousBlock = previousBlock;
         previousBlock.NextBlock = newBlock;
+        newBlock.DistanceFromPlayer = previousBlock.DistanceFromPlayer + 1;
         LoadedBlocks.Add(newBlock);
 
         return newBlock;
@@ -68,6 +69,7 @@ public class LevelBlockManager : MonoService
 
     public void DestroyBlock(LevelBlock blockToDestroy)
     {
+        blockToDestroy.NextBlock.PreviousBlock = null;
         LoadedBlocks.Remove(blockToDestroy);
         Destroy(blockToDestroy.gameObject);
     }
