@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - LevelBlock
+  - Corner
   layers:
   - Default
   - TransparentFX

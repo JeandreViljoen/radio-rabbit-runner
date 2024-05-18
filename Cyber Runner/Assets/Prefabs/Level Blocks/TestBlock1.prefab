@@ -166,7 +166,7 @@ MonoBehaviour:
   EndConnection: {fileID: 1291475321321156578}
   NextBlock: {fileID: 0}
   PreviousBlock: {fileID: 0}
-  IsPlayerInBlock: 0
+  IsPlayerInBlock: 1
 --- !u!61 &8081352163628546246
 BoxCollider2D:
   m_ObjectHideFlags: 0

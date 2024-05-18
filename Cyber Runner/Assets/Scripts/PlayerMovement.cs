@@ -56,10 +56,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public FallState FallState;
     [SerializeField] public DashState DashState;
     [SerializeField] public AirDashState AirDashState;
+    [SerializeField] public CornerState CornerState;
     
     [HideInInspector] public Rigidbody2D RB;
     [HideInInspector] public Collider2D Collider;
     [HideInInspector] public ConstantForce2D ConstantForce;
+
+    public GameObject PlayerRenderer;
 
     public float CurrentRunSpeed => RB.velocity.x;
     [SerializeField] private float _speed;
@@ -122,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         FallState.Init(this);
         DashState.Init(this);
         AirDashState.Init(this);
+        CornerState.Init(this);
         
         ActiveState = RunState;
         
@@ -133,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        PlayerRenderer.transform.position = this.transform.position;
         //For Inspector display only
         _speed = CurrentRunSpeed;
         
@@ -204,6 +209,14 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
             OnLanded?.Invoke();
+        }
+
+        if (col.CompareTag("Corner"))
+        {
+            if(ActiveState != CornerState)
+            {
+                ActiveState = CornerState;
+            }
         }
     }
 

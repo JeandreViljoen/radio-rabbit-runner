@@ -13,8 +13,8 @@ public class AirDashState : PlayerState
     public override void OnEnter()
     {
         _player.IsDashing = true;
-        _player.Gravity = false;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
+        _player.Gravity = false;
         _player.RB.AddForce(AirDashForce);
         StartAirDash();
     }

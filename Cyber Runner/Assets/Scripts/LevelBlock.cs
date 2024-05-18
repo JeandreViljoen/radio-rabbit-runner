@@ -23,17 +23,21 @@ public class LevelBlock : MonoBehaviour
     {
         get
         {
-            if (_distanceFromPlayer == null)
-            {
-                Help.Debug(GetType(), "DistanceFromPlayer" , "Tried to read the DistanceFromPlayer value but property is NULL");
-            }
-            
             return _distanceFromPlayer;
         }
         set
         {
             _distanceFromPlayer = value;
-            gameObject.name = $"LevelBlock [{value}]";
+
+            if (value == 0)
+            {
+                gameObject.name = $"LevelBlock [{value}] - ACTIVE";
+            }
+            else
+            {
+                gameObject.name = $"LevelBlock [{value}]";
+            }
+            
 
             if (NextBlock && _distanceFromPlayer >= 0)
             {
