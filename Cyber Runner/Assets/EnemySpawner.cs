@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemySpawner : MonoBehaviour
+{
+    public GameObject EnemyPrefab;
+    public float SpawnRate = 1f;
+    public RectTransform rect;
+    
+    void Start()
+    {
+        StartCoroutine(SpawnTicker());
+    }
+    
+    void Update()
+    {
+        
+    }
+
+    private IEnumerator SpawnTicker()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(SpawnRate);
+            var enemy = Instantiate(EnemyPrefab, transform);
+            float xPos = Random.Range(transform.position.x - rect.rect.width / 2,
+                transform.position.x + rect.rect.width / 2);
+            float yPos = Random.Range(transform.position.y - rect.rect.height / 2,
+                transform.position.y + rect.rect.height / 2);
+
+
+            enemy.transform.position = new Vector2(xPos, yPos);
+        }
+        
+    }
+}

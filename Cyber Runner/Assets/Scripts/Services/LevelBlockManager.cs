@@ -52,7 +52,7 @@ public class LevelBlockManager : MonoService
 
     private LevelBlock SpawnBlock(LevelBlock previousBlock)
     {
-        LevelBlock newBlock = Instantiate(GetRandomBlockPrefabFromPool()).GetComponent<LevelBlock>();
+        LevelBlock newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
         newBlock.transform.position = previousBlock.EndConnection.position;
         newBlock.PreviousBlock = previousBlock;
         previousBlock.NextBlock = newBlock;

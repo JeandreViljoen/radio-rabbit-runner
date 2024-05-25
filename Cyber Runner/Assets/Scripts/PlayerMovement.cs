@@ -1,23 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoService
 {
-    
-    //TODO: ADD Double Jump (Perhaps only reset by dash)
-    //TODO: Affect camera offset based on speed.
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -105,6 +94,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public float SpeedDelta
+    {
+        get
+        {
+            if (CurrentRunSpeed - TheoreticalMaxSpeed < 1 && CurrentRunSpeed - TheoreticalMaxSpeed > 1)
+            {
+                return 0;
+            }
+            else
+            {
+                return CurrentRunSpeed - TheoreticalMaxSpeed;
+            }
+        }
+    }
+
+    public float TheoreticalMaxSpeed
+    {
+        get
+        {
+            return ConstantForce.force.x / RB.drag;
+        }
+    }
+
     private float _startingGravityScale;
 
     private Coroutine DashHandle;
@@ -131,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (RB == null || Collider == null || ConstantForce == null)
         {
-           Help.Debug(GetType(), "Start", "Rigidbody, Constant FOrce or collider is null");
+           Help.Debug(GetType(), "Start", "Rigidbody, Constant Force or collider is null");
         }
     }
 
