@@ -232,7 +232,13 @@ public class PlayerMovement : MonoService
         }
     }
 
-   
+    public enum DamageSource
+    {
+        PlayerBody,
+        PlayerDash,
+        PlayerProjectile
+        
+    }
 
     
 }
