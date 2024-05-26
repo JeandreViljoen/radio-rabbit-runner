@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using PowerTools;
 using Services;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -51,7 +52,8 @@ public class PlayerMovement : MonoService
     [HideInInspector] public Collider2D Collider;
     [HideInInspector] public ConstantForce2D ConstantForce;
 
-    public GameObject PlayerRenderer;
+    public GameObject PlayerVisuals;
+    public SpriteAnim PlayerRenderer;
 
     public float CurrentRunSpeed => RB.velocity.x;
     [SerializeField] private float _speed;
@@ -121,6 +123,9 @@ public class PlayerMovement : MonoService
 
     private Coroutine DashHandle;
 
+    public Enemy ClosestEnemy { get; private set; }
+    public Enemy FurthestEnemy{ get; private set; }
+
     private void Awake()
     {
         RB = GetComponent<Rigidbody2D>();
@@ -128,6 +133,16 @@ public class PlayerMovement : MonoService
         ConstantForce = GetComponent<ConstantForce2D>();
         
         _startingGravityScale = RB.gravityScale;
+    }
+
+    public void SetClosestEnemy(Enemy e)
+    {
+        ClosestEnemy = e;
+    }
+    
+    public void SetFurthestEnemy(Enemy e)
+    {
+        FurthestEnemy = e;
     }
 
     void Start()
@@ -149,7 +164,8 @@ public class PlayerMovement : MonoService
 
     void Update()
     {
-        PlayerRenderer.transform.position = this.transform.position;
+        PlayerVisuals.transform.position = this.transform.position;
+        PlayerRenderer.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
         //For Inspector display only
         _speed = CurrentRunSpeed;
         

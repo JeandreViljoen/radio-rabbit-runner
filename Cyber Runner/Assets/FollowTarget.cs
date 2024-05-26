@@ -13,6 +13,12 @@ public class FollowTarget : MonoBehaviour
     private Vector3 _currentVelocity = Vector3.zero;
     [SerializeField] private float _smoothingRatio;
 
+    [SerializeField] private float _zDistanceMin;
+    [SerializeField] private float _zDistanceMax;
+
+    private float zOffsetBasedOnSpeed = 0;
+    private float xOffsetBasedOnSpeed = 0;
+
     private void Awake()
     {
        
@@ -35,13 +41,16 @@ public class FollowTarget : MonoBehaviour
         {
             _smoothing = _smoothingMax;
         }
-        
+
+        zOffsetBasedOnSpeed = Help.Map(_player.CurrentRunSpeed, 20, 30, 20f, 30f, true);
+        xOffsetBasedOnSpeed = Help.Map(_player.CurrentRunSpeed, 0, 35, 5, 17, true);
     }
 
 
     void LateUpdate()
     {
         Vector3 targetPos = _player.gameObject.transform.position + _offset;
+        targetPos = new Vector3(targetPos.x + xOffsetBasedOnSpeed, targetPos.y, -zOffsetBasedOnSpeed);
         transform.position = Vector3.SmoothDamp(transform.position ,targetPos, ref _currentVelocity, _smoothing);
     }
 }

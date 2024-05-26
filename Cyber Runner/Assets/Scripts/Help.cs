@@ -33,4 +33,31 @@ public static class Help
    {
       UnityEngine.Debug.LogError($"[{className.FullName}.cs] : {function}() - {message}");
    }
+   
+   public static float Map( float value, float leftMin, float leftMax, float rightMin, float rightMax , bool clamp = false)
+   {
+      
+        float result = rightMin + ( value - leftMin ) * ( rightMax - rightMin ) / ( leftMax - leftMin );
+
+        if (clamp)
+        {
+           if (result > rightMax)
+           {
+              return rightMax;
+           }
+           
+           if(result < rightMin)
+           {
+              return rightMin;
+           }
+        }
+
+        return result;
+   }
+   
+   
+   public static float Map01( float value, float min, float max )
+   {
+      return ( value - min ) * 1f / ( max - min );
+   }
 }

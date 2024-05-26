@@ -20,6 +20,10 @@ public class Enemy : MonoBehaviour
     public float MomentumMultiplier = 2;
     public Health Health;
     public SpriteRenderer Renderer;
+    public float DistanceFromPlayer { get; private set; }
+
+    private int _calculationFrameSkips = 10;
+    private int _frameSkipCounter = 0;
 
     private LazyService<PlayerMovement> _player;
 
@@ -34,6 +38,44 @@ public class Enemy : MonoBehaviour
     {
         Renderer.color = Color.white;
         State = EnemyState.Active;
+        _frameSkipCounter = 0;
+    }
+
+    public void Update()
+    {
+        if (_frameSkipCounter <= _calculationFrameSkips)
+        {
+            _frameSkipCounter++;
+        }
+        else
+        {
+            _frameSkipCounter = 0;
+            CalculateDistances();
+        }
+    }
+
+    private void CalculateDistances()
+    {
+        DistanceFromPlayer = Vector2.Distance(transform.position, _player.Value.transform.position);
+        if (_player.Value.ClosestEnemy == null)
+        {
+            _player.Value.SetClosestEnemy(this);
+            return;
+        }
+        if (_player.Value.FurthestEnemy == null)
+        {
+            _player.Value.SetFurthestEnemy(this);
+            return;
+        }
+        
+        if (DistanceFromPlayer <= _player.Value.ClosestEnemy.DistanceFromPlayer)
+        {
+            _player.Value.SetClosestEnemy(this);
+        }
+        if (DistanceFromPlayer >= _player.Value.FurthestEnemy.DistanceFromPlayer)
+        {
+            _player.Value.SetFurthestEnemy(this);
+        }
     }
 
     void FixedUpdate()
@@ -61,6 +103,15 @@ public class Enemy : MonoBehaviour
 
     private void StartOnDeathBehavior()
     {
+        if (_player.Value.ClosestEnemy == this)
+        {
+            _player.Value.SetClosestEnemy(null);
+        }
+        if (_player.Value.FurthestEnemy == this)
+        {
+            _player.Value.SetFurthestEnemy(null);
+        }
+        
         State = EnemyState.Dead;
         StartCoroutine(OnDeathBehavior(0.3f));
     }
