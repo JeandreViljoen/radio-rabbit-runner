@@ -123,8 +123,9 @@ public class PlayerMovement : MonoService
 
     private Coroutine DashHandle;
 
-    public Enemy ClosestEnemy { get; private set; }
-    public Enemy FurthestEnemy{ get; private set; }
+
+    public Targets Targets;
+
 
     private void Awake()
     {
@@ -135,15 +136,7 @@ public class PlayerMovement : MonoService
         _startingGravityScale = RB.gravityScale;
     }
 
-    public void SetClosestEnemy(Enemy e)
-    {
-        ClosestEnemy = e;
-    }
-    
-    public void SetFurthestEnemy(Enemy e)
-    {
-        FurthestEnemy = e;
-    }
+   
 
     void Start()
     {

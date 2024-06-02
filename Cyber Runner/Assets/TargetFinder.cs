@@ -18,24 +18,53 @@ public class TargetFinder : MonoBehaviour
 {
     public TargetingType TargetType;
     public SpriteRenderer TargetGraphic;
-    private LazyService<PlayerMovement> _player;
+    PlayerMovement _player;
+    private Color gizmoColor;
     void Start()
     {
-        
+        if (_player == null) _player = ServiceLocator.GetService<PlayerMovement>();
     }
     
     void Update()
     {
-        if (TargetType == TargetingType.Closest && _player.Value.ClosestEnemy != null)
+        if (_player == null) _player = ServiceLocator.GetService<PlayerMovement>();
+        
+        if (TargetType == TargetingType.Closest && _player.Targets.ClosestEnemy != null)
         {
-            transform.position = _player.Value.ClosestEnemy.transform.position;
+            transform.position = _player.Targets.ClosestEnemy.transform.position;
+            gizmoColor = Color.red;
         }
         
-        if (TargetType == TargetingType.Furthest && _player.Value.FurthestEnemy != null)
+        if (TargetType == TargetingType.Furthest && _player.Targets.FurthestEnemy != null)
         {
-            transform.position = _player.Value.FurthestEnemy.transform.position;
+            transform.position = _player.Targets.FurthestEnemy.transform.position;
+            gizmoColor = Color.blue;
         }
-      
+        
+        if (TargetType == TargetingType.HighestHealth && _player.Targets.HighestHealth != null)
+        {
+            transform.position = _player.Targets.HighestHealth.transform.position;
+            gizmoColor = new Color(1,0.5f,0,1);
+            
+        }
+        
+        if (TargetType == TargetingType.LowestHealth && _player.Targets.LowestHealth != null)
+        {
+            transform.position = _player.Targets.LowestHealth.transform.position;
+            gizmoColor = Color.green;
+        }
+        
+    }
+    
+
+    void OnDrawGizmosSelected()
+    {
+        if (Application.isPlaying)
+        {
+            Gizmos.color = gizmoColor;
+            Gizmos.DrawLine(transform.position, _player.transform.position);
+        }
+        
     }
 
     

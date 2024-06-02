@@ -39,6 +39,34 @@ public class Enemy : MonoBehaviour
         Renderer.color = Color.white;
         State = EnemyState.Active;
         _frameSkipCounter = 0;
+        Health.InitHealth();
+        CheckMaxHealthTargeting();
+    }
+
+    private void CheckMaxHealthTargeting()
+    {
+        Targets targets = ServiceLocator.GetService<PlayerMovement>().Targets;
+        if (targets.HighestHealth == null)
+        {
+            targets.SetHighestHealthEnemy(this);
+            return;
+        }
+
+        if (targets.LowestHealth == null)
+        {
+            targets.SetLowestHealthEnemy(this);
+            return;
+        }
+
+        if (Health.MaxHealth > targets.HighestHealth.Health.MaxHealth)
+        {
+            targets.SetHighestHealthEnemy(this);
+        }
+        
+        if (Health.MaxHealth < targets.LowestHealth.Health.MaxHealth)
+        {
+            targets.SetLowestHealthEnemy(this);
+        }
     }
 
     public void Update()
@@ -56,25 +84,26 @@ public class Enemy : MonoBehaviour
 
     private void CalculateDistances()
     {
+        Targets targets = _player.Value.Targets;
         DistanceFromPlayer = Vector2.Distance(transform.position, _player.Value.transform.position);
-        if (_player.Value.ClosestEnemy == null)
+        if (targets.ClosestEnemy == null)
         {
-            _player.Value.SetClosestEnemy(this);
+            targets.SetClosestEnemy(this);
             return;
         }
-        if (_player.Value.FurthestEnemy == null)
+        if (targets.FurthestEnemy == null)
         {
-            _player.Value.SetFurthestEnemy(this);
+            targets.SetFurthestEnemy(this);
             return;
         }
         
-        if (DistanceFromPlayer <= _player.Value.ClosestEnemy.DistanceFromPlayer)
+        if (DistanceFromPlayer <= targets.ClosestEnemy.DistanceFromPlayer)
         {
-            _player.Value.SetClosestEnemy(this);
+            targets.SetClosestEnemy(this);
         }
-        if (DistanceFromPlayer >= _player.Value.FurthestEnemy.DistanceFromPlayer)
+        if (DistanceFromPlayer >= targets.FurthestEnemy.DistanceFromPlayer && DistanceFromPlayer < targets.FurthestTargetOuterRange && DistanceFromPlayer > targets.FurthestTargetInnerRange)
         {
-            _player.Value.SetFurthestEnemy(this);
+            targets.SetFurthestEnemy(this);
         }
     }
 
@@ -103,13 +132,13 @@ public class Enemy : MonoBehaviour
 
     private void StartOnDeathBehavior()
     {
-        if (_player.Value.ClosestEnemy == this)
+        if (_player.Value.Targets.ClosestEnemy == this)
         {
-            _player.Value.SetClosestEnemy(null);
+            _player.Value.Targets.SetClosestEnemy(null);
         }
-        if (_player.Value.FurthestEnemy == this)
+        if (_player.Value.Targets.FurthestEnemy == this)
         {
-            _player.Value.SetFurthestEnemy(null);
+            _player.Value.Targets.SetFurthestEnemy(null);
         }
         
         State = EnemyState.Dead;

@@ -218,7 +218,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9057106562225357934}
   - {fileID: 270341876826540745}
@@ -293,6 +293,7 @@ MonoBehaviour:
   MomentumMultiplier: 4
   Health: {fileID: 8627022382997731268}
   Renderer: {fileID: 7890644579106078121}
+  State: 0
 --- !u!114 &8627022382997731268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
+  RandomHealth: 1
+  RandomHealthRange: {x: 1, y: 10}
 --- !u!58 &2190792063104886110
 CircleCollider2D:
   m_ObjectHideFlags: 0
