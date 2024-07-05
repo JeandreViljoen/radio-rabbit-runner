@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class PlayerState : MonoBehaviour
 {
     protected PlayerMovement _player;
+    [SerializeField] protected AnimationClip Animation;
     
     public virtual void OnEnter() { }
     public virtual void OnUpdate() { }
@@ -21,5 +22,10 @@ public abstract class PlayerState : MonoBehaviour
     {
         _player.IsDashing = false;
         _player.Gravity = true;
+    }
+
+    protected void SetAnimation()
+    {
+        _player.SpriteAnim.Play(Animation);
     }
 }

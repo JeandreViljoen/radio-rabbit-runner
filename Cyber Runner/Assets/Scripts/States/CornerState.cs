@@ -25,6 +25,7 @@ public class CornerState : PlayerState
         _player.IsJumping = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
         _player.RB.AddForce(_LiftAmount);
+        SetAnimation();
     }
 
     public override void OnUpdate()

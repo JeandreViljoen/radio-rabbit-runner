@@ -17,6 +17,7 @@ public class DashState : PlayerState
         _player.IsDashing = true;
         _player.RB.AddForce(DashForce);
         StartDash();
+        SetAnimation();
     }
 
     public override void OnUpdate()

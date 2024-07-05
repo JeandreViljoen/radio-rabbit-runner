@@ -32,6 +32,7 @@ public class JumpState : PlayerState
     public override void OnEnter()
     {
         Jump();
+        SetAnimation();
     }
 
     public override void OnUpdate()
@@ -51,4 +52,5 @@ public class JumpState : PlayerState
     {
         return;
     }
+    
 }

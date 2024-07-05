@@ -19,7 +19,7 @@ public class FallState : PlayerState
     }
     public override void OnEnter()
     {
-        base.OnEnter();
+        SetAnimation();
     }
 
     public override void OnUpdate()

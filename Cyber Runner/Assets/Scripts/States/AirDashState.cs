@@ -17,6 +17,7 @@ public class AirDashState : PlayerState
         _player.Gravity = false;
         _player.RB.AddForce(AirDashForce);
         StartAirDash();
+        SetAnimation();
     }
 
     public override void OnUpdate()

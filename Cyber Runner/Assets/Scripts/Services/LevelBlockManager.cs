@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+
 using System.Collections;
 using System.Collections.Generic;
 using Services;
@@ -5,6 +7,9 @@ using UnityEngine;
 
 public class LevelBlockManager : MonoService
 {
+
+    [Title("Level Block Manager", "Services", TitleAlignments.Centered)]
+    
     [SerializeField] private LevelBlock StartBlock;
     [SerializeField] private List<GameObject> _levelBlockPrefabs;
     public List<LevelBlock> LoadedBlocks = new List<LevelBlock>();

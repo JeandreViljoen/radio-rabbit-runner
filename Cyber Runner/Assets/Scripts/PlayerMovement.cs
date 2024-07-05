@@ -53,6 +53,7 @@ public class PlayerMovement : MonoService
     [HideInInspector] public ConstantForce2D ConstantForce;
 
     public GameObject PlayerVisuals;
+    public SpriteAnim SpriteAnim;
     public SpriteAnim PlayerRenderer;
 
     public float CurrentRunSpeed => RB.velocity.x;
@@ -161,6 +162,7 @@ public class PlayerMovement : MonoService
         PlayerRenderer.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
         //For Inspector display only
         _speed = CurrentRunSpeed;
+        ServiceLocator.GetService<HUDManager>().SetSpeedValue(_speed);
         
         if (Input.GetKeyDown(KeyCode.Z))
         {

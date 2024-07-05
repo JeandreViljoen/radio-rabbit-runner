@@ -8,6 +8,7 @@ public class RunState : PlayerState
     {
         _player.IsJumping = false;
         _player.IsDashing = false;
+        SetAnimation();
     }
 
     public override void OnUpdate()

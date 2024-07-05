@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         State = EnemyState.Active;
         _frameSkipCounter = 0;
         Health.InitHealth();
-        CheckMaxHealthTargeting();
+        //CheckMaxHealthTargeting();
     }
 
     private void CheckMaxHealthTargeting()
@@ -84,7 +84,18 @@ public class Enemy : MonoBehaviour
 
     private void CalculateDistances()
     {
+        if (State != EnemyState.Active)
+        {
+            return;
+        }
+        
         Targets targets = _player.Value.Targets;
+        
+        if (DistanceFromPlayer < targets.HighestHealthTargetOuterRange)
+        {
+            CheckMaxHealthTargeting();
+        }
+        
         DistanceFromPlayer = Vector2.Distance(transform.position, _player.Value.transform.position);
         if (targets.ClosestEnemy == null)
         {
@@ -97,22 +108,23 @@ public class Enemy : MonoBehaviour
             return;
         }
         
-        if (DistanceFromPlayer <= targets.ClosestEnemy.DistanceFromPlayer)
+        if (DistanceFromPlayer < targets.ClosestEnemy.DistanceFromPlayer)
         {
             targets.SetClosestEnemy(this);
         }
-        if (DistanceFromPlayer >= targets.FurthestEnemy.DistanceFromPlayer && DistanceFromPlayer < targets.FurthestTargetOuterRange && DistanceFromPlayer > targets.FurthestTargetInnerRange)
+        if (DistanceFromPlayer > targets.FurthestEnemy.DistanceFromPlayer && DistanceFromPlayer < targets.FurthestTargetOuterRange && DistanceFromPlayer > targets.FurthestTargetInnerRange)
         {
             targets.SetFurthestEnemy(this);
         }
+
     }
 
     void FixedUpdate()
     {
         if (State == EnemyState.Dead )
         {
-            transform.position =
-                Vector2.MoveTowards(this.transform.position, _player.Value.transform.position, (MoveSpeed +additionalMoveSpeed) * Time.deltaTime);
+            //transform.position =
+                //Vector2.MoveTowards(this.transform.position, _player.Value.transform.position, (MoveSpeed +additionalMoveSpeed) * Time.deltaTime);
         }
         else
         {
@@ -132,14 +144,7 @@ public class Enemy : MonoBehaviour
 
     private void StartOnDeathBehavior()
     {
-        if (_player.Value.Targets.ClosestEnemy == this)
-        {
-            _player.Value.Targets.SetClosestEnemy(null);
-        }
-        if (_player.Value.Targets.FurthestEnemy == this)
-        {
-            _player.Value.Targets.SetFurthestEnemy(null);
-        }
+        
         
         State = EnemyState.Dead;
         StartCoroutine(OnDeathBehavior(0.3f));
@@ -148,6 +153,7 @@ public class Enemy : MonoBehaviour
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
         transform.parent = null;
+        ClearTargets();
         Tween t = Renderer.transform.DOShakePosition(preDeathTime, 0.3f, 15);
         Renderer.color = Color.red;
         
@@ -158,7 +164,27 @@ public class Enemy : MonoBehaviour
        
         ReturnToPool();
     }
-    
+
+    private void ClearTargets()
+    {
+        if (_player.Value.Targets.ClosestEnemy == this)
+        {
+            _player.Value.Targets.SetClosestEnemy(null);
+        }
+        if (_player.Value.Targets.FurthestEnemy == this)
+        {
+            _player.Value.Targets.SetFurthestEnemy(null);
+        }
+        if (_player.Value.Targets.HighestHealth == this)
+        {
+            _player.Value.Targets.SetHighestHealthEnemy(null);
+        }
+        if (_player.Value.Targets.LowestHealth == this)
+        {
+            _player.Value.Targets.SetLowestHealthEnemy(null);
+        }
+        DistanceFromPlayer = 99999f;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {

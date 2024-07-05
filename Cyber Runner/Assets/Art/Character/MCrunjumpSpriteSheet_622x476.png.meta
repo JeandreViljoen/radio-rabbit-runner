@@ -1,0 +1,589 @@
+fileFormatVersion: 2
+guid: 3037e04f9dbb2244896b323114dd71f5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1904
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b29d42f2ff2304abb3bb7bf74abdb3
+      internalID: -56380038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_1
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 1904
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63aa12385a1625e4f97a3fcfa92d51a2
+      internalID: -1652934694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_2
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 1904
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 460c874454a58fd459be5c2061e25bbd
+      internalID: -1871915138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_3
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 1904
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5798852304dfba643b6d56dd71400938
+      internalID: -418685727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_4
+      rect:
+        serializedVersion: 2
+        x: 2488
+        y: 1904
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93599d41e07fb624aad19ab7bd4b7a12
+      internalID: -2078794278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1428
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d69c8827f845748bc7854377866890
+      internalID: -1707721219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_6
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 1428
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3900125b9731c0741b9e1c2085925959
+      internalID: 713022211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_7
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 1428
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03add957b4151c643870f00edec7a411
+      internalID: 1029427489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_8
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 1428
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c2047726e991044ab5a61e4a773541
+      internalID: -995043293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_9
+      rect:
+        serializedVersion: 2
+        x: 2488
+        y: 1428
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd972e80423fee4ebfb21ad803bb02b
+      internalID: -1130951784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 952
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a16566e2ed8e8e40bce378239a1ca73
+      internalID: -524973086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_11
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 952
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe157dee3bfa4e349b2255a969c6679d
+      internalID: 403806275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_12
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 952
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be248e8936576804b9e116c7fb70748b
+      internalID: 1814942308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_13
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 952
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9195f2bc0c7aac14e82da4fd03f75628
+      internalID: -484882253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_14
+      rect:
+        serializedVersion: 2
+        x: 2488
+        y: 952
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21894959db7383e41badd28a8734195d
+      internalID: -1030027030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 476
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219f6e62957e5464e8db4066d854c556
+      internalID: -619369912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_16
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 476
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94f9ec5c1901ad4499217c1145efd32
+      internalID: -805864790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_17
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 476
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb6d99335d59164fabd2a65bd795527
+      internalID: 1806922791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_18
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 476
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29fa17971a2f73a47ab66a6f565ad6e1
+      internalID: -76705235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_19
+      rect:
+        serializedVersion: 2
+        x: 2488
+        y: 476
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5942d933f424f9c468d7a9a1ec11e326
+      internalID: -1582619762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCrunjumpSpriteSheet_622x476_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 622
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2fcc9f37506bb4db3b9e92313287bb
+      internalID: -211778323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MCrunjumpSpriteSheet_622x476_0: -56380038
+      MCrunjumpSpriteSheet_622x476_1: -1652934694
+      MCrunjumpSpriteSheet_622x476_10: -524973086
+      MCrunjumpSpriteSheet_622x476_11: 403806275
+      MCrunjumpSpriteSheet_622x476_12: 1814942308
+      MCrunjumpSpriteSheet_622x476_13: -484882253
+      MCrunjumpSpriteSheet_622x476_14: -1030027030
+      MCrunjumpSpriteSheet_622x476_15: -619369912
+      MCrunjumpSpriteSheet_622x476_16: -805864790
+      MCrunjumpSpriteSheet_622x476_17: 1806922791
+      MCrunjumpSpriteSheet_622x476_18: -76705235
+      MCrunjumpSpriteSheet_622x476_19: -1582619762
+      MCrunjumpSpriteSheet_622x476_2: -1871915138
+      MCrunjumpSpriteSheet_622x476_20: -211778323
+      MCrunjumpSpriteSheet_622x476_3: -418685727
+      MCrunjumpSpriteSheet_622x476_4: -2078794278
+      MCrunjumpSpriteSheet_622x476_5: -1707721219
+      MCrunjumpSpriteSheet_622x476_6: 713022211
+      MCrunjumpSpriteSheet_622x476_7: 1029427489
+      MCrunjumpSpriteSheet_622x476_8: -995043293
+      MCrunjumpSpriteSheet_622x476_9: -1130951784
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

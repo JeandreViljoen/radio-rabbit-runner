@@ -27,6 +27,8 @@ public class TargetFinder : MonoBehaviour
     
     void Update()
     {
+        transform.Rotate(Vector3.forward, 30*Time.deltaTime);
+
         if (_player == null) _player = ServiceLocator.GetService<PlayerMovement>();
         
         if (TargetType == TargetingType.Closest && _player.Targets.ClosestEnemy != null)
@@ -45,7 +47,6 @@ public class TargetFinder : MonoBehaviour
         {
             transform.position = _player.Targets.HighestHealth.transform.position;
             gizmoColor = new Color(1,0.5f,0,1);
-            
         }
         
         if (TargetType == TargetingType.LowestHealth && _player.Targets.LowestHealth != null)
@@ -53,11 +54,11 @@ public class TargetFinder : MonoBehaviour
             transform.position = _player.Targets.LowestHealth.transform.position;
             gizmoColor = Color.green;
         }
-        
+
     }
     
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
         if (Application.isPlaying)
         {
