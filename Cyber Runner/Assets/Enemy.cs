@@ -11,6 +11,7 @@ public enum EnemyState
     Dead
 }
 
+[RequireComponent(typeof(ProjectileReceptor))]
 public class Enemy : MonoBehaviour
 {
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
     public float MomentumMultiplier = 2;
     public Health Health;
     public SpriteRenderer Renderer;
+    private ProjectileReceptor _projectileReceptor;
     public float DistanceFromPlayer { get; private set; }
 
     private int _calculationFrameSkips = 10;
@@ -29,13 +31,28 @@ public class Enemy : MonoBehaviour
 
     public EnemyState State = EnemyState.Active;
 
+    private void Awake()
+    {
+        _projectileReceptor = GetComponent<ProjectileReceptor>();
+        Debug.Assert(_projectileReceptor != null, $"Could not find Projectile Receptor on Enemy {name} during Awake method.");
+    }
+
     void Start()
     {
         Health.OnHealthZero += StartOnDeathBehavior;
+
+        _projectileReceptor.OnHit += OnHit;
+    }
+
+    private void OnHit(ProjectileBase projectile)
+    {
+        Health.RemoveHealth(projectile.Damage); 
+        projectile.DoImpact();
     }
 
     private void OnEnable()
     {
+        gameObject.layer = 10;
         Renderer.color = Color.white;
         State = EnemyState.Active;
         _frameSkipCounter = 0;
@@ -152,6 +169,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
+        gameObject.layer = 11;
         transform.parent = null;
         ClearTargets();
         Tween t = Renderer.transform.DOShakePosition(preDeathTime, 0.3f, 15);
@@ -188,10 +206,28 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player"))
         {
             Health.RemoveHealth(99999);
+            return;
         }
+        
+        // if (col.gameObject.CompareTag("Projectile"))
+        // {
+        //     ProjectileBase projectile = col.gameObject.GetComponent<ProjectileBase>();
+        //     
+        //     if (projectile == null)
+        //         Help.Debug(GetType(), "OnTriggerEnter2D", "A collision with a projectile has been detected but could not find ProjectileBase component, this is very bad. fix ASAP");
+        //     else
+        //         Health.RemoveHealth(projectile.Damage);
+        // }
+        
+        
     }
 
     private void OnDestroy()

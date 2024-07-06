@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7305801776884681235}
   - component: {fileID: 721297289305974566}
   - component: {fileID: 6698431584494875670}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LevelBlockD-flat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8305937152120249464}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8906386493650042403}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EndConnection
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4252262981009798481}
   - component: {fileID: 7279966626682710022}
   - component: {fileID: 6605253988142345944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -12718,7 +12718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6364748465611675389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StartConnection
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -12767,6 +12767,10 @@ PrefabInstance:
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12846,6 +12850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.05
@@ -12923,6 +12931,10 @@ PrefabInstance:
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13002,6 +13014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.09
@@ -13079,6 +13095,10 @@ PrefabInstance:
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x

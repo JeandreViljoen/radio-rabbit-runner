@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿
+using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace Services
 {
@@ -6,7 +8,7 @@ namespace Services
     /// Represents a singleton script that can be invoked from
     /// everywhere else in the scene.
     /// </summary>
-    public abstract class MonoService : MonoBehaviour, Service
+    public abstract class MonoService :SerializedMonoBehaviour, Service
     {
         private void OnEnable()
         {

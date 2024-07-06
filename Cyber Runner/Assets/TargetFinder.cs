@@ -58,7 +58,7 @@ public class TargetFinder : MonoBehaviour
     }
     
 
-    void OnDrawGizmos()
+    /*void OnDrawGizmos()
     {
         if (Application.isPlaying)
         {
@@ -66,7 +66,7 @@ public class TargetFinder : MonoBehaviour
             Gizmos.DrawLine(transform.position, _player.transform.position);
         }
         
-    }
+    }*/
 
     
 }

@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(SpawnRate);
             Enemy enemy = _pool.Value.Get(EnemyPrefab).GetComponent<Enemy>();
-            enemy.transform.parent = transform;
+            enemy.transform.parent = ServiceLocator.GetService<EnemiesManager>().transform;
             float xPos = Random.Range(transform.position.x - rect.rect.width / 2,
                 transform.position.x + rect.rect.width / 2);
             float yPos = Random.Range(transform.position.y - rect.rect.height / 2,

@@ -29,9 +29,9 @@ public class ProjectileBase : MonoBehaviour
             }
             else
             {
-                _targetLocation = value.transform.position;
+                _targetLocation = value.transform.localPosition;
+                direction = (_targetLocation - transform.localPosition).normalized;
             }
-            
         }
     }
 
@@ -39,8 +39,11 @@ public class ProjectileBase : MonoBehaviour
     public int Damage;
 
     private Vector3 _targetLocation;
+    private Vector2 direction = Vector2.zero;
     private LazyService<PrefabPool> _prefabPool;
-    
+    private LazyService<ProjectileManager> _projectileManager;
+
+    public SpriteRenderer Renderer;
     void Start()
     {
         
@@ -53,7 +56,7 @@ public class ProjectileBase : MonoBehaviour
         {
             return;
         }
-        UpdateTargets();
+        //UpdateTargets();
         DoFire();
     }
 
@@ -64,7 +67,7 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Bullet:
                 break;
             case ProjectileType.Rocket:
-                _targetLocation = TargetEntity.transform.position;
+                _targetLocation = TargetEntity.transform.localPosition;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -79,12 +82,17 @@ public class ProjectileBase : MonoBehaviour
 
     public void DoFire()
     {
-        Vector2 direction = _targetLocation - transform.position;
+        if (Vector2.Distance(transform.localPosition, transform.parent.localPosition) >= _projectileManager.Value.CullDistance)
+        {
+            DoImpact();
+            return;
+        }
+        //Vector2 direction = (_targetLocation - transform.localPosition).normalized;
         
         switch (Type)
         {
             case ProjectileType.Bullet:
-                transform.position += (Vector3) (direction * Speed * Time.deltaTime);
+                transform.localPosition += (Vector3) (direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Rocket:
                 break;
@@ -92,7 +100,15 @@ public class ProjectileBase : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(Damage);
+            DoImpact();
+        }
+    }
 }
 
 public enum ProjectileType

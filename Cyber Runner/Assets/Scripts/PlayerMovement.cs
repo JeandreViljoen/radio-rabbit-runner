@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PowerTools;
 using Services;
+using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class PlayerMovement : MonoService
     
     
     
-    [SerializeField] private PlayerState _activeState;
+    [ShowInInspector, GUIColor("blue")] private PlayerState _activeState;
     public PlayerState ActiveState
     {
         get
@@ -40,24 +41,35 @@ public class PlayerMovement : MonoService
             _activeState.OnEnter();
         }
     }
-
-    [SerializeField] public RunState RunState;
-    [SerializeField] public JumpState JumpState;
-    [SerializeField] public FallState FallState;
-    [SerializeField] public DashState DashState;
-    [SerializeField] public AirDashState AirDashState;
-    [SerializeField] public CornerState CornerState;
     
+    [FoldoutGroup("State References")]
+    [SerializeField] public RunState RunState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public JumpState JumpState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public FallState FallState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public DashState DashState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public AirDashState AirDashState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public CornerState CornerState;
+
     [HideInInspector] public Rigidbody2D RB;
     [HideInInspector] public Collider2D Collider;
     [HideInInspector] public ConstantForce2D ConstantForce;
 
+    [FoldoutGroup("Visual References")]
     public GameObject PlayerVisuals;
+    [FoldoutGroup("Visual References")]
     public SpriteAnim SpriteAnim;
+    [FoldoutGroup("Visual References")]
     public SpriteAnim PlayerRenderer;
+    
+    
 
     public float CurrentRunSpeed => RB.velocity.x;
-    [SerializeField] private float _speed;
+    [SerializeField]private float _speed;
 
     public bool IsDashing = false;
 
@@ -82,17 +94,20 @@ public class PlayerMovement : MonoService
     {
         get
         {
-            return RB.gravityScale != 0;
+            return ((RB.constraints & RigidbodyConstraints2D.FreezePositionY) != 0);
+            //return RB.gravityScale != 0;
         }
         set
         {
             if (value)
             {
-                RB.gravityScale = _startingGravityScale;
+                RB.constraints = RigidbodyConstraints2D.None;
+                //RB.gravityScale = _startingGravityScale;
             }
             else
             {
-                RB.gravityScale = 0;
+                RB.constraints = RigidbodyConstraints2D.FreezePositionY;
+                //RB.gravityScale = 0;
             }
         }
     }
@@ -173,7 +188,14 @@ public class PlayerMovement : MonoService
             
             if (CanDoubleJump && IsJumping && !_hasDoubleJumped)
             {
-                JumpState.Jump();
+                if (ActiveState!= JumpState)
+                {
+                    ActiveState = JumpState;
+                }
+                else
+                {
+                    JumpState.Jump();
+                }
                 _hasDoubleJumped = true;
             }
             else
@@ -231,6 +253,7 @@ public class PlayerMovement : MonoService
                 _ignoreFirstFloorTriggerFlag = false;
                 return;
             }
+            Debug.Log("ON LANDED INVOKED!");
             OnLanded?.Invoke();
         }
 

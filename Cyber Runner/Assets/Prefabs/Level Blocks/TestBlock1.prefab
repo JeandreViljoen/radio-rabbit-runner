@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1085538696412583346}
   - component: {fileID: 5223168339344968700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291475321321156578}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EndConnection
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3215339882897470777}
   - component: {fileID: 4393531328946558326}
   - component: {fileID: 8081352163628546246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestBlock1
   m_TagString: LevelBlock
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9206979132006961170}
   - component: {fileID: 4798517488690624976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 7644611672072107649}
   - component: {fileID: 5520539410002879727}
   - component: {fileID: 8642201091320642008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Floor
   m_Icon: {fileID: 0}

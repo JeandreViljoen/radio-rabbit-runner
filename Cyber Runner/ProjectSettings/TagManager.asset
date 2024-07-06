@@ -8,6 +8,8 @@ TagManager:
   - LevelBlock
   - Corner
   - Enemy
+  - ProjectileSpawnPoint
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -15,12 +17,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Floor
+  - Projectile
+  - Player
+  - Destructibles
+  - Enemy
+  - Dead
   - 
   - 
   - 
