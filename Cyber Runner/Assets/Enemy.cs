@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private float additionalMoveSpeed = 0;
     public float MomentumMultiplier = 2;
     public Health Health;
+    [SerializeField] private int _expValue;
     public SpriteRenderer Renderer;
     private ProjectileReceptor _projectileReceptor;
     public float DistanceFromPlayer { get; private set; }
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
     private int _frameSkipCounter = 0;
 
     private LazyService<PlayerMovement> _player;
+    private LazyService<EXPManager> _expManager;
 
     public EnemyState State = EnemyState.Active;
 
@@ -169,6 +171,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
+        _expManager.Value.AddEXP(_expValue);
         gameObject.layer = 11;
         transform.parent = null;
         ClearTargets();

@@ -294,6 +294,7 @@ MonoBehaviour:
   MoveSpeed: 2
   MomentumMultiplier: 4
   Health: {fileID: 8627022382997731268}
+  _expValue: 10
   Renderer: {fileID: 7890644579106078121}
   State: 0
 --- !u!114 &8627022382997731268

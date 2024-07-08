@@ -14,9 +14,11 @@ public class Weapon : SerializedMonoBehaviour
     [SerializeField, GUIColor("blue")] private bool _showGizmos = false;
 
     [EnumToggleButtons, GUIColor("@GetTitleColor(TargetType)")] public TargetingType TargetType;
-    public Transform SpawnPoint;
+    [GUIColor("grey")]public Transform SpawnPoint;
 
+    public int Level = 1;
     public int Damage;
+    public int PierceCount = 0;
     public float ProjectileSpeed;
     public float FireRatePerSecond = 1;
 
@@ -42,7 +44,7 @@ public class Weapon : SerializedMonoBehaviour
         }
         private set => _range = value;
     }
-    public GameObject ProjectilePrefab;
+    [GUIColor("grey")]public GameObject ProjectilePrefab;
 
     public event Action OnFire;
 
@@ -134,6 +136,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.Damage = Damage;
         projectile.Speed = ProjectileSpeed;
         projectile.TargetEntity = targetEntity;
+        projectile.PierceCount = PierceCount;
         
         projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
 

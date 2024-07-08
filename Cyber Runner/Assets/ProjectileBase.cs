@@ -11,6 +11,8 @@ public class ProjectileBase : MonoBehaviour
     [EnumToggleButtons]
     public ProjectileType Type;
 
+    public int PierceCount = 0;
+
     private GameObject _targetEntity;
     public GameObject TargetEntity
     {
@@ -76,8 +78,13 @@ public class ProjectileBase : MonoBehaviour
 
     public void DoImpact()
     {
-        _targetEntity = null;
-        _prefabPool.Value.Return(gameObject);
+        PierceCount--;
+        if (PierceCount < 0)
+        {
+            _targetEntity = null;
+            _prefabPool.Value.Return(gameObject);
+            PierceCount = 0;
+        }
     }
 
     public void DoFire()

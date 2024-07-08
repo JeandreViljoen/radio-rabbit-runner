@@ -253,7 +253,6 @@ public class PlayerMovement : MonoService
                 _ignoreFirstFloorTriggerFlag = false;
                 return;
             }
-            Debug.Log("ON LANDED INVOKED!");
             OnLanded?.Invoke();
         }
 
