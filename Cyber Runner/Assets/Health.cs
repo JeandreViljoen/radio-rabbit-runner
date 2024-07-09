@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int MaxHealth;
     public bool RandomHealth;
     public Vector2Int RandomHealthRange;
+    private bool _isInvulnerable = false;
     public int CurrentHealth { get; private set; }
 
     public event Action OnHealthZero; 
@@ -19,15 +20,21 @@ public class Health : MonoBehaviour
         CurrentHealth = Math.Min(CurrentHealth + value, MaxHealth);
     }
     
-    public void RemoveHealth(int value)
+    public bool RemoveHealth(int value)
     {
+        if (_isInvulnerable)
+        {
+            return false;
+        }
+        
         if (CurrentHealth - value <= 0)
         {
             OnHealthZero?.Invoke();
-            return;
+            return true;
         }
 
         CurrentHealth = CurrentHealth - value;
+        return false;
     }
 
     void Start()
@@ -47,9 +54,9 @@ public class Health : MonoBehaviour
         
         CurrentHealth = MaxHealth;
     }
-    
-    void Update()
+
+    public void SetInvulnerable(bool flag)
     {
-        
+        _isInvulnerable = flag;
     }
 }

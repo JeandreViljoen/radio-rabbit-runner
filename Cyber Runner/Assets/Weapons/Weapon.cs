@@ -9,22 +9,26 @@ using UnityEngine;
 
 public class Weapon : SerializedMonoBehaviour
 {
-    [Title("WEAPON", "$TargetType", TitleAlignments.Centered)]
+    [Title("WEAPON", "$GetSubtitle", TitleAlignments.Centered)]
 
-    [SerializeField, GUIColor("blue")] private bool _showGizmos = false;
+    [SerializeField, GUIColor("blue")] protected bool _showGizmos = false;
 
     [EnumToggleButtons, GUIColor("@GetTitleColor(TargetType)")] public TargetingType TargetType;
     [GUIColor("grey")]public Transform SpawnPoint;
 
+    public WeaponType Type;
     public int Level = 1;
     public int Damage;
     public int PierceCount = 0;
     public float ProjectileSpeed;
     public float FireRatePerSecond = 1;
+    public int Spread = 0;
+    protected bool _isMaxLevel = false;
+    
 
     [SerializeField]private bool _useCullingDistanceAsRange = true;
 
-    private float _range = 1f;
+    protected float _range = 1f;
 
     [HideIf("_useCullingDistanceAsRange"), OdinSerialize, ShowInInspector]
     public float Range
@@ -44,15 +48,18 @@ public class Weapon : SerializedMonoBehaviour
         }
         private set => _range = value;
     }
-    [GUIColor("grey")]public GameObject ProjectilePrefab;
+    [GUIColor("grey")] public GameObject ProjectilePrefab;
 
-    public event Action OnFire;
+    public event Action<WeaponType> OnFire;
 
-    private LazyService<PrefabPool> _prefabPool;
-    private LazyService<PlayerMovement> _player;
-    private LazyService<ProjectileManager> _projectileManager;
+    protected LazyService<PrefabPool> _prefabPool;
+    protected LazyService<PlayerMovement> _player;
+    protected LazyService<ProjectileManager> _projectileManager;
+    protected LazyService<UpgradesManager> _upgradesManager;
 
-    private float _lastFireTime = 0;
+    protected WeaponUpgradeData _upgradesData;
+
+    protected float _lastFireTime = 0;
     private void Awake()
     {
         
@@ -60,17 +67,42 @@ public class Weapon : SerializedMonoBehaviour
 
     void Start()
     {
-        
+        Init();
+        RegisterUpgradeEffects();
+    }
+
+    private void RegisterUpgradeEffects()
+    {
+        _upgradesManager.Value.OnUpgradeActivated += UpgradesLogic;
+    }
+    
+    protected virtual void UpgradesLogic(UpgradeType upgrade)
+    {
+        return;
+    }
+
+    private void Init()
+    {
+        _upgradesData = _upgradesManager.Value.WeaponLibrary.GetWeaponData(Type);
+        RegisterSelfToUpgradesManager();
+    }
+
+    void RegisterSelfToUpgradesManager()
+    {
+        _upgradesManager.Value.RegisterWeapon(Type);
     }
 
     
-
-    
-    void Update()
+    protected void Update()
     {
         if (Time.time - _lastFireTime >= 1/FireRatePerSecond)
         {
             TryFire();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            LevelUp();
         }
     }
 
@@ -112,8 +144,13 @@ public class Weapon : SerializedMonoBehaviour
         return target;
     }
 
+    protected void InvokeOnFireEvent()
+    {
+        OnFire?.Invoke(Type);
+    }
 
-    private void TryFire()
+
+    protected virtual void TryFire()
     {
         GameObject targetEntity = GetTarget(TargetType);
 
@@ -135,15 +172,70 @@ public class Weapon : SerializedMonoBehaviour
         projectile.transform.position = SpawnPoint.position;
         projectile.Damage = Damage;
         projectile.Speed = ProjectileSpeed;
+        projectile.Spread = Spread;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
         
         projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
 
-        OnFire?.Invoke();
+        InvokeOnFireEvent();
         _lastFireTime = Time.time;
     }
     
+    protected virtual void TryFireOverride(int damage, float projectileSpeed, int spread, int pierceCount)
+    {
+        GameObject targetEntity = GetTarget(TargetType);
+
+        //Do not shoot if no target present
+        if (targetEntity == null)
+        {
+            return;
+        }
+    
+        //Do not shoot if target is not close enough (Barely on screen)
+        if (Vector2.Distance(targetEntity.transform.position, transform.parent.position) >= Range)
+        {
+            return;
+        }
+       
+        
+        ProjectileBase projectile = _prefabPool.Value.Get(ProjectilePrefab).GetComponent<ProjectileBase>();
+        projectile.transform.parent = _projectileManager.Value.gameObject.transform;
+        projectile.transform.position = SpawnPoint.position;
+        projectile.Damage = damage;
+        projectile.Speed = projectileSpeed;
+        projectile.Spread = spread;
+        projectile.TargetEntity = targetEntity;
+        projectile.PierceCount = pierceCount;
+        
+        projectile.Renderer.color = Color.white;
+
+        InvokeOnFireEvent();
+        _lastFireTime = Time.time;
+    }
+
+    public void LevelUp()
+    {
+        if (_upgradesData == null)
+        {
+            _upgradesData = _upgradesManager.Value.WeaponLibrary.GetWeaponData(Type);
+        }
+        //Max level reached
+        if (_upgradesData.UpgradeCount == Level)
+        {
+            _isMaxLevel = true;
+            //Unlock weapon combo options
+            _upgradesManager.Value.AddWeaponToComboDrafts(Type);
+            return;
+        }
+        
+        Level++;
+        _upgradesManager.Value.RegisterUpgrade(_upgradesData.GetUpgradeAtID(Level-1));
+        Debug.Log($"Upgraded {Type} with {_upgradesData.GetUpgradeData(Level-1).DisplayName}");
+
+    }
+    
+#region HELPERS
     void OnDrawGizmos()
     {
         if (!_showGizmos)
@@ -173,4 +265,9 @@ public class Weapon : SerializedMonoBehaviour
       
         return new Color(c.r, c.g, c.b, 1f);
     }
+
+    private string GetSubtitle => $"{Type} - {TargetType}";
+#endregion
+
 }
+

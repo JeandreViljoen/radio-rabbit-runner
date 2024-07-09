@@ -11,7 +11,6 @@ public enum EnemyState
     Dead
 }
 
-[RequireComponent(typeof(ProjectileReceptor))]
 public class Enemy : MonoBehaviour
 {
 
@@ -22,7 +21,6 @@ public class Enemy : MonoBehaviour
     public Health Health;
     [SerializeField] private int _expValue;
     public SpriteRenderer Renderer;
-    private ProjectileReceptor _projectileReceptor;
     public float DistanceFromPlayer { get; private set; }
 
     private int _calculationFrameSkips = 10;
@@ -35,21 +33,18 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        _projectileReceptor = GetComponent<ProjectileReceptor>();
-        Debug.Assert(_projectileReceptor != null, $"Could not find Projectile Receptor on Enemy {name} during Awake method.");
+
     }
 
     void Start()
     {
         Health.OnHealthZero += StartOnDeathBehavior;
-
-        _projectileReceptor.OnHit += OnHit;
     }
 
     private void OnHit(ProjectileBase projectile)
     {
         Health.RemoveHealth(projectile.Damage); 
-        projectile.DoImpact();
+        
     }
 
     private void OnEnable()
