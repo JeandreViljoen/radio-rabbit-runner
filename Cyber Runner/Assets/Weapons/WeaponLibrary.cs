@@ -41,14 +41,14 @@ public class WeaponLibrary : SerializedScriptableObject
                 if (upgrade.Name != null && upgrade.Name != "")
                 {
                     //Add object to unique list - returns true or false
-                    if (uniqueUpgrades.Add(weapon.WeaponType + upgrade.Name))
+                    if (uniqueUpgrades.Add(weapon.WeaponType + "_" +  upgrade.Name))
                     {
                         //if its not in there already add o list.
-                        upgradeNames.Add(weapon.WeaponType + upgrade.Name);
+                        upgradeNames.Add(weapon.WeaponType + "_" + upgrade.Name);
                     }
                     else
                     {
-                        Help.Debug(GetType(), "RegenerateEnums", $"Duplicate upgrade type {weapon.WeaponType + upgrade.Name}. Not adding it to generated UpgradeType enum.");
+                        Help.Debug(GetType(), "RegenerateEnums", $"Duplicate upgrade type {weapon.WeaponType + "_" + upgrade.Name}. Not adding it to generated UpgradeType enum.");
                     }
                 }
             }

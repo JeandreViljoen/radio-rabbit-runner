@@ -29,6 +29,19 @@ public class WeaponUpgradeData : SerializedScriptableObject
         }
         return Upgrades[id-1];
     }
+    
+    public UpgradeData GetUpgradeData(UpgradeType upgrade)
+    {
+        UpgradeData data = Upgrades.Find(u => u.Name == upgrade.ToString());
+
+        if (data == null)
+        {
+            Help.Debug(GetType(), "GetUpgradeData", $"Could not find upgrade : {upgrade} in the {WeaponType} Upgrade data scriptable object.");
+            return null;
+        }
+
+        return data;
+    }
 
     public float GetValue(int id)
     {

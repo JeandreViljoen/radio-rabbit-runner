@@ -13,32 +13,32 @@ public class Minigun : Weapon
     {
         switch (upgrade)
         {
-            case UpgradeType.MinigunReduceSpread1:
+            case UpgradeType.Minigun_ReduceSpread1:
                 ReduceSpread(_upgradesData.GetValue(1));
                 break;
-            case UpgradeType.MinigunFireRate1:
+            case UpgradeType.Minigun_FireRate1:
                 IncreaseFireRateMultiplicative(_upgradesData.GetValue(2));
                 break;
-            case UpgradeType.MinigunDamage1:
+            case UpgradeType.Minigun_Damage1:
                 IncreaseDamageAdditive((int)_upgradesData.GetValue(3));
                 break;
-            case UpgradeType.MinigunDoubleFire:
+            case UpgradeType.Minigun_DoubleFire:
                 _doubleFireFlag = true;
                 _doubleFireChance = _upgradesData.GetValue(4)/100;
                 break;
-            case UpgradeType.MinigunReduceSpread2:
+            case UpgradeType.Minigun_ReduceSpread2:
                 ReduceSpread(_upgradesData.GetValue(5));
                 break;
-            case UpgradeType.MinigunPiercingBullets:
+            case UpgradeType.Minigun_PiercingBullets:
                 IncreasePierceCount((int)_upgradesData.GetValue(6));
                 break;
-            case UpgradeType.MinigunFireRate2:
+            case UpgradeType.Minigun_FireRate2:
                 IncreaseFireRateMultiplicative(_upgradesData.GetValue(7));
                 break;
-            case UpgradeType.MinigunBulletSplit:
+            case UpgradeType.Minigun_BulletSplit:
                 _bulletSplitFlag = true;
                 break;
-            case UpgradeType.MinigunBulletSpiral:
+            case UpgradeType.Minigun_BulletSpiral:
                 //TODO COMBO
                 break;
             default:

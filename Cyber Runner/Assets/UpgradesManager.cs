@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class UpgradesManager : MonoService
 {  
-    public WeaponLibrary WeaponLibrary;
+    private WeaponLibrary WeaponLibrary;
     private List<WeaponType> _activeWeapons = new ();
     private List<UpgradeType> _activeUpgrades= new ();
 
@@ -110,5 +111,26 @@ public class UpgradesManager : MonoService
 
         return tempValidList;
 
+    }
+
+    public UpgradeData GetUpgradeData(UpgradeType upgrade)
+    {
+        WeaponType wpn =  GetWeaponTypeFromUpgrade(upgrade);
+
+        return GetWeaponUpgradeData(wpn).GetUpgradeData(upgrade);
+    }
+
+    public WeaponUpgradeData GetWeaponUpgradeData(WeaponType weapon)
+    {
+        return WeaponLibrary.GetWeaponData(weapon);
+    }
+
+   
+    public WeaponType GetWeaponTypeFromUpgrade( UpgradeType upgrade)
+    {
+        string wpn = upgrade.ToString().Split( '_' )[0];
+        Enum.TryParse(wpn, out WeaponType weaponType);
+        
+        return weaponType;
     }
 }

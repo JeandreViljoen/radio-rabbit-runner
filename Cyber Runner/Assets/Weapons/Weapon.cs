@@ -83,7 +83,7 @@ public class Weapon : SerializedMonoBehaviour
 
     private void Init()
     {
-        _upgradesData = _upgradesManager.Value.WeaponLibrary.GetWeaponData(Type);
+        _upgradesData = _upgradesManager.Value.GetWeaponUpgradeData(Type);
         RegisterSelfToUpgradesManager();
     }
 
