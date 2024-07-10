@@ -9,12 +9,12 @@ using UnityEngine.UI;
 
 public class UpgradeCard : Selectable, ISubmitHandler
 {
-    private Image _border;
-    private Image _background;
-    private Image _icon;
-    private TextMeshProUGUI _typeField;
-    private TextMeshProUGUI _displayNameField;
-    private TextMeshProUGUI _descriptionField;
+    [SerializeField] private Image _border;
+    [SerializeField] private Image _background;
+    [SerializeField] private Image _icon;
+    [SerializeField] private TextMeshProUGUI _typeField;
+    [SerializeField]  private TextMeshProUGUI _displayNameField;
+    [SerializeField] private TextMeshProUGUI _descriptionField;
 
     private LazyService<UpgradesManager> _upgradesManager;
     private UpgradeData _data;
@@ -32,12 +32,29 @@ public class UpgradeCard : Selectable, ISubmitHandler
         
         _typeField.text = _type.ToString();
         _displayNameField.text = _data.DisplayName;
-        _descriptionField.text = _data.Description;
+        _descriptionField.text = TokenizeDescription(_data.Description, "{value}");
+    }
+
+    private string TokenizeDescription(string input, string delim)
+    {
+        string[] parts = input.Split(delim);
+        
+        if (parts.Length <= 1)
+        {
+            return input;
+        }
+        string output = parts[0] + _data.Value + parts[1];
+
+       
+        return output;
     }
     
     void Update()
-    {
-        
+    { 
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            Init(_upgradesManager.Value.GetNextUpgradeForWeapon(WeaponType.Minigun));
+        }
     }
 
     public override void OnSelect(BaseEventData eventData)
@@ -47,8 +64,17 @@ public class UpgradeCard : Selectable, ISubmitHandler
 
     public void OnSubmit(BaseEventData eventData)
     {
-        //_upgradesManager.Value.RegisterUpgrade();
-        throw new NotImplementedException();
+        //OnSubmitBehavior();
+    }
+
+    private void OnMouseDown()
+    {
+        OnSubmitBehavior();
+    }
+
+    private void OnSubmitBehavior()
+    {
+        _upgradesManager.Value.GetWeaponInstance(_type).LevelUp();
     }
 
     public void Reveal()

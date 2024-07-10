@@ -8217,9 +8217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c660b7dcd8a74ba467f50cf0d00c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animation: {fileID: 7400000, guid: 6d6f1831fb56b4a499f8df64b04ca077, type: 2}
+  Animation: {fileID: 7400000, guid: e036c03b6b2751340b09f724b0447565, type: 2}
   AirDashForce: {x: 1000, y: 0}
-  AirDashCooldown: 1
+  AirDashCooldown: 0.5
   AirDashDisableBuffer: 5
 --- !u!4 &1054019694
 Transform:
@@ -8248,9 +8248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d18878f13553442bd9af34796c3e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animation: {fileID: 7400000, guid: 6d6f1831fb56b4a499f8df64b04ca077, type: 2}
+  Animation: {fileID: 7400000, guid: e036c03b6b2751340b09f724b0447565, type: 2}
   DashForce: {x: 1000, y: 0}
-  DashCooldown: 1
+  DashCooldown: 0.5
   DashDisableBuffer: 5
 --- !u!114 &1054019696
 MonoBehaviour:
@@ -11001,7 +11001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137.08826, y: 155.3147}
+  m_AnchoredPosition: {x: 719.2, y: -269.3}
   m_SizeDelta: {x: 365.8959, y: 463.0298}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806252407
@@ -11045,6 +11045,12 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
+  _border: {fileID: 1971918089}
+  _background: {fileID: 1420801244}
+  _icon: {fileID: 1955861863}
+  _typeField: {fileID: 2001280518}
+  _displayNameField: {fileID: 222664790}
+  _descriptionField: {fileID: 2106557028}
 --- !u!1 &1828528066
 GameObject:
   m_ObjectHideFlags: 0

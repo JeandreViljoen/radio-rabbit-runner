@@ -37,7 +37,7 @@ public class JumpState : PlayerState
 
     public override void OnUpdate()
     {
-        if (_player.RB.velocity.y < 0)
+        if (_player.RB.velocity.y < -6)
         {
             _player.ActiveState = _player.FallState;
         }

@@ -65,7 +65,6 @@ public class Minigun : Weapon
     {
         PierceCount += pierce;
     }
-    
 
     protected override void TryFire()
     {

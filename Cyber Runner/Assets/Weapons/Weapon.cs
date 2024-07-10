@@ -89,7 +89,7 @@ public class Weapon : SerializedMonoBehaviour
 
     void RegisterSelfToUpgradesManager()
     {
-        _upgradesManager.Value.RegisterWeapon(Type);
+        _upgradesManager.Value.RegisterWeapon(this);
     }
 
     
@@ -100,10 +100,6 @@ public class Weapon : SerializedMonoBehaviour
             TryFire();
         }
         
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            LevelUp();
-        }
     }
 
     public GameObject GetTarget(TargetingType type)
@@ -218,7 +214,7 @@ public class Weapon : SerializedMonoBehaviour
     {
         if (_upgradesData == null)
         {
-            _upgradesData = _upgradesManager.Value.WeaponLibrary.GetWeaponData(Type);
+            _upgradesData = _upgradesManager.Value.GetWeaponUpgradeData(Type);
         }
         //Max level reached
         if (_upgradesData.UpgradeCount == Level)
@@ -264,6 +260,12 @@ public class Weapon : SerializedMonoBehaviour
         Color c = Help.GetColorBasedOnTargetType(type);
       
         return new Color(c.r, c.g, c.b, 1f);
+    }
+
+    public UpgradeType GetNextUpgrade()
+    {
+        UpgradeType t = _upgradesData.GetUpgradeAtID(Level);
+        return t;
     }
 
     private string GetSubtitle => $"{Type} - {TargetType}";

@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class UpgradesManager : MonoService
 {  
-    private WeaponLibrary WeaponLibrary;
-    private List<WeaponType> _activeWeapons = new ();
+    [SerializeField] private WeaponLibrary WeaponLibrary;
+    private Dictionary<WeaponType, Weapon> _activeWeapons = new ();
     private List<UpgradeType> _activeUpgrades= new ();
 
     private List<WeaponType> _availableComboUpgrades = new ();
@@ -17,7 +17,10 @@ public class UpgradesManager : MonoService
     
     void Start()
     {
-        
+        if (WeaponLibrary == null)
+        {
+           Help.Debug(GetType(), "!!!! WARNING !!!!", "WeaponLibrary not assigned - MAKE SURE IT IS ASSIGNED IN INSPECTOR OR EVERYTHING WILL BREAK");
+        }
     }
     
     void Update()
@@ -51,7 +54,7 @@ public class UpgradesManager : MonoService
 
     public bool HasWeapon(WeaponType weapon)
     {
-        return _activeWeapons.Contains(weapon);
+        return _activeWeapons.ContainsKey(weapon);
     }
     
     public bool HasUpgrade(UpgradeType upgrade)
@@ -64,11 +67,11 @@ public class UpgradesManager : MonoService
         return _availableComboUpgrades.Contains(weapon);
     }
 
-    public void RegisterWeapon(WeaponType weapon)
+    public void RegisterWeapon(Weapon weapon)
     {
-        if (!HasWeapon(weapon))
+        if (!HasWeapon(weapon.Type))
         {
-            _activeWeapons.Add(weapon);
+            _activeWeapons.Add(weapon.Type, weapon);
         }
         else
         {
@@ -89,6 +92,23 @@ public class UpgradesManager : MonoService
         }
     }
 
+    public Weapon GetWeaponInstance(WeaponType type)
+    {
+        if (_activeWeapons.ContainsKey(type))
+        {
+            return _activeWeapons[type];
+        }
+
+        Help.Debug(GetType(), "GetWeaponInstance", $"Tried to get a weapon instance of type {type} but no such weapon exists in the 'active weapons' dictionary");
+        return null;
+    }
+
+    public UpgradeType GetNextUpgradeForWeapon(WeaponType weapon)
+    {
+        Weapon currentWeapon = GetWeaponInstance(weapon);
+        return currentWeapon.GetNextUpgrade();
+    }
+
     public List<UpgradeData> GetValidUpgrades(WeaponType weapon)
     {
         List<UpgradeData> allUpgrades = WeaponLibrary.GetWeaponData(weapon).Upgrades;
@@ -106,11 +126,9 @@ public class UpgradesManager : MonoService
             }
             
             tempValidList.Add(upgrade);
-            
         }
-
+        
         return tempValidList;
-
     }
 
     public UpgradeData GetUpgradeData(UpgradeType upgrade)

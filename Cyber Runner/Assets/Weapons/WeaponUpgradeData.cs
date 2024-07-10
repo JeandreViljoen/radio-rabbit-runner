@@ -32,7 +32,7 @@ public class WeaponUpgradeData : SerializedScriptableObject
     
     public UpgradeData GetUpgradeData(UpgradeType upgrade)
     {
-        UpgradeData data = Upgrades.Find(u => u.Name == upgrade.ToString());
+        UpgradeData data = Upgrades.Find(u => WeaponType + "_" + u.Name == upgrade.ToString());
 
         if (data == null)
         {
@@ -50,7 +50,7 @@ public class WeaponUpgradeData : SerializedScriptableObject
 
     public UpgradeType GetUpgradeAtID(int id)
     {
-        Enum.TryParse(WeaponType + GetUpgradeData(id).Name, out UpgradeType upgrade);
+        Enum.TryParse(WeaponType + "_" + GetUpgradeData(id).Name, out UpgradeType upgrade);
 
         if (upgrade == 0)
         {
