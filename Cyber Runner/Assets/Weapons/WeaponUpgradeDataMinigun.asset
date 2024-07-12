@@ -25,49 +25,65 @@ MonoBehaviour:
       Entry: 3
       Data: 0
   Upgrades:
-  - ID: 1
-    Name: ReduceSpread1
+  - Name: Unlock
+    DisplayName: Unlock Minigun
+    Value: -1
+    Description: Fast shooting, low accuracy, low damage weapon. Targets {targetType}
+      enemies.
+    ID: 1
+    Type: 0
+  - Name: ReduceSpread1
     DisplayName: Reduce Spread I
     Value: 50
     Description: Reduce minigun spread by [value]%.
-  - ID: 2
-    Name: FireRate1
+    ID: 2
+    Type: 0
+  - Name: FireRate1
     DisplayName: Fire Rate I
     Value: 50
     Description: Increase fire rate by {value}%.
-  - ID: 3
-    Name: Damage1
+    ID: 3
+    Type: 0
+  - Name: Damage1
     DisplayName: Damage Upgrade
     Value: 1
     Description: Increase bullet damage by {value}.
-  - ID: 4
-    Name: DoubleFire
+    ID: 4
+    Type: 0
+  - Name: DoubleFire
     DisplayName: Double Fire
     Value: 20
     Description: '{value}% chance to fire a secondary bullet that does half damage.'
-  - ID: 5
-    Name: ReduceSpread2
+    ID: 5
+    Type: 0
+  - Name: ReduceSpread2
     DisplayName: Reduce Spread II
     Value: 50
     Description: Reduce minigun spread by [value]%.
-  - ID: 6
-    Name: PiercingBullets
+    ID: 6
+    Type: 0
+  - Name: PiercingBullets
     DisplayName: Piercing Bullets
     Value: 1
     Description: Bullets will now pierce {value} enemy.
-  - ID: 7
-    Name: FireRate2
+    ID: 7
+    Type: 0
+  - Name: FireRate2
     DisplayName: Fire Rate II
     Value: 50
     Description: Increase fire rate by {value}%.
-  - ID: 8
-    Name: BulletSplit
+    ID: 8
+    Type: 0
+  - Name: BulletSplit
     DisplayName: Bullet Split
     Value: 2
     Description: Bullet will split into {value} smaller ones on impact. Split bullets
       will share the original damage.
-  - ID: 9
-    Name: BulletSpiral
+    ID: 9
+    Type: 0
+  - Name: BulletSpiral
     DisplayName: Bullet Spiral
     Value: 8
     Description: 'ON KILL: Creates a spiral of {value} minigun bullets.'
+    ID: 10
+    Type: 0

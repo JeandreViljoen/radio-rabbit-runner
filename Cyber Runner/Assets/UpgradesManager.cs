@@ -8,7 +8,7 @@ using UnityEngine;
 public class UpgradesManager : MonoService
 {  
     [SerializeField] private WeaponLibrary WeaponLibrary;
-    private Dictionary<WeaponType, Weapon> _activeWeapons = new ();
+    private Dictionary<WeaponType, Weapon> _weaponInstances = new ();
     private List<UpgradeType> _activeUpgrades= new ();
 
     private List<WeaponType> _availableComboUpgrades = new ();
@@ -52,9 +52,9 @@ public class UpgradesManager : MonoService
         }
     }
 
-    public bool HasWeapon(WeaponType weapon)
+    public bool HasWeaponUnlocked(WeaponType weapon)
     {
-        return _activeWeapons.ContainsKey(weapon);
+        return _weaponInstances[weapon].IsUnlocked;
     }
     
     public bool HasUpgrade(UpgradeType upgrade)
@@ -67,11 +67,11 @@ public class UpgradesManager : MonoService
         return _availableComboUpgrades.Contains(weapon);
     }
 
-    public void RegisterWeapon(Weapon weapon)
+    public void RegisterWeaponOnStart(Weapon weapon)
     {
-        if (!HasWeapon(weapon.Type))
+        if (!_weaponInstances.ContainsKey(weapon.Type))
         {
-            _activeWeapons.Add(weapon.Type, weapon);
+            _weaponInstances.Add(weapon.Type, weapon);
         }
         else
         {
@@ -94,12 +94,12 @@ public class UpgradesManager : MonoService
 
     public Weapon GetWeaponInstance(WeaponType type)
     {
-        if (_activeWeapons.ContainsKey(type))
+        if (_weaponInstances.ContainsKey(type))
         {
-            return _activeWeapons[type];
+            return _weaponInstances[type];
         }
 
-        Help.Debug(GetType(), "GetWeaponInstance", $"Tried to get a weapon instance of type {type} but no such weapon exists in the 'active weapons' dictionary");
+        Help.Debug(GetType(), "GetWeaponInstance", $"Tried to get a weapon instance of type {type} but no such weapon exists in the 'instanced weapons' dictionary");
         return null;
     }
 

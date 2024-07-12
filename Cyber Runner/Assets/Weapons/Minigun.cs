@@ -13,27 +13,30 @@ public class Minigun : Weapon
     {
         switch (upgrade)
         {
+            case UpgradeType.Minigun_Unlock:
+                UnlockWeapon();
+                break;
             case UpgradeType.Minigun_ReduceSpread1:
-                ReduceSpread(_upgradesData.GetValue(1));
+                ReduceSpread(_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_FireRate1:
-                IncreaseFireRateMultiplicative(_upgradesData.GetValue(2));
+                IncreaseFireRateMultiplicative(_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_Damage1:
-                IncreaseDamageAdditive((int)_upgradesData.GetValue(3));
+                IncreaseDamageAdditive((int)_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_DoubleFire:
                 _doubleFireFlag = true;
-                _doubleFireChance = _upgradesData.GetValue(4)/100;
+                _doubleFireChance = _upgradesData.GetValue(upgrade)/100;
                 break;
             case UpgradeType.Minigun_ReduceSpread2:
-                ReduceSpread(_upgradesData.GetValue(5));
+                ReduceSpread(_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_PiercingBullets:
-                IncreasePierceCount((int)_upgradesData.GetValue(6));
+                IncreasePierceCount((int)_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_FireRate2:
-                IncreaseFireRateMultiplicative(_upgradesData.GetValue(7));
+                IncreaseFireRateMultiplicative(_upgradesData.GetValue(upgrade));
                 break;
             case UpgradeType.Minigun_BulletSplit:
                 _bulletSplitFlag = true;
@@ -46,25 +49,7 @@ public class Minigun : Weapon
         }
     }
 
-    private void ReduceSpread(float percent)
-    {
-        Spread = (int)(Spread * (percent / 100f));
-    }
-
-    private void IncreaseFireRateMultiplicative(float percent)
-    {
-        FireRatePerSecond *= 1 + (percent / 100f);
-    }
-
-    private void IncreaseDamageAdditive(int damage)
-    {
-        Damage += damage;
-    }
-    
-    private void IncreasePierceCount(int pierce)
-    {
-        PierceCount += pierce;
-    }
+   
 
     protected override void TryFire()
     {
@@ -91,7 +76,7 @@ public class Minigun : Weapon
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
         
-        projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
+        projectile.Renderer.color = Color.white;
 
         InvokeOnFireEvent();
         _lastFireTime = Time.time;

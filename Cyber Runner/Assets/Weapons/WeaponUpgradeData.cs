@@ -9,10 +9,25 @@ using UnityEngine;
 
 public class WeaponUpgradeData : SerializedScriptableObject
 {
-    [OdinSerialize, PropertyOrder(1)] public WeaponType WeaponType { get; private set; }
-    [SerializeField, PropertyOrder(2)] public List<UpgradeData> Upgrades;
+    [OdinSerialize, PropertyOrder(1), OnValueChanged("SetType")] public WeaponType WeaponType { get; private set; }
+    [SerializeField, PropertyOrder(2), OnValueChanged("SetIDs")] public List<UpgradeData> Upgrades;
     public int UpgradeCount => Upgrades.Count;
 
+    private void SetIDs()
+    {
+        for (int i = 0; i < Upgrades.Count; i++)
+        {
+            Upgrades[i].ID = i + 1;
+        }
+    }
+    
+    private void SetType()
+    {
+        for (int i = 0; i < Upgrades.Count; i++)
+        {
+            Upgrades[i].Type = WeaponType;
+        }
+    }
 
     public UpgradeData GetUpgradeData(int id)
     {
@@ -47,6 +62,11 @@ public class WeaponUpgradeData : SerializedScriptableObject
     {
         return GetUpgradeData(id).Value;
     }
+    
+    public float GetValue(UpgradeType type)
+    {
+        return GetUpgradeData(type).Value;
+    }
 
     public UpgradeType GetUpgradeAtID(int id)
     {
@@ -63,11 +83,12 @@ public class WeaponUpgradeData : SerializedScriptableObject
 [Serializable]
 public class UpgradeData
 {
-    [Title("Upgrade", "$ID" , TitleAlignments.Centered)] 
-    [GUIColor("grey")] public int ID = 0;
+    [Title("Upgrade", "$ID", TitleAlignments.Centered)]
     public string Name;
     public string DisplayName;
     public float Value;
     [TextArea(4,10)] public string Description;
-
+    
+    [GUIColor("grey"), ReadOnly, HorizontalGroup()] public int ID = 0;
+    [GUIColor("grey"), ReadOnly, HorizontalGroup()] public WeaponType Type;
 }

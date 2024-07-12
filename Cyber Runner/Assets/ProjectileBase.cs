@@ -33,48 +33,77 @@ public class ProjectileBase : MonoBehaviour
             else
             {
                 _targetLocation = value.transform.localPosition;
-                direction = (_targetLocation - transform.localPosition).normalized;
-                direction = Quaternion.AngleAxis(UnityEngine.Random.Range(-Spread/2, Spread/2), Vector3.forward) * direction;
+                _direction = (_targetLocation - transform.localPosition).normalized;
+                _direction = Quaternion.AngleAxis(UnityEngine.Random.Range(-Spread/2, Spread/2), Vector3.forward) * _direction;
+
+                if (AutoRotate)
+                {
+                    //Vector3 _rotation = Quaternion.AngleAxis(Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg, Vector3.forward) * _direction;
+                  
+                    
+                    Quaternion targetRotation;
+                    var zAngle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+                    // Store the target rotation
+                    targetRotation = Quaternion.Euler(0,0, zAngle);
+
+
+                    Renderer.transform.localRotation = targetRotation;
+                }
             }
         }
     }
 
-    private Vector3 _targetStatic;
-
-    public Vector3 TargetStatic
-    {
-        get
-        {
-            return _targetStatic;
-        }
-        set
-        {
-            _targetStatic = value;
-
-            _targetLocation = value;
-            direction = (_targetLocation - transform.localPosition).normalized;
-        }
-    }
+    // private Vector3 _targetStatic;
+    //
+    // public Vector3 TargetStatic
+    // {
+    //     get
+    //     {
+    //         return _targetStatic;
+    //     }
+    //     set
+    //     {
+    //         _targetStatic = value;
+    //
+    //         _targetLocation = value;
+    //         direction = (_targetLocation - transform.localPosition).normalized;
+    //     }
+    // }
 
     public float Speed;
     public int Damage;
     public int Spread = 0;
 
     protected Vector3 _targetLocation;
-    protected Vector2 direction = Vector2.zero;
+    protected Vector2 _direction = Vector2.zero;
     protected LazyService<PrefabPool> _prefabPool;
     protected LazyService<ProjectileManager> _projectileManager;
 
+    public bool AutoRotate = true;
     public SpriteRenderer Renderer;
+    public ParticleSystem Particles;
     
     protected void Update()
     {
-        if (TargetEntity == null)
-        {
-            return;
-        }
+        // if (TargetEntity == null && _direc)
+        // {
+        //     return;
+        // }
         //UpdateTargets();
         DoFire();
+    }
+
+    public void OverrideDirectionTarget(Vector2 direction)
+    {
+        _direction = direction.normalized;
+        
+        Quaternion targetRotation;
+        var zAngle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        // Store the target rotation
+        targetRotation = Quaternion.Euler(0,0, zAngle);
+
+
+        Renderer.transform.localRotation = targetRotation;
     }
 
     private void UpdateTargets()
@@ -114,7 +143,7 @@ public class ProjectileBase : MonoBehaviour
         switch (Type)
         {
             case ProjectileType.Bullet:
-                transform.localPosition += (Vector3) (direction * Speed * Time.deltaTime);
+                transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Rocket:
                 break;
@@ -152,5 +181,6 @@ public enum ProjectileType
 {
     Bullet,
     Rocket,
+    Direction
     
 }

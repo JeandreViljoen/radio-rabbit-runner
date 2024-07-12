@@ -1,6 +1,7 @@
 public enum UpgradeType
 {
 	None,
+	Minigun_Unlock,
 	Minigun_ReduceSpread1,
 	Minigun_FireRate1,
 	Minigun_Damage1,

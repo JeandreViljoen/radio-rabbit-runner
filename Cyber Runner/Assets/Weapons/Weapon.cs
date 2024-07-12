@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using Services;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class Weapon : SerializedMonoBehaviour
@@ -17,13 +18,14 @@ public class Weapon : SerializedMonoBehaviour
     [GUIColor("grey")]public Transform SpawnPoint;
 
     public WeaponType Type;
-    public int Level = 1;
+    public int Level = 0;
     public int Damage;
     public int PierceCount = 0;
     public float ProjectileSpeed;
     public float FireRatePerSecond = 1;
     public int Spread = 0;
     protected bool _isMaxLevel = false;
+    public bool IsUnlocked { get; private set; } = false;
     
 
     [SerializeField]private bool _useCullingDistanceAsRange = true;
@@ -78,6 +80,7 @@ public class Weapon : SerializedMonoBehaviour
     
     protected virtual void UpgradesLogic(UpgradeType upgrade)
     {
+        //Each weapon extending from this class needs to implement its own upgrade logic.
         return;
     }
 
@@ -89,12 +92,17 @@ public class Weapon : SerializedMonoBehaviour
 
     void RegisterSelfToUpgradesManager()
     {
-        _upgradesManager.Value.RegisterWeapon(this);
+        _upgradesManager.Value.RegisterWeaponOnStart(this);
     }
 
     
     protected void Update()
     {
+        if (!IsUnlocked)
+        {
+            return;
+        }
+        
         if (Time.time - _lastFireTime >= 1/FireRatePerSecond)
         {
             TryFire();
@@ -143,6 +151,26 @@ public class Weapon : SerializedMonoBehaviour
     protected void InvokeOnFireEvent()
     {
         OnFire?.Invoke(Type);
+    }
+    
+    protected void ReduceSpread(float percent)
+    {
+        Spread = (int)(Spread * (percent / 100f));
+    }
+
+    protected void IncreaseFireRateMultiplicative(float percent)
+    {
+        FireRatePerSecond *= 1 + (percent / 100f);
+    }
+
+    protected void IncreaseDamageAdditive(int damage)
+    {
+        Damage += damage;
+    }
+    
+    protected void IncreasePierceCount(int pierce)
+    {
+        PierceCount += pierce;
     }
 
 
@@ -204,7 +232,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
         
-        projectile.Renderer.color = Color.white;
+        projectile.Renderer.color = Color.grey;
 
         InvokeOnFireEvent();
         _lastFireTime = Time.time;
@@ -217,7 +245,7 @@ public class Weapon : SerializedMonoBehaviour
             _upgradesData = _upgradesManager.Value.GetWeaponUpgradeData(Type);
         }
         //Max level reached
-        if (_upgradesData.UpgradeCount == Level)
+        if (_upgradesData.UpgradeCount == Level+1)
         {
             _isMaxLevel = true;
             //Unlock weapon combo options
@@ -226,8 +254,8 @@ public class Weapon : SerializedMonoBehaviour
         }
         
         Level++;
-        _upgradesManager.Value.RegisterUpgrade(_upgradesData.GetUpgradeAtID(Level-1));
-        Debug.Log($"Upgraded {Type} with {_upgradesData.GetUpgradeData(Level-1).DisplayName}");
+        _upgradesManager.Value.RegisterUpgrade(_upgradesData.GetUpgradeAtID(Level));
+        Debug.Log($"Upgraded {Type} with {_upgradesData.GetUpgradeData(Level).DisplayName}");
 
     }
     
@@ -264,8 +292,13 @@ public class Weapon : SerializedMonoBehaviour
 
     public UpgradeType GetNextUpgrade()
     {
-        UpgradeType t = _upgradesData.GetUpgradeAtID(Level);
+        UpgradeType t = _upgradesData.GetUpgradeAtID(Level+1);
         return t;
+    }
+
+    protected void UnlockWeapon()
+    {
+        IsUnlocked = true;
     }
 
     private string GetSubtitle => $"{Type} - {TargetType}";

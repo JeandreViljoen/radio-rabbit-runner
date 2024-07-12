@@ -1,20 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services;
 using UnityEngine;
 
 public class MinigunBullet : ProjectileBase
 {
+    [SerializeField] private int TargetSplitAmount = 60;
+    
     public override void DoOnKillEffects()
     {
-        // ProjectileBase projectile = _prefabPool.Value.Get(ProjectilePrefab).GetComponent<ProjectileBase>();
-        // projectile.transform.parent = _projectileManager.Value.gameObject.transform;
-        // projectile.transform.position = SpawnPoint.position;
-        // projectile.Damage = Damage;
-        // projectile.Speed = ProjectileSpeed;
-        // projectile.Spread = Spread;
-        // projectile.TargetEntity = targetEntity;
-        // projectile.PierceCount = PierceCount;
-        //
-        // projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
+        //Bullet Split effect
+        if (ServiceLocator.GetService<UpgradesManager>().HasUpgrade(UpgradeType.Minigun_BulletSplit))
+        {
+            Vector2 directionOverride = Quaternion.AngleAxis(TargetSplitAmount/2, Vector3.forward) * _direction;
+            _projectileManager.Value.SpawnMinigunProjectile(transform.position, Damage/2, Speed, 0, directionOverride, PierceCount, Color.black);
+        
+            directionOverride = Quaternion.AngleAxis(-TargetSplitAmount/2, Vector3.forward) * _direction;
+            _projectileManager.Value.SpawnMinigunProjectile(transform.position, Damage/2, Speed, 0, directionOverride, PierceCount, Color.black);
+        }
+        
+        _projectileManager.Value.SpawnMinigunSpiral(8,transform.position, 1,Speed,PierceCount, Color.blue);
+        
+        
     }
 }
