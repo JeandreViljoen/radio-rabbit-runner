@@ -499,12 +499,12 @@ MonoBehaviour:
     SerializationNodes:
     - Name: IsUnlocked
       Entry: 5
-      Data: true
+      Data: false
     - Name: Range
       Entry: 4
       Data: 30
   _showGizmos: 0
-  TargetType: 1
+  TargetType: 2
   SpawnPoint: {fileID: 178088636}
   Type: 2
   Level: 0
@@ -8199,7 +8199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &991548858
 Transform:
   m_ObjectHideFlags: 0
@@ -9551,8 +9551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.51, y: 0}
-  m_SizeDelta: {x: 6.5, y: 43.9}
+  m_AnchoredPosition: {x: 25.51, y: 11.2}
+  m_SizeDelta: {x: 6.5, y: 27.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325958683
 MonoBehaviour:
@@ -9567,7 +9567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 5062032849328432999, guid: 220052441107f4149a01eb832327c734, type: 3}
-  SpawnRate: 0.4
+  SpawnRate: 0.3
   rect: {fileID: 1325958682}
 --- !u!1 &1365358182
 GameObject:

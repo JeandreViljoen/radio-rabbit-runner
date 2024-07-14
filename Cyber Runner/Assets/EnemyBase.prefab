@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 5
   RandomHealth: 1
-  RandomHealthRange: {x: 1, y: 10}
+  RandomHealthRange: {x: 5, y: 50}
 --- !u!58 &2190792063104886110
 CircleCollider2D:
   m_ObjectHideFlags: 0

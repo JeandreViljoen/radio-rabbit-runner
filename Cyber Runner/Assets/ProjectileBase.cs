@@ -96,7 +96,7 @@ public class ProjectileBase : MonoBehaviour
         if (_collider != null && DetectionType == ProjectileDetectionType.Raycast) _collider.enabled = false;
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         _raycastHitBuffers.Clear();
         _inPool = false;

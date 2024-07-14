@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Health.OnHealthZero += StartOnDeathBehavior;
+        Health.OnHealthLost += DamageFlash;
     }
 
     private void OnHit(ProjectileBase projectile)
@@ -181,6 +182,17 @@ public class Enemy : MonoBehaviour
         ReturnToPool();
     }
 
+    private Tween _damageTween;
+    private void DamageFlash()
+    {
+        _damageTween?.Kill();
+        
+        Sequence s = DOTween.Sequence();
+        s.Append(Renderer.DOColor(Color.red, 0.001f));
+        s.Append(Renderer.DOColor(Color.white, 0.2f));
+        _damageTween = s;
+    }
+
     private void ClearTargets()
     {
         if (_player.Value.Targets.ClosestEnemy == this)
@@ -231,6 +243,7 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         Health.OnHealthZero -= StartOnDeathBehavior;
+        Health.OnHealthLost -= DamageFlash;
     }
 }
 

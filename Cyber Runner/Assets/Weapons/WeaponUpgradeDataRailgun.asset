@@ -25,19 +25,63 @@ MonoBehaviour:
       Entry: 3
       Data: 2
   Upgrades:
-  - ID: 1
-    Name: Upgrade4
+  - Name: Unlock
+    DisplayName: Unlock Railgun
     Value: 0
-    Description: 
-  - ID: 2
-    Name: Upgrade5
+    Description: Slow shooting, high damage, high pierce.
+    ID: 1
+    Type: 2
+  - Name: FireRate1
+    DisplayName: Fire Rate I
+    Value: 50
+    Description: Shoot {value}% faster.
+    ID: 2
+    Type: 2
+  - Name: DoubleShot1
+    DisplayName: Double Shot I
+    Value: 20
+    Description: '{value}% chance to shoot twice in quick succession.'
+    ID: 3
+    Type: 2
+  - Name: FireRate2
+    DisplayName: Fire Rate II
+    Value: 50
+    Description: Shoot {value}% faster.
+    ID: 4
+    Type: 2
+  - Name: DamageStack
+    DisplayName: Accumulative Damage
+    Value: 2
+    Description: Each enemy passed through will increase the damage output by +{value}.
+    ID: 5
+    Type: 2
+  - Name: FireRate3
+    DisplayName: Fire Rate 3
     Value: 0
-    Description: 
-  - ID: 3
-    Name: Upgrade6
+    Description: Shoot {value}% faster.
+    ID: 6
+    Type: 2
+  - Name: DoubleShot2
+    DisplayName: Souble Shot II
+    Value: 40
+    Description: '{value}% chance to shoot twice in quick succession.'
+    ID: 7
+    Type: 2
+  - Name: SplitBeam
+    DisplayName: Split Beam
+    Value: 1
+    Description: Shoot {value} additional projectile. Increasing the area of effect.
+    ID: 8
+    Type: 2
+  - Name: RecursiveSplit
+    DisplayName: Recursive Split
     Value: 0
-    Description: 
-  - ID: 4
-    Name: railgunyeahboi
+    Description: 'ON KILL: Shoot out 2 projectiles to the sides of the enemy.'
+    ID: 9
+    Type: 2
+  - Name: UnlimitedPierce
+    DisplayName: Rail Core Upgrade
     Value: 0
-    Description: 
+    Description: Gives this weapon unlimited pierce.
+    ID: 10
+    Type: 2

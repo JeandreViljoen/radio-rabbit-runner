@@ -69,7 +69,9 @@ public class UpgradeCard : Selectable, ISubmitHandler
     { 
         if(Input.GetKeyDown(KeyCode.U))
         {
-            Init(_upgradesManager.Value.GetNextUpgradeForWeapon(WeaponType.Minigun));
+            _upgradesManager.Value.GetWeaponInstance(WeaponType.Railgun).LevelUp();
+            _upgradesManager.Value.GetWeaponInstance(WeaponType.Minigun).LevelUp();
+            Init(_upgradesManager.Value.GetNextUpgradeForWeapon(WeaponType.Railgun));
         }
     }
 

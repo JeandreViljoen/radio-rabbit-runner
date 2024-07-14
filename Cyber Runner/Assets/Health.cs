@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public int CurrentHealth { get; private set; }
 
     public event Action OnHealthZero; 
+    public event Action OnHealthLost; 
 
 
     public void AddHealth(int value)
@@ -34,6 +35,7 @@ public class Health : MonoBehaviour
         }
 
         CurrentHealth = CurrentHealth - value;
+        OnHealthLost?.Invoke();
         return false;
     }
 

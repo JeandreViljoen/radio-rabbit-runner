@@ -76,5 +76,25 @@ public class ProjectileManager : MonoService
 
         
     }
+    
+    public void SpawnRailgunProjectile(Vector3 spawnPos, int damage, float speed, int spread, Vector2 direction, int pierceCount, Color color)
+    {
+        GameObject projectilePrefab = ServiceLocator.GetService<UpgradesManager>().GetWeaponInstance(WeaponType.Railgun)
+            .ProjectilePrefab;
+
+        
+        
+        ProjectileBase projectile = _prefabPool.Value.Get(projectilePrefab).GetComponent<ProjectileBase>();
+        projectile.transform.parent = gameObject.transform;
+        projectile.transform.position = spawnPos;
+        projectile.Damage = damage;
+        projectile.Speed = speed;
+        projectile.Spread = spread;
+        projectile.OverrideDirectionTarget(direction);
+        //projectile.TargetEntity = targetEntity;
+        projectile.PierceCount = pierceCount;
+        
+        projectile.Renderer.color = color;
+    }
 
 }
