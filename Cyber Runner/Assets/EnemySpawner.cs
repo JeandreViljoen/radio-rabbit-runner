@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     public RectTransform rect;
     private LazyService<PrefabPool> _pool;
 
+    private int index = 0;
     void Start()
     {
         StartCoroutine(SpawnTicker());
@@ -26,6 +29,8 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(SpawnRate);
             Enemy enemy = _pool.Value.Get(EnemyPrefab).GetComponent<Enemy>();
+            enemy.name = index.ToString();
+            index++;
             enemy.transform.parent = ServiceLocator.GetService<EnemiesManager>().transform;
             float xPos = Random.Range(transform.position.x - rect.rect.width / 2,
                 transform.position.x + rect.rect.width / 2);

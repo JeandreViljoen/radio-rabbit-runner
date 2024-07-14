@@ -1,10 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Services;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = System.Random;
+
+public enum ProjectileDetectionType
+{
+    Collision,
+    Raycast
+}
 
 public class ProjectileBase : MonoBehaviour
 {
@@ -12,7 +19,19 @@ public class ProjectileBase : MonoBehaviour
     [EnumToggleButtons]
     public ProjectileType Type;
 
-    public int PierceCount = 0;
+    [EnumToggleButtons]
+    public ProjectileDetectionType DetectionType;
+
+    private Vector2 _lastPosition = Vector2.zero;
+
+    [HideInInspector] public int PierceCount = 0;
+    private bool _inPool = false;
+
+    [SerializeField, CanBeNull] private Collider2D _collider;
+
+    //Used to store already hit entities so that they don't take multiple instances of damage with wacky raycasts
+    HashSet<string> _raycastHitBuffers = new HashSet<string>();
+    //private List<GameObject> _raycastHitBuffers;
 
     private GameObject _targetEntity;
     public GameObject TargetEntity
@@ -28,12 +47,12 @@ public class ProjectileBase : MonoBehaviour
 
             if (_targetEntity == null)
             {
-                _targetLocation = Vector2.zero;
+                TargetLocation = Vector2.zero;
             }
             else
             {
-                _targetLocation = value.transform.localPosition;
-                _direction = (_targetLocation - transform.localPosition).normalized;
+                TargetLocation = value.transform.localPosition;
+                _direction = (TargetLocation - transform.localPosition).normalized;
                 _direction = Quaternion.AngleAxis(UnityEngine.Random.Range(-Spread/2, Spread/2), Vector3.forward) * _direction;
 
                 if (AutoRotate)
@@ -70,19 +89,61 @@ public class ProjectileBase : MonoBehaviour
     //     }
     // }
 
-    public float Speed;
-    public int Damage;
-    public int Spread = 0;
+    private void Awake()
+    {
+        if(_collider == null) _collider = GetComponent<Collider2D>();
 
-    protected Vector3 _targetLocation;
+        if (_collider != null && DetectionType == ProjectileDetectionType.Raycast) _collider.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        _raycastHitBuffers.Clear();
+        _inPool = false;
+    }
+
+    [HideInInspector] public float Speed;
+    [HideInInspector] public int Damage;
+    [HideInInspector] public int Spread = 0;
+
+    [HideInInspector]  public Vector3 TargetLocation { get; private set; }
     protected Vector2 _direction = Vector2.zero;
     protected LazyService<PrefabPool> _prefabPool;
     protected LazyService<ProjectileManager> _projectileManager;
 
     public bool AutoRotate = true;
-    public SpriteRenderer Renderer;
-    public ParticleSystem Particles;
-    
+    [FoldoutGroup("References")] public SpriteRenderer Renderer;
+    [FoldoutGroup("References")] public ParticleSystem Particles;
+
+    protected void FixedUpdate()
+    {
+        if (DetectionType == ProjectileDetectionType.Raycast)
+        {
+            transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
+            if (_lastPosition == Vector2.zero)
+            {
+                _lastPosition = transform.position;
+                return;
+            }
+
+            //Sets collider to only check for Enemies
+            int bitmask = (1 << 10);
+
+            Vector2 currentPosition = transform.position;
+            
+            RaycastHit2D[] hits = Physics2D.RaycastAll( _lastPosition,(currentPosition - _lastPosition).normalized ,  Vector2.Distance(currentPosition , _lastPosition) , bitmask);
+            _lastPosition = currentPosition;
+            //Debug.DrawRay(transform.position, (currentPosition - _lastPosition).normalized *  Vector2.Distance(currentPosition , _lastPosition), Color.red, 0.1f);
+            foreach (var hit in hits)
+            {
+                CompareAndApplyDamage(hit.collider);
+            }
+
+            
+
+        }
+    }
+
     protected void Update()
     {
 
@@ -101,6 +162,8 @@ public class ProjectileBase : MonoBehaviour
                 break;
             case ProjectileType.Direction:
                 DoFire();
+                break;
+            case ProjectileType.Ray:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -130,7 +193,10 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Bullet:
                 break;
             case ProjectileType.Homing:
-                _targetLocation = TargetEntity.transform.localPosition;
+                TargetLocation = TargetEntity.transform.localPosition;
+                break;
+            case ProjectileType.Ray:
+                Renderer.transform.position = TargetLocation;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -139,17 +205,22 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void DoImpact()
     {
+        if (_inPool) return;
+        
         PierceCount--;
         if (PierceCount < 0)
         {
+            _lastPosition = Vector2.zero;
             _targetEntity = null;
             _prefabPool.Value.Return(gameObject);
             PierceCount = 0;
+            _inPool = true;
         }
     }
 
     public void DoFire()
     {
+        //Fire Range
         if (Vector2.Distance(transform.localPosition, transform.parent.localPosition) >= _projectileManager.Value.CullDistance)
         {
             DoImpact();
@@ -163,28 +234,50 @@ public class ProjectileBase : MonoBehaviour
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Direction:
-                transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
+                //transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Homing:
                 Speed *= 1.1f;
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
+            case ProjectileType.Ray:
+
+                int bitmask = (1 << 10);
+                RaycastHit2D[] hits = Physics2D.RaycastAll( transform.position, _direction , _projectileManager.Value.CullDistance*2f, bitmask);
+                Debug.DrawRay(transform.position, _direction*_projectileManager.Value.CullDistance, Color.red, 2f);
+                foreach (var hit in hits)
+                {
+                    CompareAndApplyDamage(hit.collider);
+                }
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
+    
+    
 
     public void OnTriggerEnter2D(Collider2D col)
     {
+        if (DetectionType == ProjectileDetectionType.Raycast) return;
+        
+       CompareAndApplyDamage(col);
+    }
+
+    private void CompareAndApplyDamage(Collider2D col)
+    {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            if ( col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(Damage))
+            if (_raycastHitBuffers.Add(col.gameObject.GetInstanceID().ToString()))
             {
-                DoOnKillEffects();
-            }
+                if ( col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(Damage))
+                {
+                    DoOnKillEffects();
+                }
 
-            DoOnHitEffects();
-            DoImpact();
+                DoOnHitEffects();
+                DoImpact();
+            }
         }
     }
 
@@ -204,6 +297,7 @@ public enum ProjectileType
     Bullet,
     Rocket,
     Direction,
-    Homing
-    
+    Homing,
+    Ray
+
 }

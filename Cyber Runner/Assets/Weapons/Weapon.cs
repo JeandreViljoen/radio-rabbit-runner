@@ -25,7 +25,7 @@ public class Weapon : SerializedMonoBehaviour
     public float FireRatePerSecond = 1;
     public int Spread = 0;
     protected bool _isMaxLevel = false;
-    public bool IsUnlocked { get; private set; } = false;
+    [OdinSerialize] public bool IsUnlocked { get; private set; } = false;
     
 
     [SerializeField]private bool _useCullingDistanceAsRange = true;

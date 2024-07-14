@@ -1,6 +1,10 @@
 public enum UpgradeType
 {
 	None,
+	Lazer_Unlock,
+	Lazer_Upgrade5,
+	Lazer_Upgrade6,
+	Lazer_railgunyeahboi,
 	Minigun_Unlock,
 	Minigun_ReduceSpread1,
 	Minigun_FireRate1,

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dca4cf4d454384bb635cf7c2f26def, type: 3}
+  m_Name: WeaponUpgradeDataLazer
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: WeaponType
+      Entry: 3
+      Data: 3
+  Upgrades:
+  - Name: Unlock
+    DisplayName: Unlock Lazer
+    Value: 0
+    Description: Unlocks lazer weapon.
+    ID: 1
+    Type: 3
+  - Name: Upgrade5
+    DisplayName: aaa
+    Value: 0
+    Description: 
+    ID: 2
+    Type: 3
+  - Name: Upgrade6
+    DisplayName: bbb
+    Value: 0
+    Description: 
+    ID: 3
+    Type: 3
+  - Name: railgunyeahboi
+    DisplayName: ccc
+    Value: 0
+    Description: 
+    ID: 4
+    Type: 3
