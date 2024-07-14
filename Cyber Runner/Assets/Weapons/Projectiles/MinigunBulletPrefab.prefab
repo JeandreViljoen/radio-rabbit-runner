@@ -166,14 +166,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefcddfa9c171b14ea0e874e3bc992d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 2
   PierceCount: 0
   Speed: 0
   Damage: 0
   Spread: 0
   AutoRotate: 1
   Renderer: {fileID: 2995881337752999839}
-  Particles: {fileID: 0}
+  Particles: {fileID: 3324193893150563875}
   TargetSplitAmount: 60
 --- !u!1 &6531506549940865702
 GameObject:

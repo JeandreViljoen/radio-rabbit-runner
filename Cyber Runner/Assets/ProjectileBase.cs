@@ -85,12 +85,29 @@ public class ProjectileBase : MonoBehaviour
     
     protected void Update()
     {
-        // if (TargetEntity == null && _direc)
-        // {
-        //     return;
-        // }
+
+        switch (Type)
+        {
+            case ProjectileType.Bullet:
+                DoFire();
+                break;
+            case ProjectileType.Homing:
+                if (TargetEntity == null)
+                {
+                    return;
+                }
+                UpdateTargets();
+                DoFire();
+                break;
+            case ProjectileType.Direction:
+                DoFire();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
         //UpdateTargets();
-        DoFire();
+       // DoFire();
     }
 
     public void OverrideDirectionTarget(Vector2 direction)
@@ -112,7 +129,7 @@ public class ProjectileBase : MonoBehaviour
         {
             case ProjectileType.Bullet:
                 break;
-            case ProjectileType.Rocket:
+            case ProjectileType.Homing:
                 _targetLocation = TargetEntity.transform.localPosition;
                 break;
             default:
@@ -145,7 +162,12 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Bullet:
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
-            case ProjectileType.Rocket:
+            case ProjectileType.Direction:
+                transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
+                break;
+            case ProjectileType.Homing:
+                Speed *= 1.1f;
+                transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -181,6 +203,7 @@ public enum ProjectileType
 {
     Bullet,
     Rocket,
-    Direction
+    Direction,
+    Homing
     
 }
