@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [EnumToggleButtons]
+    public HealthType Type;
     public int MaxHealth;
     public bool RandomHealth;
     public Vector2Int RandomHealthRange;
@@ -30,12 +33,15 @@ public class Health : MonoBehaviour
         
         if (CurrentHealth - value <= 0)
         {
+            if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0);
+            OnHealthLost?.Invoke();
             OnHealthZero?.Invoke();
             return true;
         }
 
         CurrentHealth = CurrentHealth - value;
         OnHealthLost?.Invoke();
+        if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
         return false;
     }
 
@@ -61,4 +67,32 @@ public class Health : MonoBehaviour
     {
         _isInvulnerable = flag;
     }
+    
+    [Button, GUIColor("$GetInvulnerableToggleColor")]
+    public void ToggleInvulnerable()
+    {
+        _isInvulnerable = !_isInvulnerable;
+    }
+
+    private Color GetInvulnerableToggleColor
+    {
+        get
+        {
+            if (_isInvulnerable)
+            {
+                return Color.green;
+            }
+            else
+            {
+                return Color.white;
+            }
+        }
+    }
+}
+
+public enum HealthType
+{
+    Player,
+    Enemy,
+    Destructible
 }

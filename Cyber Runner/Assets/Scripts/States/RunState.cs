@@ -21,8 +21,9 @@ public class RunState : PlayerState
         base.OnFixedUpdate();
     }
 
-    public override void OnExit(PlayerState next)
-    {
-        return;
-    }
+    // public override void OnExit(PlayerState next)
+    // {
+    //    base.OnExit(next);
+    // }
+    
 }

@@ -55,7 +55,7 @@ public class Weapon : SerializedMonoBehaviour
     public event Action<WeaponType> OnFire;
 
     protected LazyService<PrefabPool> _prefabPool;
-    protected LazyService<PlayerMovement> _player;
+    protected LazyService<PlayerController> _player;
     protected LazyService<ProjectileManager> _projectileManager;
     protected LazyService<UpgradesManager> _upgradesManager;
 

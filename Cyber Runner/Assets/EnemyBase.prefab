@@ -290,9 +290,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {x: 0, y: 0}
-  MoveSpeed: 2
-  MomentumMultiplier: 4
+  MoveSpeed: 5
+  MomentumMultiplier: 1
   Health: {fileID: 8627022382997731268}
+  Damage: 5
   _expValue: 10
   Renderer: {fileID: 7890644579106078121}
   State: 0
@@ -308,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160a02c892b3e98499de4264f6c491e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Type: 1
   MaxHealth: 5
   RandomHealth: 1
   RandomHealthRange: {x: 5, y: 50}

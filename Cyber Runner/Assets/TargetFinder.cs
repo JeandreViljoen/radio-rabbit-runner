@@ -18,18 +18,18 @@ public class TargetFinder : MonoBehaviour
 {
     public TargetingType TargetType;
     public SpriteRenderer TargetGraphic;
-    PlayerMovement _player;
+    PlayerController _player;
     private Color gizmoColor;
     void Start()
     {
-        if (_player == null) _player = ServiceLocator.GetService<PlayerMovement>();
+        if (_player == null) _player = ServiceLocator.GetService<PlayerController>();
     }
     
     void Update()
     {
         transform.Rotate(Vector3.forward, 30*Time.deltaTime);
 
-        if (_player == null) _player = ServiceLocator.GetService<PlayerMovement>();
+        if (_player == null) _player = ServiceLocator.GetService<PlayerController>();
         
         if (TargetType == TargetingType.Closest && _player.Targets.ClosestEnemy != null)
         {

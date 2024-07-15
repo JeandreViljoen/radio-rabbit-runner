@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _player;
+    [SerializeField] private PlayerController _player;
     [SerializeField] private Vector3 _offset;
     [SerializeField] private float _smoothing;
     [SerializeField] private float _smoothingMax;

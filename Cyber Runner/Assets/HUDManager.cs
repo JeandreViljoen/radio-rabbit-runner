@@ -7,15 +7,15 @@ using UnityEngine;
 public class HUDManager : MonoService
 {
     [SerializeField] private TextMeshProUGUI _speedField;
+    [SerializeField] private TextMeshProUGUI _healthTextField;
     
 
 
     void Start()
     {
-        
+       
     }
 
-    
     void Update()
     {
         
@@ -24,5 +24,10 @@ public class HUDManager : MonoService
     public void SetSpeedValue(float speed)
     {
         _speedField.text = "Speed: " + speed;
+    }
+
+    public void SetHealthDisplay(int amount)
+    {
+        _healthTextField.text = "HEALTH: " + amount;
     }
 }

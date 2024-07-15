@@ -18,7 +18,7 @@ public class FollowTransform : MonoBehaviour
     
     void Update()
     {
-        _smoothingDelta = Help.Map(ServiceLocator.GetService<PlayerMovement>().CurrentRunSpeed, 30, 50, 0f, 0.05f,
+        _smoothingDelta = Help.Map(ServiceLocator.GetService<PlayerController>().CurrentRunSpeed, 30, 50, 0f, 0.05f,
             true); 
     }
     

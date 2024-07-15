@@ -2,19 +2,26 @@ using UnityEngine;
 
 public abstract class PlayerState : MonoBehaviour
 {
-    protected PlayerMovement _player;
+    protected PlayerController _player;
     [SerializeField] protected AnimationClip Animation;
     
     public virtual void OnEnter() { }
     public virtual void OnUpdate() { }
     public virtual void OnFixedUpdate() { }
-    public virtual void OnExit(PlayerState state) { }
+
+    public virtual void OnExit(PlayerState state)
+    {
+        if (state == _player.DeadState)
+        {
+            _player.DeadState.PreDeathState = this;
+        }
+    }
 
     public virtual void OnInit() { }
 
-    public void Init(PlayerMovement playerMovement)
+    public void Init(PlayerController playerController)
     {
-        _player = playerMovement;
+        _player = playerController;
         OnInit();
     }
     
@@ -27,5 +34,10 @@ public abstract class PlayerState : MonoBehaviour
     protected void SetAnimation()
     {
         _player.SpriteAnim.Play(Animation);
+    }
+    
+    protected void SetAnimation(AnimationClip clipToSet)
+    {
+        _player.SpriteAnim.Play(clipToSet);
     }
 }

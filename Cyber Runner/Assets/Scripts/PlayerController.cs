@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoService
+public class PlayerController : MonoService
 {
     
     
@@ -54,6 +54,8 @@ public class PlayerMovement : MonoService
     [SerializeField] public AirDashState AirDashState;
     [FoldoutGroup("State References")]
     [SerializeField] public CornerState CornerState;
+    [FoldoutGroup("State References")]
+    [SerializeField] public DeadState DeadState;
 
     [HideInInspector] public Rigidbody2D RB;
     [HideInInspector] public Collider2D Collider;
@@ -65,8 +67,8 @@ public class PlayerMovement : MonoService
     public SpriteAnim SpriteAnim;
     [FoldoutGroup("Visual References")]
     public SpriteAnim PlayerRenderer;
-    
-    
+
+    public Health Health;
 
     public float CurrentRunSpeed => RB.velocity.x;
     [SerializeField]private float _speed;
@@ -148,11 +150,15 @@ public class PlayerMovement : MonoService
         RB = GetComponent<Rigidbody2D>();
         Collider = GetComponent<Collider2D>();
         ConstantForce = GetComponent<ConstantForce2D>();
+        Health = GetComponent<Health>();
         
         _startingGravityScale = RB.gravityScale;
     }
 
-   
+    private void SetDeathState()
+    {
+        ActiveState = DeadState;
+    }
 
     void Start()
     {
@@ -162,24 +168,38 @@ public class PlayerMovement : MonoService
         DashState.Init(this);
         AirDashState.Init(this);
         CornerState.Init(this);
+        DeadState.Init(this);
         
         ActiveState = RunState;
-        
-        if (RB == null || Collider == null || ConstantForce == null)
+
+        Health.OnHealthZero += SetDeathState;
+
+            if (RB == null || Collider == null || ConstantForce == null)
         {
            Help.Debug(GetType(), "Start", "Rigidbody, Constant Force or collider is null");
         }
     }
 
+    public bool IsDead()
+    {
+        return ActiveState == DeadState;
+    }
+
     void Update()
     {
         PlayerVisuals.transform.position = this.transform.position;
-        PlayerRenderer.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
+
+        if (!IsDead())
+            PlayerRenderer.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
+        else
+            PlayerRenderer.Speed = 1;
+        
+        
         //For Inspector display only
         _speed = CurrentRunSpeed;
         ServiceLocator.GetService<HUDManager>().SetSpeedValue(_speed);
         
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !IsDead())
         {
             if (IsJumping && _hasDoubleJumped)
             {
@@ -205,7 +225,7 @@ public class PlayerMovement : MonoService
             
         }
         
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && !IsDead())
         {
             if (IsDashing)
             {
@@ -232,6 +252,11 @@ public class PlayerMovement : MonoService
             ConstantForce.force -= new Vector2(5,0);
         }
         
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Health.RemoveHealth(99999);
+        }
+        
         
         if(_activeState) _activeState.OnUpdate();
     }
@@ -243,6 +268,8 @@ public class PlayerMovement : MonoService
 
     public event Action OnLanded;
     private bool _ignoreFirstFloorTriggerFlag = true;
+    public bool IsGrounded { get; private set; } = true;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         
@@ -254,6 +281,7 @@ public class PlayerMovement : MonoService
                 return;
             }
             OnLanded?.Invoke();
+            IsGrounded = true;
         }
 
         if (col.CompareTag("Corner"))
@@ -263,6 +291,19 @@ public class PlayerMovement : MonoService
                 ActiveState = CornerState;
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Floor"))
+        {
+            IsGrounded = false;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Health.OnHealthZero -= SetDeathState;
     }
 
     public enum DamageSource

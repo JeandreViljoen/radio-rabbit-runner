@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private float additionalMoveSpeed = 0;
     public float MomentumMultiplier = 2;
     public Health Health;
+    public int Damage = 0;
     [SerializeField] private int _expValue;
     public SpriteRenderer Renderer;
     public float DistanceFromPlayer { get; private set; }
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
     private int _calculationFrameSkips = 10;
     private int _frameSkipCounter = 0;
 
-    private LazyService<PlayerMovement> _player;
+    private LazyService<PlayerController> _player;
     private LazyService<EXPManager> _expManager;
 
     public EnemyState State = EnemyState.Active;
@@ -60,7 +61,7 @@ public class Enemy : MonoBehaviour
 
     private void CheckMaxHealthTargeting()
     {
-        Targets targets = ServiceLocator.GetService<PlayerMovement>().Targets;
+        Targets targets = ServiceLocator.GetService<PlayerController>().Targets;
         if (targets.HighestHealth == null)
         {
             targets.SetHighestHealthEnemy(this);
@@ -136,7 +137,7 @@ public class Enemy : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (State == EnemyState.Dead )
+        if (State == EnemyState.Dead || _player.Value.IsDead())
         {
             //transform.position =
                 //Vector2.MoveTowards(this.transform.position, _player.Value.transform.position, (MoveSpeed +additionalMoveSpeed) * Time.deltaTime);
@@ -224,6 +225,7 @@ public class Enemy : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             Health.RemoveHealth(99999);
+            col.gameObject.GetComponent<PlayerController>().Health.RemoveHealth(Damage);
             return;
         }
         

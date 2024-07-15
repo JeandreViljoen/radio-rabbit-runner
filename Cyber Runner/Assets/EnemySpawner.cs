@@ -25,7 +25,9 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnTicker()
     {
-        while (true)
+        PlayerController _player = ServiceLocator.GetService<PlayerController>();
+        
+        while (!_player.IsDead())
         {
             yield return new WaitForSeconds(SpawnRate);
             Enemy enemy = _pool.Value.Get(EnemyPrefab).GetComponent<Enemy>();
