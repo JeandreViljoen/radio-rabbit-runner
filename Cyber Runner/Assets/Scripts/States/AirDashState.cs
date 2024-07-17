@@ -12,6 +12,7 @@ public class AirDashState : PlayerState
     private bool _airDashCooldownActive;
     public override void OnEnter()
     {
+        _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
         _player.Gravity = false;
@@ -38,6 +39,8 @@ public class AirDashState : PlayerState
 
     public override void OnExit(PlayerState next)
     {
+        base.OnExit(next);
+        _player.Health.SetInvulnerable(false);
         return;
     }
     

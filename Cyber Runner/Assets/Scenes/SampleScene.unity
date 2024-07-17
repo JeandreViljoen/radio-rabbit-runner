@@ -1684,6 +1684,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1833,6 +1834,27 @@ MonoBehaviour:
   _smoothingRatio: 7.5
   _zDistanceMin: 0
   _zDistanceMax: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ef028cf8b56b34eb70fa443d7fdd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
 --- !u!1 &523901094
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,12 +8643,13 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   StartBlock: {fileID: 1059232120}
+  SafeBlock: {fileID: 721297289305974566, guid: e0b5382002fb0244e8ab8423afcd17ac, type: 3}
+  SafeZoneFlag: 0
   _levelBlockPrefabs:
-  - {fileID: 3432441254948290606, guid: 1727eaa581a2fab4e80b50b0fb55455b, type: 3}
-  - {fileID: 1854781252303375040, guid: 747d15ca9068b7d40850e352c775564b, type: 3}
-  - {fileID: 4745281176161902657, guid: 907b542cc71c4994db5090a9bd55a692, type: 3}
+  - {fileID: 4296281924181792580, guid: 55da325b30a0a15438cf1623a6bbada0, type: 3}
+  - {fileID: 8396288858772523747, guid: 2c89e813f065f1e4ead15dc6e4f2f760, type: 3}
   LoadedBlocks: []
-  FrontBlockBuffer: 2
+  FrontBlockBuffer: 1
   BackBlockBuffer: 2
 --- !u!1001 &1059232119
 PrefabInstance:
@@ -9592,6 +9615,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 5062032849328432999, guid: 220052441107f4149a01eb832327c734, type: 3}
   SpawnRate: 0.3
   rect: {fileID: 1325958682}
+  IsActive: 1
 --- !u!1 &1365358182
 GameObject:
   m_ObjectHideFlags: 0
@@ -10765,7 +10789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  MaxHealth: 100
+  MaxHealth: 99999
   RandomHealth: 0
   RandomHealthRange: {x: 0, y: 0}
 --- !u!1 &1721367437
@@ -12918,6 +12942,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  Spawners:
+  - {fileID: 1325958683}
+  AllEnemies: []
 --- !u!1 &2050832292
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
         State = EnemyState.Active;
         _frameSkipCounter = 0;
         Health.InitHealth();
+        ServiceLocator.GetService<EnemiesManager>().RegisterEnemy(this);
         //CheckMaxHealthTargeting();
     }
 
@@ -155,6 +156,7 @@ public class Enemy : MonoBehaviour
 
     private void ReturnToPool()
     {
+        ServiceLocator.GetService<EnemiesManager>().DeRegisterEnemy(this);
         ServiceLocator.GetService<PrefabPool>().Return(gameObject);
     }
 

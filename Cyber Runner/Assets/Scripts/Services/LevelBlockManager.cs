@@ -11,6 +11,8 @@ public class LevelBlockManager : MonoService
     [Title("Level Block Manager", "Services", TitleAlignments.Centered)]
     
     [SerializeField] private LevelBlock StartBlock;
+    [SerializeField] private LevelBlock SafeBlock;
+    [SerializeField] public bool SafeZoneFlag = false;
     [SerializeField] private List<GameObject> _levelBlockPrefabs;
     public List<LevelBlock> LoadedBlocks = new List<LevelBlock>();
     [Range(0,5)] public int FrontBlockBuffer  = 1;
@@ -37,7 +39,10 @@ public class LevelBlockManager : MonoService
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SafeZoneFlag = !SafeZoneFlag;
+        }
     }
     
     private void InitBlocks()
@@ -57,7 +62,18 @@ public class LevelBlockManager : MonoService
 
     private LevelBlock SpawnBlock(LevelBlock previousBlock)
     {
-        LevelBlock newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+        LevelBlock newBlock;
+        
+        if (SafeZoneFlag)
+        {
+            newBlock = Instantiate(SafeBlock, ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+        }
+        else
+        {
+            newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+        }
+        
+        
         newBlock.transform.position = previousBlock.EndConnection.position;
         newBlock.PreviousBlock = previousBlock;
         previousBlock.NextBlock = newBlock;

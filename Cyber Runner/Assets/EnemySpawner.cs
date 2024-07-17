@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     private LazyService<PrefabPool> _pool;
 
     private int index = 0;
+
+    public bool IsActive = true;
     void Start()
     {
         StartCoroutine(SpawnTicker());
@@ -30,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
         while (!_player.IsDead())
         {
             yield return new WaitForSeconds(SpawnRate);
+            if(!IsActive && !ServiceLocator.GetService<EnemiesManager>().IsBlocked()) continue;
+            
             Enemy enemy = _pool.Value.Get(EnemyPrefab).GetComponent<Enemy>();
             enemy.name = index.ToString();
             index++;

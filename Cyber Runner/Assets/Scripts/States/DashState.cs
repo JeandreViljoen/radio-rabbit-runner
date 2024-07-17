@@ -14,6 +14,7 @@ public class DashState : PlayerState
 
     public override void OnEnter()
     {
+        _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
         _player.RB.AddForce(DashForce);
         StartDash();
@@ -38,7 +39,8 @@ public class DashState : PlayerState
 
     public override void OnExit(PlayerState next)
     {
-        return;
+        base.OnExit(next);
+        _player.Health.SetInvulnerable(false);
     }
     
     public void StartDash()

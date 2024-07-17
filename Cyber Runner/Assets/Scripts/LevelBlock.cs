@@ -17,6 +17,8 @@ public class LevelBlock : MonoBehaviour
 
     public bool IsPlayerInBlock = false;
 
+    public bool IsSafeBlock;
+
     private int _distanceFromPlayer;
 
     public int DistanceFromPlayer
@@ -90,6 +92,17 @@ public class LevelBlock : MonoBehaviour
         {
             SetPlayerActiveInBlock();
             _levelBlockManager.Value.SpawnBlockAtEnd();
+
+            if (IsSafeBlock)
+            {
+                
+                ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
+                ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
+            }
+            else
+            {
+                ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
+            }
         }
     }
 

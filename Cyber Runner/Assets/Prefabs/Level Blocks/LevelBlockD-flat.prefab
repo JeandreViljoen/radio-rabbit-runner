@@ -54,6 +54,7 @@ MonoBehaviour:
   NextBlock: {fileID: 0}
   PreviousBlock: {fileID: 0}
   IsPlayerInBlock: 0
+  IsSafeBlock: 1
 --- !u!61 &6698431584494875670
 BoxCollider2D:
   m_ObjectHideFlags: 0

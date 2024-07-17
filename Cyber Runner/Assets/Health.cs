@@ -45,6 +45,19 @@ public class Health : MonoBehaviour
         return false;
     }
 
+    public void DelayedRemoveHealth(int value, float delay)
+    {
+        StartCoroutine(DelayDamage(delay));
+        
+        IEnumerator DelayDamage(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            RemoveHealth(value);
+        }
+    }
+    
+    
+
     void Start()
     {
         InitHealth();
