@@ -88,19 +88,24 @@ public class LevelBlock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //If player enters block
         if (other.CompareTag("Player"))
         {
+            //Update player position
             SetPlayerActiveInBlock();
+            //Append a new block to end
             _levelBlockManager.Value.SpawnBlockAtEnd();
 
             if (IsSafeBlock)
             {
-                
+                //If tagged safe: Turn off enemies and kill them, then draft random upgrades
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
+                ServiceLocator.GetService<UpgradesManager>().DraftRandomUpgrades(3);
             }
             else
             {
+                //If tagged not safe: Resume gameplay
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
             }
         }

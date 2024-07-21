@@ -151,4 +151,9 @@ public class UpgradesManager : MonoService
         
         return weaponType;
     }
+
+    public void DraftRandomUpgrades(int amount)
+    {
+        
+    }
 }

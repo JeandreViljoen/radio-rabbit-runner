@@ -34,7 +34,7 @@ public class UpgradeCard : Selectable, ISubmitHandler
         _typeField.text = _data.Type.ToString();
         _displayNameField.text = _data.DisplayName;
         _descriptionField.text = TokenizeDescriptionValue(_data.Description, "{value}");
-        _descriptionField.text = TokenizeDescriptionTarget(_data.Description, "{targetType}");
+        _descriptionField.text = TokenizeDescriptionTarget(_descriptionField.text, "{targetType}");
     }
 
     private string TokenizeDescriptionValue(string input, string delim)
