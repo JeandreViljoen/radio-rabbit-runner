@@ -190,9 +190,17 @@ public class PlayerController : MonoService
         PlayerVisuals.transform.position = this.transform.position;
 
         if (!IsDead())
+        {
             PlayerRenderer.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
+            ServiceLocator.GetService<TVController>().TVBaseAnim.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
+            ServiceLocator.GetService<TVController>().TVFaceAnim.Speed = Help.Map(CurrentRunSpeed, 0, 50, 0f, 2f);
+        }
         else
-            PlayerRenderer.Speed = 1;
+        {
+            PlayerRenderer.Speed = 1f;
+            ServiceLocator.GetService<TVController>().TVBaseAnim.Speed = 1f;
+        }
+           
         
         
         //For Inspector display only

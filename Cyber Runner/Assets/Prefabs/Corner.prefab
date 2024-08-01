@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6959134011177316163}
   - component: {fileID: 1723156505869284915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Corner
   m_TagString: Corner
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -64,7 +64,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -1.46, y: -0.36}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,5 +75,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.2}
+  m_Size: {x: 2.96, y: 1.04}
   m_EdgeRadius: 0

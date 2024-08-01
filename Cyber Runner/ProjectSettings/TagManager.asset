@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - ProjectileSpawnPoint
   - Projectile
+  - Explosion
   layers:
   - Default
   - TransparentFX

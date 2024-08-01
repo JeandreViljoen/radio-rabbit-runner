@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
@@ -60,7 +61,36 @@ public class Targets : MonoBehaviour
         
     }
 
-   
+    public Enemy GetTarget(TargetingType type)
+    {
+        switch (type)
+        {
+            case TargetingType.None:
+                break;
+            case TargetingType.Closest:
+                return ClosestEnemy;
+                break;
+            case TargetingType.Furthest:
+                return FurthestEnemy;
+                break;
+            case TargetingType.HighestHealth:
+                return HighestHealth;
+                break;
+            case TargetingType.LowestHealth:
+                return LowestHealth;
+                break;
+            case TargetingType.Random:
+                //TODO
+                break;
+            case TargetingType.Direction:
+                //TODO
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
+
+        return null;
+    }
     
     
 }

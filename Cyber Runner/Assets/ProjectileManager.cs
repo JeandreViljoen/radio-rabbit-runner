@@ -96,5 +96,26 @@ public class ProjectileManager : MonoService
         
         projectile.Renderer.color = color;
     }
+    
+    public GameObject ExplosionPrefab;
+    public void SpawnExplosion(Vector3 position ,int damage, float sizeMultiplier = 1f)
+    {
+        Explosion exp = _prefabPool.Value.Get(ExplosionPrefab).GetComponent<Explosion>();
+        exp.Damage = damage;
+        exp.transform.localScale *= sizeMultiplier;
+        //exp.transform.parent = gameObject.transform;
+        exp.transform.position = position;
+        exp.DoExplosion();
+    }
+    
+    public void SpawnDelayedExplosion(float delay, Vector3 position ,int damage, float sizeMultiplier = 1f)
+    {
+        StartCoroutine(Explode());
+        IEnumerator Explode()
+        {
+            yield return new WaitForSeconds(delay);
+            SpawnExplosion(position, damage, sizeMultiplier);
+        }
+    }
 
 }

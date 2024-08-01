@@ -59,7 +59,7 @@ public class LevelBlockManager : MonoService
         
         StartBlock.SetPlayerActiveInBlock();
     }
-
+    
     private LevelBlock SpawnBlock(LevelBlock previousBlock)
     {
         LevelBlock newBlock;

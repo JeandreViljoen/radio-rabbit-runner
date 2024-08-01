@@ -21,6 +21,7 @@ public class CornerState : PlayerState
     
     public override void OnEnter()
     {
+        DisableDash();
         _player.Gravity = true;
         _player.IsJumping = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
@@ -40,6 +41,6 @@ public class CornerState : PlayerState
 
     public override void OnExit(PlayerState next)
     {
-        return;
+        base.OnExit(next);
     }
 }

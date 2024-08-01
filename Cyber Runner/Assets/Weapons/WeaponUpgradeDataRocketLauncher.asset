@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dca4cf4d454384bb635cf7c2f26def, type: 3}
+  m_Name: WeaponUpgradeDataRocketLauncher
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: WeaponType
+      Entry: 3
+      Data: 1
+  Upgrades:
+  - Name: Unlock
+    DisplayName: Rocket Launcher
+    Value: 0
+    Description: Unlocks the rocket Launcher. Slow moving and slow firing homing
+      rocket that will cause an explosion on impact.
+    ID: 1
+    Type: 1
+  - Name: FireRate1
+    DisplayName: Fire Rate I
+    Value: 20
+    Description: Increase fire rate by {value}%.
+    ID: 2
+    Type: 1
+  - Name: IncreaseDamage1
+    DisplayName: Damage Increase I
+    Value: 30
+    Description: Explosions do {value}% more damage.
+    ID: 3
+    Type: 1
+  - Name: BiggerExplosion1
+    DisplayName: Bigger Boom I
+    Value: 20
+    Description: Increase explosion size by {value}%.
+    ID: 4
+    Type: 1
+  - Name: SecondExplosion
+    DisplayName: Aftershock
+    Value: 25
+    Description: '{value}% chance to explode for a 2nd time. Doing 50% damage in
+      a larger area.'
+    ID: 5
+    Type: 1
+  - Name: IncreaseDamage2
+    DisplayName: Damage Increase II
+    Value: 30
+    Description: Explosions do {value}% more damage.
+    ID: 6
+    Type: 1
+  - Name: BiggerExplosion2
+    DisplayName: Bigger Boom II
+    Value: 20
+    Description: Increase explosion size by {value}%.
+    ID: 7
+    Type: 1
+  - Name: FireRate2
+    DisplayName: Fire Rate II
+    Value: 20
+    Description: Increase fire rate by {value}%.
+    ID: 8
+    Type: 1
+  - Name: MiniExplosions
+    DisplayName: Shrapnel
+    Value: 20
+    Description: 'ON KILL: Spawn a small explosion doing {value}% damage.'
+    ID: 9
+    Type: 1
+  - Name: ExplosiveRounds
+    DisplayName: Explosive Rounds
+    Value: 0
+    Description: Spawn small explosions when projectiles hit enemies.
+    ID: 10
+    Type: 0

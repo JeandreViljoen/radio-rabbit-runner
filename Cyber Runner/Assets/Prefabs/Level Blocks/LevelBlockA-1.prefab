@@ -85,6 +85,7 @@ MonoBehaviour:
   NextBlock: {fileID: 0}
   PreviousBlock: {fileID: 0}
   IsPlayerInBlock: 0
+  IsSafeBlock: 0
 --- !u!61 &8049355968938425967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20828,29 +20829,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4917729623348722762}
     m_Modifications:
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.36
-      objectReference: {fileID: 0}
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20910,29 +20891,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4917729623348722762}
     m_Modifications:
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.36
-      objectReference: {fileID: 0}
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20992,29 +20953,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4917729623348722762}
     m_Modifications:
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.36
-      objectReference: {fileID: 0}
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21074,29 +21015,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4917729623348722762}
     m_Modifications:
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.36
-      objectReference: {fileID: 0}
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21156,29 +21077,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4917729623348722762}
     m_Modifications:
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.x
-      value: 2.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.x
-      value: -1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1723156505869284915, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.36
-      objectReference: {fileID: 0}
     - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_Name
       value: Corner
-      objectReference: {fileID: 0}
-    - target: {fileID: 2710576886875089640, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6959134011177316163, guid: dc19370a4b5e8d2409352f8c4f518b6a, type: 3}
       propertyPath: m_LocalPosition.x

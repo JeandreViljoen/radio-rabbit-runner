@@ -105,7 +105,18 @@ public class ProjectileBase : MonoBehaviour
     [HideInInspector] public float Speed;
     [HideInInspector] public int Damage;
     [HideInInspector] public int Spread = 0;
+    [ShowIf("IsHoming")] public float Acceleration = 1f;
 
+    private bool IsHoming()
+    {
+        if (Type == ProjectileType.Homing)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
     [HideInInspector]  public Vector3 TargetLocation { get; private set; }
     protected Vector2 _direction = Vector2.zero;
     protected LazyService<PrefabPool> _prefabPool;
@@ -193,7 +204,12 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Bullet:
                 break;
             case ProjectileType.Homing:
-                TargetLocation = TargetEntity.transform.localPosition;
+
+                PlayerController player = ServiceLocator.GetService<PlayerController>();
+                Weapon rocketLauncher = ServiceLocator.GetService<UpgradesManager>()
+                    .GetWeaponInstance(WeaponType.RocketLauncher);
+                Enemy lastTarget = player.Targets.GetTarget(rocketLauncher.TargetType);
+                TargetEntity =  lastTarget != null ? lastTarget.gameObject : TargetEntity;
                 break;
             case ProjectileType.Ray:
                 Renderer.transform.position = TargetLocation;
@@ -237,7 +253,7 @@ public class ProjectileBase : MonoBehaviour
                 //transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Homing:
-                Speed *= 1.1f;
+                Speed *= Acceleration;
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
             case ProjectileType.Ray:

@@ -24,6 +24,12 @@ public class AirDashState : PlayerState
     public override void OnUpdate()
     {
         float theoreticalMaxSpeed = _player.ConstantForce.force.x / _player.RB.drag;
+        
+        if (_player.CurrentRunSpeed <= 1)
+        {
+            DisableDash();
+            _player.ActiveState = _player.RunState;
+        }
 
         if ( Math.Abs( _player.CurrentRunSpeed - theoreticalMaxSpeed) < AirDashDisableBuffer  && !_airDashCooldownActive)
         {
@@ -39,6 +45,7 @@ public class AirDashState : PlayerState
 
     public override void OnExit(PlayerState next)
     {
+        
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
         return;

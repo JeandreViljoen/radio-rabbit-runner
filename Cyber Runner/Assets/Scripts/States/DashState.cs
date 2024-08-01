@@ -25,6 +25,12 @@ public class DashState : PlayerState
     {
         float theoreticalMaxSpeed = _player.ConstantForce.force.x / _player.RB.drag;
 
+        if (_player.CurrentRunSpeed <= 1)
+        {
+            DisableDash();
+            _player.ActiveState = _player.RunState;
+        }
+
         if ( Math.Abs( _player.CurrentRunSpeed - theoreticalMaxSpeed) < DashDisableBuffer  && !_dashCooldownActive)
         {
             DisableDash();

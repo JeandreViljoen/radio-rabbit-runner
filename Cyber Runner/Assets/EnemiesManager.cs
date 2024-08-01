@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
@@ -10,6 +11,7 @@ public class EnemiesManager : MonoService
     public List<Enemy> AllEnemies = new List<Enemy>();
 
     private bool _forceBlockNewEnemySpawns = false;
+    public event Action<Enemy> OnEnemyKilled;
     
     void Start()
     {
@@ -27,8 +29,11 @@ public class EnemiesManager : MonoService
         {
             spawner.IsActive = flag;
         }
+    }
 
-       
+    public void InvokeEnemyKilled(Enemy enemy)
+    {
+        OnEnemyKilled?.Invoke(enemy);
     }
 
     public void KillAllEnemies(float time = 0)

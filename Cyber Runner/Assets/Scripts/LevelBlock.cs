@@ -107,6 +107,7 @@ public class LevelBlock : MonoBehaviour
             {
                 //If tagged not safe: Resume gameplay
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
+                ServiceLocator.GetService<LevelManager>().CurrentLevelBlockCount++;
             }
         }
     }

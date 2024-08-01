@@ -170,6 +170,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
+        ServiceLocator.GetService<EnemiesManager>().InvokeEnemyKilled(this);
         _expManager.Value.AddEXP(_expValue);
         gameObject.layer = 11;
         transform.parent = null;
