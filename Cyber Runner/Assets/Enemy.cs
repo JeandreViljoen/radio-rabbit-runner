@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     private LazyService<PlayerController> _player;
     private LazyService<EXPManager> _expManager;
+    private LazyService<UpgradesManager> _upgradesManager;
 
     public EnemyState State = EnemyState.Active;
 
@@ -171,7 +172,8 @@ public class Enemy : MonoBehaviour
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
         ServiceLocator.GetService<EnemiesManager>().InvokeEnemyKilled(this);
-        _expManager.Value.AddEXP(_expValue);
+        ProcessEXP();
+        CheckVampirism();
         gameObject.layer = 11;
         transform.parent = null;
         ClearTargets();
@@ -184,6 +186,25 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(preDeathTime/2);
        
         ReturnToPool();
+    }
+
+    private void ProcessEXP()
+    {
+        _expManager.Value.AddEXP(_expValue);
+    }
+
+    private void CheckVampirism()
+    {
+        if (_upgradesManager.Value.HasPerkGroup(PerkGroup.Vampirism, out float val))
+        {
+            int rng = UnityEngine.Random.Range(0,101);
+
+            if (rng <= val)
+            {
+                _player.Value.Health.AddHealth(1);
+            }
+            
+        }
     }
 
     private Tween _damageTween;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Services;
 using UnityEngine;
+using Random = System.Random;
 
 public class UIManager : MonoBehaviour
 {
@@ -54,7 +55,37 @@ public class UIManager : MonoBehaviour
             for (var index = 0; index < Cards.Count; index++)
             {
                 var card = Cards[index];
-                card.Init(_upgradesManager.Value.GetNextUpgradeForWeapon(TestList[index]));
+
+                float rng = UnityEngine.Random.Range(0f,1f);
+                if (rng<= 0.5)
+                {
+                    UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
+                    if (upgrade != UpgradeType.None)
+                    {
+                        card.Init(upgrade);
+                    }
+                    else
+                    {
+                        PerkType perk = _upgradesManager.Value.GetRandomUnOwnedPerk();
+                        card.Init(perk);
+                    }
+                    
+                }
+                else
+                {
+                    PerkType perk = _upgradesManager.Value.GetRandomUnOwnedPerk();
+                    if (perk != PerkType.None)
+                    {
+                        card.Init(perk);
+                    }
+                    else
+                    {
+                        UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
+                        card.Init(upgrade);
+                    }
+                    
+                }
+                
                 card.Show();
                 yield return new WaitForSecondsRealtime(DraftRevealInterval);
             }

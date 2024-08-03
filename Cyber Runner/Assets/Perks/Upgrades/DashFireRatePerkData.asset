@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5375ef0aed4d4cd4f817dfd0a0888fd4, type: 3}
+  m_Name: DashFireRatePerkData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GroupType
+      Entry: 3
+      Data: 2
+  IsImplemented: 1
+  Upgrades:
+  - Name: DashFireRate_1
+    DisplayName: Hyperdrive I
+    Value: 33
+    Description: Increase fire rate by {value}% while dashing.
+    ID: 1
+    GroupType: 2
+  - Name: DashFireRate_2
+    DisplayName: Hyperdrive II
+    Value: 66
+    Description: Increase fire rate by {value}% while dashing.
+    ID: 2
+    GroupType: 2
+  - Name: DashFireRate_3
+    DisplayName: Hyperdrive III
+    Value: 100
+    Description: Increase fire rate by {value}% while dashing.
+    ID: 3
+    GroupType: 2
+  BaseEnumName: DashFireRate

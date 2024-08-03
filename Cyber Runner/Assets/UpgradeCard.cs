@@ -21,7 +21,9 @@ public class UpgradeCard : Selectable
     [FoldoutGroup("References"), SerializeField] private UIAnimation _uiAnim;
 
     private LazyService<UpgradesManager> _upgradesManager;
-    private UpgradeData _data;
+    private UpgradeData _weaponData;
+    private PerkUpgradeInfo _perkData;
+    private InfoPanelType _panelType;
     void Start()
     {
         _uiAnim.OnHideEnd += CheckIfMoreDrafts;
@@ -34,14 +36,28 @@ public class UpgradeCard : Selectable
 
     public void Init(UpgradeType upgrade)
     {
-        _data = _upgradesManager.Value.GetUpgradeData(upgrade);
+        _panelType = InfoPanelType.WEAPON;
+        _weaponData = _upgradesManager.Value.GetUpgradeData(upgrade);
 
 
-        _levelField.text = "LEVEL " + (_upgradesManager.Value.GetWeaponInstance(_data.Type).Level + 1);
-        _typeField.text = _data.Type.ToString();
-        _displayNameField.text = _data.DisplayName;
-        _descriptionField.text = TokenizeDescriptionValue(_data.Description, "{value}");
+        _levelField.text = "LEVEL " + (_upgradesManager.Value.GetWeaponInstance(_weaponData.Type).Level + 1);
+        _typeField.text = _weaponData.Type.ToString();
+        _displayNameField.text = _weaponData.DisplayName;
+        _descriptionField.text = TokenizeDescriptionValue(_weaponData.Description, "{value}");
         _descriptionField.text = TokenizeDescriptionTarget(_descriptionField.text, "{targetType}");
+        interactable = true;
+    }
+    
+    public void Init(PerkType perkUpgrade)
+    {
+        _panelType = InfoPanelType.PERK;
+        _perkData = _upgradesManager.Value.GetPerkInfo(perkUpgrade);
+
+
+        _levelField.text = "LEVEL " + (_upgradesManager.Value.GetPerkInstance(_perkData.GroupType).Level + 1);
+        _typeField.text = "PERK";
+        _displayNameField.text = _perkData.DisplayName;
+        _descriptionField.text = TokenizeDescriptionValue(_perkData.Description, "{value}");
         interactable = true;
     }
 
@@ -63,12 +79,22 @@ public class UpgradeCard : Selectable
         {
             return input;
         }
-        string output = parts[0] + _data.Value + parts[1];
+        
+        string output = "";
 
-       
+        switch (_panelType)
+        {
+            case InfoPanelType.WEAPON:
+                output = parts[0] + _weaponData.Value + parts[1];
+                break;
+            case InfoPanelType.PERK:
+                output = parts[0] + _perkData.Value + parts[1];
+                break;
+        }
+        
         return output;
     }
-    
+
     private string TokenizeDescriptionTarget(string input, string delim)
     {
         string[] parts = input.Split(delim);
@@ -77,7 +103,7 @@ public class UpgradeCard : Selectable
         {
             return input;
         }
-        string output = parts[0] + _upgradesManager.Value.GetWeaponInstance(_data.Type).TargetType + parts[1];
+        string output = parts[0] + _upgradesManager.Value.GetWeaponInstance(_weaponData.Type).TargetType + parts[1];
 
        
         return output;
@@ -115,7 +141,18 @@ public class UpgradeCard : Selectable
 
     public void Submit()
     {
-        _upgradesManager.Value.GetWeaponInstance(_data.Type).LevelUp();
+        switch (_panelType)
+        {
+            case InfoPanelType.WEAPON:
+                _upgradesManager.Value.GetWeaponInstance(_weaponData.Type).LevelUp();
+                break;
+            case InfoPanelType.PERK:
+                _upgradesManager.Value.GetPerkInstance(_perkData.GroupType).LevelUp();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
         interactable = false;
     }
 
@@ -151,4 +188,10 @@ public enum InfoPanelState
     Shown,
     Highlighted,
     Submitted
+}
+
+public enum InfoPanelType
+{
+    WEAPON,
+    PERK
 }

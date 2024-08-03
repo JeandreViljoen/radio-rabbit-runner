@@ -33,6 +33,9 @@ public class ProjectileBase : MonoBehaviour
     HashSet<string> _raycastHitBuffers = new HashSet<string>();
     //private List<GameObject> _raycastHitBuffers;
 
+    private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<PlayerController> _player;
+
     private GameObject _targetEntity;
     public GameObject TargetEntity
     {
@@ -286,7 +289,20 @@ public class ProjectileBase : MonoBehaviour
         {
             if (_raycastHitBuffers.Add(col.gameObject.GetInstanceID().ToString()))
             {
-                if ( col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(Damage))
+                int modifiedDamage = Damage;
+
+                if (_upgradesManager.Value.HasPerkGroup(PerkGroup.IncreaseDamageFromMissingHealth, out float value))
+                {
+                    int healthDifference = _player.Value.Health.MaxHealth - _player.Value.Health.CurrentHealth;
+                    float damageIncrease = Help.PercentToMultiplier(value * healthDifference);
+
+                    //modifiedDamage = (int)(modifiedDamage * damageIncrease);
+                    modifiedDamage = (int)Math.Round(modifiedDamage * damageIncrease, MidpointRounding.AwayFromZero);
+                    
+                    Debug.Log($"Base damage: {Damage}          |      Modified:    {modifiedDamage}");
+                }
+                
+                if ( col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(modifiedDamage))
                 {
                     DoOnKillEffects();
                 }

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5375ef0aed4d4cd4f817dfd0a0888fd4, type: 3}
+  m_Name: VampirismPerkData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GroupType
+      Entry: 3
+      Data: 5
+  IsImplemented: 1
+  Upgrades:
+  - Name: Vampirism_1
+    DisplayName: Vampirism I
+    Value: 10
+    Description: Kills have a {value}% chance to restore 1 health point.
+    ID: 1
+    GroupType: 5
+  - Name: Vampirism_2
+    DisplayName: Vampirism II
+    Value: 20
+    Description: Kills have a {value}% chance to restore 1 health point.
+    ID: 2
+    GroupType: 5
+  - Name: Vampirism_3
+    DisplayName: Vampirism III
+    Value: 30
+    Description: Kills have a {value}% chance to restore 1 health point.
+    ID: 3
+    GroupType: 5
+  BaseEnumName: Vampirism

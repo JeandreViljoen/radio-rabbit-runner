@@ -26,3 +26,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02098e74c0920f1448e2900892c41a2b, type: 2}
   - {fileID: 11400000, guid: aacdb3434a83dcd4f842d6613025a776, type: 2}
   - {fileID: 11400000, guid: 6e492a8e0bdda5f4891425d0f6a5a160, type: 2}
+  PerkList:
+  - {fileID: 11400000, guid: 81d2465c3d38a294f872ae9fe3d2813e, type: 2}
+  - {fileID: 11400000, guid: fa9c08519a18a924f9769eee745a9b1b, type: 2}
+  - {fileID: 11400000, guid: ad93d64b15277fa45b4b942d57f5bcd7, type: 2}
+  - {fileID: 11400000, guid: 38dc3044527181046b0452a836dd4940, type: 2}
+  - {fileID: 11400000, guid: 8aa1192f320d2dd48a89754e1979e340, type: 2}
+  - {fileID: 11400000, guid: 847bc25aec92be04c84a6c6a501f373f, type: 2}

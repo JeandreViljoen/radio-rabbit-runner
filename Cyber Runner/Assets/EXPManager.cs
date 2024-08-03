@@ -17,6 +17,8 @@ public class EXPManager : MonoService
     [SerializeField] private int _startingEXPNeeded = 100;
     [ShowInInspector, ReadOnly] private int _currentEXPNeeded = 100;
 
+    private LazyService<UpgradesManager> _upgradesManager;
+
     private int _currentEXP = 0;
 
     [ShowInInspector, ReadOnly] public int CurrentEXP
@@ -94,8 +96,15 @@ public class EXPManager : MonoService
         {
             Help.Debug(GetType(), "AddEXP", "Tried to add 0 or negative experience. This should ideally not happen. Returning early for now");
             return;
-        }      
+        }
 
-        CurrentEXP += amount;
+        float modifiedAmount = amount;
+        
+        if (_upgradesManager.Value.HasPerkGroup(PerkGroup.IncreaseEXP, out float val))
+        {
+            modifiedAmount *= 1 + val/100;
+        }
+
+        CurrentEXP += (int)modifiedAmount;
     }
 }

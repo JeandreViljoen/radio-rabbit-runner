@@ -102,8 +102,18 @@ public class Weapon : SerializedMonoBehaviour
         {
             return;
         }
-        
-        if (Time.time - _lastFireTime >= 1/FireRatePerSecond)
+
+        float modifiedFireRate = FireRatePerSecond;
+
+        if (_player.Value.IsDashing)
+        {
+            if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashFireRate, out float val))
+            {
+                modifiedFireRate *= 1 + val / 100;
+            }
+        }
+
+        if (Time.time - _lastFireTime >= 1/modifiedFireRate)
         {
             TryFire();
         }
@@ -297,6 +307,11 @@ public class Weapon : SerializedMonoBehaviour
 
     public UpgradeType GetNextUpgrade()
     {
+        if (_isMaxLevel)
+        {
+            return UpgradeType.None;
+        }
+        
         UpgradeType t = _upgradesData.GetUpgradeAtID(Level+1);
         return t;
     }

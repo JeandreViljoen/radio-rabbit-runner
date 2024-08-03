@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5375ef0aed4d4cd4f817dfd0a0888fd4, type: 3}
+  m_Name: IncreaseEXPPerkData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GroupType
+      Entry: 3
+      Data: 2
+  IsImplemented: 1
+  Upgrades:
+  - Name: IncreaseEXP_1
+    DisplayName: Component Scan I
+    Value: 5
+    Description: Kills provide {value}% more experience
+    ID: 1
+    GroupType: 2
+  - Name: IncreaseEXP_2
+    DisplayName: Component Scan II
+    Value: 10
+    Description: Kills provide {value}% more experience
+    ID: 2
+    GroupType: 2
+  - Name: IncreaseEXP_3
+    DisplayName: Component Scan III
+    Value: 20
+    Description: Kills provide {value}% more experience
+    ID: 3
+    GroupType: 2
+  BaseEnumName: IncreaseEXP

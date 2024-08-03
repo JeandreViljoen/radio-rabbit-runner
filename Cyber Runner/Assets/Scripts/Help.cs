@@ -114,4 +114,9 @@ public static class Help
       }
    }
 
+   public static float PercentToMultiplier(float val)
+   {
+      return 1 + (val / 100);
+   }
+
 }

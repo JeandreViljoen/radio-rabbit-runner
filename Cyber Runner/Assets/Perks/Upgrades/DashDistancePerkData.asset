@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5375ef0aed4d4cd4f817dfd0a0888fd4, type: 3}
+  m_Name: DashDistancePerkData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GroupType
+      Entry: 3
+      Data: 1
+  IsImplemented: 1
+  Upgrades:
+  - Name: DashDistance_1
+    DisplayName: Illegal Propellant I
+    Value: 40
+    Description: Increase dash force by {value}%.
+    ID: 1
+    GroupType: 1
+  - Name: DashDistance_2
+    DisplayName: Illegal Propellant II
+    Value: 60
+    Description: Increase dash force by {value}%.
+    ID: 2
+    GroupType: 1
+  - Name: DashDistance_3
+    DisplayName: Illegal Propellant III
+    Value: 80
+    Description: Increase dash force by {value}%.
+    ID: 3
+    GroupType: 1
+  BaseEnumName: DashDistance

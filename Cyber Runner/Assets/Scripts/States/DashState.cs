@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services;
 using UnityEngine;
 
 public class DashState : PlayerState
@@ -10,13 +11,21 @@ public class DashState : PlayerState
     public float DashDisableBuffer;
     private Coroutine _dashHandle;
     private bool _dashCooldownActive;
-    
+    private LazyService<UpgradesManager> _upgradesManager;
 
     public override void OnEnter()
     {
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
-        _player.RB.AddForce(DashForce);
+
+        Vector2 modifiedDashForce = DashForce;
+        if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))
+        {
+            modifiedDashForce = new Vector2(modifiedDashForce.x * Help.PercentToMultiplier(val), modifiedDashForce.y);
+            Debug.Log($"Dash force base :  {DashForce}         |      modified:   {modifiedDashForce}");
+        }
+
+        _player.RB.AddForce(modifiedDashForce);
         StartDash();
         SetAnimation();
     }
@@ -36,6 +45,7 @@ public class DashState : PlayerState
             DisableDash();
             _player.ActiveState = _player.RunState;
         }
+        
     }
 
     public override void OnFixedUpdate()

@@ -12,6 +12,7 @@ public class Explosion : MonoBehaviour
     private LazyService<PrefabPool> _prefabPool;
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<ProjectileManager> _projectileManager;
+    private LazyService<PlayerController> _player;
 
     private void Awake()
     {
@@ -32,7 +33,18 @@ public class Explosion : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            if (col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(Damage))
+            int modifiedDamage = Damage;
+
+            if (_upgradesManager.Value.HasPerkGroup(PerkGroup.IncreaseDamageFromMissingHealth, out float value))
+            {
+                int healthDifference = _player.Value.Health.MaxHealth - _player.Value.Health.CurrentHealth;
+                float damageIncrease = Help.PercentToMultiplier(value * healthDifference);
+
+                //modifiedDamage = (int)(modifiedDamage * damageIncrease);
+                modifiedDamage = (int)Math.Round(modifiedDamage * damageIncrease, MidpointRounding.AwayFromZero);
+            }
+            
+            if (col.gameObject.GetComponent<Enemy>().Health.RemoveHealth(modifiedDamage))
             {
                 if (_upgradesManager.Value.HasUpgrade(UpgradeType.RocketLauncher_MiniExplosions))
                 {
@@ -40,7 +52,7 @@ public class Explosion : MonoBehaviour
                     pos = col.transform.position;
                     
                     var data = _upgradesManager.Value.GetUpgradeData(UpgradeType.RocketLauncher_MiniExplosions);
-                    _projectileManager.Value.SpawnDelayedExplosion(0.0f, pos, (int)(Damage * (data.Value/100)), 0.5f);
+                    _projectileManager.Value.SpawnDelayedExplosion(0.0f, pos, (int)(Damage * (data.Value/100)), 1f);
                 }
             }
         }
