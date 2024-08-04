@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc015944c1a4c0e47b16b55f9ce170b4, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  LevelInformation:
+  - Level: 0
+    Speed: 15
+    SpawnInterval: 999
+    EnemyPrefabs: []
+    BlockCount: -1
+    Blocks:
+    - {fileID: 1405377041238836386, guid: e0b5382002fb0244e8ab8423afcd17ac, type: 3}
+  - Level: 1
+    Speed: 20
+    SpawnInterval: 0.4
+    EnemyPrefabs:
+    - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
+    BlockCount: 3
+    Blocks:
+    - {fileID: 8396288858772523747, guid: 2c89e813f065f1e4ead15dc6e4f2f760, type: 3}
+    - {fileID: 4296281924181792580, guid: 55da325b30a0a15438cf1623a6bbada0, type: 3}
+  - Level: 2
+    Speed: 25
+    SpawnInterval: 0.3
+    EnemyPrefabs:
+    - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
+    - {fileID: 2187384249032897848, guid: 06b2448cdc47e554e965aa0cecdc1fe7, type: 3}
+    BlockCount: 3
+    Blocks:
+    - {fileID: 4091187657361590043, guid: 4ef322919a3c95949becb3e7e4ab7b46, type: 3}

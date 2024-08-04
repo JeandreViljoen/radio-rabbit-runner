@@ -15,6 +15,8 @@ public class LevelBlock : MonoBehaviour
     [CanBeNull] public LevelBlock NextBlock;
     [CanBeNull] public LevelBlock PreviousBlock;
 
+    private LazyService<LevelManager> _levelManager;
+
     public bool IsPlayerInBlock = false;
 
     public bool IsSafeBlock;
@@ -91,6 +93,11 @@ public class LevelBlock : MonoBehaviour
         //If player enters block
         if (other.CompareTag("Player"))
         {
+            if (_levelManager.Value.CurrentLevel == 0)
+            {
+                _levelManager.Value.AdvanceLevel();
+            }
+            
             //Update player position
             SetPlayerActiveInBlock();
             //Append a new block to end
@@ -107,7 +114,7 @@ public class LevelBlock : MonoBehaviour
             {
                 //If tagged not safe: Resume gameplay
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
-                ServiceLocator.GetService<LevelManager>().CurrentLevelBlockCount++;
+                _levelManager.Value.AdvanceBlockCount();
             }
         }
     }

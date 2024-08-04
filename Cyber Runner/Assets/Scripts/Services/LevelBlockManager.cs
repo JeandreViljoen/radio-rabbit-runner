@@ -1,9 +1,12 @@
+using System;
 using Sirenix.OdinInspector;
 
 using System.Collections;
 using System.Collections.Generic;
 using Services;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class LevelBlockManager : MonoService
 {
@@ -12,11 +15,43 @@ public class LevelBlockManager : MonoService
     
     [SerializeField] private LevelBlock StartBlock;
     [SerializeField] private LevelBlock SafeBlock;
-    [SerializeField] public bool SafeZoneFlag = false;
-    [SerializeField] private List<GameObject> _levelBlockPrefabs;
+
+    private bool _safeZoneFlag = false;
+
+    public bool SafeZoneFlag
+    {
+        get
+        {
+            return _safeZoneFlag;
+        }
+        set
+        {
+            if (value == _safeZoneFlag)
+            {
+                return;
+            }
+
+            //On disable
+            if (value == false)
+            {
+                _levelManager.Value.AdvanceLevel();
+            }
+            //on Enable
+            else 
+            {
+                //TODO: SHOw UI that safety is incoming
+            }
+
+            _safeZoneFlag = value;
+        }
+    }
+    
+    [FormerlySerializedAs("_levelBlockPrefabs")] [SerializeField] private List<GameObject> _defaultLevelBlockPrefabs;
     public List<LevelBlock> LoadedBlocks = new List<LevelBlock>();
     [Range(0,5)] public int FrontBlockBuffer  = 1;
     [Range(0,5)] public int BackBlockBuffer  = 1;
+
+    private LazyService<LevelManager> _levelManager;
 
     private LevelBlock _activeBlock;
 
@@ -47,6 +82,7 @@ public class LevelBlockManager : MonoService
     
     private void InitBlocks()
     {
+        SafeBlock = GlobalGameAssets.Instance.LevelData.GetLevelInfo(0).Blocks[0].GetComponent<LevelBlock>();
         LevelBlock workingBlock = StartBlock;
         LoadedBlocks.Add(StartBlock);
         
@@ -66,10 +102,12 @@ public class LevelBlockManager : MonoService
         
         if (SafeZoneFlag)
         {
-            newBlock = Instantiate(SafeBlock, ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            //Safe blocks
+            newBlock = Instantiate(GetRandomBlockPrefabFromPool(0), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
         }
         else
         {
+            //Normal blocks
             newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
         }
         
@@ -95,9 +133,23 @@ public class LevelBlockManager : MonoService
         Destroy(blockToDestroy.gameObject);
     }
 
-    private GameObject GetRandomBlockPrefabFromPool()
+    private GameObject GetRandomBlockPrefabFromPool(int forceLevel = -1)
     {
-        int selection = Random.Range(0, _levelBlockPrefabs.Count);
-        return _levelBlockPrefabs[selection];
+        int levelToGet = forceLevel < 0 ? _levelManager.Value.CurrentLevel : forceLevel;
+        
+        LevelInfo currentLevelData = GlobalGameAssets.Instance.LevelData.GetLevelInfo(levelToGet);
+        List<GameObject> pool;
+        
+        if (currentLevelData.Blocks.Count > 0)
+        {
+            pool = currentLevelData.Blocks;
+        }
+        else
+        {
+            pool = _defaultLevelBlockPrefabs;
+        }
+       
+        int selection = Random.Range(0, pool.Count);
+        return pool[selection];
     }
 }

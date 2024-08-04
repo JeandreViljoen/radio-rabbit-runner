@@ -8,4 +8,6 @@ public class GlobalGameAssets : ScriptableObjectSingleton<GlobalGameAssets>
 {
     public KeyCode JumpKey;
     public KeyCode DashKey;
+
+    public LevelData LevelData;
 }

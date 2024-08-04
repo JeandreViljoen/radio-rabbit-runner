@@ -9,6 +9,7 @@ public class EnemiesManager : MonoService
     
     public List<EnemySpawner> Spawners = new List<EnemySpawner>();
     public List<Enemy> AllEnemies = new List<Enemy>();
+    
 
     private bool _forceBlockNewEnemySpawns = false;
     public event Action<Enemy> OnEnemyKilled;
@@ -66,5 +67,21 @@ public class EnemiesManager : MonoService
     public bool IsBlocked()
     {
         return _forceBlockNewEnemySpawns;
+    }
+
+    public void SetSpawnRates(float rate)
+    {
+        foreach (var spawner in Spawners)
+        {
+            spawner.SpawnRate = rate;
+        }
+    }
+
+    public void SetEnemyTypesToSpawn(List<GameObject> enemies)
+    {
+        foreach (var spawner in Spawners)
+        {
+            spawner.EnemyPrefabs = enemies;
+        }
     }
 }

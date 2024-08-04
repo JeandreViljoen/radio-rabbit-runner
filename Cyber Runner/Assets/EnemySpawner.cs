@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject EnemyPrefab;
+    public List<GameObject> EnemyPrefabs;
     public float SpawnRate = 1f;
     public RectTransform rect;
     private LazyService<PrefabPool> _pool;
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(SpawnRate);
             if(!IsActive && !ServiceLocator.GetService<EnemiesManager>().IsBlocked()) continue;
             
-            Enemy enemy = _pool.Value.Get(EnemyPrefab).GetComponent<Enemy>();
+            Enemy enemy = _pool.Value.Get(GetRandomEnemy()).GetComponent<Enemy>();
             enemy.name = index.ToString();
             index++;
             enemy.transform.parent = ServiceLocator.GetService<EnemiesManager>().transform;
@@ -47,5 +47,11 @@ public class EnemySpawner : MonoBehaviour
             enemy.transform.position = new Vector2(xPos, yPos);
         }
         
+    }
+
+    private GameObject GetRandomEnemy()
+    {
+        int rng = UnityEngine.Random.Range(0, EnemyPrefabs.Count);
+        return EnemyPrefabs[rng];
     }
 }

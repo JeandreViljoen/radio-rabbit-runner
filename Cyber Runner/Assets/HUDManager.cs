@@ -8,6 +8,7 @@ public class HUDManager : MonoService
 {
     [SerializeField] private TextMeshProUGUI _speedField;
     [SerializeField] private TextMeshProUGUI _healthTextField;
+    [SerializeField] private TextMeshProUGUI _levelTextField;
     
 
 
@@ -29,5 +30,10 @@ public class HUDManager : MonoService
     public void SetHealthDisplay(int amount)
     {
         _healthTextField.text = "HEALTH: " + amount;
+    }
+    
+    public void SetLevelDisplay(int lvl)
+    {
+        _levelTextField.text = "LEVEL: " + lvl;
     }
 }

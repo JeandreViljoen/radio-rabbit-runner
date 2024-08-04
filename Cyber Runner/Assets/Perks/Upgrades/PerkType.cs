@@ -20,3 +20,4 @@ public enum PerkType
 	PierceBasedOnSpeed_2,
 	PierceBasedOnSpeed_3,
 }
+
