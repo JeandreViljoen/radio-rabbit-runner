@@ -35,7 +35,7 @@ MonoBehaviour:
   - Name: ReduceSpread1
     DisplayName: Reduce Spread I
     Value: 50
-    Description: Reduce minigun spread by [value]%.
+    Description: Reduce minigun spread by {value}%.
     ID: 2
     Type: 0
   - Name: FireRate1

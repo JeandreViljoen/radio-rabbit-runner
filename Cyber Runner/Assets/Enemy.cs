@@ -190,7 +190,10 @@ public class Enemy : MonoBehaviour
 
     private void ProcessEXP()
     {
-        _expManager.Value.AddEXP(_expValue);
+        if (!ServiceLocator.GetService<LevelBlockManager>().ActiveBlock.IsSafeBlock)
+        {
+            _expManager.Value.AddEXP(_expValue);
+        }
     }
 
     private void CheckVampirism()
