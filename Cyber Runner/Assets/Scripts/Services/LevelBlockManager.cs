@@ -39,6 +39,7 @@ public class LevelBlockManager : MonoService
             //on Enable
             else 
             {
+                ServiceLocator.GetService<HUDManager>().ShowSafeZoneIncomingBanner();
                 //TODO: SHOw UI that safety is incoming
             }
 
@@ -71,7 +72,7 @@ public class LevelBlockManager : MonoService
     {
         InitBlocks();
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))

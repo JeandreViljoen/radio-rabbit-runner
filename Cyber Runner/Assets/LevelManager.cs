@@ -49,6 +49,7 @@ public class LevelManager : MonoService
     public void AdvanceLevel()
     {
         CurrentLevel++;
+        ServiceLocator.GetService<HUDManager>().ShowGetReadyBanner(CurrentLevel);
     }
 
     void Awake ()

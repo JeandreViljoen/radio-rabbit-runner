@@ -10,7 +10,19 @@ public class HUDManager : MonoService
     [SerializeField] private TextMeshProUGUI _healthTextField;
     [SerializeField] private TextMeshProUGUI _levelTextField;
     
+    [SerializeField] private BannerSwipe _safeZoneIncomingBanner;
+    [SerializeField] private BannerSwipe _getReadyBanner;
 
+    public void ShowSafeZoneIncomingBanner()
+    {
+        _safeZoneIncomingBanner.DoSwipe();
+    }
+    
+    public void ShowGetReadyBanner(int level)
+    {
+        _getReadyBanner.SetText($"LEVEL {level} - GET READY!");
+        _getReadyBanner.DoSwipe();
+    }
 
     void Start()
     {
