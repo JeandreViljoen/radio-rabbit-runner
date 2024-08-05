@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UpgradeCard : Selectable
@@ -18,7 +19,7 @@ public class UpgradeCard : Selectable
     [FoldoutGroup("References"), SerializeField]  private TextMeshProUGUI _displayNameField;
     [FoldoutGroup("References"), SerializeField] private TextMeshProUGUI _descriptionField;
     [FoldoutGroup("References"), SerializeField] private TextMeshProUGUI _levelField;
-    [FoldoutGroup("References"), SerializeField] private UIAnimation _uiAnim;
+    [FormerlySerializedAs("_uiAnim")] [FoldoutGroup("References"), SerializeField] public UIAnimation UIAnim;
 
     private LazyService<UpgradesManager> _upgradesManager;
     private UpgradeData _weaponData;
@@ -26,7 +27,7 @@ public class UpgradeCard : Selectable
     private InfoPanelType _panelType;
     void Start()
     {
-        _uiAnim.OnHideEnd += CheckIfMoreDrafts;
+        UIAnim.OnHideEnd += CheckIfMoreDrafts;
     }
 
     private void CheckIfMoreDrafts()
@@ -63,12 +64,12 @@ public class UpgradeCard : Selectable
 
     public void Show()
     {
-        _uiAnim.Show();
+        UIAnim.Show();
     }
     
     public void Hide()
     {
-        _uiAnim.Hide();
+        UIAnim.Hide();
     }
 
     private string TokenizeDescriptionValue(string input, string delim)
@@ -124,14 +125,14 @@ public class UpgradeCard : Selectable
     public override void OnSelect(BaseEventData eventData)
     {
         base.OnSelect(eventData);
-        _uiAnim.Highlight();
+        UIAnim.Highlight();
         OnSelected?.Invoke(this);
     }
 
     public override void OnDeselect(BaseEventData eventData)
     {
         base.OnDeselect(eventData);
-        _uiAnim.Show();
+        UIAnim.Show();
     }
 
     // public void OnSubmit(BaseEventData eventData)

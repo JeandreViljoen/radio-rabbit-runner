@@ -16,6 +16,7 @@ public class LevelBlock : MonoBehaviour
     [CanBeNull] public LevelBlock PreviousBlock;
 
     private LazyService<LevelManager> _levelManager;
+    private LazyService<UIManager> _uiManager;
 
     public bool IsPlayerInBlock = false;
 
@@ -88,6 +89,7 @@ public class LevelBlock : MonoBehaviour
         OnLevelBlockEnter?.Invoke();
     }
 
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         //If player enters block
@@ -108,7 +110,11 @@ public class LevelBlock : MonoBehaviour
                 //If tagged safe: Turn off enemies and kill them, then draft random upgrades
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
-                ServiceLocator.GetService<UpgradesManager>().DraftRandomUpgrades(3);
+
+                if (!_uiManager.Value.IsDrafting)
+                {
+                    _uiManager.Value.DraftCards(3);
+                }
             }
             else
             {

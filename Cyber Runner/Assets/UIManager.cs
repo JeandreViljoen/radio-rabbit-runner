@@ -5,13 +5,16 @@ using Services;
 using UnityEngine;
 using Random = System.Random;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoService
 {
     public UpgradeCard SelectedCard = null;
     public List<UpgradeCard> Cards;
     public float DraftRevealInterval = 0.15f;
     private LazyService<PlayerController> _player;
     private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<EXPManager> _expManager;
+    private LazyService<LevelBlockManager> _levelBlockManager;
+    public bool IsDrafting = false;
 
     public List<WeaponType> TestList;
 
@@ -21,6 +24,13 @@ public class UIManager : MonoBehaviour
         {
             card.OnSelected += UpdateSelectedCard;
         }
+
+        Cards[^1].UIAnim.OnHideEnd += CheckDraft;
+    }
+
+    void CheckDraft()
+    {
+        DraftCards(0.5f);
     }
 
     void Update()
@@ -46,12 +56,23 @@ public class UIManager : MonoBehaviour
         SelectedCard = card;
     }
 
-    public void DraftCards()
+    public void DraftCards(float preDelay = 0f)
     {
-        StartCoroutine(DelayedDraft());
-        
+        if (_expManager.Value.TryClaimLevel())
+        {
+            IsDrafting = true;
+            StartCoroutine(DelayedDraft());
+        }
+        else
+        {
+            IsDrafting = false;
+            _levelBlockManager.Value.SafeZoneFlag = false;
+        }
+
         IEnumerator DelayedDraft()
         {
+            yield return new WaitForSeconds(preDelay);
+            
             for (var index = 0; index < Cards.Count; index++)
             {
                 var card = Cards[index];

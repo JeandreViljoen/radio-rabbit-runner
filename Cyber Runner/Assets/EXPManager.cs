@@ -19,6 +19,7 @@ public class EXPManager : MonoService
 
     private LazyService<UpgradesManager> _upgradesManager;
 
+    private int _unclaimedLevels = 0;
     private int _currentEXP = 0;
 
     [ShowInInspector, ReadOnly] public int CurrentEXP
@@ -33,12 +34,25 @@ public class EXPManager : MonoService
             if (_currentEXP >= _currentEXPNeeded)
             {
                 int leftover = _currentEXP - _currentEXPNeeded;
-                
+
+                _unclaimedLevels++;
                 CurrentLevel++;
                 CurrentEXP += leftover;
             }
             UpdateEXPBar();
         }
+    }
+
+    public bool TryClaimLevel()
+    {
+        if (_unclaimedLevels > 0)
+        {
+            _unclaimedLevels--;
+            return true;
+        }
+
+        _unclaimedLevels = 0;
+        return false;
     }
 
     public event Action OnLevelUp;
