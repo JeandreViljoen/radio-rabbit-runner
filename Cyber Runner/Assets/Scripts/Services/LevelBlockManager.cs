@@ -14,10 +14,11 @@ public class LevelBlockManager : MonoService
     [Title("Level Block Manager", "Services", TitleAlignments.Centered)]
     
     [SerializeField] private LevelBlock StartBlock;
-    [SerializeField] private LevelBlock StartPrefab;
+    [SerializeField] private GameObject StartPrefab;
     [SerializeField] private LevelBlock SafeBlock;
 
     private LazyService<GameStateManager> _stateManager;
+    private LazyService<PrefabPool> _prefabPool;
 
     public bool IsInSafeZone => _activeBlock.IsSafeBlock;
     
@@ -109,22 +110,26 @@ public class LevelBlockManager : MonoService
 
         if (_stateManager.Value.ActiveState == GameState.Start  || _stateManager.Value.ActiveState == GameState.StartDraft)
         {
-            newBlock = Instantiate(StartPrefab, ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            //newBlock = Instantiate(StartPrefab, ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            newBlock = _prefabPool.Value.Get(StartPrefab).GetComponent<LevelBlock>();
         }
         else
         {
             if (SafeZoneFlag)
             {
                 //Safe blocks
-                newBlock = Instantiate(GetRandomBlockPrefabFromPool(0), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+                newBlock = _prefabPool.Value.Get(GetRandomBlockPrefabFromPool(0)).GetComponent<LevelBlock>();
+                //newBlock = Instantiate(GetRandomBlockPrefabFromPool(0), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
             }
             else
             {
                 //Normal blocks
-                newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+                newBlock = _prefabPool.Value.Get(GetRandomBlockPrefabFromPool()).GetComponent<LevelBlock>();
+                //newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
             }
         }
-
+        
+        newBlock.transform.parent = ServiceLocator.GetService<LevelManager>().WorldGrid.transform;
         newBlock.transform.position = previousBlock.EndConnection.position;
         newBlock.PreviousBlock = previousBlock;
         previousBlock.NextBlock = newBlock;
@@ -142,8 +147,11 @@ public class LevelBlockManager : MonoService
     public void DestroyBlock(LevelBlock blockToDestroy)
     {
         blockToDestroy.NextBlock.PreviousBlock = null;
+        blockToDestroy.PreviousBlock = null;
+        blockToDestroy.NextBlock = null;
         LoadedBlocks.Remove(blockToDestroy);
-        Destroy(blockToDestroy.gameObject);
+        _prefabPool.Value.Return(blockToDestroy.gameObject);
+        //Destroy(blockToDestroy.gameObject);
     }
 
     private GameObject GetRandomBlockPrefabFromPool(int forceLevel = -1)

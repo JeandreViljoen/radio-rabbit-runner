@@ -47,7 +47,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 25
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1537,7 +1537,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 2
-      m_TileSpriteIndex: 16
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -18052,8 +18052,8 @@ Tilemap:
   - m_RefCount: 1800
     m_Data: {fileID: 11400000, guid: 7bee80683e2d4174b97f17bdc0099778, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -1554777549, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 75
     m_Data: {fileID: -1546115928, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   - m_RefCount: 45
@@ -18084,8 +18084,8 @@ Tilemap:
     m_Data: {fileID: -391535970, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -23359428, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 653069611, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -838776068, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   - m_RefCount: 2
@@ -18100,10 +18100,10 @@ Tilemap:
     m_Data: {fileID: 1200178247, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1428739069, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 653069611, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1554777549, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 463378857, guid: e3952a3153e022a4d855301a6d3119de, type: 3}
   m_TileMatrixArray:
@@ -18232,11 +18232,11 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
+  m_UseDelaunayMesh: 1
 --- !u!1 &3605026142608890184
 GameObject:
   m_ObjectHideFlags: 0
@@ -18284,7 +18284,7 @@ GameObject:
   - component: {fileID: 5182642459664404242}
   - component: {fileID: 4063440384469912904}
   - component: {fileID: 1011202648484545151}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LevelBlock FLATBASE
   m_TagString: Untagged
   m_Icon: {fileID: 0}

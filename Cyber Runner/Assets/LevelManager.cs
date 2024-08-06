@@ -104,6 +104,11 @@ public class LevelManager : MonoService
         //Update HUD
         _hudManager.Value.SetLevelDisplay(level);
     }
+
+    public List<GameObject> GetAllUniqueLevelBlocks()
+    {
+        return _data.GetAllUniqueLevelBlocks();
+    }
 }
 
 

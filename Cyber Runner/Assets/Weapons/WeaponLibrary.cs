@@ -34,6 +34,7 @@ public class WeaponLibrary : SerializedScriptableObject
         return data;
     }
 
+#if UNITY_EDITOR
     [Button(ButtonSizes.Gigantic), GUIColor("blue")]
     public void RegenerateEnums()
     {
@@ -179,6 +180,8 @@ public class WeaponLibrary : SerializedScriptableObject
 
        
     }
+    
+#endif
     
     [Button(ButtonSizes.Large), GUIColor("green")]
     public void RefreshScriptableObjectData()

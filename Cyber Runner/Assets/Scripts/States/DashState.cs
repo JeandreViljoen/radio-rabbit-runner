@@ -58,6 +58,7 @@ public class DashState : PlayerState
     {
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
+        
     }
     
     public void StartDash()

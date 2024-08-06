@@ -35,14 +35,14 @@ public class LevelBlock : MonoBehaviour
         {
             _distanceFromPlayer = value;
 
-            if (value == 0)
-            {
-                gameObject.name = $"LevelBlock [{value}] - ACTIVE";
-            }
-            else
-            {
-                gameObject.name = $"LevelBlock [{value}]";
-            }
+            // if (value == 0)
+            // {
+            //     gameObject.name = $"LevelBlock [{value}] - ACTIVE";
+            // }
+            // else
+            // {
+            //     gameObject.name = $"LevelBlock [{value}]";
+            // }
             
 
             if (NextBlock && _distanceFromPlayer >= 0)

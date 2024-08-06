@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -30,6 +31,25 @@ public class LevelData : SerializedScriptableObject
 
     public int NumberOfLevels => LevelInformation.Count -1;
 
+    private HashSet<GameObject> _uniqueLevels = new HashSet<GameObject>();
+
+    public List<GameObject> GetAllUniqueLevelBlocks()
+    {
+        foreach (var levelInfo in LevelInformation)
+        {
+            foreach (var block in levelInfo.Blocks)
+            {
+                _uniqueLevels.Add(block);
+            }
+        }
+        
+        // foreach (var l in _uniqueLevels)
+        // {
+        //     Debug.Log(l.name);
+        // }
+        return _uniqueLevels.ToList();
+        
+    }
 
 }
 

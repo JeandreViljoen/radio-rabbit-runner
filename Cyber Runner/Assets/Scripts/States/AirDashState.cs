@@ -44,7 +44,15 @@ public class AirDashState : PlayerState
         if ( Math.Abs( _player.CurrentRunSpeed - theoreticalMaxSpeed) < AirDashDisableBuffer  && !_airDashCooldownActive)
         {
             _player.Gravity = true;
-            _player.ActiveState = _player.FallState;
+            if (_player.IsGrounded)
+            {
+                _player.ActiveState = _player.RunState;
+            }
+            else
+            {
+                _player.ActiveState = _player.FallState;
+            }
+            
         }
     }
 

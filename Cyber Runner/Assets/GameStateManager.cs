@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class GameStateManager : MonoService
@@ -95,6 +94,7 @@ public class GameStateManager : MonoService
             case GameState.None:
                 break;
             case GameState.Start:
+                PreLoadLevels();
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<UIManager>().FadeOutBlackout();
                 break;
@@ -128,6 +128,31 @@ public class GameStateManager : MonoService
             yield return new WaitForSeconds(delay);
             ServiceLocator.GetService<UIManager>().StatsScreen.ShowStats();
         }
+    }
+
+    private void PreLoadLevels()
+    {
+        List<GameObject> uniqueLevels = ServiceLocator.GetService<LevelManager>().GetAllUniqueLevelBlocks();
+
+        foreach (var levelblock in uniqueLevels)
+        {
+            LevelBlockManager levelBlockManager = ServiceLocator.GetService<LevelBlockManager>();
+            int amountToPreload = levelBlockManager.BackBlockBuffer + levelBlockManager.FrontBlockBuffer + 1;
+
+            List<GameObject> preloadedBlocks = new List<GameObject>();
+
+            for (int i = 0; i < amountToPreload; i++)
+            {
+                GameObject block = ServiceLocator.GetService<PrefabPool>().Get(levelblock);
+                preloadedBlocks.Add(block);
+            }
+            
+            foreach (var block in preloadedBlocks)
+            {
+                ServiceLocator.GetService<PrefabPool>().Return(block);
+            }
+        }
+        
     }
 }
 

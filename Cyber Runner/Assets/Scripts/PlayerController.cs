@@ -276,7 +276,8 @@ public class PlayerController : MonoService
 
     public event Action OnLanded;
     private bool _ignoreFirstFloorTriggerFlag = true;
-    public bool IsGrounded { get; private set; } = true;
+    [ShowInInspector] public bool IsGrounded { get; private set; } = true;
+    
 
     private void OnTriggerEnter2D(Collider2D col)
     {
