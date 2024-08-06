@@ -104,13 +104,10 @@ public class LevelBlock : MonoBehaviour
 
             if (IsSafeBlock)
             {
-                //If tagged safe: Turn off enemies and kill them, then draft random upgrades
-                _stateManager.Value.ActiveState = GameState.Safe;
-
-                // if (!_uiManager.Value.IsDrafting)
-                // {
-                //     
-                // }
+                if (_stateManager.Value.ActiveState != GameState.Safe)
+                {
+                    _stateManager.Value.ActiveState = GameState.Safe;
+                }
             }
             else
             {

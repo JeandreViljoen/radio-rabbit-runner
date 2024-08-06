@@ -80,9 +80,15 @@ public class UIManager : MonoService
         }
         else if (_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
         {
-            LoadMainScene();
+            if (!StatsScreen.LockInput)
+            {
+                LoadMainScene();
+            }
+            
         }
     }
+    
+    
 
     private Tween _blackoutFadeTween;
     private void LoadMainScene()

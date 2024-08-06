@@ -12,6 +12,7 @@ public class StatsScreen : MonoBehaviour
     [SerializeField] private float _statRevealInterval = 0.15f;
     [SerializeField] private float _statRevealSpeed = 0.3f;
     [SerializeField] private GameObject _background;
+    public bool LockInput = true;
 
     public bool OverrideWithGlobalFlyInOffset = true;
     [SerializeField, ShowIf("OverrideWithGlobalFlyInOffset")] private Vector3 _flyInOffset;
@@ -40,8 +41,8 @@ public class StatsScreen : MonoBehaviour
 
     public void ShowStats()
     {
-
         gameObject.SetActive(true);
+        StartCoroutine(InputLockTimer(_statRevealInterval * Stats.Count + _statRevealSpeed));
     
         if (OverrideWithGlobalFlyInOffset)
         {
@@ -54,5 +55,13 @@ public class StatsScreen : MonoBehaviour
         }
         
     }
+    
+    IEnumerator InputLockTimer(float time)
+    {
+        LockInput = true;
+        yield return new WaitForSeconds(time);
+        LockInput = false;
+    }
+    
 }
 
