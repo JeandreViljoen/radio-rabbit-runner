@@ -63,6 +63,11 @@ public class UIManager : MonoService
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            LoadMainScene();
+        }
+        
         
         if (!_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
         {

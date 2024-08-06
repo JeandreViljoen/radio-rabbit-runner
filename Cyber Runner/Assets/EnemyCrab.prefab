@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCrab
       objectReference: {fileID: 0}
+    - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
+      propertyPath: _expValue
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 6497496609434759074, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_defaultAnim
       value: 

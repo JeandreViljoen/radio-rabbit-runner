@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using PowerTools;
 using Services;
 using Sirenix.OdinInspector;
@@ -72,6 +73,8 @@ public class PlayerController : MonoService
 
     public float CurrentRunSpeed => RB.velocity.x;
     [SerializeField]private float _speed;
+
+    private LazyService<VFXManager> _vfx;
 
     public bool IsDashing = false;
 
@@ -282,6 +285,7 @@ public class PlayerController : MonoService
     private void OnTriggerEnter2D(Collider2D col)
     {
         
+        
         if (col.CompareTag("Floor"))
         {
             if (_ignoreFirstFloorTriggerFlag)
@@ -291,6 +295,7 @@ public class PlayerController : MonoService
             }
             OnLanded?.Invoke();
             IsGrounded = true;
+            _vfx.Value.LandingDust(transform.position);
         }
 
         if (col.CompareTag("Corner"))

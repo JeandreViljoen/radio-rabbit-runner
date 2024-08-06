@@ -12,17 +12,19 @@ public class DashState : PlayerState
     private Coroutine _dashHandle;
     private bool _dashCooldownActive;
     private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<VFXManager> _vfx;
 
     public override void OnEnter()
     {
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
+        _vfx.Value.DashDust(_player.transform.position);
 
         Vector2 modifiedDashForce = DashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))
         {
             modifiedDashForce = new Vector2(modifiedDashForce.x * Help.PercentToMultiplier(val), modifiedDashForce.y);
-            Debug.Log($"Dash force base :  {DashForce}         |      modified:   {modifiedDashForce}");
+            
         }
 
         _player.RB.AddForce(modifiedDashForce);

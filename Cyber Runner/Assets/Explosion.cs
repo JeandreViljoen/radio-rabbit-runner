@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<ProjectileManager> _projectileManager;
     private LazyService<PlayerController> _player;
+    [SerializeField] private ParticleSystem VFX;
 
     private void Awake()
     {
@@ -60,12 +61,18 @@ public class Explosion : MonoBehaviour
 
     public void DoExplosion()
     {
+        
         StartCoroutine(ReturnToPool(0.5f));
     }
 
     IEnumerator ReturnToPool(float timeout)
     {
-        yield return new WaitForSeconds(timeout);
+        VFX.Play();
+        yield return new WaitUntil(() =>
+        {
+            return !VFX.isPlaying;
+        });
+        //yield return new WaitForSeconds(timeout);
         transform.localScale = _startScale;
         _prefabPool.Value.Return(this.gameObject);
     }

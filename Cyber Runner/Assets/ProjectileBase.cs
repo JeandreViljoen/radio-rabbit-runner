@@ -69,7 +69,7 @@ public class ProjectileBase : MonoBehaviour
                     targetRotation = Quaternion.Euler(0,0, zAngle);
 
 
-                    Renderer.transform.localRotation = targetRotation;
+                    VisualsParent.transform.localRotation = targetRotation;
                 }
             }
         }
@@ -127,6 +127,7 @@ public class ProjectileBase : MonoBehaviour
 
     public bool AutoRotate = true;
     [FoldoutGroup("References")] public SpriteRenderer Renderer;
+    [FoldoutGroup("References")] public GameObject VisualsParent;
     [FoldoutGroup("References")] public ParticleSystem Particles;
 
     protected void FixedUpdate()
@@ -197,7 +198,7 @@ public class ProjectileBase : MonoBehaviour
         targetRotation = Quaternion.Euler(0,0, zAngle);
 
 
-        Renderer.transform.localRotation = targetRotation;
+        VisualsParent.transform.localRotation = targetRotation;
     }
 
     private void UpdateTargets()
@@ -215,7 +216,7 @@ public class ProjectileBase : MonoBehaviour
                 TargetEntity =  lastTarget != null ? lastTarget.gameObject : TargetEntity;
                 break;
             case ProjectileType.Ray:
-                Renderer.transform.position = TargetLocation;
+                VisualsParent.transform.position = TargetLocation;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
