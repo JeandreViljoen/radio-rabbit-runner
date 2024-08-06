@@ -148,7 +148,7 @@ public class LevelBlockManager : MonoService
 
     private GameObject GetRandomBlockPrefabFromPool(int forceLevel = -1)
     {
-        int levelToGet = forceLevel < 0 ? _levelManager.Value.CurrentLevel : forceLevel;
+        int levelToGet = forceLevel < 0 ? _levelManager.Value.CurrentRound : forceLevel;
         
         LevelInfo currentLevelData = GlobalGameAssets.Instance.LevelData.GetLevelInfo(levelToGet);
         List<GameObject> pool;

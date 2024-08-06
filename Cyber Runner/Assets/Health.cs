@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Services;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -36,7 +37,19 @@ public class Health : MonoBehaviour
         
         if (CurrentHealth - value <= 0)
         {
-            if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0);
+            if (Type == HealthType.Player)
+            {
+                ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0);
+                ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
+            }
+            else if (Type == HealthType.Enemy)
+            {
+                if (value < 999)
+                {
+                    ServiceLocator.GetService<StatsTracker>().DamageDealt += value;
+                    ServiceLocator.GetService<StatsTracker>().EnemiesKilled ++;
+                }
+            }
             OnHealthLost?.Invoke();
             OnHealthZero?.Invoke();
             return true;
@@ -44,7 +57,19 @@ public class Health : MonoBehaviour
 
         CurrentHealth = CurrentHealth - value;
         OnHealthLost?.Invoke();
-        if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
+        if (Type == HealthType.Player)
+        {
+            ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
+            ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
+        }
+        else if (Type == HealthType.Enemy)
+        {
+            if (value < 999)
+            {
+                ServiceLocator.GetService<StatsTracker>().DamageDealt += value;
+            }
+           
+        }
         return false;
     }
 

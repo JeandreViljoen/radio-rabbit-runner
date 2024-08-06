@@ -28,6 +28,7 @@ public class AirDashState : PlayerState
         _player.RB.AddForce(modifiedDashForce);
         StartAirDash();
         SetAnimation();
+        ServiceLocator.GetService<StatsTracker>().DashAmount++;
     }
 
     public override void OnUpdate()

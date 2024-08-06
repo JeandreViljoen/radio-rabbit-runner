@@ -251,7 +251,7 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Health.RemoveHealth(99999);
+            Health.RemoveHealth(Health.CurrentHealth);
             col.gameObject.GetComponent<PlayerController>().Health.RemoveHealth(Damage);
             return;
         }

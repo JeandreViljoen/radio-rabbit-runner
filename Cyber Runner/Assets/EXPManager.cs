@@ -30,6 +30,7 @@ public class EXPManager : MonoService
         }
         private set
         {
+            ServiceLocator.GetService<StatsTracker>().EXPGained += value;
             _currentEXP = value;
             if (_currentEXP >= _currentEXPNeeded)
             {
@@ -72,6 +73,7 @@ public class EXPManager : MonoService
             _currentEXP = 0;
             _currentEXPNeeded = (int)(_currentEXPNeeded * _growthRate);
             OnLevelUp?.Invoke();
+            ServiceLocator.GetService<StatsTracker>().LevelReached = _currentLevel;
         }
     }
 

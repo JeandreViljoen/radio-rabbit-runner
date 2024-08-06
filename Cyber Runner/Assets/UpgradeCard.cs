@@ -111,14 +111,8 @@ public class UpgradeCard : Selectable
     }
     
     void Update()
-    { 
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            //_upgradesManager.Value.GetWeaponInstance(WeaponType.Railgun).LevelUp();
-            //_upgradesManager.Value.GetWeaponInstance(WeaponType.Minigun).LevelUp();
-            //_upgradesManager.Value.GetWeaponInstance(WeaponType.RocketLauncher).LevelUp();
-            //Init(_upgradesManager.Value.GetNextUpgradeForWeapon(WeaponType.RocketLauncher));
-        }
+    {
+        
     }
 
     public event Action<UpgradeCard> OnSelected; 
@@ -153,7 +147,8 @@ public class UpgradeCard : Selectable
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
+
+        ServiceLocator.GetService<StatsTracker>().UpgradesDrafted++;
         interactable = false;
     }
 

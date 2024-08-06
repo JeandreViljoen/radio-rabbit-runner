@@ -32,25 +32,26 @@ public class LevelManager : MonoService
         }
     }
 
-    private int _currentLevel = 0;
+    private int _currentRound = 0;
 
-    public int CurrentLevel
+    public int CurrentRound
     {
         get
         {
-            return _currentLevel;
+            return _currentRound;
         }
         set
         {
-            _currentLevel = value;
-            SetLevelProperties(_currentLevel);
+            _currentRound = value;
+            ServiceLocator.GetService<StatsTracker>().RoundReached = _currentRound;
+            SetRoundProperties(_currentRound);
         }
     }
 
     public void AdvanceLevel()
     {
-        CurrentLevel++;
-        ServiceLocator.GetService<HUDManager>().ShowGetReadyBanner(CurrentLevel, 1f);
+        CurrentRound++;
+        ServiceLocator.GetService<HUDManager>().ShowGetReadyBanner(CurrentRound, 1f);
     }
 
     void Awake ()
@@ -75,7 +76,7 @@ public class LevelManager : MonoService
         
     }
 
-    private void SetLevelProperties(int level)
+    private void SetRoundProperties(int level)
     {
         if (level == 0) return;
         

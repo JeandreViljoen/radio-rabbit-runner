@@ -28,6 +28,7 @@ public class DashState : PlayerState
         _player.RB.AddForce(modifiedDashForce);
         StartDash();
         SetAnimation();
+        ServiceLocator.GetService<StatsTracker>().DashAmount++;
     }
 
     public override void OnUpdate()

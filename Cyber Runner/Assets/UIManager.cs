@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Services;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = System.Random;
 
@@ -16,12 +18,12 @@ public class UIManager : MonoService
     private LazyService<EXPManager> _expManager;
     private LazyService<LevelBlockManager> _levelBlockManager;
     private LazyService<GameStateManager> _stateManager;
+    public Image SceneLoadBlackout;
+    public StatsScreen StatsScreen;
     public bool IsDrafting = false;
 
     public Button StartButton;
     public Button QuitButton;
-
-    public List<WeaponType> TestList;
 
     void Start()
     {
@@ -61,10 +63,6 @@ public class UIManager : MonoService
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DraftCards();
-        }
         
         if (!_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
         {
@@ -80,6 +78,30 @@ public class UIManager : MonoService
                 }
             }
         }
+        else if (_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
+        {
+            LoadMainScene();
+        }
+    }
+
+    private Tween _blackoutFadeTween;
+    private void LoadMainScene()
+    {
+        _blackoutFadeTween?.Kill();
+        Sequence s = DOTween.Sequence();
+        s.Append(SceneLoadBlackout.DOFade(1f, 1f));
+        s.AppendCallback(() => {  SceneManager.LoadScene("MainScene"); });
+        _blackoutFadeTween = s;
+
+    }
+
+    public void FadeOutBlackout()
+    {
+        _blackoutFadeTween?.Kill();
+        Sequence s = DOTween.Sequence();
+        s.AppendInterval(01f);
+        s.Append(SceneLoadBlackout.DOFade(0f, 1f));
+        _blackoutFadeTween = s;
     }
 
     private void UpdateSelectedCard(UpgradeCard card)

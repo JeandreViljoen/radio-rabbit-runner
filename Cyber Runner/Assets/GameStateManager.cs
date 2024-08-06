@@ -96,6 +96,7 @@ public class GameStateManager : MonoService
                 break;
             case GameState.Start:
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
+                ServiceLocator.GetService<UIManager>().FadeOutBlackout();
                 break;
             case GameState.StartDraft:
                 break;
@@ -110,10 +111,22 @@ public class GameStateManager : MonoService
             case GameState.Dead:
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
+                ShowStatsScreen(5);
                 break;
             default:
                 Help.Debug(GetType(), "OnStateEnter", "tried to execute an enum that has not been implemented");
                 throw new ArgumentOutOfRangeException(nameof(enteringState), enteringState, null);
+        }
+    }
+
+    private void ShowStatsScreen(float delay)
+    {
+        StartCoroutine(ShowStatsDelayed());
+        
+        IEnumerator ShowStatsDelayed()
+        {
+            yield return new WaitForSeconds(delay);
+            ServiceLocator.GetService<UIManager>().StatsScreen.ShowStats();
         }
     }
 }

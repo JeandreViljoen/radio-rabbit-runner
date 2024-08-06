@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Services;
 using UnityEngine;
 
 public class JumpState : PlayerState
@@ -27,6 +28,7 @@ public class JumpState : PlayerState
         _player.IsJumping = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);
         _player.RB.AddForce(_jumpForce);
+        ServiceLocator.GetService<StatsTracker>().JumpAmount++;
     }
 
     public override void OnEnter()
