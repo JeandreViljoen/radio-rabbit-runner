@@ -35,11 +35,12 @@ public class BannerSwipe : MonoBehaviour
         _swipeTween = transform.DOLocalMove(_startPos, 0.000001f).SetUpdate(true);
     }
 
-    public void DoSwipe()
+    public void DoSwipe(float preDelay = 0f)
     {
         if (_swipeTween.IsPlaying()) return;
         
         Sequence s = DOTween.Sequence();
+        s.AppendInterval(preDelay);
         s.Append(transform.DOLocalMove(_showPosA, 0.2f).SetEase(Ease.Linear));
         s.Append(transform.DOLocalMove(_showPosB, ShowTime).SetEase(Ease.Linear));
         s.Append(transform.DOLocalMove(_hidePos, 0.5f).SetEase(Ease.InCubic));

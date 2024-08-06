@@ -17,11 +17,14 @@ public class Health : MonoBehaviour
 
     public event Action OnHealthZero; 
     public event Action OnHealthLost; 
+    public event Action OnHealthGained; 
 
 
     public void AddHealth(int value)
     {
         CurrentHealth = Math.Min(CurrentHealth + value, MaxHealth);
+        if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
+        OnHealthGained?.Invoke();
     }
     
     public bool RemoveHealth(int value)

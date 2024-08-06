@@ -14,9 +14,10 @@ public class EnemySpawner : MonoBehaviour
 
     private int index = 0;
 
-    public bool IsActive = true;
+    public bool IsActive = false;
     void Start()
     {
+        IsActive = false;
         StartCoroutine(SpawnTicker());
     }
     

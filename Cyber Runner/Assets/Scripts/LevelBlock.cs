@@ -17,6 +17,7 @@ public class LevelBlock : MonoBehaviour
 
     private LazyService<LevelManager> _levelManager;
     private LazyService<UIManager> _uiManager;
+    private LazyService<GameStateManager> _stateManager;
 
     public bool IsPlayerInBlock = false;
 
@@ -95,11 +96,7 @@ public class LevelBlock : MonoBehaviour
         //If player enters block
         if (other.CompareTag("Player"))
         {
-            if (_levelManager.Value.CurrentLevel == 0)
-            {
-                _levelManager.Value.AdvanceLevel();
-            }
-            
+
             //Update player position
             SetPlayerActiveInBlock();
             //Append a new block to end
@@ -108,21 +105,26 @@ public class LevelBlock : MonoBehaviour
             if (IsSafeBlock)
             {
                 //If tagged safe: Turn off enemies and kill them, then draft random upgrades
-                ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
-                ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
-                
+                _stateManager.Value.ActiveState = GameState.Safe;
 
-                if (!_uiManager.Value.IsDrafting)
-                {
-                    ServiceLocator.GetService<PlayerController>().PlayerVisuals.SetTvPosition(TVPosition.Safe, 3);
-                    _uiManager.Value.DraftCards(3);
-                }
+                // if (!_uiManager.Value.IsDrafting)
+                // {
+                //     
+                // }
             }
             else
             {
-                //If tagged not safe: Resume gameplay
-                ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
-                _levelManager.Value.AdvanceBlockCount();
+                if (_stateManager.Value.ActiveState == GameState.Safe)
+                {
+                    //If tagged not safe: Resume gameplay
+                    _stateManager.Value.ActiveState = GameState.Playing;
+                }
+
+                if (_stateManager.Value.ActiveState == GameState.Playing)
+                {
+                    _levelManager.Value.AdvanceBlockCount();
+                }
+
             }
         }
     }

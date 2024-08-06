@@ -14,10 +14,13 @@ public class LevelBlockManager : MonoService
     [Title("Level Block Manager", "Services", TitleAlignments.Centered)]
     
     [SerializeField] private LevelBlock StartBlock;
+    [SerializeField] private LevelBlock StartPrefab;
     [SerializeField] private LevelBlock SafeBlock;
 
+    private LazyService<GameStateManager> _stateManager;
+
     public bool IsInSafeZone => _activeBlock.IsSafeBlock;
-    public bool SafeZoneOnEnter = false;
+    
     
     private bool _safeZoneFlag = false;
 
@@ -39,7 +42,6 @@ public class LevelBlockManager : MonoService
             {
                 _levelManager.Value.AdvanceLevel();
                 ServiceLocator.GetService<PlayerController>().PlayerVisuals.SetTvPosition(TVPosition.Player, 3);
-                SafeZoneOnEnter = false;
             }
             //on Enable
             else 
@@ -104,19 +106,25 @@ public class LevelBlockManager : MonoService
     private LevelBlock SpawnBlock(LevelBlock previousBlock)
     {
         LevelBlock newBlock;
-        
-        if (SafeZoneFlag)
+
+        if (_stateManager.Value.ActiveState == GameState.Start  || _stateManager.Value.ActiveState == GameState.StartDraft)
         {
-            //Safe blocks
-            newBlock = Instantiate(GetRandomBlockPrefabFromPool(0), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            newBlock = Instantiate(StartPrefab, ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
         }
         else
         {
-            //Normal blocks
-            newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            if (SafeZoneFlag)
+            {
+                //Safe blocks
+                newBlock = Instantiate(GetRandomBlockPrefabFromPool(0), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            }
+            else
+            {
+                //Normal blocks
+                newBlock = Instantiate(GetRandomBlockPrefabFromPool(), ServiceLocator.GetService<LevelManager>().WorldGrid.transform).GetComponent<LevelBlock>();
+            }
         }
-        
-        
+
         newBlock.transform.position = previousBlock.EndConnection.position;
         newBlock.PreviousBlock = previousBlock;
         previousBlock.NextBlock = newBlock;

@@ -13,15 +13,15 @@ public class HUDManager : MonoService
     [SerializeField] private BannerSwipe _safeZoneIncomingBanner;
     [SerializeField] private BannerSwipe _getReadyBanner;
 
-    public void ShowSafeZoneIncomingBanner()
+    public void ShowSafeZoneIncomingBanner(float preDelay = 0f)
     {
-        _safeZoneIncomingBanner.DoSwipe();
+        _safeZoneIncomingBanner.DoSwipe(preDelay);
     }
     
-    public void ShowGetReadyBanner(int level)
+    public void ShowGetReadyBanner(int level,float preDelay = 0f)
     {
         _getReadyBanner.SetText($"LEVEL {level} - GET READY!");
-        _getReadyBanner.DoSwipe();
+        _getReadyBanner.DoSwipe(preDelay);
     }
 
     void Start()

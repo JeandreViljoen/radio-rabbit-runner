@@ -11,6 +11,7 @@ public class LevelManager : MonoService
     private LazyService<PlayerController> _player;
     private LazyService<HUDManager> _hudManager;
     private LazyService<EnemiesManager> _enemiesManager;
+    private LazyService<GameStateManager> _stateManager;
 
     public int SafeLevelBlockCheckpoint = 3;
 
@@ -49,7 +50,7 @@ public class LevelManager : MonoService
     public void AdvanceLevel()
     {
         CurrentLevel++;
-        ServiceLocator.GetService<HUDManager>().ShowGetReadyBanner(CurrentLevel);
+        ServiceLocator.GetService<HUDManager>().ShowGetReadyBanner(CurrentLevel, 1f);
     }
 
     void Awake ()
@@ -58,7 +59,15 @@ public class LevelManager : MonoService
     }
     void Start()
     {
-       
+        _stateManager.Value.OnStateChanged += InitFirstLevel;
+    }
+
+    private void InitFirstLevel(GameState from, GameState to)
+    {
+        if (from == GameState.StartDraft && to == GameState.Playing)
+        {
+            AdvanceLevel();
+        }
     }
     
     void Update()
@@ -95,3 +104,5 @@ public class LevelManager : MonoService
         _hudManager.Value.SetLevelDisplay(level);
     }
 }
+
+

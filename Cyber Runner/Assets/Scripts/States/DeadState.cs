@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Services;
 using UnityEngine;
 
 public class DeadState : PlayerState
@@ -15,7 +16,7 @@ public class DeadState : PlayerState
     
     public override void OnEnter()
     {
-        
+        ServiceLocator.GetService<GameStateManager>().ActiveState = GameState.Dead;
         _player.ConstantForce.force = Vector2.zero;
         _player.Gravity = true;
         SetDeathAnimation();

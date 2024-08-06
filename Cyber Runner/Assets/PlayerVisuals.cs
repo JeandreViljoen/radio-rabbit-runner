@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Services;
 using UnityEngine;
 
 public class PlayerVisuals : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerVisuals : MonoBehaviour
 
     private Vector3 _playerFollowPosition;
     [SerializeField] private Vector3 _safeZoneFollowPosition;
+    private LazyService<GameStateManager> _stateManager;
 
     private Tween _moveTween;
     
@@ -20,12 +22,24 @@ public class PlayerVisuals : MonoBehaviour
 
     void Start()
     {
-        
+        _stateManager.Value.OnStateChanged += UpdateTvPosition;
     }
     
     void Update()
     {
         
+    }
+
+    private void UpdateTvPosition(GameState from, GameState to)
+    {
+        if (to == GameState.Safe)
+        {
+            SetTvPosition(TVPosition.Safe, 3);
+        }
+        if (to == GameState.Playing)
+        {
+            SetTvPosition(TVPosition.Player, 3);
+        }
     }
 
     public void SetTvPosition(TVPosition pos, float speed)

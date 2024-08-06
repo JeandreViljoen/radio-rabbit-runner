@@ -31,7 +31,7 @@ MonoBehaviour:
     - {fileID: 1405377041238836386, guid: e0b5382002fb0244e8ab8423afcd17ac, type: 3}
   - Level: 1
     Speed: 20
-    SpawnInterval: 0.4
+    SpawnInterval: 1
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
     BlockCount: 6
@@ -40,7 +40,7 @@ MonoBehaviour:
     - {fileID: 7430426904023321209, guid: 7222fa2578560e74bad92f42f1002435, type: 3}
   - Level: 2
     Speed: 25
-    SpawnInterval: 0.3
+    SpawnInterval: 0.7
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
     - {fileID: 2187384249032897848, guid: 06b2448cdc47e554e965aa0cecdc1fe7, type: 3}

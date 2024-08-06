@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Services;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 public class UIManager : MonoService
@@ -14,12 +15,20 @@ public class UIManager : MonoService
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<EXPManager> _expManager;
     private LazyService<LevelBlockManager> _levelBlockManager;
+    private LazyService<GameStateManager> _stateManager;
     public bool IsDrafting = false;
+
+    public Button StartButton;
+    public Button QuitButton;
 
     public List<WeaponType> TestList;
 
     void Start()
     {
+        _stateManager.Value.OnStateChanged += DraftStarterWeapon;
+        StartButton.onClick.AddListener(PlayButtonClicked);
+        QuitButton.onClick.AddListener(ExitButtonClicked);
+        
         foreach (var card in Cards)
         {
             card.OnSelected += UpdateSelectedCard;
@@ -31,6 +40,23 @@ public class UIManager : MonoService
     void CheckDraft()
     {
         DraftCards(0.5f);
+    }
+
+    private void PlayButtonClicked()
+    {
+        _stateManager.Value.ActiveState = GameState.StartDraft;
+
+        StartButton.gameObject.SetActive(false);
+        QuitButton.gameObject.SetActive(false);
+    }
+
+    private void ExitButtonClicked()
+    {
+        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 
     void Update()
@@ -47,6 +73,11 @@ public class UIManager : MonoService
                 SelectedCard.Submit();
                 SelectedCard = null;
                 HideAllCards();
+
+                if (_stateManager.Value.ActiveState == GameState.StartDraft)
+                {
+                    _stateManager.Value.ActiveState = GameState.Playing;
+                }
             }
         }
     }
@@ -54,6 +85,36 @@ public class UIManager : MonoService
     private void UpdateSelectedCard(UpgradeCard card)
     {
         SelectedCard = card;
+    }
+
+    public void DraftStarterWeapon(GameState from, GameState to)
+    {
+        if (from != GameState.Start || to != GameState.StartDraft)
+        {
+            return;
+        }
+
+        StartCoroutine(DelayedDraft());
+        
+        IEnumerator DelayedDraft()
+        {
+
+            yield return new WaitForSeconds(1f);
+            
+            for (var index = 0; index < Cards.Count; index++)
+            {
+                var card = Cards[index];
+                
+                UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
+                if (upgrade != UpgradeType.None)
+                {
+                    card.Init(upgrade);
+                }
+                
+                card.Show();
+                yield return new WaitForSecondsRealtime(DraftRevealInterval);
+            }
+        }
     }
 
     public void DraftCards(float preDelay = 0f)
@@ -129,4 +190,6 @@ public class UIManager : MonoService
             card.OnSelected -= UpdateSelectedCard;
         }
     }
+
+   
 }
