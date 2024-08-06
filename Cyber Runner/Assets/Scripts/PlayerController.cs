@@ -62,7 +62,7 @@ public class PlayerController : MonoService
     [HideInInspector] public ConstantForce2D ConstantForce;
 
     [FoldoutGroup("Visual References")]
-    public GameObject PlayerVisuals;
+    public PlayerVisuals PlayerVisuals;
     [FoldoutGroup("Visual References")]
     public SpriteAnim SpriteAnim;
     [FoldoutGroup("Visual References")]

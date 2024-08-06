@@ -16,6 +16,9 @@ public class LevelBlockManager : MonoService
     [SerializeField] private LevelBlock StartBlock;
     [SerializeField] private LevelBlock SafeBlock;
 
+    public bool IsInSafeZone => _activeBlock.IsSafeBlock;
+    public bool SafeZoneOnEnter = false;
+    
     private bool _safeZoneFlag = false;
 
     public bool SafeZoneFlag
@@ -35,12 +38,13 @@ public class LevelBlockManager : MonoService
             if (value == false)
             {
                 _levelManager.Value.AdvanceLevel();
+                ServiceLocator.GetService<PlayerController>().PlayerVisuals.SetTvPosition(TVPosition.Player, 3);
+                SafeZoneOnEnter = false;
             }
             //on Enable
             else 
             {
                 ServiceLocator.GetService<HUDManager>().ShowSafeZoneIncomingBanner();
-                //TODO: SHOw UI that safety is incoming
             }
 
             _safeZoneFlag = value;

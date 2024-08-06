@@ -110,9 +110,11 @@ public class LevelBlock : MonoBehaviour
                 //If tagged safe: Turn off enemies and kill them, then draft random upgrades
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
+                
 
                 if (!_uiManager.Value.IsDrafting)
                 {
+                    ServiceLocator.GetService<PlayerController>().PlayerVisuals.SetTvPosition(TVPosition.Safe, 3);
                     _uiManager.Value.DraftCards(3);
                 }
             }

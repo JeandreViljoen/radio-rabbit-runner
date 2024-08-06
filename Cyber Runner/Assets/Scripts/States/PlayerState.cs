@@ -41,3 +41,4 @@ public abstract class PlayerState : MonoBehaviour
         _player.SpriteAnim.Play(clipToSet);
     }
 }
+
