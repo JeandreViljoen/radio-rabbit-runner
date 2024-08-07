@@ -133,15 +133,15 @@ public class UIManager : MonoService
         {
 
             yield return new WaitForSeconds(1f);
+            List<UpgradeType> drafts = _upgradesManager.Value.GetStarterWeaponDraft(Cards.Count);
             
             for (var index = 0; index < Cards.Count; index++)
             {
                 var card = Cards[index];
                 
-                UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
-                if (upgrade != UpgradeType.None)
+                if (drafts[index] != UpgradeType.None)
                 {
-                    card.Init(upgrade);
+                    card.Init(drafts[index]);
                 }
                 
                 card.Show();
@@ -165,43 +165,33 @@ public class UIManager : MonoService
 
         IEnumerator DelayedDraft()
         {
-            yield return new WaitForSeconds(preDelay);
             
-            for (var index = 0; index < Cards.Count; index++)
-            {
-                var card = Cards[index];
+            yield return new WaitForSeconds(preDelay);
+            int cardIndex = 0;
 
-                float rng = UnityEngine.Random.Range(0f,1f);
-                if (rng<= 0.5)
-                {
-                    UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
-                    if (upgrade != UpgradeType.None)
-                    {
-                        card.Init(upgrade);
-                    }
-                    else
-                    {
-                        PerkType perk = _upgradesManager.Value.GetRandomUnOwnedPerk();
-                        card.Init(perk);
-                    }
-                    
-                }
-                else
-                {
-                    PerkType perk = _upgradesManager.Value.GetRandomUnOwnedPerk();
-                    if (perk != PerkType.None)
-                    {
-                        card.Init(perk);
-                    }
-                    else
-                    {
-                        UpgradeType upgrade = _upgradesManager.Value.GetRandomUnownedWeaponUpgrade();
-                        card.Init(upgrade);
-                    }
-                    
-                }
+            GenericUpgrades draft = _upgradesManager.Value.GetFullDraft(Cards.Count);
+            
+            //Draft weapons
+            for (var index = 0; index < draft.Weapons.Count; index++)
+            {
+                var wpn = draft.Weapons[index];
+
+                Cards[cardIndex].Init(wpn);
+                Cards[cardIndex].Show();
+                cardIndex++;
                 
-                card.Show();
+                yield return new WaitForSecondsRealtime(DraftRevealInterval);
+            }
+            
+            //Draft Perks
+            for (var index = 0; index < draft.Perks.Count; index++)
+            {
+                var perk = draft.Perks[index];
+
+                Cards[cardIndex].Init(perk);
+                Cards[cardIndex].Show();
+                cardIndex++;
+                
                 yield return new WaitForSecondsRealtime(DraftRevealInterval);
             }
         }

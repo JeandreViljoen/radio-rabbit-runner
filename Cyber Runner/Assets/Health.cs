@@ -35,12 +35,13 @@ public class Health : MonoBehaviour
             return false;
         }
         
+        //Death blow
         if (CurrentHealth - value <= 0)
         {
             if (Type == HealthType.Player)
             {
                 ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0);
-                ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
+                ServiceLocator.GetService<StatsTracker>().DamageTaken += CurrentHealth;
             }
             else if (Type == HealthType.Enemy)
             {
@@ -55,6 +56,7 @@ public class Health : MonoBehaviour
             return true;
         }
 
+        //Normal damage
         CurrentHealth = CurrentHealth - value;
         OnHealthLost?.Invoke();
         if (Type == HealthType.Player)

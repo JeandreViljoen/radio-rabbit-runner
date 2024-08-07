@@ -43,6 +43,7 @@ public class PlayerController : MonoService
         }
     }
     
+    [SerializeField] private float _killHeight;
     [FoldoutGroup("State References")]
     [SerializeField] public RunState RunState;
     [FoldoutGroup("State References")]
@@ -190,6 +191,11 @@ public class PlayerController : MonoService
 
     void Update()
     {
+        if (transform.position.y < _killHeight)
+        {
+            Health.RemoveHealth(99999);
+        }
+        
         PlayerVisuals.transform.position = this.transform.position;
 
         if (!IsDead())

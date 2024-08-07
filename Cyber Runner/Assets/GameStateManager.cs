@@ -111,6 +111,7 @@ public class GameStateManager : MonoService
             case GameState.Dead:
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
+                ServiceLocator.GetService<HUDManager>().ShowDeathBanner(0.5f);
                 ShowStatsScreen(5);
                 break;
             default:

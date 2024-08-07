@@ -8,7 +8,7 @@
  * reset method
  * when running out of wither wapon or perk drafts it breaks drafting because there is no safety check for wehn a random draft returns 0
  * death when falling
- * dash needs 0 gravity
+
 
 
 Art assets:

@@ -12,6 +12,7 @@ public class HUDManager : MonoService
     
     [SerializeField] private BannerSwipe _safeZoneIncomingBanner;
     [SerializeField] private BannerSwipe _getReadyBanner;
+    [SerializeField] private BannerSwipe _deathReadyBanner;
 
     public void ShowSafeZoneIncomingBanner(float preDelay = 0f)
     {
@@ -22,6 +23,11 @@ public class HUDManager : MonoService
     {
         _getReadyBanner.SetText($"LEVEL {level} - GET READY!");
         _getReadyBanner.DoSwipe(preDelay);
+    }
+    
+    public void ShowDeathBanner(float preDelay = 0f)
+    {
+        _deathReadyBanner.DoSwipe(preDelay);
     }
 
     void Start()
