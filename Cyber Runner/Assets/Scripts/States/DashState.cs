@@ -19,6 +19,7 @@ public class DashState : PlayerState
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
         _vfx.Value.DashDust(_player.transform.position);
+        _vfx.Value.DashVortex(_player.transform.position);
 
         Vector2 modifiedDashForce = DashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))

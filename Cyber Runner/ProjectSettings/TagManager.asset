@@ -54,3 +54,15 @@ TagManager:
   - name: Enemies
     uniqueID: 3488112535
     locked: 0
+  - name: TV
+    uniqueID: 1336287673
+    locked: 0
+  - name: Projectiles
+    uniqueID: 3998775135
+    locked: 0
+  - name: Player
+    uniqueID: 1191079027
+    locked: 0
+  - name: MuzzleFlash
+    uniqueID: 2612850731
+    locked: 0

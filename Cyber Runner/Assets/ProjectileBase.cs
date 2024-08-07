@@ -35,6 +35,7 @@ public class ProjectileBase : MonoBehaviour
 
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<PlayerController> _player;
+    private LazyService<VFXManager> _vfx;
 
     private GameObject _targetEntity;
     public GameObject TargetEntity
@@ -288,6 +289,8 @@ public class ProjectileBase : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
+            _vfx.Value.OnHitRailgun(col.transform,_direction);
+            
             if (_raycastHitBuffers.Add(col.gameObject.GetInstanceID().ToString()))
             {
                 int modifiedDamage = Damage;

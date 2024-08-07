@@ -26,7 +26,10 @@ public class Weapon : SerializedMonoBehaviour
     public int Spread = 0;
     protected bool _isMaxLevel = false;
     [OdinSerialize] public bool IsUnlocked { get; private set; } = false;
+    [SerializeField] private List<GameObject> _muzzleFlashes;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     
+   
 
     [SerializeField]private bool _useCullingDistanceAsRange = true;
 
@@ -103,6 +106,21 @@ public class Weapon : SerializedMonoBehaviour
             return;
         }
 
+        if (GetTarget(TargetType) != null)
+        {
+            var _direction = (GetTarget(TargetType).transform.position - transform.position).normalized;
+            //_direction = Quaternion.AngleAxis(0, Vector3.forward) * _direction;
+            
+                
+            Quaternion targetRotation;
+            var zAngle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+            // Store the target rotation
+            targetRotation = Quaternion.Euler(0,0, zAngle);
+            
+            transform.localRotation = targetRotation;
+        }
+
+
         float modifiedFireRate = FireRatePerSecond;
 
         if (_player.Value.IsDashing)
@@ -161,6 +179,14 @@ public class Weapon : SerializedMonoBehaviour
     protected void InvokeOnFireEvent()
     {
         OnFire?.Invoke(Type);
+
+        foreach (var flash in _muzzleFlashes)
+        {
+            GameObject fx = _prefabPool.Value.Get(flash);
+            fx.transform.position = SpawnPoint.position;
+            fx.transform.rotation = transform.rotation;
+            fx.transform.parent = transform;
+        }
     }
     
     protected void ReduceSpread(float percent)
@@ -318,7 +344,15 @@ public class Weapon : SerializedMonoBehaviour
 
     protected void UnlockWeapon()
     {
-        IsUnlocked = true;
+        if (ServiceLocator.GetService<TVController>().RegisterWeapon(this))
+        {
+            IsUnlocked = true;
+        }
+    }
+    
+    public void SetRenderOrder(int value)
+    {
+        _spriteRenderer.sortingOrder = value;
     }
 
     private string GetSubtitle => $"{Type} - {TargetType}";

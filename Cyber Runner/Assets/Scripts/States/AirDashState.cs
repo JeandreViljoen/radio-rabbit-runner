@@ -12,6 +12,7 @@ public class AirDashState : PlayerState
     private Coroutine _airDashHandle;
     private bool _airDashCooldownActive;
     private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<VFXManager> _vfx;
     public override void OnEnter()
     {
         Vector2 modifiedDashForce = AirDashForce;
@@ -21,6 +22,8 @@ public class AirDashState : PlayerState
             Debug.Log($"Airdash force base :  {AirDashForce}         |      modified:   {modifiedDashForce}");
         }
         
+        
+        _vfx.Value.DashVortex(_player.transform.position);
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);

@@ -8,6 +8,7 @@ public class ParticleVFX : MonoBehaviour
 {
     [SerializeField] private ParticleSystem VFX;
     private LazyService<PrefabPool> _prefabPool;
+    private Transform _followTarget = null;
 
     public bool PlayOnSpawn = true;
 
@@ -24,6 +25,33 @@ public class ParticleVFX : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (_followTarget != null)
+        {
+            transform.position = _followTarget.position;
+        }
+    }
+
+    public void SetFollowTarget(Transform target)
+    {
+        _followTarget = target;
+    }
+
+    public void Play(Vector3 direction)
+    {
+        var _direction = direction.normalized;
+        
+        Quaternion targetRotation;
+        var zAngle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+        // Store the target rotation
+        targetRotation = Quaternion.Euler(0,0, zAngle);
+
+
+        transform.localRotation = targetRotation;
+        Play();
+    }
+
     public void Play()
     {
         StartCoroutine(PlayAndReturn());
@@ -31,6 +59,7 @@ public class ParticleVFX : MonoBehaviour
         {
             VFX.Play();
             yield return new WaitUntil(HasStopped);
+            _followTarget = null;
             _prefabPool.Value.Return(gameObject);
         }
         
