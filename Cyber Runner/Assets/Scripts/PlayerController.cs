@@ -286,11 +286,24 @@ public class PlayerController : MonoService
     public event Action OnLanded;
     private bool _ignoreFirstFloorTriggerFlag = true;
     [ShowInInspector] public bool IsGrounded { get; private set; } = true;
-    
+
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.CompareTag("DamageTile"))
+        {
+            Health.RemoveHealth(5);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         
+
+        if (col.CompareTag("SpeedTile"))
+        {
+            RB.AddForce(Vector2.right*900f);
+        }
         
         if (col.CompareTag("Floor"))
         {

@@ -11,6 +11,8 @@ TagManager:
   - ProjectileSpawnPoint
   - Projectile
   - Explosion
+  - DamageTile
+  - SpeedTile
   layers:
   - Default
   - TransparentFX
@@ -24,7 +26,7 @@ TagManager:
   - Destructibles
   - Enemy
   - Dead
-  - 
+  - DamageTile
   - 
   - 
   - 

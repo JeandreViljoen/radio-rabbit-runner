@@ -15,6 +15,7 @@ public class AirDashState : PlayerState
     private LazyService<VFXManager> _vfx;
     public override void OnEnter()
     {
+        _player.Collider.excludeLayers = (1<<12);
         Vector2 modifiedDashForce = AirDashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))
         {
@@ -69,6 +70,7 @@ public class AirDashState : PlayerState
         
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
+        _player.Collider.excludeLayers &= ~(1<<12);
         return;
     }
     

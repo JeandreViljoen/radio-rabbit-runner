@@ -16,6 +16,7 @@ public class DashState : PlayerState
 
     public override void OnEnter()
     {
+        _player.Collider.excludeLayers = (1<<12);
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
         _player.Gravity = false;
@@ -63,6 +64,8 @@ public class DashState : PlayerState
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
         _player.Gravity = true;
+        _player.Collider.excludeLayers &= ~(1<<12);
+        
         
     }
     
