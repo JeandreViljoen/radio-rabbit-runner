@@ -18,6 +18,7 @@ public class DashState : PlayerState
     {
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
+        _player.Gravity = false;
         _vfx.Value.DashDust(_player.transform.position);
         _vfx.Value.DashVortex(_player.transform.position);
 
@@ -61,6 +62,7 @@ public class DashState : PlayerState
     {
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
+        _player.Gravity = true;
         
     }
     
