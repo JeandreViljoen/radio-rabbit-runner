@@ -29,18 +29,24 @@ MonoBehaviour:
   - Name: Vampirism_1
     DisplayName: Vampirism I
     Value: 10
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills have a {value}% chance to restore 1 health point.
     ID: 1
     GroupType: 5
   - Name: Vampirism_2
     DisplayName: Vampirism II
     Value: 20
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills have a {value}% chance to restore 1 health point.
     ID: 2
     GroupType: 5
   - Name: Vampirism_3
     DisplayName: Vampirism III
     Value: 30
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills have a {value}% chance to restore 1 health point.
     ID: 3
     GroupType: 5

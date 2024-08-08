@@ -25,6 +25,8 @@ public class UIManager : MonoService
     public Button StartButton;
     public Button QuitButton;
 
+    public UIAnimation SelectPrompt;
+
     void Start()
     {
         _stateManager.Value.OnStateChanged += DraftStarterWeapon;
@@ -69,9 +71,9 @@ public class UIManager : MonoService
         }
         
         
-        if (!_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
+        if (!_player.Value.IsDead() && Input.GetKeyDown(GlobalGameAssets.Instance.ConfirmKey))
         {
-            if (SelectedCard != null)
+            if (SelectedCard != null && SelectedCard.IsInit)
             {
                 SelectedCard.Submit();
                 SelectedCard = null;
@@ -83,7 +85,7 @@ public class UIManager : MonoService
                 }
             }
         }
-        else if (_player.Value.IsDead() && (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) || Input.GetKeyDown(GlobalGameAssets.Instance.DashKey)))
+        else if (_player.Value.IsDead() && Input.GetKeyDown(GlobalGameAssets.Instance.ConfirmKey))
         {
             if (!StatsScreen.LockInput)
             {
@@ -147,7 +149,13 @@ public class UIManager : MonoService
                 card.Show();
                 yield return new WaitForSecondsRealtime(DraftRevealInterval);
             }
+            
+            SelectPrompt.Show();
+            yield return new WaitForSeconds(0.3f);
+            
+            Cards[1].Select();
         }
+
     }
 
     public void DraftCards(float preDelay = 0f)
@@ -194,6 +202,11 @@ public class UIManager : MonoService
                 
                 yield return new WaitForSecondsRealtime(DraftRevealInterval);
             }
+            
+            SelectPrompt.Show();
+            yield return new WaitForSeconds(0.3f);
+            
+            Cards[1].Select();
         }
     }
 
@@ -203,6 +216,7 @@ public class UIManager : MonoService
         {
             card.Hide();
         }
+        SelectPrompt.Hide();
     }
     
 

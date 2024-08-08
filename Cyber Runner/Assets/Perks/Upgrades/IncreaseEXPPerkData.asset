@@ -29,18 +29,24 @@ MonoBehaviour:
   - Name: IncreaseEXP_1
     DisplayName: Component Scan I
     Value: 5
+    Icon: {fileID: 21300000, guid: 443525197192149499a6fd386b51c01d, type: 3}
+    HudIcon: {fileID: 1823177843, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills provide {value}% more experience
     ID: 1
     GroupType: 2
   - Name: IncreaseEXP_2
     DisplayName: Component Scan II
     Value: 10
+    Icon: {fileID: 21300000, guid: 443525197192149499a6fd386b51c01d, type: 3}
+    HudIcon: {fileID: 1823177843, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills provide {value}% more experience
     ID: 2
     GroupType: 2
   - Name: IncreaseEXP_3
     DisplayName: Component Scan III
     Value: 20
+    Icon: {fileID: 21300000, guid: 443525197192149499a6fd386b51c01d, type: 3}
+    HudIcon: {fileID: 1823177843, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Kills provide {value}% more experience
     ID: 3
     GroupType: 2

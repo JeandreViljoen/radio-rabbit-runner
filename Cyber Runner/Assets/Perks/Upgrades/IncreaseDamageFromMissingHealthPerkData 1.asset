@@ -29,18 +29,24 @@ MonoBehaviour:
   - Name: IncreaseDamageFromMissingHealth_1
     DisplayName: Adrenal Surge I
     Value: 0.2
+    Icon: {fileID: 21300000, guid: 5b410ed65bb379d48ad7c4eb5fc4a026, type: 3}
+    HudIcon: {fileID: 1671036919, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase damage by {value}%  for each health point missing.
     ID: 1
     GroupType: 3
   - Name: IncreaseDamageFromMissingHealth_2
     DisplayName: Adrenal Surge II
     Value: 0.4
+    Icon: {fileID: 21300000, guid: 5b410ed65bb379d48ad7c4eb5fc4a026, type: 3}
+    HudIcon: {fileID: 1671036919, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase damage by {value}%  for each health point missing.
     ID: 2
     GroupType: 3
   - Name: IncreaseDamageFromMissingHealth_3
     DisplayName: Adrenal Surge III
     Value: 0.6
+    Icon: {fileID: 21300000, guid: 5b410ed65bb379d48ad7c4eb5fc4a026, type: 3}
+    HudIcon: {fileID: 1671036919, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase damage by {value}%  for each health point missing.
     ID: 3
     GroupType: 3

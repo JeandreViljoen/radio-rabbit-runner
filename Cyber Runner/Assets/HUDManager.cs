@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Services;
@@ -42,7 +43,7 @@ public class HUDManager : MonoService
 
     public void SetSpeedValue(float speed)
     {
-        _speedField.text = "Speed: " + speed;
+        _speedField.text =   (int)(speed)   + " K/ph";
     }
 
     public void SetHealthDisplay(int amount)

@@ -8,7 +8,7 @@ public class GameStateManager : MonoService
 {
     public event Action<GameState, GameState> OnStateChanged;
     private GameState _oldStateTransitionStorage;//only used for OnStateChange event
-    private GameState _activeState;
+    private GameState _activeState= GameState.None;
     public GameState ActiveState
     {
         get
@@ -97,6 +97,7 @@ public class GameStateManager : MonoService
                 PreLoadLevels();
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<UIManager>().FadeOutBlackout();
+                ServiceLocator.GetService<PlayerController>().PlayerVisuals.UpdateTvPosition(GameState.None, GameState.Start);
                 break;
             case GameState.StartDraft:
                 break;

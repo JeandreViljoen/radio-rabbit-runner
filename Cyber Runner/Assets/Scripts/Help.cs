@@ -57,9 +57,23 @@ public static class Help
    }
    
    
-   public static float Map01( float value, float min, float max )
+   public static float Map01( float value, float min, float max, bool clamped = false)
    {
-      return ( value - min ) * 1f / ( max - min );
+      float coeff = (value - min) * 1f / (max - min);
+
+      if (clamped)
+      {
+         if (coeff <= 0f)
+         {
+            return 0f;
+         }
+         else if (coeff >= 1f)
+         {
+            return 1f;
+         }
+      }
+      
+      return coeff;
    }
 
    public static Color GetColorBasedOnTargetType(TargetingType type)

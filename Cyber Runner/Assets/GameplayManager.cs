@@ -5,17 +5,8 @@ using UnityEngine;
 
 public class GameplayManager : MonoService
 {
-   
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public FollowTarget CameraFollowTarget;
+    
 
    
 }

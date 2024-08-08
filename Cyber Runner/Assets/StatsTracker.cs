@@ -20,6 +20,7 @@ public class StatsTracker : MonoService
     public int DamageTaken = 0;
     public int DamageDealt = 0;
     public int Score = 0;
+    public int FastestSpeed = 0;
 
     public void ResetAllStats()
     {
@@ -51,7 +52,13 @@ public class StatsTracker : MonoService
         Score += DashAmount;
         Score += JumpAmount;
         Score -= DamageTaken;
+        Score += FastestSpeed;
         Score += (int)(DamageDealt / Math.Max(1, ScoreMultiplier));
+    }
+
+    public void CheckFastestSpeed(float speed)
+    {
+        if (speed > FastestSpeed) FastestSpeed = (int)speed;
     }
 
     public int GetStatValue(StatType stat)
@@ -93,6 +100,9 @@ public class StatsTracker : MonoService
             case StatType.DamageDealt:
                 temp = DamageDealt;
                 break;
+            case StatType.FastestSpeed:
+                temp = FastestSpeed;
+                break;
             case StatType.Score:
                 CalculateScore();
                 temp = Score;
@@ -120,5 +130,6 @@ public enum StatType
     JumpAmount,
     DamageTaken,
     DamageDealt,
-    Score
+    Score,
+    FastestSpeed
 }

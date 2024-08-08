@@ -1,6 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using DG.Tweening;
+using Services;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
@@ -19,14 +23,28 @@ public class FollowTarget : MonoBehaviour
     private float zOffsetBasedOnSpeed = 0;
     private float xOffsetBasedOnSpeed = 0;
 
+
+    [SerializeField] private Vector3 _playerOffset;
+    [SerializeField] private Vector3 _safeOffset;
+    [SerializeField] private Vector3 _deadOffset;
+    [SerializeField] private Vector3 _startOffset;
+    [SerializeField] private Vector3 _StartDraftOffset;
+
+    private LazyService<GameStateManager> _stateManager;
+    private float _startZ;
+
+    private Camera cam;
+    private Tween _zoomTween;
+
     private void Awake()
     {
-       
+        cam = Camera.main;
+        _startZ = transform.position.z;
     }
 
     void Start()
     {
-        
+        _stateManager.Value.OnStateChanged += UpdateCameraPosition;
     }
 
     private void Update()
@@ -51,7 +69,51 @@ public class FollowTarget : MonoBehaviour
     void LateUpdate()
     {
         Vector3 targetPos = _player.gameObject.transform.position + _offset;
-        targetPos = new Vector3(targetPos.x + xOffsetBasedOnSpeed, targetPos.y, -zOffsetBasedOnSpeed);
+        
+        targetPos = new Vector3(targetPos.x + xOffsetBasedOnSpeed, targetPos.y, _startZ); //-zOffsetBasedOnSpeed
         transform.position = Vector3.SmoothDamp(transform.position ,targetPos, ref _currentVelocity, _smoothing);
+        
     }
+
+   
+    private float _zoomLevel;
+    private void DoZoom()
+    {
+  
+        _zoomTween?.Kill();
+        cam.DOOrthoSize(_offset.z, 3f).SetEase(Ease.InOutSine);
+
+    }
+    
+    public void UpdateCameraPosition(GameState from, GameState to)
+    {
+        
+        if (to == GameState.Safe)
+        {
+            _offset = _safeOffset;
+            DoZoom();
+        }
+        if (to == GameState.Playing)
+        {
+            _offset = _playerOffset;
+            DoZoom();
+        }
+        if (to == GameState.Start)
+        {
+            _offset = _startOffset;
+            DoZoom();
+        }
+        if (to == GameState.StartDraft)
+        {
+            _offset = _StartDraftOffset;
+            DoZoom();
+        }
+        if (to == GameState.Dead)
+        {
+            _offset = _deadOffset;
+            DoZoom();
+        }
+    }
+    
 }
+

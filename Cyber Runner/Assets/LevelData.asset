@@ -31,10 +31,10 @@ MonoBehaviour:
     - {fileID: 1405377041238836386, guid: e0b5382002fb0244e8ab8423afcd17ac, type: 3}
   - Level: 1
     Speed: 20
-    SpawnInterval: 50
+    SpawnInterval: 1
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
-    BlockCount: 6
+    BlockCount: 1
     Blocks:
     - {fileID: 7408932212217012235, guid: 62b638892041c2047af844c69a94fbbf, type: 3}
     - {fileID: 7430426904023321209, guid: 7222fa2578560e74bad92f42f1002435, type: 3}

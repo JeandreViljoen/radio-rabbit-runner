@@ -12,54 +12,90 @@ using UnityEngine.UI;
 
 public class UpgradeCard : Selectable
 {
+    [SerializeField] private int _siblingIndex;
+    
     [FoldoutGroup("References"), SerializeField] private Image _border;
     [FoldoutGroup("References"), SerializeField] private Image _background;
     [FoldoutGroup("References"), SerializeField] private Image _icon;
+    [FoldoutGroup("References"), SerializeField] private PunchScaleUIElement _iconPunch;
     [FoldoutGroup("References"), SerializeField] private TextMeshProUGUI _typeField;
     [FoldoutGroup("References"), SerializeField]  private TextMeshProUGUI _displayNameField;
     [FoldoutGroup("References"), SerializeField] private TextMeshProUGUI _descriptionField;
     [FoldoutGroup("References"), SerializeField] private TextMeshProUGUI _levelField;
     [FormerlySerializedAs("_uiAnim")] [FoldoutGroup("References"), SerializeField] public UIAnimation UIAnim;
 
+    [SerializeField] private List<Sprite> _borderSprites;
+    [SerializeField] private Sprite _weaponBGSprite;
+    [SerializeField] private Sprite _perkBGSprite;
+    [SerializeField] private Image _levelBG;
+    [SerializeField] private Image _star;
+
     private LazyService<UpgradesManager> _upgradesManager;
     private UpgradeData _weaponData;
     private PerkUpgradeInfo _perkData;
     private InfoPanelType _panelType;
-    void Start()
+    private Vector3 _startScale;
+    private float _initRotation;
+
+    public bool IsInit { get; private set; } = false;
+
+    protected override void Awake()
     {
-        UIAnim.OnHideEnd += CheckIfMoreDrafts;
+        base.Awake();
+        _startScale = transform.localScale;
     }
 
-    private void CheckIfMoreDrafts()
+    void Start()
     {
-        
+
+        UIAnim.OnShowEnd += () => { IsInit = true; };
+        _border.gameObject.SetActive(false);
+        _star.gameObject.SetActive(false);
+        DimGraphics(true);
     }
 
     public void Init(UpgradeType upgrade)
     {
+        _star.gameObject.SetActive(false);
         _panelType = InfoPanelType.WEAPON;
         _weaponData = _upgradesManager.Value.GetUpgradeData(upgrade);
 
-
-        _levelField.text = "LEVEL " + (_upgradesManager.Value.GetWeaponInstance(_weaponData.Type).Level + 1);
+        int lvl = _upgradesManager.Value.GetWeaponInstance(_weaponData.Type).Level;
+        if(lvl == 0) _star.gameObject.SetActive(true);
+        
+        
+        _levelField.text = "LEVEL " + (lvl + 1);
         _typeField.text = _weaponData.Type.ToString();
         _displayNameField.text = _weaponData.DisplayName;
+        _icon.sprite = _weaponData.Icon;
+        _background.sprite = _weaponBGSprite;
         _descriptionField.text = TokenizeDescriptionValue(_weaponData.Description, "{value}");
         _descriptionField.text = TokenizeDescriptionTarget(_descriptionField.text, "{targetType}");
         interactable = true;
+        _initRotation = UnityEngine.Random.Range(-5f, 5f);
+        SelectRotate(0.0001f, 0f);
+
     }
     
     public void Init(PerkType perkUpgrade)
     {
+        _star.gameObject.SetActive(false);
         _panelType = InfoPanelType.PERK;
         _perkData = _upgradesManager.Value.GetPerkInfo(perkUpgrade);
 
+        int lvl = _upgradesManager.Value.GetPerkInstance(_perkData.GroupType).Level;
+        if(lvl == 0) _star.gameObject.SetActive(true);
 
-        _levelField.text = "LEVEL " + (_upgradesManager.Value.GetPerkInstance(_perkData.GroupType).Level + 1);
+        _levelField.text = "LEVEL " + (lvl + 1);
         _typeField.text = "PERK";
         _displayNameField.text = _perkData.DisplayName;
         _descriptionField.text = TokenizeDescriptionValue(_perkData.Description, "{value}");
+        _icon.sprite = _perkData.Icon;
+        _background.sprite = _perkBGSprite;
         interactable = true;
+        _initRotation = UnityEngine.Random.Range(-5f, 5f);
+        SelectRotate(0.0001f, 0f);
+        
     }
 
     public void Show()
@@ -115,18 +151,103 @@ public class UpgradeCard : Selectable
         
     }
 
+    private Coroutine HighlightAnim;
+
     public event Action<UpgradeCard> OnSelected; 
     public override void OnSelect(BaseEventData eventData)
     {
         base.OnSelect(eventData);
-        UIAnim.Highlight();
+        EnableSelectState();
         OnSelected?.Invoke(this);
+    }
+
+    private void DimGraphics(bool flag)
+    {
+        Color dimColor = Color.gray;
+        
+        if (!flag)
+        {
+            dimColor = Color.white;
+        }
+        
+        _background.color = dimColor;
+        _icon.color = dimColor;
+        _levelBG.color = dimColor;
+        _star.color = dimColor;
+
+    }
+
+    private void EnableSelectState()
+    {
+        DimGraphics(false);
+        
+        transform.SetAsLastSibling();
+        _border.gameObject.SetActive(true);
+        
+        SelectRotate(0.05f, -4f);
+        SelectScale(1.2f, 0.05f);
+        SelectRotateIcon(0.2f,6);
+        
+        HighlightAnim = StartCoroutine(BorderAnim(0.2f));
+
+        IEnumerator BorderAnim(float interval)
+        {
+            int counter = 0;
+            int countLimit = _borderSprites.Count-1;
+            while (true)
+            {
+                counter++;
+
+                if (counter > countLimit) counter = 0;
+                _border.sprite = _borderSprites[counter];
+                
+                yield return new WaitForSeconds(interval);
+            }
+        }
+    }
+
+    private void SelectRotate(float speed, float rotation)
+    {
+        _selectRotateTween?.Kill();
+        _selectRotateTween = transform.DORotate(new Vector3(0f, 0f, _initRotation+rotation), speed).SetEase(Ease.InOutSine);
+    }
+    
+    private void SelectRotateIcon(float speed, float rotationRange)
+    {
+        
+        float rotation = UnityEngine.Random.Range(-rotationRange/2, rotationRange/2);
+        
+        _selectRotateIconTween?.Kill();
+        _selectRotateIconTween = _icon.transform.DORotate(new Vector3(0f, 0f, rotation), speed).SetEase(Ease.InOutSine);
+
+        _iconPunch.Punch(0.4f, 0.2f, 5);
+    }
+
+    private void SelectScale(float amount, float speed)
+    {
+        _selectScaleTween?.Kill();
+        _selectScaleTween = transform.DOScale(_startScale*amount, speed).SetEase(Ease.InOutSine);
+    }
+
+    private Tween _selectRotateTween;
+    private Tween _selectRotateIconTween;
+    private Tween _selectScaleTween;
+
+    private void DisableSelectState()
+    {
+        DimGraphics(true);
+        SelectRotate(0.15f, 0f);
+        SelectScale(1f, 0.15f);
+        
+        transform.SetSiblingIndex(_siblingIndex);
+        StopCoroutine(HighlightAnim);
+        _border.gameObject.SetActive(false);
     }
 
     public override void OnDeselect(BaseEventData eventData)
     {
         base.OnDeselect(eventData);
-        UIAnim.Show();
+        DisableSelectState();
     }
 
     // public void OnSubmit(BaseEventData eventData)
@@ -150,6 +271,7 @@ public class UpgradeCard : Selectable
 
         ServiceLocator.GetService<StatsTracker>().UpgradesDrafted++;
         interactable = false;
+        IsInit = false;
     }
 
     // private void OnSubmitBehavior()

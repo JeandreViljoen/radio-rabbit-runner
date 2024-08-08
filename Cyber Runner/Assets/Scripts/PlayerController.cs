@@ -76,6 +76,7 @@ public class PlayerController : MonoService
     [SerializeField]private float _speed;
 
     private LazyService<VFXManager> _vfx;
+    private LazyService<StatsTracker> _stats;
 
     public bool IsDashing = false;
 
@@ -214,7 +215,8 @@ public class PlayerController : MonoService
         
         //For Inspector display only
         _speed = CurrentRunSpeed;
-        ServiceLocator.GetService<HUDManager>().SetSpeedValue(_speed);
+        ServiceLocator.GetService<HUDManager>().SetSpeedValue(CurrentRunSpeed);
+        _stats.Value.CheckFastestSpeed(CurrentRunSpeed);
         
         if (Input.GetKeyDown(KeyCode.Z) && !IsDead())
         {

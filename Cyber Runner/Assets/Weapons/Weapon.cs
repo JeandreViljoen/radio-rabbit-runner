@@ -241,7 +241,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
         
-        projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
+        //projectile.Renderer.color = Help.GetColorBasedOnTargetType(TargetType);
 
         InvokeOnFireEvent();
         _lastFireTime = Time.time;
@@ -273,7 +273,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
         
-        projectile.Renderer.color = Color.grey;
+        //projectile.Renderer.color = Color.grey;
 
         InvokeOnFireEvent();
         _lastFireTime = Time.time;

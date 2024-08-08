@@ -29,18 +29,24 @@ MonoBehaviour:
   - Name: DashFireRate_1
     DisplayName: Hyperdrive I
     Value: 33
+    Icon: {fileID: 21300000, guid: b303934b64831cf4a8336564f61f5f2e, type: 3}
+    HudIcon: {fileID: 1855401653, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase fire rate by {value}% while dashing.
     ID: 1
     GroupType: 2
   - Name: DashFireRate_2
     DisplayName: Hyperdrive II
     Value: 66
+    Icon: {fileID: 21300000, guid: b303934b64831cf4a8336564f61f5f2e, type: 3}
+    HudIcon: {fileID: 1855401653, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase fire rate by {value}% while dashing.
     ID: 2
     GroupType: 2
   - Name: DashFireRate_3
     DisplayName: Hyperdrive III
     Value: 100
+    Icon: {fileID: 21300000, guid: b303934b64831cf4a8336564f61f5f2e, type: 3}
+    HudIcon: {fileID: 1855401653, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
     Description: Increase fire rate by {value}% while dashing.
     ID: 3
     GroupType: 2

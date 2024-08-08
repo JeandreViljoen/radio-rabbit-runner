@@ -106,6 +106,7 @@ public class LevelBlock : MonoBehaviour
             {
                 if (_stateManager.Value.ActiveState != GameState.Safe)
                 {
+                    _levelManager.Value.SetSafeSpeed();
                     _stateManager.Value.ActiveState = GameState.Safe;
                 }
             }

@@ -67,7 +67,6 @@ public class AirDashState : PlayerState
 
     public override void OnExit(PlayerState next)
     {
-        
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
         _player.Collider.excludeLayers &= ~(1<<12);

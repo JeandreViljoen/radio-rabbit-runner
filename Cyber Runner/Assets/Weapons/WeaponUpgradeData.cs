@@ -78,6 +78,16 @@ public class WeaponUpgradeData : SerializedScriptableObject
         }
         return upgrade;
     }
+    
+    [Button(ButtonSizes.Large), GUIColor("blue")]
+    private void AutoFillIcons()
+    {
+        foreach (var upgrade in Upgrades)
+        {
+            upgrade.Icon = Upgrades[0].Icon;
+            upgrade.HudIcon = Upgrades[0].HudIcon;
+        }
+    }
 }
 
 [Serializable]
@@ -87,6 +97,8 @@ public class UpgradeData
     public string Name;
     public string DisplayName;
     public float Value;
+    public Sprite Icon;
+    public Sprite HudIcon;
     [TextArea(4,10)] public string Description;
     
     [GUIColor("grey"), ReadOnly, HorizontalGroup()] public int ID = 0;

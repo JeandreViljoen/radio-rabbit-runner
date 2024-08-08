@@ -93,7 +93,7 @@ public class LevelManager : MonoService
         
         
         //Speed
-        _player.Value.ConstantForce.force = new Vector2( data.Speed * 2, 0f);
+        SetSpeed(data.Speed);
         //Enemies
         _enemiesManager.Value.SetEnemyTypesToSpawn(data.EnemyPrefabs);
         //Enemy spawn speed;
@@ -103,6 +103,16 @@ public class LevelManager : MonoService
         _targetBlockCount = data.BlockCount;
         //Update HUD
         _hudManager.Value.SetLevelDisplay(level);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _player.Value.ConstantForce.force = new Vector2( speed * 2, 0f);
+    }
+    
+    public void SetSafeSpeed()
+    {
+        _player.Value.ConstantForce.force = new Vector2( _data.GetLevelInfo(0).Speed * 2, 0f);
     }
 
     public List<GameObject> GetAllUniqueLevelBlocks()
