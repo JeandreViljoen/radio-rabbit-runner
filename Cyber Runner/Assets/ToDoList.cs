@@ -46,6 +46,8 @@ enemy death
 
 Stingers:
 Health up
+Banner popups
+STate changes but not music? e.g. (GAME START!)
 
 
 UI: Select / NAV
