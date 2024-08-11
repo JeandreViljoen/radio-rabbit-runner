@@ -71,6 +71,7 @@ public class DeadState : PlayerState
             yield return null;
         }
         
+        AudioManager.PostEvent(AudioEvent.PL_DEATH);
         SetAnimation(FloorLoop);
 
         yield return new WaitUntil(IsStationary);

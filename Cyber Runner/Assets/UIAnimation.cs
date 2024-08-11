@@ -65,11 +65,23 @@ public class UIAnimation : MonoBehaviour
     public Vector3 RelativeHighlightPosition;
     
     private Tween _moveTween;
+
+    public bool IsPlaying => ValidatePlaying();
     void Awake()
     {
         _showPosition = transform.localPosition;
         _hidePosition = _showPosition + RelativeHidePosition;
         _highlightPosition = _showPosition + RelativeHighlightPosition;
+    }
+
+    private bool ValidatePlaying()
+    {
+        if (_moveTween == null)
+        {
+            return false;
+        }
+
+        return _moveTween.IsPlaying();
     }
 
     private void Start()
@@ -84,6 +96,7 @@ public class UIAnimation : MonoBehaviour
 
     public void Show()
     {
+        AudioManager.PostEvent(AudioEvent.UI_WHOOSH);
         _moveTween?.Kill();
 
         Sequence s = DOTween.Sequence();

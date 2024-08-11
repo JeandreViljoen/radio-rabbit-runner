@@ -28,6 +28,8 @@ public class Weapon : SerializedMonoBehaviour
     [OdinSerialize] public bool IsUnlocked { get; private set; } = false;
     [SerializeField] private List<GameObject> _muzzleFlashes;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private AudioEvent FireAudio;
+    [SerializeField] private AudioEvent UpgradeAudio;
     
    
 
@@ -74,6 +76,7 @@ public class Weapon : SerializedMonoBehaviour
     {
         Init();
         RegisterUpgradeEffects();
+        AudioManager.RegisterGameObj(gameObject);
     }
 
     private void RegisterUpgradeEffects()
@@ -105,7 +108,9 @@ public class Weapon : SerializedMonoBehaviour
         {
             return;
         }
-
+        
+        AudioManager.SetObjectPosition(gameObject, transform);
+        
         if (GetTarget(TargetType) != null)
         {
             var _direction = (GetTarget(TargetType).transform.position - transform.position).normalized;
@@ -179,6 +184,7 @@ public class Weapon : SerializedMonoBehaviour
     protected void InvokeOnFireEvent()
     {
         OnFire?.Invoke(Type);
+        AudioManager.PostEvent(FireAudio, gameObject);
 
         foreach (var flash in _muzzleFlashes)
         {
@@ -297,6 +303,7 @@ public class Weapon : SerializedMonoBehaviour
         Level++;
         _upgradesManager.Value.RegisterUpgrade(_upgradesData.GetUpgradeAtID(Level));
         Debug.Log($"Upgraded {Type} with {_upgradesData.GetUpgradeData(Level).DisplayName}");
+        AudioManager.PostEvent(UpgradeAudio, gameObject);
 
     }
     

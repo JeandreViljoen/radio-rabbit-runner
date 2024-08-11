@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{F9AC26BA-274A-438E-AD72-9B602485A6A7}" SchemaVersion="119">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{F9AC26BA-274A-438E-AD72-9B602485A6A7}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="RunSpeed" ID="{B441B447-F3AD-4648-BE5B-34EA4712C256}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="50"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="GateVolume" ID="{580FCB4E-DD8F-4AEC-9B1F-21BD45EDA869}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="10"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="40"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="40"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

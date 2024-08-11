@@ -47,7 +47,7 @@ enemy death
 Stingers:
 Health up
 Banner popups
-STate changes but not music? e.g. (GAME START!)
+STate changes but not music? e.g. (GAME START!) + restart
 
 
 UI: Select / NAV

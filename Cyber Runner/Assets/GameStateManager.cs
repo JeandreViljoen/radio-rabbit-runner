@@ -92,24 +92,34 @@ public class GameStateManager : MonoService
         switch (enteringState)
         {
             case GameState.None:
+                AudioManager.PostEvent(AudioEvent.MX_STOP);
+                AudioManager.PostEvent(AudioEvent.AMB_FLYBY_STOP);
                 break;
             case GameState.Start:
                 PreLoadLevels();
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<UIManager>().FadeOutBlackout();
                 ServiceLocator.GetService<PlayerController>().PlayerVisuals.UpdateTvPosition(GameState.None, GameState.Start);
+                AudioManager.SetSwitch("Music", "Combat");
+                AudioManager.PostEvent(AudioEvent.MX_START);
+                AudioManager.PostEvent(AudioEvent.AMB_ROOFTOP_START);
+                AudioManager.PostEvent(AudioEvent.AMB_FLYBY_START);
                 break;
             case GameState.StartDraft:
+                AudioManager.SetSwitch("Music", "Safe");
                 break;
             case GameState.Playing:
+                AudioManager.SetSwitch("Music", "Combat");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
                 break;
             case GameState.Safe:
+                AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<UIManager>().DraftCards(3);
                 break;
             case GameState.Dead:
+                AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<HUDManager>().ShowDeathBanner(0.5f);

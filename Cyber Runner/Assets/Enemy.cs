@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
         Health.OnHealthZero += StartOnDeathBehavior;
         Health.OnHealthLost += DamageFlash;
+        AudioManager.RegisterGameObj(gameObject);
     }
 
     private void OnHit(ProjectileBase projectile)
@@ -96,6 +97,7 @@ public class Enemy : MonoBehaviour
         else
         {
             _frameSkipCounter = 0;
+            AudioManager.SetObjectPosition(gameObject, transform);
             CalculateDistances();
         }
     }
@@ -171,6 +173,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator OnDeathBehavior (float preDeathTime)
     {
+        AudioManager.PostEvent(AudioEvent.ENEMY_DEATH, gameObject);
         ServiceLocator.GetService<EnemiesManager>().InvokeEnemyKilled(this);
         ProcessEXP();
         CheckVampirism();

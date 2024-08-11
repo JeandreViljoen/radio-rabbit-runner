@@ -22,12 +22,12 @@ public class Explosion : MonoBehaviour
 
     void Start()
     {
-        
+        AudioManager.RegisterGameObj(gameObject);
     }
     
     void Update()
     {
-        
+        AudioManager.SetObjectPosition(gameObject, transform);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -68,6 +68,7 @@ public class Explosion : MonoBehaviour
     IEnumerator ReturnToPool(float timeout)
     {
         VFX.Play();
+        AudioManager.PostEvent(AudioEvent.WPN_EXPLOSION, gameObject);
         yield return new WaitUntil(() =>
         {
             return !VFX.isPlaying;

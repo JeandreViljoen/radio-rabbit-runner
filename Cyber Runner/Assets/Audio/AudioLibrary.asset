@@ -1,0 +1,391 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cff4e34649d07f4983601bb87ff5ca4, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Events
+      Entry: 7
+      Data: 0|UnityEngine.Rendering.SerializedDictionary`2[[System.String, mscorlib],[System.String,
+        mscorlib]], Unity.RenderPipelines.Core.Runtime
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 29
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: MX_START
+    - Name: $v
+      Entry: 1
+      Data: MX_Start
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: MX_STOP
+    - Name: $v
+      Entry: 1
+      Data: MX_Stop
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AMB_FLYBY_START
+    - Name: $v
+      Entry: 1
+      Data: AMB_FlyBy_Start
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AMB_FLYBY_STOP
+    - Name: $v
+      Entry: 1
+      Data: AMB_FlyBy_Stop
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AMB_ROOFTOP_START
+    - Name: $v
+      Entry: 1
+      Data: AMB_Rooftop_Start
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AMB_ROOFTOP_STOP
+    - Name: $v
+      Entry: 1
+      Data: AMB_Rooftop_Stop
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ENEMY_DEATH
+    - Name: $v
+      Entry: 1
+      Data: ENEMY_Death
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ENEMY_HITMARK
+    - Name: $v
+      Entry: 1
+      Data: ENEMY_Impact_HitMarker
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ENEMY_IMPACT_HOLLOW
+    - Name: $v
+      Entry: 1
+      Data: ENEMY_Impact_Hollow
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ENEMY_IMPACT_RING
+    - Name: $v
+      Entry: 1
+      Data: ENEMY_Impact_Ring
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_DASH
+    - Name: $v
+      Entry: 1
+      Data: PL_Dash
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_DEATH
+    - Name: $v
+      Entry: 1
+      Data: PL_Death
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_FOOTSTEP
+    - Name: $v
+      Entry: 1
+      Data: PL_Footstep
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_GENERAL_WHOOSH
+    - Name: $v
+      Entry: 1
+      Data: PL_General_Whoosh
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_JUMP
+    - Name: $v
+      Entry: 1
+      Data: PL_Jump
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_LAND
+    - Name: $v
+      Entry: 1
+      Data: PL_Land
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PL_TV_VOCALISE
+    - Name: $v
+      Entry: 1
+      Data: PL_TV_Vocalise
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_PERK_UPGRADE
+    - Name: $v
+      Entry: 1
+      Data: UI_Perk_Upgrade
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_SELECT
+    - Name: $v
+      Entry: 1
+      Data: UI_Select
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_SELECT_UPGRADE
+    - Name: $v
+      Entry: 1
+      Data: UI_Upgrade_Select
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_SUBMIT
+    - Name: $v
+      Entry: 1
+      Data: UI_Submit
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UI_WHOOSH
+    - Name: $v
+      Entry: 1
+      Data: UI_Whoosh
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_EXPLOSION
+    - Name: $v
+      Entry: 1
+      Data: WPN_Explosion
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_FIRE_BOOMBOX
+    - Name: $v
+      Entry: 1
+      Data: WPN_Fire_Boombox
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_FIRE_RAILGUN
+    - Name: $v
+      Entry: 1
+      Data: WPN_Fire_Railgun
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_FIRE_MINIGUN
+    - Name: $v
+      Entry: 1
+      Data: WPN_Fire_Minigun
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_UPGRADE_MINIGUN
+    - Name: $v
+      Entry: 1
+      Data: WPN_Upgrade_Minigun
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_UPGRADE_RAILGUN
+    - Name: $v
+      Entry: 1
+      Data: WPN_Upgrade_Railgun
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WPN_UPGRADE_BOOMBOX
+    - Name: $v
+      Entry: 1
+      Data: WPN_Upgrade_Boombox
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

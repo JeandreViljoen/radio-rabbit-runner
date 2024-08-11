@@ -22,6 +22,7 @@ public class DashState : PlayerState
         _player.Gravity = false;
         _vfx.Value.DashDust(_player.transform.position);
         _vfx.Value.DashVortex(_player.transform.position);
+        AudioManager.PostEvent(AudioEvent.PL_DASH);
 
         Vector2 modifiedDashForce = DashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))

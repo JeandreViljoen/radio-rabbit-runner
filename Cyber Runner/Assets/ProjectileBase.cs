@@ -290,6 +290,7 @@ public class ProjectileBase : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             _vfx.Value.OnHitRailgun(col.transform,_direction);
+            AudioManager.PostEvent(AudioEvent.ENEMY_IMPACT_HOLLOW, col.gameObject);
             
             if (_raycastHitBuffers.Add(col.gameObject.GetInstanceID().ToString()))
             {

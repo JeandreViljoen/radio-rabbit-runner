@@ -23,7 +23,7 @@ public class AirDashState : PlayerState
             Debug.Log($"Airdash force base :  {AirDashForce}         |      modified:   {modifiedDashForce}");
         }
         
-        
+        AudioManager.PostEvent(AudioEvent.PL_DASH);
         _vfx.Value.DashVortex(_player.transform.position);
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;

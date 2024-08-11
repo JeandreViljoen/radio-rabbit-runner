@@ -5252,6 +5252,8 @@ MonoBehaviour:
   _muzzleFlashes:
   - {fileID: 2709338936502064025, guid: 6269b6a1df5f32f478bf24b8bfb4765b, type: 3}
   _spriteRenderer: {fileID: 570198693}
+  FireAudio: 25
+  UpgradeAudio: 28
   _useCullingDistanceAsRange: 0
   ProjectilePrefab: {fileID: 3047728194230388796, guid: 6233f75466c2d0441a2c766af87141dd, type: 3}
 --- !u!1001 &59768672
@@ -9741,10 +9743,11 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420036}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9752,14 +9755,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9872,6 +9867,7 @@ Transform:
   - {fileID: 1541217534}
   - {fileID: 2091183837}
   - {fileID: 2047496786}
+  - {fileID: 1474422317}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
@@ -9921,6 +9917,42 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   CameraFollowTarget: {fileID: 519420033}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9aaaf61d2fc0b54185e793e64dbb3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb44f641dc35aa149979a3ac63dadeb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 1
+    positionOffset: {x: 0, y: 0, z: 25}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &522539267
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,6 +10028,8 @@ MonoBehaviour:
   - {fileID: 4808245643886138142, guid: 0fde74f2df4a72b4e90bcb8f44e3da7c, type: 3}
   - {fileID: 3881113438888082315, guid: 45ea3c7a1c377f44eb3f82635bb5fb60, type: 3}
   _spriteRenderer: {fileID: 267154917}
+  FireAudio: 24
+  UpgradeAudio: 29
   _useCullingDistanceAsRange: 0
   ProjectilePrefab: {fileID: 5051181615430803892, guid: 94b7e2a3cbb4e254a897fb43736805d8, type: 3}
 --- !u!1 &523901094
@@ -11182,6 +11216,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646cab19a1e6fcd46b804dd308b67d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &648411524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648411526}
+  - component: {fileID: 648411525}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &648411525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648411524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136f5ea9aed6b4d48a11757d5c934e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 686a129fec6f2c544878396b285d2a19, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &648411526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648411524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &654013988
 GameObject:
   m_ObjectHideFlags: 0
@@ -22758,6 +22849,8 @@ MonoBehaviour:
   _muzzleFlashes:
   - {fileID: 1853042864542466760, guid: 637e8e4097070634fa8f676d4a18c342, type: 3}
   _spriteRenderer: {fileID: 1553851187}
+  FireAudio: 26
+  UpgradeAudio: 27
   _useCullingDistanceAsRange: 1
   ProjectilePrefab: {fileID: 2847491226386922514, guid: a3c8511817c4f4242aaeb35ce64b819f, type: 3}
 --- !u!1001 &992672640
@@ -25852,6 +25945,124 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1592299172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1474422316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474422317}
+  - component: {fileID: 1474422320}
+  - component: {fileID: 1474422319}
+  - component: {fileID: 1474422318}
+  - component: {fileID: 1474422321}
+  m_Layer: 0
+  m_Name: AudioListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1474422317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474422316}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474422318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e43d7707bbec64b846fa1fb320491a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  AudioLibrary: {fileID: 11400000, guid: a3cddd70287357644be4369eb083cc37, type: 2}
+--- !u!114 &1474422319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9aaaf61d2fc0b54185e793e64dbb3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &1474422320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb44f641dc35aa149979a3ac63dadeb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 1
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &1474422321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bae6af710c0f040b940fceff0f0fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 6f61975c1e61cd14da9e2105211f7445, type: 2}
+  decodeBank: 0
+  overrideLoadSetting: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &1541217533
 GameObject:
   m_ObjectHideFlags: 0
@@ -26821,7 +27032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  MaxHealth: 100
+  MaxHealth: 10000
   RandomHealth: 0
   RandomHealthRange: {x: 0, y: 0}
 --- !u!1 &1721367437
@@ -28669,6 +28880,8 @@ MonoBehaviour:
   Spread: 0
   _muzzleFlashes: []
   _spriteRenderer: {fileID: 0}
+  FireAudio: 0
+  UpgradeAudio: 0
   _useCullingDistanceAsRange: 0
   ProjectilePrefab: {fileID: 4224795287318147426, guid: 282ec1949468b724b95f2ddb8ac1f705, type: 3}
   _trailRendererPrefab: {fileID: 3231979888612369539, guid: a7b29d254fea31e448d755cfa710632f, type: 3}
@@ -30517,3 +30730,4 @@ SceneRoots:
   - {fileID: 938104931}
   - {fileID: 509953684}
   - {fileID: 637940326}
+  - {fileID: 648411526}

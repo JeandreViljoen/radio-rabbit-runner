@@ -283,6 +283,7 @@ public class PlayerController : MonoService
     private void FixedUpdate()
     {
         if(_activeState) _activeState.OnFixedUpdate();
+        AudioManager.SetRTPCValue("RunSpeed", CurrentRunSpeed);
     }
 
     public event Action OnLanded;
@@ -315,6 +316,7 @@ public class PlayerController : MonoService
                 return;
             }
             OnLanded?.Invoke();
+            AudioManager.PostEvent(AudioEvent.PL_LAND);
             IsGrounded = true;
             _vfx.Value.LandingDust(transform.position);
         }
