@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using JetBrains.Annotations;
 using Services;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public class Weapon : SerializedMonoBehaviour
 {
@@ -24,10 +26,13 @@ public class Weapon : SerializedMonoBehaviour
     public float ProjectileSpeed;
     public float FireRatePerSecond = 1;
     public int Spread = 0;
+    public float KnockBack = 1f;
     protected bool _isMaxLevel = false;
     [OdinSerialize] public bool IsUnlocked { get; private set; } = false;
     [SerializeField] private List<GameObject> _muzzleFlashes;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private AudioEvent FireAudio;
+    [SerializeField] private AudioEvent UpgradeAudio;
     
    
 
@@ -74,6 +79,7 @@ public class Weapon : SerializedMonoBehaviour
     {
         Init();
         RegisterUpgradeEffects();
+        AudioManager.RegisterGameObj(gameObject);
     }
 
     private void RegisterUpgradeEffects()
@@ -105,7 +111,9 @@ public class Weapon : SerializedMonoBehaviour
         {
             return;
         }
-
+        
+        AudioManager.SetObjectPosition(gameObject, transform);
+        
         if (GetTarget(TargetType) != null)
         {
             var _direction = (GetTarget(TargetType).transform.position - transform.position).normalized;
@@ -179,6 +187,7 @@ public class Weapon : SerializedMonoBehaviour
     protected void InvokeOnFireEvent()
     {
         OnFire?.Invoke(Type);
+        AudioManager.PostEvent(FireAudio, gameObject);
 
         foreach (var flash in _muzzleFlashes)
         {
@@ -238,6 +247,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.Damage = Damage;
         projectile.Speed = ProjectileSpeed;
         projectile.Spread = Spread;
+        projectile.Knockback = KnockBack;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
         
@@ -247,7 +257,7 @@ public class Weapon : SerializedMonoBehaviour
         _lastFireTime = Time.time;
     }
     
-    protected virtual void TryFireOverride(int damage, float projectileSpeed, int spread, int pierceCount)
+    protected virtual void TryFireOverride(int damage, float projectileSpeed, int spread, int pierceCount, float knockback = 0f)
     {
         GameObject targetEntity = GetTarget(TargetType);
 
@@ -272,6 +282,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.Spread = spread;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
+        projectile.Knockback = knockback;
         
         //projectile.Renderer.color = Color.grey;
 
@@ -297,6 +308,7 @@ public class Weapon : SerializedMonoBehaviour
         Level++;
         _upgradesManager.Value.RegisterUpgrade(_upgradesData.GetUpgradeAtID(Level));
         Debug.Log($"Upgraded {Type} with {_upgradesData.GetUpgradeData(Level).DisplayName}");
+        AudioManager.PostEvent(UpgradeAudio, gameObject);
 
     }
     

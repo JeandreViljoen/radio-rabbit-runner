@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1578621989, guid: 2c7fa549f0d023243b2fc5b82df7ebc2, type: 3}
+    - target: {fileID: 8627022382997731268, guid: 220052441107f4149a01eb832327c734, type: 3}
+      propertyPath: MaxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.69

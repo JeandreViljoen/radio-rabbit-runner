@@ -65,11 +65,23 @@ public class UIAnimation : MonoBehaviour
     public Vector3 RelativeHighlightPosition;
     
     private Tween _moveTween;
+
+    public bool IsPlaying => ValidatePlaying();
     void Awake()
     {
         _showPosition = transform.localPosition;
         _hidePosition = _showPosition + RelativeHidePosition;
         _highlightPosition = _showPosition + RelativeHighlightPosition;
+    }
+
+    private bool ValidatePlaying()
+    {
+        if (_moveTween == null)
+        {
+            return false;
+        }
+
+        return _moveTween.IsPlaying();
     }
 
     private void Start()
@@ -82,26 +94,46 @@ public class UIAnimation : MonoBehaviour
     public event Action OnHideStart;
     public event Action OnHideEnd;
 
-    public void Show()
+    public void Show(float delay = 0f)
     {
+        AudioManager.PostEvent(AudioEvent.UI_WHOOSH);
         _moveTween?.Kill();
 
         Sequence s = DOTween.Sequence();
+        s.AppendInterval(delay);
         s.AppendCallback(() => { OnShowStart?.Invoke(); });
         s.Append(transform.DOLocalMove(_showPosition, ShowSpeed).SetEase(ShowEase).SetUpdate(ActiveWhilePaused));
         s.AppendCallback(() => { OnShowEnd?.Invoke(); });
         _moveTween = s;
     }
 
-    public void Hide()
+    public void Hide(float delay = 0f)
     {
         _moveTween?.Kill();
         
         Sequence s = DOTween.Sequence();
+        s.AppendInterval(delay);
         s.AppendCallback(() => { OnHideStart?.Invoke(); });
         s.Append(transform.DOLocalMove(_hidePosition, HideSpeed).SetEase(HideEase).SetUpdate(ActiveWhilePaused));
         s.AppendCallback(() => { OnHideEnd?.Invoke(); });
         _moveTween = s;
+    }
+
+    private Tween _interactionTween;
+    public void InteractionFeedback()
+    {
+        if (_moveTween != null && _moveTween.IsPlaying())
+        {
+            return;
+        }
+
+        _interactionTween?.Kill();
+
+        Sequence i = DOTween.Sequence();
+        i.Append(transform.DOLocalMove(_highlightPosition, 0.1f));
+        i.Append(transform.DOLocalMove(_showPosition, 0.1f));
+        _interactionTween = i;
+
     }
     
     public void Highlight()

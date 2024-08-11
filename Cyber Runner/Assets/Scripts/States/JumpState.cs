@@ -24,6 +24,7 @@ public class JumpState : PlayerState
 
     public void Jump()
     {
+        AudioManager.PostEvent(AudioEvent.PL_JUMP);
         _player.Gravity = true;
         _player.IsJumping = true;
         _player.RB.velocity = new Vector2(_player.CurrentRunSpeed, 0f);

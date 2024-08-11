@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}" SchemaVersion="119">
+	<Switches>
+		<WorkUnit Name="Default Work Unit" ID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Music" ID="{374FBC99-2991-4F3F-B0F6-96B6E458D869}">
+					<ChildrenList>
+						<Switch Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}"/>
+						<Switch Name="Safe" ID="{B41AB399-2BDD-4B1B-A0D4-F8324943103A}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>

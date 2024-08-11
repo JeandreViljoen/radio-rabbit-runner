@@ -16,11 +16,9 @@
  * Tweak and balance enemy stats
  * Destructible objects
  * Safe zone enter explosion
- * Make buttons work with KB inputs
  * XXX UNLOCKED POPUP! after drafting
  * Show how many drafts are remaining
  * Fix safezone breaking if no drafts possible and continue
- * Dont track stats until game has started
  * 
  * 
  * Set up user testing survey
@@ -28,7 +26,10 @@
  * 
 
 
-
+Button/Key text more readable
+Textarea lines way lighter, fighting with the actual text infront (for both front tapes and side tapes)
+Horizontal tapes not seethrough, 
+Horizontal tape alternative colors (Same, None, red)
 
 
 
@@ -47,7 +48,7 @@ enemy death
 Stingers:
 Health up
 Banner popups
-STate changes but not music? e.g. (GAME START!)
+STate changes but not music? e.g. (GAME START!) + restart
 
 
 UI: Select / NAV

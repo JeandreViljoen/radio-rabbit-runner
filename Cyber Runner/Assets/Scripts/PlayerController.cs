@@ -218,7 +218,7 @@ public class PlayerController : MonoService
         ServiceLocator.GetService<HUDManager>().SetSpeedValue(CurrentRunSpeed);
         _stats.Value.CheckFastestSpeed(CurrentRunSpeed);
         
-        if (Input.GetKeyDown(KeyCode.Z) && !IsDead())
+        if (Input.GetKeyDown(GlobalGameAssets.Instance.JumpKey) && !IsDead())
         {
             if (IsJumping && _hasDoubleJumped)
             {
@@ -244,7 +244,7 @@ public class PlayerController : MonoService
             
         }
         
-        if (Input.GetKeyDown(KeyCode.X) && !IsDead())
+        if (Input.GetKeyDown(GlobalGameAssets.Instance.DashKey) && !IsDead())
         {
             if (IsDashing)
             {
@@ -283,6 +283,7 @@ public class PlayerController : MonoService
     private void FixedUpdate()
     {
         if(_activeState) _activeState.OnFixedUpdate();
+        AudioManager.SetRTPCValue("RunSpeed", CurrentRunSpeed);
     }
 
     public event Action OnLanded;
@@ -295,6 +296,14 @@ public class PlayerController : MonoService
         if (col.collider.CompareTag("DamageTile"))
         {
             Health.RemoveHealth(5);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Floor"))
+        {
+            _hasDoubleJumped = false;
         }
     }
 
@@ -315,6 +324,7 @@ public class PlayerController : MonoService
                 return;
             }
             OnLanded?.Invoke();
+            AudioManager.PostEvent(AudioEvent.PL_LAND);
             IsGrounded = true;
             _vfx.Value.LandingDust(transform.position);
         }

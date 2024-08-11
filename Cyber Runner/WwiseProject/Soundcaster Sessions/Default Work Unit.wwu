@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6F3807F8-2B2B-4B25-9DC3-63866E3B4157}" SchemaVersion="119">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{6F3807F8-2B2B-4B25-9DC3-63866E3B4157}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="New Soundcaster Session" ID="{A6AC0FBE-90C9-47AB-A3A6-451B1FBBABF8}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="MX_Start" ID="{BC8FBCFC-D29F-4BB4-BFBC-2F80026DEB18}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MX_Stop" ID="{1084A53E-A4B1-4824-B7FF-CBB9B4DFA58B}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ENEMY_Death" ID="{4A269283-9664-4282-8A4E-81FF12F63D00}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ENEMY_Impact_Hollow" ID="{8FB5121E-F050-40F2-A437-156C9E82A753}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Perk_Upgrade" ID="{EADA5108-20CC-4C89-918B-D63CD0F08F05}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_TapeLoop_Start" ID="{975DAF8B-B67C-48C5-86C0-EC29A971F3A6}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="7"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_TapeLoop_Stop" ID="{D39B24A7-6303-4857-B0EF-0385F7BB6BA7}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="0" Y="8"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_FlyBy_Start" ID="{7922C2A2-26DC-4DA3-AE58-230CED8DA69E}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_FlyBy_Stop" ID="{D7431DDA-F934-45AD-8353-0A00C5A42E7D}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ENEMY_Impact_HitMarker" ID="{605B4B26-D0EC-4AB2-95D2-49DEE68A4DD6}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ENEMY_Impact_Ring" ID="{70793F1C-5495-4F87-8625-469792A82B69}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Select" ID="{F12EB66D-62FA-4017-A25C-F4F7ACE3886A}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Upgrade_Select" ID="{827893C4-0444-41EE-AF6E-E73B3DCF22C2}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="1" Y="7"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_Rooftop_Start" ID="{D682EDE7-62F7-4DB8-9340-65ED50AE5584}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="AMB_Rooftop_Stop" ID="{FBF543A3-6FDF-41DA-ACE2-0C4211B2CCEC}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_Dash" ID="{671877B2-313B-408F-A94B-1913D86A9F8E}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_Footstep" ID="{C32A84E2-666F-402C-A8E2-F60418A2D090}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="2" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Submit" ID="{84D29705-6CFE-4297-837B-9AF96C97E8BE}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="2" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_Jump" ID="{E788935F-8FCA-4EA8-BFA4-050A75818C61}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_General_Whoosh" ID="{390F16F9-F62A-4D01-935B-2ACBB7B6ED29}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="3" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Whoosh" ID="{CAEF0E8B-40FF-4CB1-AD95-329DA6CD491F}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="3" Y="6"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_Death" ID="{4AE5996D-62CD-49AB-A15D-EA4015C17A95}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="4" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_Land" ID="{04894571-D795-4FA9-A8D8-02BCE2BD22D6}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="4" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PL_TV_Vocalise" ID="{C649E00F-F6A4-4174-A60A-CCE484A81ED8}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="5" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Explosion" ID="{31F540CB-5F3E-4B00-88B8-F444B3E58061}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="7" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Fire_Boombox" ID="{EC4D0E5E-0101-47ED-AE6B-6E0CD9AB0EF8}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="7" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Fire_Minigun" ID="{12655E6A-83B7-4656-B186-711252D1AA7C}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="7" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Fire_Railgun" ID="{981F7BA4-9201-4B39-8D5E-9814253057F9}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="7" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Upgrade_Boombox" ID="{A84BEF1B-3703-44F2-A69D-98D9F957E2C5}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="8" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Upgrade_Minigun" ID="{1994F1C1-32E9-4291-838B-7E04A6CB3E49}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="8" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="WPN_Upgrade_Railgun" ID="{ACC01A5C-CA9A-4FD3-8FDF-E491FA5085F3}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="8" Y="3"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="RunSpeed" ID="{B441B447-F3AD-4648-BE5B-34EA4712C256}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="GateVolume" ID="{580FCB4E-DD8F-4AEC-9B1F-21BD45EDA869}"/>
+							<Value>2.91666666666667</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

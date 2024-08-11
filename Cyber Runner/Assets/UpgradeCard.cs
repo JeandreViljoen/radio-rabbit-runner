@@ -47,7 +47,7 @@ public class UpgradeCard : Selectable
 
     void Start()
     {
-
+        AudioManager.RegisterGameObj(gameObject);
         UIAnim.OnShowEnd += () => { IsInit = true; };
         _border.gameObject.SetActive(false);
         _star.gameObject.SetActive(false);
@@ -148,6 +148,10 @@ public class UpgradeCard : Selectable
     
     void Update()
     {
+        if (UIAnim.IsPlaying)
+        {
+            AudioManager.SetObjectPosition(gameObject, transform);
+        }
         
     }
 
@@ -179,6 +183,7 @@ public class UpgradeCard : Selectable
 
     private void EnableSelectState()
     {
+        AudioManager.PostEvent(AudioEvent.UI_SELECT_UPGRADE);
         DimGraphics(false);
         
         transform.SetAsLastSibling();
@@ -264,11 +269,13 @@ public class UpgradeCard : Selectable
                 break;
             case InfoPanelType.PERK:
                 _upgradesManager.Value.GetPerkInstance(_perkData.GroupType).LevelUp();
+                AudioManager.PostEvent(AudioEvent.UI_PERK_UPGRADE);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
+        AudioManager.PostEvent(AudioEvent.UI_SUBMIT);
         ServiceLocator.GetService<StatsTracker>().UpgradesDrafted++;
         interactable = false;
         IsInit = false;

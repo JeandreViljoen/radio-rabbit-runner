@@ -9,12 +9,14 @@ public class AirDashState : PlayerState
     public Vector2 AirDashForce;
     public float AirDashCooldown = 1f;
     public float AirDashDisableBuffer;
+    public float KnockbackObjectActiveTime = 0.5f;
     private Coroutine _airDashHandle;
     private bool _airDashCooldownActive;
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<VFXManager> _vfx;
     public override void OnEnter()
     {
+        ActivateDashKnockbackObject();
         _player.Collider.excludeLayers = (1<<12);
         Vector2 modifiedDashForce = AirDashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))
@@ -23,7 +25,7 @@ public class AirDashState : PlayerState
             Debug.Log($"Airdash force base :  {AirDashForce}         |      modified:   {modifiedDashForce}");
         }
         
-        
+        AudioManager.PostEvent(AudioEvent.PL_DASH);
         _vfx.Value.DashVortex(_player.transform.position);
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
@@ -69,6 +71,7 @@ public class AirDashState : PlayerState
     {
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
         _player.Collider.excludeLayers &= ~(1<<12);
         return;
     }
@@ -84,5 +87,24 @@ public class AirDashState : PlayerState
         yield return new WaitForSecondsRealtime(AirDashCooldown);
         _airDashCooldownActive = false;
         _airDashHandle = null;
+    }
+    
+    private void ActivateDashKnockbackObject()
+    {
+        if (_dashKnockbackHandle != null)
+        {
+            StopCoroutine(_dashKnockbackHandle);
+        }
+        _dashKnockbackHandle = StartCoroutine(DashKnockbackObjectCooldownRoutine(KnockbackObjectActiveTime));
+    }
+
+    private Coroutine _dashKnockbackHandle;
+
+    private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
+    {
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
+        yield return new WaitForSeconds(activeTime);
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _dashKnockbackHandle = null;
     }
 }

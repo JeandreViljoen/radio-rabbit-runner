@@ -77,6 +77,7 @@ public class Railgun : Weapon
         projectile.Spread = Spread;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
+        projectile.Knockback = KnockBack;
         
         projectile.Renderer.color = Color.white;
 

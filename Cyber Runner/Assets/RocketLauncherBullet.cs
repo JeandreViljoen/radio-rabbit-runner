@@ -23,7 +23,7 @@ public class RocketLauncherBullet : ProjectileBase
          }
       }
       
-      _projectileManager.Value.SpawnExplosion(pos, Damage, scale);
+      _projectileManager.Value.SpawnExplosion(pos, Damage, scale, Knockback);
 
       if (_upgradesManager.Value.HasUpgrade(UpgradeType.RocketLauncher_SecondExplosion))
       {
@@ -33,7 +33,7 @@ public class RocketLauncherBullet : ProjectileBase
 
          if (rng <= data.Value)
          {
-            _projectileManager.Value.SpawnDelayedExplosion(0.2f,pos, Damage/2, scale*1.3f);
+            _projectileManager.Value.SpawnDelayedExplosion(0.2f,pos, Damage/2, scale*1.3f, Knockback/2);
            
          }
       }

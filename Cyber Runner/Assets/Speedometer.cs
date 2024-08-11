@@ -26,7 +26,7 @@ public class Speedometer : MonoBehaviour
         Vector3 rotation = new Vector3(0f, 0f, GetAngleFromSpeed());
         
         _rotationTween?.Kill();
-        Needle.transform.DORotate(rotation, Dampening);
+        _rotationTween = Needle.transform.DORotate(rotation, Dampening);
     }
 
     private float GetAngleFromSpeed()

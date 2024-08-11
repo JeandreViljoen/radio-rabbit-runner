@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Services;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 using Random = System.Random;
 
@@ -109,6 +110,7 @@ public class ProjectileBase : MonoBehaviour
     [HideInInspector] public float Speed;
     [HideInInspector] public int Damage;
     [HideInInspector] public int Spread = 0;
+    [HideInInspector] public float Knockback = 1;
     [ShowIf("IsHoming")] public float Acceleration = 1f;
 
     private bool IsHoming()
@@ -290,6 +292,7 @@ public class ProjectileBase : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             _vfx.Value.OnHitRailgun(col.transform,_direction);
+            AudioManager.PostEvent(AudioEvent.ENEMY_IMPACT_HOLLOW, col.gameObject);
             
             if (_raycastHitBuffers.Add(col.gameObject.GetInstanceID().ToString()))
             {
@@ -310,6 +313,8 @@ public class ProjectileBase : MonoBehaviour
                 {
                     DoOnKillEffects();
                 }
+                col.gameObject.GetComponent<Enemy>().ApplyKnockback(_direction, Knockback);
+                
 
                 DoOnHitEffects();
                 DoImpact();

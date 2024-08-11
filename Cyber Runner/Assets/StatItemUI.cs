@@ -47,6 +47,15 @@ public class StatItemUI : MonoBehaviour
         m.Append(_child.transform.DOLocalMove(_showPosition, speed).SetEase(Ease.OutCubic));
         _moveTween = m;
     }
+    
+    public void Hide(float delay, float speed)
+    {
+        _moveTween?.Kill();
+        Sequence m = DOTween.Sequence();
+        m.AppendInterval(delay);
+        m.Append(_child.transform.DOLocalMove(_hidePosition, speed).SetEase(Ease.OutCubic));
+        _moveTween = m;
+    }
 
     public void SetFlyInOffset(Vector3 offset)
     {

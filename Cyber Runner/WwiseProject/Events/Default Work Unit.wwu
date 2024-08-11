@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="MX_Start" ID="{BC8FBCFC-D29F-4BB4-BFBC-2F80026DEB18}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{FF7E456C-D1F1-4917-87DE-308FD4CB1990}" ShortID="167393243">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{27571320-7D87-4CA4-B6BD-44F23189A1ED}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_Dash" ID="{671877B2-313B-408F-A94B-1913D86A9F8E}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{D8AB3A94-C296-4C7C-ABF2-662660B467C1}" ShortID="294967194">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Player_Dash" ID="{7B493573-E9B7-47CC-9051-C4EBAF2E2E4B}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_TV_Vocalise" ID="{C649E00F-F6A4-4174-A60A-CCE484A81ED8}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{370C33E5-3A3B-4DEC-ABF2-FFEC217C0F1E}" ShortID="782592340">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_TV_Vocalise" ID="{26582E43-F3E0-46D0-940B-83F0BDBAC131}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_Jump" ID="{E788935F-8FCA-4EA8-BFA4-050A75818C61}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{00B56293-4689-4373-9C57-CE1F8F5640BE}" ShortID="135768416">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Player_Jump_gear" ID="{77CAA93B-25B6-4CAC-9AAC-0A7721A6DE11}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{61D03CE3-61C1-4737-A06F-8FDFACFB4E45}" ShortID="991489470">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Player_Jump_Swish" ID="{3E2E786F-6DD2-4CF0-B1AB-45EBDC3D205F}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_Death" ID="{4AE5996D-62CD-49AB-A15D-EA4015C17A95}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{AE5DACE7-772D-478C-8904-51BA1755D68C}" ShortID="935810338">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Player_Death" ID="{68EAC170-1E2F-490D-AEE5-15D9EE1AB2AF}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_Footstep" ID="{C32A84E2-666F-402C-A8E2-F60418A2D090}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{3F121364-C698-4093-B7DD-7139A4561620}" ShortID="303949695">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Footsteps" ID="{E7D1D523-9A59-4A29-8770-D32A09B58D1E}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_Land" ID="{04894571-D795-4FA9-A8D8-02BCE2BD22D6}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{69CE208E-9E91-4161-82B1-E76B3FA1986C}" ShortID="595060372">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Landing" ID="{F95601BA-4931-4619-A1FF-77624A37A835}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PL_General_Whoosh" ID="{390F16F9-F62A-4D01-935B-2ACBB7B6ED29}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{9C3BAF10-7793-4037-9EDB-29ED7953819E}" ShortID="2165561">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Whoosh" ID="{F9ACAF13-1360-4F15-8F04-E34EA7B47AB9}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ENEMY_Impact_Ring" ID="{70793F1C-5495-4F87-8625-469792A82B69}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{C8F238A2-E655-492B-AB94-1D8E9FAED0D5}" ShortID="406677463">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Impact_ring" ID="{CD737F43-87F1-4284-8460-D3379AB7F26C}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ENEMY_Impact_Hollow" ID="{8FB5121E-F050-40F2-A437-156C9E82A753}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{14F605A3-AC20-4375-892D-E984D42497D5}" ShortID="1034746264">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Impact_hollow" ID="{2ECA92C3-AA53-441F-B895-32652883D53D}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ENEMY_Impact_HitMarker" ID="{605B4B26-D0EC-4AB2-95D2-49DEE68A4DD6}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{1DFE8E89-A938-49F1-A024-ADA25A97D566}" ShortID="676032400">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_HitMarker" ID="{32BAE0ED-1725-43DE-8C74-7B0D9EF68975}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ENEMY_Death" ID="{4A269283-9664-4282-8A4E-81FF12F63D00}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{DD6A87E1-CA9E-407B-88A8-ABB2E011E9D6}" ShortID="643099040">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Enemy_death_Debris" ID="{36815909-03FC-4542-9697-9841B5A335BA}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{E6D4CBA4-C04C-4C35-9974-3FE6F9E8A4BD}" ShortID="949930744">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Enemy_death_Thud" ID="{7084462E-6864-416D-B9F0-E39C7201147E}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{0163777C-BEB4-4FE0-9A0B-8DCE59151037}" ShortID="1011360657">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Enemy_death_Voice" ID="{4A4E2B19-B7BE-4669-B438-F93EF768E874}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="AMB_Rooftop_Start" ID="{D682EDE7-62F7-4DB8-9340-65ED50AE5584}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{25F92F75-8FD1-4328-B7AB-2C57C4F51B62}" ShortID="288896155">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RRR_AMBIENCE_Rooftop" ID="{C8943E6C-5CB2-47C5-9959-D78150E9D75C}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="AMB_FlyBy_Start" ID="{7922C2A2-26DC-4DA3-AE58-230CED8DA69E}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{12E8DD27-5574-4D0A-B3D0-F45E38E79E7F}" ShortID="527835394">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RRR_AMBIENCE_FlyBy_LOOP" ID="{3908D350-64C7-45A0-8A26-785850AE4F0F}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="AMB_FlyBy_Stop" ID="{D7431DDA-F934-45AD-8353-0A00C5A42E7D}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{0A262C7F-3092-4911-8730-84097F7478F9}" ShortID="218329318">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RRR_AMBIENCE_FlyBy_LOOP" ID="{3908D350-64C7-45A0-8A26-785850AE4F0F}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="AMB_Rooftop_Stop" ID="{FBF543A3-6FDF-41DA-ACE2-0C4211B2CCEC}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{0206CE5E-1B45-4EC6-ADF2-415B24D04BC9}" ShortID="206218462">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RRR_AMBIENCE_Rooftop" ID="{C8943E6C-5CB2-47C5-9959-D78150E9D75C}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Perk_Upgrade" ID="{EADA5108-20CC-4C89-918B-D63CD0F08F05}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{FB042F7C-3732-412D-93F5-4F2409905B2B}" ShortID="142970727">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_PerkUpgrade" ID="{008C0133-FDC3-42E6-AE3D-A718ABD46B42}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Select" ID="{F12EB66D-62FA-4017-A25C-F4F7ACE3886A}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{1E8373A1-4A83-4B5A-89EC-DD7695CD03FD}" ShortID="732897710">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Select" ID="{1888EE03-DEE8-445A-9A54-254F9FC5DA42}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Submit" ID="{84D29705-6CFE-4297-837B-9AF96C97E8BE}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{4C73FBB4-04F2-4E82-8AA1-2C21200430E9}" ShortID="604577163">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_TapeLoop_Stop" ID="{D39B24A7-6303-4857-B0EF-0385F7BB6BA7}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{7E8ED22B-DFCD-49A3-A330-AC90B402DCB3}" ShortID="359038394">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Select" ID="{1888EE03-DEE8-445A-9A54-254F9FC5DA42}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{ABB7E4D4-4D9F-47F2-832B-D678E0DFCE73}" ShortID="275900342">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RRR_UI_Confirm_01" ID="{EFE02CA6-1957-4629-89CA-D14D9EA83712}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_TapeLoop_Start" ID="{975DAF8B-B67C-48C5-86C0-EC29A971F3A6}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{C5433786-3149-4AC7-81E2-770FCDC7458F}" ShortID="1025019780">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_TapeLoop_Stop" ID="{D39B24A7-6303-4857-B0EF-0385F7BB6BA7}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{24FC4527-6102-4BF3-89F2-A2ADC8B3FA94}" ShortID="963020043">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_TapeLoop" ID="{7BC277CA-F34E-4C7B-8D1F-73D042FFA6CE}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_TapeLoop_Stop" ID="{D39B24A7-6303-4857-B0EF-0385F7BB6BA7}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{1962F213-3A3A-4419-905D-BC683A154DF2}" ShortID="352770033">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_TapeLoop" ID="{7BC277CA-F34E-4C7B-8D1F-73D042FFA6CE}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Whoosh" ID="{CAEF0E8B-40FF-4CB1-AD95-329DA6CD491F}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{FDF8F1BB-A09A-4F66-84DD-A32E20729EE1}" ShortID="316715325">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Whoosh" ID="{929917E2-400F-41BC-86C0-5B476ED57169}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Fire_Boombox" ID="{EC4D0E5E-0101-47ED-AE6B-6E0CD9AB0EF8}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{DA217DDF-216B-4993-8D1F-FDC685B1C64B}" ShortID="890939989">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Boombox_Fire" ID="{C0D23A66-3F07-4190-9146-3286CA7F2FFA}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Fire_Railgun" ID="{981F7BA4-9201-4B39-8D5E-9814253057F9}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{315BBD6C-4A1C-4E29-835D-6EE86E2BD53F}" ShortID="98326554">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Railgun_Fire" ID="{D4BBAEF2-0CA1-4BB4-B7EA-A574AA685E60}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Fire_Minigun" ID="{12655E6A-83B7-4656-B186-711252D1AA7C}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{F80891AB-63CD-4CD7-A56A-50250F18E84D}" ShortID="471662583">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Minigun_Fire" ID="{9D28DECC-4D5E-4294-BB57-B06ADB77CD23}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Upgrade_Boombox" ID="{A84BEF1B-3703-44F2-A69D-98D9F957E2C5}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{850D434A-4DCF-4FDC-8C90-546B56CB1464}" ShortID="675237625">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Upgrade_D" ID="{063FE10A-2AE9-4D91-9549-939E1B595598}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Upgrade_Minigun" ID="{1994F1C1-32E9-4291-838B-7E04A6CB3E49}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{D7F30AE9-C833-4DD8-AA25-7AF15C625A70}" ShortID="378897543">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Upgrade_C" ID="{DA5AED47-8779-412C-80A7-B003F80BFF96}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Upgrade_Railgun" ID="{ACC01A5C-CA9A-4FD3-8FDF-E491FA5085F3}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{893BD288-151C-403F-B1A0-636D59ABC437}" ShortID="584931111">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_Upgrade_B" ID="{3A022706-3A1B-4997-B028-55BB061C887E}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_Explosion" ID="{31F540CB-5F3E-4B00-88B8-F444B3E58061}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{197ABBBB-A259-4A28-9E49-514F37C60416}" ShortID="167253671">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RC_BoomBox_Explosion" ID="{5F42F9CE-47F0-436D-801B-41AB33B5C8F1}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MX_Stop" ID="{1084A53E-A4B1-4824-B7FF-CBB9B4DFA58B}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="19"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{D89C1773-FD18-4B9F-8534-4D074027F280}" ShortID="1044878921">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music" ID="{27571320-7D87-4CA4-B6BD-44F23189A1ED}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Upgrade_Select" ID="{827893C4-0444-41EE-AF6E-E73B3DCF22C2}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{4ED14157-F573-469A-ABC3-2CE2F0EC34F4}" ShortID="402225223">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Select" ID="{F12EB66D-62FA-4017-A25C-F4F7ACE3886A}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D629F16C-7DC8-4F84-80DB-C833DAEA9116}" ShortID="95955742">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_TapeLoop_Start" ID="{975DAF8B-B67C-48C5-86C0-EC29A971F3A6}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

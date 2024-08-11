@@ -92,24 +92,36 @@ public class GameStateManager : MonoService
         switch (enteringState)
         {
             case GameState.None:
+                
                 break;
             case GameState.Start:
                 PreLoadLevels();
+                ServiceLocator.GetService<UIManager>().MainMenu.ShowPrompts();
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<UIManager>().FadeOutBlackout();
+                ServiceLocator.GetService<GameplayManager>().CameraFollowTarget.UpdateCameraPosition(GameState.None, GameState.Start);
                 ServiceLocator.GetService<PlayerController>().PlayerVisuals.UpdateTvPosition(GameState.None, GameState.Start);
+                AudioManager.SetSwitch("Music", "Combat");
+                AudioManager.PostEvent(AudioEvent.MX_START);
+                AudioManager.PostEvent(AudioEvent.AMB_ROOFTOP_START);
+                AudioManager.PostEvent(AudioEvent.AMB_FLYBY_START);
                 break;
             case GameState.StartDraft:
+                ServiceLocator.GetService<StatsTracker>().ResetAllStats();
+                AudioManager.SetSwitch("Music", "Safe");
                 break;
             case GameState.Playing:
+                AudioManager.SetSwitch("Music", "Combat");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
                 break;
             case GameState.Safe:
+                AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<UIManager>().DraftCards(3);
                 break;
             case GameState.Dead:
+                AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<HUDManager>().ShowDeathBanner(0.5f);
@@ -127,7 +139,10 @@ public class GameStateManager : MonoService
         
         IEnumerator ShowStatsDelayed()
         {
-            yield return new WaitForSeconds(delay);
+            ServiceLocator.GetService<UIManager>().StatsScreen.gameObject.SetActive(true);
+            yield return new WaitForSeconds(delay-0.5f);
+            ServiceLocator.GetService<UIManager>().StatsScreen.ShowDeadCharacterSprite();
+            yield return new WaitForSeconds(0.5f);
             ServiceLocator.GetService<UIManager>().StatsScreen.ShowStats();
         }
     }

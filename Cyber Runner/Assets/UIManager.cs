@@ -21,18 +21,14 @@ public class UIManager : MonoService
     public Image SceneLoadBlackout;
     public StatsScreen StatsScreen;
     public bool IsDrafting = false;
-
-    public Button StartButton;
-    public Button QuitButton;
+    public MainMenu MainMenu;
 
     public UIAnimation SelectPrompt;
 
     void Start()
     {
         _stateManager.Value.OnStateChanged += DraftStarterWeapon;
-        StartButton.onClick.AddListener(PlayButtonClicked);
-        QuitButton.onClick.AddListener(ExitButtonClicked);
-        
+
         foreach (var card in Cards)
         {
             card.OnSelected += UpdateSelectedCard;
@@ -46,30 +42,14 @@ public class UIManager : MonoService
         DraftCards(0.5f);
     }
 
-    private void PlayButtonClicked()
-    {
-        _stateManager.Value.ActiveState = GameState.StartDraft;
-
-        StartButton.gameObject.SetActive(false);
-        QuitButton.gameObject.SetActive(false);
-    }
-
-    private void ExitButtonClicked()
-    {
-        
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
-    }
-
+    
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(GlobalGameAssets.Instance.RestartKey))
         {
             LoadMainScene();
+            AudioManager.PostEvent(AudioEvent.UI_SELECT);
         }
-        
         
         if (!_player.Value.IsDead() && Input.GetKeyDown(GlobalGameAssets.Instance.ConfirmKey))
         {
@@ -87,6 +67,8 @@ public class UIManager : MonoService
         }
         else if (_player.Value.IsDead() && Input.GetKeyDown(GlobalGameAssets.Instance.ConfirmKey))
         {
+            StatsScreen.HideStats();
+            AudioManager.PostEvent(AudioEvent.UI_SELECT);
             if (!StatsScreen.LockInput)
             {
                 LoadMainScene();
@@ -103,9 +85,22 @@ public class UIManager : MonoService
         _blackoutFadeTween?.Kill();
         Sequence s = DOTween.Sequence();
         s.Append(SceneLoadBlackout.DOFade(1f, 1f));
-        s.AppendCallback(() => {  SceneManager.LoadScene("MainScene"); });
+        s.AppendCallback(() =>
+        {
+            ThingsToDoBeforeSceneUnload();
+            SceneManager.LoadScene("MainScene");
+            
+        });
         _blackoutFadeTween = s;
 
+    }
+
+    private void ThingsToDoBeforeSceneUnload()
+    {
+        AudioManager.PostEvent(AudioEvent.MX_STOP);
+        AudioManager.PostEvent(AudioEvent.AMB_ROOFTOP_STOP);
+        AudioManager.PostEvent(AudioEvent.AMB_FLYBY_STOP);
+        DOTween.KillAll();
     }
 
     public void FadeOutBlackout()

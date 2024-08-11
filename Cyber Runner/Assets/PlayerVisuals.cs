@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerVisuals : MonoBehaviour
 {
     public Transform TVFollowPositionParent;
+    public GameObject DashKnockBackCollider;
 
     private Vector3 _playerFollowPosition;
     [SerializeField] private bool _flipSpriteSafe;
@@ -24,6 +25,7 @@ public class PlayerVisuals : MonoBehaviour
     private LazyService<GameStateManager> _stateManager;
 
     private Tween _moveTween;
+    private bool _flipFlag;
     
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class PlayerVisuals : MonoBehaviour
     void Start()
     {
         _stateManager.Value.OnStateChanged += UpdateTvPosition;
+        DashKnockBackCollider.SetActive(false);
     }
     
     void Update()
@@ -47,30 +50,46 @@ public class PlayerVisuals : MonoBehaviour
         if (to == GameState.Safe)
         {
             SetTvPosition(TVPosition.Safe, 3);
+            _flipFlag = _flipSpriteSafe;
         }
         if (to == GameState.Playing)
         {
             SetTvPosition(TVPosition.Player, 3);
+            _flipFlag = false;
         }
         if (to == GameState.Start)
         {
             SetTvPosition(TVPosition.Start, 3);
+            _flipFlag = _flipSpriteStart;
         }
         if (to == GameState.StartDraft)
         {
             SetTvPosition(TVPosition.StartDraft, 3);
+            _flipFlag = _flipSpriteStartDraft;
         }
         if (to == GameState.Dead)
         {
-            SetTvPosition(TVPosition.Dead, 3);
+            SetTvPosition(TVPosition.Dead, 1.5f);
+            _flipFlag = _flipSpriteDead;
         }
     }
 
+    private Tween _flipTween;
     public void SetTvPosition(TVPosition pos, float speed)
     {
         _moveTween?.Kill();
-        _moveTween = TVFollowPositionParent.DOLocalMove(GetTarget(pos), speed).SetEase(Ease.InOutCubic);
+        Sequence s = DOTween.Sequence();
+        s.Append(TVFollowPositionParent.DOLocalMove(GetTarget(pos), speed).SetEase(Ease.InOutCubic));
+        _moveTween = s;
+        
+        _flipTween?.Kill();
+        Sequence f = DOTween.Sequence();
+        f.AppendInterval(speed * 0.7f);
+        f.AppendCallback(() => { FlipLeftFlag?.Invoke(_flipFlag); });
+        _flipTween = f;
     }
+
+    public event Action<bool> FlipLeftFlag;
 
     public Vector3 GetTarget(TVPosition pos)
     {
