@@ -269,6 +269,7 @@ public class UpgradeCard : Selectable
                 break;
             case InfoPanelType.PERK:
                 _upgradesManager.Value.GetPerkInstance(_perkData.GroupType).LevelUp();
+                AudioManager.PostEvent(AudioEvent.UI_PERK_UPGRADE);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

@@ -12,10 +12,24 @@ public class TVController : MonoService
     public SpriteRenderer TVFaceRenderer;
     public SpriteAnim TVFaceAnim;
     public List<WeaponAttachmentPoint> AttachmentPoints;
+    public LazyService<PlayerController> _player;
 
     void Start()
     {
        DoRotate();
+       _player.Value.PlayerVisuals.FlipLeftFlag += FlipTV;
+    }
+
+    private void FlipTV(bool flipflag)
+    {
+        if (flipflag)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 
     void DoRotate()
