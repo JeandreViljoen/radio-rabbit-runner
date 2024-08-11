@@ -75,6 +75,7 @@ public class Minigun : Weapon
         projectile.Spread = Spread;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
+        projectile.Knockback = KnockBack;
         
         projectile.Renderer.color = Color.white;
 
@@ -96,7 +97,7 @@ public class Minigun : Weapon
     IEnumerator DoubleFire()
     {
         yield return new WaitForSeconds(1f / (FireRatePerSecond/2) );
-        TryFireOverride(Damage/2, ProjectileSpeed, Spread, PierceCount);
+        TryFireOverride(Damage/2, ProjectileSpeed, Spread, PierceCount, KnockBack/2);
     }
     
     

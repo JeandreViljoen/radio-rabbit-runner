@@ -60,6 +60,11 @@ public class FollowTarget : MonoBehaviour
             _smoothing = _smoothingMax;
         }
 
+        if (_stateManager.Value.ActiveState == GameState.Dead)
+        {
+            _smoothing = 0.3f;
+        }
+
        // zOffsetBasedOnSpeed = Help.Map(_player.CurrentRunSpeed, 20, 30, 20f, 30f, true);
         zOffsetBasedOnSpeed = 30f;
         xOffsetBasedOnSpeed = Help.Map(_player.TheoreticalMaxSpeed, 0, 35, 10, 17, true);
@@ -77,11 +82,11 @@ public class FollowTarget : MonoBehaviour
 
    
     private float _zoomLevel;
-    private void DoZoom()
+    private void DoZoom(float speed)
     {
   
         _zoomTween?.Kill();
-        cam.DOOrthoSize(_offset.z, 3f).SetEase(Ease.InOutSine);
+        cam.DOOrthoSize(_offset.z, speed).SetEase(Ease.InOutSine);
 
     }
     
@@ -91,27 +96,27 @@ public class FollowTarget : MonoBehaviour
         if (to == GameState.Safe)
         {
             _offset = _safeOffset;
-            DoZoom();
+            DoZoom(3f);
         }
         if (to == GameState.Playing)
         {
             _offset = _playerOffset;
-            DoZoom();
+            DoZoom(1.5f);
         }
         if (to == GameState.Start)
         {
             _offset = _startOffset;
-            DoZoom();
+            DoZoom(3f);
         }
         if (to == GameState.StartDraft)
         {
             _offset = _StartDraftOffset;
-            DoZoom();
+            DoZoom(3f);
         }
         if (to == GameState.Dead)
         {
             _offset = _deadOffset;
-            DoZoom();
+            DoZoom(5f);
         }
     }
     

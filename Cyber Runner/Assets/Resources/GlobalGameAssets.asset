@@ -15,4 +15,7 @@ MonoBehaviour:
   JumpKey: 122
   DashKey: 120
   ConfirmKey: 99
+  ExitKey: 276
+  StartKey: 99
+  RestartKey: 114
   LevelData: {fileID: 11400000, guid: 31c4282194c4b9e4ebb02fbba619b454, type: 2}

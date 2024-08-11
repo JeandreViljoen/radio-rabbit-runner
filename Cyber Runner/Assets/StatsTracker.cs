@@ -33,6 +33,8 @@ public class StatsTracker : MonoService
         JumpAmount = 0;
         DamageTaken = 0;
         DamageDealt = 0;
+        FastestSpeed = 0;
+        EXPGained = 0;
         Score = 0;
     }
 

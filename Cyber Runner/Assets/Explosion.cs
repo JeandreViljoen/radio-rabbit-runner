@@ -8,6 +8,8 @@ public class Explosion : MonoBehaviour
 {
     
     public int Damage = 0;
+    public float Knockback = 0f;
+    public float MiniExplosionKnockback = 1f;
     private Vector3 _startScale;
     private LazyService<PrefabPool> _prefabPool;
     private LazyService<UpgradesManager> _upgradesManager;
@@ -53,9 +55,12 @@ public class Explosion : MonoBehaviour
                     pos = col.transform.position;
                     
                     var data = _upgradesManager.Value.GetUpgradeData(UpgradeType.RocketLauncher_MiniExplosions);
-                    _projectileManager.Value.SpawnDelayedExplosion(0.0f, pos, (int)(Damage * (data.Value/100)), 1f);
+                    _projectileManager.Value.SpawnDelayedExplosion(0.0f, pos, (int)(Damage * (data.Value/100)), 1f, MiniExplosionKnockback);
                 }
             }
+
+            Vector3 dir = col.gameObject.transform.position - gameObject.transform.position;
+            col.gameObject.GetComponent<Enemy>().ApplyKnockback(dir, Knockback);
         }
     }
 

@@ -9,6 +9,9 @@ public class GlobalGameAssets : ScriptableObjectSingleton<GlobalGameAssets>
     public KeyCode JumpKey;
     public KeyCode DashKey;
     public KeyCode ConfirmKey;
+    public KeyCode ExitKey;
+    public KeyCode StartKey;
+    public KeyCode RestartKey;
 
     public LevelData LevelData;
 }

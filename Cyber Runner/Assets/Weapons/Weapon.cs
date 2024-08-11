@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using JetBrains.Annotations;
 using Services;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public class Weapon : SerializedMonoBehaviour
 {
@@ -24,6 +26,7 @@ public class Weapon : SerializedMonoBehaviour
     public float ProjectileSpeed;
     public float FireRatePerSecond = 1;
     public int Spread = 0;
+    public float KnockBack = 1f;
     protected bool _isMaxLevel = false;
     [OdinSerialize] public bool IsUnlocked { get; private set; } = false;
     [SerializeField] private List<GameObject> _muzzleFlashes;
@@ -244,6 +247,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.Damage = Damage;
         projectile.Speed = ProjectileSpeed;
         projectile.Spread = Spread;
+        projectile.Knockback = KnockBack;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = PierceCount;
         
@@ -253,7 +257,7 @@ public class Weapon : SerializedMonoBehaviour
         _lastFireTime = Time.time;
     }
     
-    protected virtual void TryFireOverride(int damage, float projectileSpeed, int spread, int pierceCount)
+    protected virtual void TryFireOverride(int damage, float projectileSpeed, int spread, int pierceCount, float knockback = 0f)
     {
         GameObject targetEntity = GetTarget(TargetType);
 
@@ -278,6 +282,7 @@ public class Weapon : SerializedMonoBehaviour
         projectile.Spread = spread;
         projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
+        projectile.Knockback = knockback;
         
         //projectile.Renderer.color = Color.grey;
 

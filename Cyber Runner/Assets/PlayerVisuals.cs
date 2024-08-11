@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerVisuals : MonoBehaviour
 {
     public Transform TVFollowPositionParent;
+    public GameObject DashKnockBackCollider;
 
     private Vector3 _playerFollowPosition;
     [SerializeField] private bool _flipSpriteSafe;
@@ -34,6 +35,7 @@ public class PlayerVisuals : MonoBehaviour
     void Start()
     {
         _stateManager.Value.OnStateChanged += UpdateTvPosition;
+        DashKnockBackCollider.SetActive(false);
     }
     
     void Update()
@@ -67,7 +69,7 @@ public class PlayerVisuals : MonoBehaviour
         }
         if (to == GameState.Dead)
         {
-            SetTvPosition(TVPosition.Dead, 3);
+            SetTvPosition(TVPosition.Dead, 1.5f);
             _flipFlag = _flipSpriteDead;
         }
     }

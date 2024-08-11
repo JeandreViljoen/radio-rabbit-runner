@@ -92,13 +92,14 @@ public class GameStateManager : MonoService
         switch (enteringState)
         {
             case GameState.None:
-                AudioManager.PostEvent(AudioEvent.MX_STOP);
-                AudioManager.PostEvent(AudioEvent.AMB_FLYBY_STOP);
+                
                 break;
             case GameState.Start:
                 PreLoadLevels();
+                ServiceLocator.GetService<UIManager>().MainMenu.ShowPrompts();
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<UIManager>().FadeOutBlackout();
+                ServiceLocator.GetService<GameplayManager>().CameraFollowTarget.UpdateCameraPosition(GameState.None, GameState.Start);
                 ServiceLocator.GetService<PlayerController>().PlayerVisuals.UpdateTvPosition(GameState.None, GameState.Start);
                 AudioManager.SetSwitch("Music", "Combat");
                 AudioManager.PostEvent(AudioEvent.MX_START);
@@ -106,6 +107,7 @@ public class GameStateManager : MonoService
                 AudioManager.PostEvent(AudioEvent.AMB_FLYBY_START);
                 break;
             case GameState.StartDraft:
+                ServiceLocator.GetService<StatsTracker>().ResetAllStats();
                 AudioManager.SetSwitch("Music", "Safe");
                 break;
             case GameState.Playing:
@@ -137,7 +139,10 @@ public class GameStateManager : MonoService
         
         IEnumerator ShowStatsDelayed()
         {
-            yield return new WaitForSeconds(delay);
+            ServiceLocator.GetService<UIManager>().StatsScreen.gameObject.SetActive(true);
+            yield return new WaitForSeconds(delay-0.5f);
+            ServiceLocator.GetService<UIManager>().StatsScreen.ShowDeadCharacterSprite();
+            yield return new WaitForSeconds(0.5f);
             ServiceLocator.GetService<UIManager>().StatsScreen.ShowStats();
         }
     }

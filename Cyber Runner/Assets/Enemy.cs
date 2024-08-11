@@ -157,6 +157,21 @@ public class Enemy : MonoBehaviour
       
     }
 
+    private Tween _knockbackTween;
+    public void ApplyKnockback(Vector3 direction, float amount, float speed = 0.3f)
+    {
+        if (direction == Vector3.zero || amount == 0f)
+        {
+            return;
+        }
+        
+        float KnockbackSpeed = 0.3f;
+
+        _knockbackTween?.Kill();
+        _knockbackTween = transform.DOLocalMove(transform.localPosition + direction.normalized * amount, KnockbackSpeed).SetEase(Ease.OutSine);
+
+    }
+
     private void ReturnToPool()
     {
         ServiceLocator.GetService<EnemiesManager>().DeRegisterEnemy(this);
@@ -247,11 +262,20 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        if (col.gameObject.CompareTag("DashKnockback"))
+        {
+            Vector3 dir = transform.position - col.gameObject.transform.position;
+            ApplyKnockback(dir, _player.Value.DashState.KnockbackForce, 0.15f);
+            Health.RemoveHealth(_player.Value.DashState.KnockbackDamage);
+            AudioManager.PostEvent(AudioEvent.ENEMY_IMPACT_HOLLOW);
+        }
     }
+    
+    
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        
         if (col.gameObject.CompareTag("Player"))
         {
             Health.RemoveHealth(Health.CurrentHealth);

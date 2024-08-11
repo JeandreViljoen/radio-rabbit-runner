@@ -7,6 +7,9 @@ using UnityEngine;
 public class DashState : PlayerState
 {
     public Vector2 DashForce;
+    public float KnockbackForce = 5f;
+    public int KnockbackDamage = 5;
+    public float KnockbackObjectActiveTime = 0.5f;
     public float DashCooldown = 1f;
     public float DashDisableBuffer;
     private Coroutine _dashHandle;
@@ -16,6 +19,7 @@ public class DashState : PlayerState
 
     public override void OnEnter()
     {
+        ActivateDashKnockbackObject();
         _player.Collider.excludeLayers = (1<<12);
         _player.Health.SetInvulnerable(true);
         _player.IsDashing = true;
@@ -64,6 +68,7 @@ public class DashState : PlayerState
     {
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
         _player.Gravity = true;
         _player.Collider.excludeLayers &= ~(1<<12);
         
@@ -81,5 +86,24 @@ public class DashState : PlayerState
         yield return new WaitForSecondsRealtime(DashCooldown);
         _dashCooldownActive = false;
         _dashHandle = null;
+    }
+
+    private void ActivateDashKnockbackObject()
+    {
+        if (_dashKnockbackHandle != null)
+        {
+            StopCoroutine(_dashKnockbackHandle);
+        }
+        _dashKnockbackHandle = StartCoroutine(DashKnockbackObjectCooldownRoutine(KnockbackObjectActiveTime));
+    }
+
+    private Coroutine _dashKnockbackHandle;
+
+    private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
+    {
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
+        yield return new WaitForSeconds(activeTime);
+        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _dashKnockbackHandle = null;
     }
 }

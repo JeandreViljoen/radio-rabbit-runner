@@ -98,23 +98,24 @@ public class ProjectileManager : MonoService
     }
     
     public GameObject ExplosionPrefab;
-    public void SpawnExplosion(Vector3 position ,int damage, float sizeMultiplier = 1f)
+    public void SpawnExplosion(Vector3 position ,int damage, float sizeMultiplier = 1f, float knockback = 0f)
     {
         Explosion exp = _prefabPool.Value.Get(ExplosionPrefab).GetComponent<Explosion>();
         exp.Damage = damage;
+        exp.Knockback = knockback;
         exp.transform.localScale *= sizeMultiplier;
         //exp.transform.parent = gameObject.transform;
         exp.transform.position = position;
         exp.DoExplosion();
     }
     
-    public void SpawnDelayedExplosion(float delay, Vector3 position ,int damage, float sizeMultiplier = 1f)
+    public void SpawnDelayedExplosion(float delay, Vector3 position ,int damage, float sizeMultiplier = 1f, float knockback = 0f)
     {
         StartCoroutine(Explode());
         IEnumerator Explode()
         {
             yield return new WaitForSeconds(delay);
-            SpawnExplosion(position, damage, sizeMultiplier);
+            SpawnExplosion(position, damage, sizeMultiplier, knockback);
         }
     }
 
