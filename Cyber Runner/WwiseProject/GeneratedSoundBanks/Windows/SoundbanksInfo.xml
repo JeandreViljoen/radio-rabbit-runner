@@ -36,7 +36,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B265212C-EEFB-3924-FF1B-A13BBF0D4189}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{BA56A474-4FC9-7F7B-9E5A-044CB0BD3413}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -142,7 +142,7 @@
 				</File>
 				<File Id="190336537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_AMBIENCE_Rooftop.wav</ShortName>
-					<CachePath>SFX/RRR_AMBIENCE_Rooftop_D4AE1EE2.wem</CachePath>
+					<CachePath>SFX/RRR_AMBIENCE_Rooftop_702C4722.wem</CachePath>
 				</File>
 				<File Id="197879990" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_TAPELOOP_03.wav</ShortName>
@@ -382,7 +382,7 @@
 				</File>
 				<File Id="600309619" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_TAPELOOP_04.wav</ShortName>
-					<CachePath>SFX/RRR_UI_TAPELOOP_04_9E4F790C.wem</CachePath>
+					<CachePath>SFX/RRR_UI_TAPELOOP_04_50940694.wem</CachePath>
 				</File>
 				<File Id="621020609" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_MINIGUN_Fire_03.wav</ShortName>
@@ -897,5 +897,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{15F8AAE5-4CE0-C8F8-57BD-0E7A91BF5140}</FileHash>
+	<FileHash>{B2E6440C-1369-A5D1-FB91-BF1CCB305A74}</FileHash>
 </SoundBanksInfo>

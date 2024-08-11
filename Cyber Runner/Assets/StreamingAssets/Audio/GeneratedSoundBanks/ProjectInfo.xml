@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo>
 	<Project Name="Cyber Runner_WwiseProject" GUID="{1E119D91-D123-462C-B1C6-4479635A241A}" Generator="2023.1.1.8417"/>
-	<CacheRoot>../../../../Cyber Runner_WwiseProject/.cache</CacheRoot>
+	<CacheRoot>../../../../WwiseProject/.cache</CacheRoot>
 	<Platforms>
-		<Platform Name="Mac" GUID="{E9FA00F0-F142-421D-8B0C-60B86E92E75D}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../Cyber Runner_WwiseProject/GeneratedSoundBanks/Mac"/>
-		<Platform Name="Windows" GUID="{D23E2BEE-23A5-4E6D-911C-17562D4B1704}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../Cyber Runner_WwiseProject/GeneratedSoundBanks/Windows"/>
+		<Platform Name="Mac" GUID="{E9FA00F0-F142-421D-8B0C-60B86E92E75D}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{D23E2BEE-23A5-4E6D-911C-17562D4B1704}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../WwiseProject/GeneratedSoundBanks/Windows"/>
 	</Platforms>
 	<Languages>
 		<Language Name="English(US)" Id="684519430" GUID="{E29E8A7A-E259-48F5-8FA0-6B939A870019}" Default="true" UseAsStandIn="true"/>
 	</Languages>
-	<FileHash>{0FF041F5-42B7-8836-A08B-F7EDF83D6A66}</FileHash>
+	<FileHash>{B6941485-36FF-C5FD-C54D-6D62A5E875D8}</FileHash>
 </ProjectInfo>
