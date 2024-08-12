@@ -22819,6 +22819,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1274622572}
     m_Modifications:
+    - target: {fileID: 1093778368389696514, guid: 8e32e83c50de1d540b6c3303cc85cfa4, type: 3}
+      propertyPath: PlayWhooshAudio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8074551168794788333, guid: 8e32e83c50de1d540b6c3303cc85cfa4, type: 3}
       propertyPath: m_Name
       value: SelectPrompt
