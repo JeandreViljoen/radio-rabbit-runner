@@ -26,37 +26,18 @@
  * 
 
 
-Button/Key text more readable
-Textarea lines way lighter, fighting with the actual text infront (for both front tapes and side tapes)
-Horizontal tapes not seethrough, 
-Horizontal tape alternative colors (Same, None, red)
-
-
 
 
 
 
 -----Audio:----
-jump
-dash
-Shoot for each weapon
-die
-Land
-Footstep
-enemy death
+
 
 Stingers:
 Health up
 Banner popups
 STate changes but not music? e.g. (GAME START!) + restart
 
-
-UI: Select / NAV
-UI: Confirm
-
-Music: Combat
-Music: Safe
-Music: Transitions
 
 
 -------------Nice to have:--------

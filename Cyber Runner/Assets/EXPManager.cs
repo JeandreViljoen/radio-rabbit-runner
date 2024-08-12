@@ -21,6 +21,7 @@ public class EXPManager : MonoService
 
     private int _unclaimedLevels = 0;
     private int _currentEXP = 0;
+    public int UnclaimedLevels => _unclaimedLevels;
 
     [ShowInInspector, ReadOnly] public int CurrentEXP
     {

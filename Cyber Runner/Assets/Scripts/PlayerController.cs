@@ -145,7 +145,12 @@ public class PlayerController : MonoService
     private float _startingGravityScale;
 
     private Coroutine DashHandle;
+    public event Action OnDashEnter;
 
+    public void InvokeOnDashEnter()
+    {
+        OnDashEnter?.Invoke();
+    }
 
     public Targets Targets;
 

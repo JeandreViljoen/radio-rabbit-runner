@@ -7907,7 +7907,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1336287673
   m_SortingLayer: 3
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -655011387, guid: c812a4745abcd2047ae65b3d50131da3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8649,7 +8649,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1336287673
   m_SortingLayer: 3
-  m_SortingOrder: 5
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1247842103, guid: c812a4745abcd2047ae65b3d50131da3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11997,7 +11997,7 @@ Transform:
   m_GameObject: {fileID: 861592227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.56, z: 0}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -25147,8 +25147,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1274622572}
   - component: {fileID: 1274622573}
+  - component: {fileID: 1274622574}
   m_Layer: 5
-  m_Name: LayoutGroup
+  m_Name: UpgradeScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25169,6 +25170,7 @@ RectTransform:
   - {fileID: 1806252406}
   - {fileID: 248105777}
   - {fileID: 1038112922}
+  - {fileID: 1468688542}
   m_Father: {fileID: 29381575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -25202,6 +25204,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1274622574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274622571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d3bb6f3e73a524da46b960e10edd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpgradesRemainingObject: {fileID: 1468688541}
+  UpgradeIconPrefab: {fileID: 6835060552407634460, guid: 52472d884696b134dbf354aa0c7c4810, type: 3}
 --- !u!1 &1323259844
 GameObject:
   m_ObjectHideFlags: 0
@@ -26193,6 +26209,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1592299172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1468688541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468688542}
+  - component: {fileID: 1468688543}
+  m_Layer: 5
+  m_Name: UpgradesRemaining
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1468688542
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468688541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274622572}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.010048, y: 497.85352}
+  m_SizeDelta: {x: 1920, y: 77.823}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1468688543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468688541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 5
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1474422316
 GameObject:
   m_ObjectHideFlags: 0
@@ -28156,6 +28234,28 @@ MonoBehaviour:
   - {fileID: 498576591}
   - {fileID: 1197168810}
   - {fileID: 746762567}
+  DeadFace: {fileID: 7400000, guid: f9402adeeb4350e4d94747d044af9fa4, type: 2}
+  NormalFace: {fileID: 7400000, guid: 3c1b829fbb31d7d4590d65920bb9e189, type: 2}
+  HappyFace: {fileID: 7400000, guid: 60133d61505b28c49a5f78724accaa69, type: 2}
+  HurtFace: {fileID: 7400000, guid: c0e5bbd6112d37548b6ac1ee973fac30, type: 2}
+  AngryFace: {fileID: 7400000, guid: 0c351099ac7d55c4ba2f7dfcd9c6c6eb, type: 2}
+  NumberFaces:
+  - {fileID: 7400000, guid: ef7ae11111048f845a362a5f33acd70c, type: 2}
+  - {fileID: 7400000, guid: 39c1128718105164dab990259b82d0a4, type: 2}
+  - {fileID: 7400000, guid: ee1bb28bea93f2f4aa4c183afe233461, type: 2}
+  - {fileID: 7400000, guid: 4c713c93c6d19994bb278ec6ebb07b3e, type: 2}
+  - {fileID: 7400000, guid: 1d6f9595219040e429b33027c8cde6d6, type: 2}
+  - {fileID: 7400000, guid: 63ade67e72bf721409a2d297da193d83, type: 2}
+  - {fileID: 7400000, guid: b079d1de1f2746d47b8de12def43fd54, type: 2}
+  - {fileID: 7400000, guid: 80b3a351376cbdc49b2bae8c214c74b5, type: 2}
+  - {fileID: 7400000, guid: e7ab2139b342ce2408535864c9d8b3db, type: 2}
+  - {fileID: 7400000, guid: 8239ed7cb265df248a092fe90b4fcf81, type: 2}
+  - {fileID: 7400000, guid: b284e9acbbd47d340b712f27a8ae7454, type: 2}
+  - {fileID: 7400000, guid: e232fcfdbf1c9a343b94add70e45c2b4, type: 2}
+  - {fileID: 7400000, guid: 3d695b5027d163d4c921ac2ca6f77077, type: 2}
+  - {fileID: 7400000, guid: 91524d3b4f9814347a604ef4740d73a0, type: 2}
+  - {fileID: 7400000, guid: 83fc9b8726fc1984e8498a1a8ea90922, type: 2}
+  - {fileID: 7400000, guid: 3da319e177d25c0408b0adad32e6ae62, type: 2}
 --- !u!1 &1801362321
 GameObject:
   m_ObjectHideFlags: 0

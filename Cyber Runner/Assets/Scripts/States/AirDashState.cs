@@ -16,6 +16,7 @@ public class AirDashState : PlayerState
     private LazyService<VFXManager> _vfx;
     public override void OnEnter()
     {
+        _player.InvokeOnDashEnter();
         ActivateDashKnockbackObject();
         _player.Collider.excludeLayers = (1<<12);
         Vector2 modifiedDashForce = AirDashForce;

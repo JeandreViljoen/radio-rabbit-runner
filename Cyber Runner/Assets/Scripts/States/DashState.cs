@@ -19,6 +19,7 @@ public class DashState : PlayerState
 
     public override void OnEnter()
     {
+        _player.InvokeOnDashEnter();
         ActivateDashKnockbackObject();
         _player.Collider.excludeLayers = (1<<12);
         _player.Health.SetInvulnerable(true);

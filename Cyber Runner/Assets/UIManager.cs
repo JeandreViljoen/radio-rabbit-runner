@@ -24,6 +24,9 @@ public class UIManager : MonoService
     public MainMenu MainMenu;
 
     public UIAnimation SelectPrompt;
+    
+    public event Action OnUpgradeSubmitted;
+    public event Action OnUpgradeCardsRevealed;
 
     void Start()
     {
@@ -58,6 +61,7 @@ public class UIManager : MonoService
                 SelectedCard.Submit();
                 SelectedCard = null;
                 HideAllCards();
+                OnUpgradeSubmitted?.Invoke();
 
                 if (_stateManager.Value.ActiveState == GameState.StartDraft)
                 {
@@ -199,9 +203,11 @@ public class UIManager : MonoService
             }
             
             SelectPrompt.Show();
+            OnUpgradeCardsRevealed?.Invoke();
             yield return new WaitForSeconds(0.3f);
             
             Cards[1].Select();
+            
         }
     }
 
