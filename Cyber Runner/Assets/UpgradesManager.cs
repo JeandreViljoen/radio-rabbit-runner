@@ -13,6 +13,11 @@ public class UpgradesManager : MonoService
     private List<PerkType> _activePerks = new();
     private Dictionary<PerkGroup, Perk> _perkGroupInstances = new();
 
+    private HashSet<WeaponType> _uniqueWeapons = new HashSet<WeaponType>();
+    private HashSet<PerkGroup> _uniquePerks = new HashSet<PerkGroup>();
+    public int MaxWeaponCount;
+    public int MaxPerkCount;
+
     private void loadPerks()
     {
         foreach (var perk in WeaponLibrary.PerkList)
@@ -122,7 +127,12 @@ public class UpgradesManager : MonoService
         if (!HasUpgrade(upgrade))
         {
             _activeUpgrades.Add(upgrade);
+            if (_uniqueWeapons.Count < MaxWeaponCount)
+            {
+                _uniqueWeapons.Add(GetUpgradeData(upgrade).Type);
+            }
             OnUpgradeActivated?.Invoke(upgrade);
+            
         }
         else
         {
@@ -135,6 +145,11 @@ public class UpgradesManager : MonoService
         if (!HasPerk(perk))
         {
             _activePerks.Add(perk);
+            if (_uniquePerks.Count < MaxPerkCount)
+            {
+                _uniquePerks.Add(GetPerkInfo(perk).GroupType);
+            }
+            
             OnPerkActivated?.Invoke(perk);
         }
         else
@@ -251,20 +266,44 @@ public class UpgradesManager : MonoService
 
         foreach (var perk in _perkGroupInstances)
         {
+            
+            if (_uniquePerks.Count == MaxPerkCount)
+            {
+                if (!_uniquePerks.Contains(perk.Value.PerkGroup)) continue;
+            }
+            
             PerkType p = perk.Value.GetNextUpgrade();
 
+            //Null check
             if (p != PerkType.None)
             {
-                availablePerks.Add(p);
+                // //If max unique perks have been reached
+                // if (_uniquePerks.Count == MaxPerkCount)
+                // {
+                //     //Compare and add, only if the perk is part of the existing unique groups
+                //     foreach (var pGroup in _uniquePerks)
+                //     {
+                //         if (GetPerkInfo(p).GroupType == pGroup)
+                //         {
+                //             availablePerks.Add(p);
+                //             break;
+                //         }
+                //     }
+                // }
+                // else
+                // {
+                    //If cap not reached, just add the perk
+                    availablePerks.Add(p);
+                //}
+
+                if (_uniquePerks.Count > MaxPerkCount)
+                {
+                    Help.Debug(GetType(), "GetPossiblePerkUpgrades", "THe hashset uniquePerks, had mmore entries than the max perk allowance. This is bad and shouldnt happen. fix immediately");
+                }
             }
         }
 
         return availablePerks;
-    }
-
-    public void DraftRandomUpgrades(int amount)
-    {
-
     }
 
     public List<UpgradeType> GetPossibleWeaponUpgrades()
@@ -274,10 +313,36 @@ public class UpgradesManager : MonoService
 
         foreach (var weapon in _weaponInstances)
         {
+            if (_uniqueWeapons.Count == MaxWeaponCount)
+            {
+                if (!_uniqueWeapons.Contains(weapon.Value.Type)) continue;
+            }
+            
             UpgradeType current = weapon.Value.GetNextUpgrade();
             if (current != UpgradeType.None)
             {
-                options.Add(current);
+                // if (_uniqueWeapons.Count == MaxWeaponCount)
+                // {
+                //     //Compare and add, only if the perk is part of the existing unique groups
+                //     foreach (var wType in _uniqueWeapons)
+                //     {
+                //         if (GetUpgradeData(current).Type == wType)
+                //         {
+                //             options.Add(current);
+                //             break;
+                //         }
+                //     }
+                // }
+                // else
+                // {
+                    options.Add(current);
+                //}
+                
+                if (_uniqueWeapons.Count > MaxWeaponCount)
+                {
+                    Help.Debug(GetType(), "GetPossibleWeaponUpgrades", "THe hashset uniqueWeapons, had mmore entries than the max weapon allowance. This is bad and shouldnt happen. fix immediately");
+                }
+                
             }
         }
 
@@ -353,14 +418,25 @@ public class UpgradesManager : MonoService
         {
             
             int typeSelectRoll = UnityEngine.Random.Range(1,101);
+
+            if (weaponsForThisDraft.Count == 0)
+            {
+                typeSelectRoll = 100;
+            }
+
+            if (perksForThisDraft.Count == 0)
+            {
+                typeSelectRoll = 0;
+            }
+            
         
             //Draft Weapon
-            if (typeSelectRoll <= 50 && weaponsForThisDraft.Count > 0)
+            if (typeSelectRoll <= 50)
             {
                 DoWeapon();
             }
             //Draft Perk
-            else if(typeSelectRoll >= 50 && perksForThisDraft.Count > 0)
+            else if(typeSelectRoll >= 50)
             {
                 DoPerk();
             }

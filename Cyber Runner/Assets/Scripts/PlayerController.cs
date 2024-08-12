@@ -23,6 +23,12 @@ public class PlayerController : MonoService
         }
         set
         {
+            if (_stateLock)
+            {
+                return;
+            }
+            
+            
             if (value == null)
             {
                 Help.Debug(GetType(), "ActiveState", "Cannot Transition to null state.");
@@ -165,9 +171,11 @@ public class PlayerController : MonoService
         _startingGravityScale = RB.gravityScale;
     }
 
+    private bool _stateLock = false;
     private void SetDeathState()
     {
         ActiveState = DeadState;
+        _stateLock = true;
     }
 
     void Start()

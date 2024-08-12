@@ -181,7 +181,7 @@ public class Enemy : MonoBehaviour
     private void StartOnDeathBehavior()
     {
         
-        
+        _knockbackTween?.Kill();
         State = EnemyState.Dead;
         StartCoroutine(OnDeathBehavior(0.3f));
     }

@@ -20,6 +20,8 @@ public class MainMenu : MonoBehaviour
 
     public UIAnimation Logo;
 
+    private bool _isStarted = false;
+
     public List<UIAnimation> Prompts = new ();
     void Start()
     {
@@ -72,10 +74,16 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(GlobalGameAssets.Instance.StartKey))
         {
+            if (_isStarted)
+            {
+                return;
+            }
+            
             AudioManager.PostEvent(AudioEvent.UI_SELECT);
             StartPrompt.InteractionFeedback();
             PlayButtonClicked();
             HidePrompts();
+            _isStarted = true;
         }
         
         if (Input.GetKeyDown(GlobalGameAssets.Instance.ExitKey))
@@ -98,7 +106,11 @@ public class MainMenu : MonoBehaviour
     
     private void PlayButtonClicked()
     {
-        _stateManager.Value.ActiveState = GameState.StartDraft;
+        if (_stateManager.Value.ActiveState != GameState.StartDraft)
+        {
+            _stateManager.Value.ActiveState = GameState.StartDraft;
+        }
+       
     }
 
     private void ExitButtonClicked()

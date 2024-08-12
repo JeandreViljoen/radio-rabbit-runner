@@ -27,6 +27,8 @@ public class TVController : MonoService
 
     private LazyService<UIManager> _uiManager;
 
+    private bool _lockTVFace = false;
+
     void Start()
     {
        DoRotate();
@@ -62,6 +64,9 @@ public class TVController : MonoService
 
     private void SetNumberFaceAuto()
     {
+        if (_lockTVFace) return;
+            
+            
         SetNumberFace(ServiceLocator.GetService<EXPManager>().UnclaimedLevels+1);
     }
     
@@ -83,12 +88,14 @@ public class TVController : MonoService
 
     public void DoHappyFace()
     {
+        if (_lockTVFace) return;
         TVFaceAnim.Play(HappyFace);
         AudioManager.PostEvent(AudioEvent.PL_TV_VOCALISE, gameObject);
     }
     
     public void DoAngryFace()
     {
+        if (_lockTVFace) return;
         TVFaceAnim.Play(AngryFace);
 
         StartCoroutine(AngryFaceDelay());
@@ -102,6 +109,7 @@ public class TVController : MonoService
 
     public void DoHurtFace()
     {
+        if (_lockTVFace) return;
         TVFaceAnim.Play(HurtFace);
 
         StartCoroutine(HurtFaceDelay());
@@ -141,7 +149,6 @@ public class TVController : MonoService
             case GameState.None:
                 break;
             case GameState.Start:
-              
                 TVFaceAnim.Play(NormalFace);
                 break;
             case GameState.StartDraft:
@@ -155,6 +162,7 @@ public class TVController : MonoService
                 break;
             case GameState.Dead:
                 TVFaceAnim.Play(DeadFace);
+                _lockTVFace = true;
                 break;
             default:
                 break;

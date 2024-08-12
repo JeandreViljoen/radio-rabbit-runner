@@ -14,7 +14,7 @@ public class StatsScreen : MonoBehaviour
     [SerializeField] private float _statRevealInterval = 0.15f;
     [SerializeField] private float _statRevealSpeed = 0.3f;
     [SerializeField] private Image _background;
-    [SerializeField] private Image _titleBar;
+    [SerializeField] private UIAnimation _titleBar;
     [SerializeField] private Image _character;
     [SerializeField] private UIAnimation _prompt;
     public bool LockInput = true;
@@ -63,6 +63,7 @@ public class StatsScreen : MonoBehaviour
         StartCoroutine(InputLockTimer(_statRevealInterval * Stats.Count + _statRevealSpeed));
 
         _background.DOFade(1f, 1f).SetEase(Ease.InOutSine);
+        _titleBar.Show(1f);
         //ShowDeadCharacterSprite();
     
         if (OverrideWithGlobalFlyInOffset)
