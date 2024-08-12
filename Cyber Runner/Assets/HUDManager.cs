@@ -22,7 +22,7 @@ public class HUDManager : MonoService
     
     public void ShowGetReadyBanner(int level,float preDelay = 0f)
     {
-        _getReadyBanner.SetText($"LEVEL {level} - GET READY!");
+        _getReadyBanner.SetText($"ROUND {level} - GET READY!");
         _getReadyBanner.DoSwipe(preDelay);
     }
     
@@ -53,6 +53,6 @@ public class HUDManager : MonoService
     
     public void SetLevelDisplay(int lvl)
     {
-        _levelTextField.text = "LEVEL: " + lvl;
+        _levelTextField.text = "ROUND: " + lvl;
     }
 }

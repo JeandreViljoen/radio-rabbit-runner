@@ -45,8 +45,9 @@ public class UpgradeCard : Selectable
         _startScale = transform.localScale;
     }
 
-    void Start()
+    new void Start()
     {
+        base.Start();
         AudioManager.RegisterGameObj(gameObject);
         UIAnim.OnShowEnd += () => { IsInit = true; };
         _border.gameObject.SetActive(false);

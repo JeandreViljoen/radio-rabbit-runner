@@ -87,6 +87,12 @@ public class UIAnimation : MonoBehaviour
     private void Start()
     {
         transform.localPosition = _hidePosition;
+        AudioManager.RegisterGameObj(gameObject);
+    }
+
+    private void Update()
+    {
+        AudioManager.SetObjectPosition(gameObject, transform);
     }
 
     public event Action OnShowStart;
@@ -94,13 +100,16 @@ public class UIAnimation : MonoBehaviour
     public event Action OnHideStart;
     public event Action OnHideEnd;
 
+    public bool PlayWhooshAudio = true;
+
     public void Show(float delay = 0f)
     {
-        AudioManager.PostEvent(AudioEvent.UI_WHOOSH);
+        
         _moveTween?.Kill();
 
         Sequence s = DOTween.Sequence();
         s.AppendInterval(delay);
+        s.AppendCallback(() => { if(PlayWhooshAudio) AudioManager.PostEvent(AudioEvent.UI_WHOOSH, gameObject); });
         s.AppendCallback(() => { OnShowStart?.Invoke(); });
         s.Append(transform.DOLocalMove(_showPosition, ShowSpeed).SetEase(ShowEase).SetUpdate(ActiveWhilePaused));
         s.AppendCallback(() => { OnShowEnd?.Invoke(); });
