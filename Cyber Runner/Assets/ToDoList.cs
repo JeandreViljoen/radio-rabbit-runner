@@ -36,7 +36,8 @@
  * Health bar
  * Safety icon + bar
  * EXP bar
-
+ * more decorations (larger stuff, hanging wires etc.)
+ * inner tunnel tileset
 
 
  * DO user tests
