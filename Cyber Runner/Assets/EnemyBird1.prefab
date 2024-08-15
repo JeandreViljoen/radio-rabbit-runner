@@ -13,6 +13,10 @@ PrefabInstance:
       value: EnemyBird1
       objectReference: {fileID: 0}
     - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
+      propertyPath: Damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: _expValue
       value: 15
       objectReference: {fileID: 0}

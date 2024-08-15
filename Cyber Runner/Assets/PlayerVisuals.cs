@@ -24,8 +24,57 @@ public class PlayerVisuals : MonoBehaviour
     [SerializeField] private Transform _deadFollowPosition;
     private LazyService<GameStateManager> _stateManager;
 
+    public ParticleSystem DodgeShieldVFX;
+   // public ParticleSystem DodgeShieldVFXDamage;
+
+   public Material _dashVFXBlue;
+   public Material _dashVFXRed;
+
     private Tween _moveTween;
     private bool _flipFlag;
+
+    public void StartDodgeShieldVFX()
+    {
+        DodgeShieldVFX.Play();
+        ServiceLocator.GetService<UIManager>().MainMenu.HighlightShieldedText();
+    }
+
+    public void StopDodgeShieldVFX()
+    {
+        DodgeShieldVFX.Stop();
+        DodgeShieldVFX.Clear();
+        ServiceLocator.GetService<UIManager>().MainMenu.UnhighlightShieldedText();
+    }
+
+    private Coroutine _fLashHandle;
+    private Tween _shieldFlashTween;
+    public void FlashDashShieldDamage()
+    {
+        if (_fLashHandle != null)
+        {
+            StopCoroutine(_fLashHandle);
+        }
+        
+        _fLashHandle = StartCoroutine(flashDashDamage());
+        
+        IEnumerator flashDashDamage()
+        {
+            DodgeShieldVFX.GetComponent<ParticleSystemRenderer>().material = _dashVFXRed;
+            yield return new WaitForSeconds(0.15f);
+            DodgeShieldVFX.GetComponent<ParticleSystemRenderer>().material = _dashVFXBlue;
+            _fLashHandle = null;
+        }
+    }
+
+    public void FlashDashShieldDamage2()
+    {
+        _shieldFlashTween?.Kill();
+        Sequence s = DOTween.Sequence();
+        s.AppendCallback(() => { FlashDashShieldDamage(); });
+        s.Append(DodgeShieldVFX.transform.DOScale(Vector3.one * 1.1f, 0.05f));
+        s.Append(DodgeShieldVFX.transform.DOScale(Vector3.one, 0.1f));
+        _shieldFlashTween = s;
+    }
     
     private void Awake()
     {
@@ -36,6 +85,7 @@ public class PlayerVisuals : MonoBehaviour
     {
         _stateManager.Value.OnStateChanged += UpdateTvPosition;
         DashKnockBackCollider.SetActive(false);
+        DodgeShieldVFX.Stop();
     }
     
     void Update()

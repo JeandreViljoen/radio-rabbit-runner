@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Services;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,6 +18,7 @@ public class MainMenu : MonoBehaviour
     public UIAnimation RestartPrompt;
     public UIAnimation JumpPrompt;
     public UIAnimation DashPrompt;
+    public UIAnimation TutorialPrompt;
 
     public UIAnimation Logo;
 
@@ -28,6 +30,7 @@ public class MainMenu : MonoBehaviour
         Prompts.Clear();
         Prompts.Add(ExitPrompt);
         Prompts.Add(RestartPrompt);
+        Prompts.Add(TutorialPrompt);
         Prompts.Add(JumpPrompt);
         Prompts.Add(DashPrompt);
         Prompts.Add(StartPrompt);
@@ -49,6 +52,7 @@ public class MainMenu : MonoBehaviour
         Prompts.Clear();
         Prompts.Add(ExitPrompt);
         Prompts.Add(RestartPrompt);
+        Prompts.Add(TutorialPrompt);
         Prompts.Add(JumpPrompt);
         Prompts.Add(DashPrompt);
         Prompts.Add(StartPrompt);
@@ -125,6 +129,17 @@ public class MainMenu : MonoBehaviour
     private void OnDestroy()
     {
         StartPrompt.OnHideEnd -= MainMenuPromptsHidden;
+    }
+
+    [SerializeField] private TextMeshProUGUI _shieldedText;
+    public void HighlightShieldedText()
+    {
+        _shieldedText.color = new Color(0.6f, 0.6f, 1f);
+    }
+    
+    public void UnhighlightShieldedText()
+    {
+        _shieldedText.color = new Color(1f, 1f, 1f);
     }
     
 }

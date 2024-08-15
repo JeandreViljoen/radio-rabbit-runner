@@ -4,14 +4,9 @@
  *--------------- NOW ------------
 
  * Fix safezone breaking if no drafts possible and continue
- * no spikes on sidewalls, can get stuck, use barbed wire instead
- dash shield vfx
- taking damage
  fix music in wwise
  stopall in wwise
- explain immunity during dodge
- health ui
- 
+
  
  
 

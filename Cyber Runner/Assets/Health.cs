@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
     public void AddHealth(int value)
     {
         CurrentHealth = Math.Min(CurrentHealth + value, MaxHealth);
-        if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
+        if(Type == HealthType.Player) ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth, 5f);
         OnHealthGained?.Invoke();
     }
     
@@ -62,6 +62,7 @@ public class Health : MonoBehaviour
         if (Type == HealthType.Player)
         {
             ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
+            ServiceLocator.GetService<HUDManager>().FlashRed();
             ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
         }
         else if (Type == HealthType.Enemy)
@@ -74,6 +75,7 @@ public class Health : MonoBehaviour
         }
         return false;
     }
+    
 
     public void DelayedRemoveHealth(int value, float delay)
     {

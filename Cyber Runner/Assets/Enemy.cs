@@ -268,6 +268,7 @@ public class Enemy : MonoBehaviour
             ApplyKnockback(dir, _player.Value.DashState.KnockbackForce, 0.15f);
             Health.RemoveHealth(_player.Value.DashState.KnockbackDamage);
             AudioManager.PostEvent(AudioEvent.ENEMY_IMPACT_HOLLOW);
+            _player.Value.PlayerVisuals.FlashDashShieldDamage2();
         }
     }
     
@@ -276,7 +277,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && Health.CurrentHealth > 0)
         {
             Health.RemoveHealth(Health.CurrentHealth);
             col.gameObject.GetComponent<PlayerController>().Health.RemoveHealth(Damage);

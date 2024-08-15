@@ -70,6 +70,7 @@ public class DashState : PlayerState
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _player.PlayerVisuals.StopDodgeShieldVFX();
         _player.Gravity = true;
         _player.Collider.excludeLayers &= ~(1<<12);
         
@@ -102,9 +103,11 @@ public class DashState : PlayerState
 
     private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
     {
+        _player.PlayerVisuals.StartDodgeShieldVFX();
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
         yield return new WaitForSeconds(activeTime);
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _player.PlayerVisuals.StopDodgeShieldVFX();
         _dashKnockbackHandle = null;
     }
 }

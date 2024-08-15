@@ -67,14 +67,14 @@ MonoBehaviour:
     Type: 2
   - Name: FireRate3
     DisplayName: Fire Rate 3
-    Value: 0
+    Value: 50
     Icon: {fileID: 21300000, guid: d6dd5abc4f5fe014698539277b9e42c3, type: 3}
     HudIcon: {fileID: -204013156, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Shoot {value}% faster.
     ID: 6
     Type: 2
   - Name: DoubleShot2
-    DisplayName: Souble Shot II
+    DisplayName: Double Shot II
     Value: 40
     Icon: {fileID: 21300000, guid: d6dd5abc4f5fe014698539277b9e42c3, type: 3}
     HudIcon: {fileID: -204013156, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}

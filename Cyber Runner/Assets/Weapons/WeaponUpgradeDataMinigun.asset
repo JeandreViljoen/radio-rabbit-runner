@@ -71,7 +71,7 @@ MonoBehaviour:
     Value: 50
     Icon: {fileID: 21300000, guid: 6ee12e1222149944ba558a6429fb1997, type: 3}
     HudIcon: {fileID: 1412139216, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
-    Description: Reduce minigun spread by [value]%.
+    Description: Reduce minigun spread by {value}%.
     ID: 6
     Type: 0
   - Name: PiercingBullets

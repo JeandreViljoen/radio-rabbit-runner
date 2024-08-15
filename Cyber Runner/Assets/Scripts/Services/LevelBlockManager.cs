@@ -83,10 +83,10 @@ public class LevelBlockManager : MonoService
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SafeZoneFlag = !SafeZoneFlag;
-        }
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     SafeZoneFlag = !SafeZoneFlag;
+        // }
     }
     
     private void InitBlocks()

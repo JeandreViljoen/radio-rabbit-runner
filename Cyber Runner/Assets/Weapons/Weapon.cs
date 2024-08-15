@@ -297,7 +297,7 @@ public class Weapon : SerializedMonoBehaviour
             _upgradesData = _upgradesManager.Value.GetWeaponUpgradeData(Type);
         }
         //Max level reached
-        if (_upgradesData.UpgradeCount == Level+1)
+        if (_upgradesData.UpgradeCount == Level+1+1)//accounting for 0 level to unlock, and max level with is limited for now
         {
             _isMaxLevel = true;
             //Unlock weapon combo options

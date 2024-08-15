@@ -207,7 +207,8 @@ public class PlayerController : MonoService
     {
         if (transform.position.y < _killHeight)
         {
-            Health.RemoveHealth(99999);
+            ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0, 3f);
+            Health.RemoveHealth(99999999);
         }
         
         PlayerVisuals.transform.position = this.transform.position;
@@ -274,15 +275,15 @@ public class PlayerController : MonoService
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            ConstantForce.force += new Vector2(5,0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            ConstantForce.force -= new Vector2(5,0);
-        }
+        // if (Input.GetKeyDown(KeyCode.UpArrow))
+        // {
+        //     ConstantForce.force += new Vector2(5,0);
+        // }
+        //
+        // if (Input.GetKeyDown(KeyCode.DownArrow))
+        // {
+        //     ConstantForce.force -= new Vector2(5,0);
+        // }
         
         if (Input.GetKeyDown(KeyCode.K))
         {

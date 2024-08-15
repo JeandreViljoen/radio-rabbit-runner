@@ -73,6 +73,7 @@ public class AirDashState : PlayerState
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _player.PlayerVisuals.StopDodgeShieldVFX();
         _player.Collider.excludeLayers &= ~(1<<12);
         return;
     }
@@ -103,9 +104,11 @@ public class AirDashState : PlayerState
 
     private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
     {
+        _player.PlayerVisuals.StartDodgeShieldVFX();
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
         yield return new WaitForSeconds(activeTime);
         _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        _player.PlayerVisuals.StopDodgeShieldVFX();
         _dashKnockbackHandle = null;
     }
 }
