@@ -9,9 +9,7 @@
  taking damage
  fix music in wwise
  stopall in wwise
- fix visual glitch in striaght level
  explain immunity during dodge
- move text banners higher
  health ui
  
  
