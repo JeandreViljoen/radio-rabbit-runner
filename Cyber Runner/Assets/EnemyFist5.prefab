@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &9153074009965065212
+--- !u!1001 &2744686302773660384
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,24 +10,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2190792063104886110, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_Radius
-      value: 0.9
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5062032849328432999, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_Name
-      value: EnemyScreenHands
+      value: EnemyFist5
       objectReference: {fileID: 0}
     - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: Damage
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
-      propertyPath: MoveSpeed
-      value: 2
+      propertyPath: _expValue
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 6497496609434759074, guid: 220052441107f4149a01eb832327c734, type: 3}
-      propertyPath: m_defaultAnim
-      value: 
-      objectReference: {fileID: 7400000, guid: 19efae3814471c44689d35d086d8548e, type: 2}
     - target: {fileID: 6819872390184957257, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -68,33 +64,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7890644579106078121, guid: 220052441107f4149a01eb832327c734, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1578621989, guid: 2c7fa549f0d023243b2fc5b82df7ebc2, type: 3}
     - target: {fileID: 8627022382997731268, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: MaxHealth
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.69
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.69
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.15
+      value: 0.72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

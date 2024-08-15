@@ -14,11 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5062032849328432999, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_Name
-      value: EnemyCrab
+      value: EnemyCrab2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
+      propertyPath: Damage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6008272319175053647, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: _expValue
-      value: 300
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6497496609434759074, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_defaultAnim
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: -1971405482, guid: 2c7fa549f0d023243b2fc5b82df7ebc2, type: 3}
     - target: {fileID: 8627022382997731268, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: MaxHealth
-      value: 40
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9057106562225357934, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_LocalScale.x

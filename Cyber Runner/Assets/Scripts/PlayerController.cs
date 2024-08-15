@@ -308,7 +308,7 @@ public class PlayerController : MonoService
     {
         if (col.collider.CompareTag("DamageTile"))
         {
-            Health.RemoveHealth(5);
+            Health.RemoveHealth(2);
         }
     }
 

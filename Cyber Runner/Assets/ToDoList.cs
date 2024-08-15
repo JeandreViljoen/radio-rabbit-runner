@@ -2,11 +2,19 @@
 
 
  *--------------- NOW ------------
- * Build levels
- * Set up Rounds
- * Tweak and balance enemy stats
- * Fix safezone breaking if no drafts possible and continue
 
+ * Fix safezone breaking if no drafts possible and continue
+ * no spikes on sidewalls, can get stuck, use barbed wire instead
+ dash shield vfx
+ taking damage
+ fix music in wwise
+ stopall in wwise
+ fix visual glitch in striaght level
+ explain immunity during dodge
+ move text banners higher
+ increase collision size on rockets
+ increase railgun knockback
+ health ui
  
  
  
@@ -20,6 +28,8 @@
  * Safe zone enter explosion
  * XXX UNLOCKED POPUP! after drafting
  * Face on death
+
+ * healed on safe zone popup
  
  
  
@@ -29,7 +39,7 @@
  * Speedbost
  * pickup
  * destructible crash
- * 
+ * music loop breaking
 
  
  *---------------ART-------------

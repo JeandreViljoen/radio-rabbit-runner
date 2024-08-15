@@ -27896,7 +27896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 0
-  MaxHealth: 10000
+  MaxHealth: 100
   RandomHealth: 0
   RandomHealthRange: {x: 0, y: 0}
 --- !u!1 &1721367437

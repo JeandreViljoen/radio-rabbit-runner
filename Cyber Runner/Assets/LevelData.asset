@@ -34,7 +34,7 @@ MonoBehaviour:
     SpawnInterval: 0.8
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
-    BlockCount: 6
+    BlockCount: 4
     Blocks:
     - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
     - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
@@ -43,13 +43,12 @@ MonoBehaviour:
     - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
     - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
   - Level: 2
-    Speed: 20
-    SpawnInterval: 0.7
+    Speed: 17.5
+    SpawnInterval: 0.8
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
     - {fileID: 2187384249032897848, guid: 06b2448cdc47e554e965aa0cecdc1fe7, type: 3}
-    - {fileID: 4123525256755778715, guid: bfbdaba47723e4d43b58c4e4b27e8e4d, type: 3}
-    BlockCount: 7
+    BlockCount: 5
     Blocks:
     - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
     - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
@@ -58,12 +57,72 @@ MonoBehaviour:
     - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
     - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
   - Level: 3
-    Speed: 30
+    Speed: 20
+    SpawnInterval: 0.7
+    EnemyPrefabs:
+    - {fileID: 2187384249032897848, guid: 06b2448cdc47e554e965aa0cecdc1fe7, type: 3}
+    - {fileID: 299270553259185763, guid: b6523669ef645c840b23771bf9600fb9, type: 3}
+    BlockCount: 6
+    Blocks:
+    - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
+    - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
+    - {fileID: 2393340762662837496, guid: 6027af89fb1597a44999f4206cd6f7a8, type: 3}
+    - {fileID: 8466141552890609049, guid: 3d524c63a4dda9148ba2315df582da90, type: 3}
+    - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
+    - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
+  - Level: 4
+    Speed: 22.5
+    SpawnInterval: 0.7
+    EnemyPrefabs:
+    - {fileID: 299270553259185763, guid: b6523669ef645c840b23771bf9600fb9, type: 3}
+    - {fileID: 7641991234081252202, guid: 7f5d0d76bbc77e743ae2fc40919ae697, type: 3}
+    BlockCount: 7
+    Blocks:
+    - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
+    - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
+    - {fileID: 2393340762662837496, guid: 6027af89fb1597a44999f4206cd6f7a8, type: 3}
+    - {fileID: 8466141552890609049, guid: 3d524c63a4dda9148ba2315df582da90, type: 3}
+    - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
+    - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
+  - Level: 5
+    Speed: 25
     SpawnInterval: 0.6
     EnemyPrefabs:
-    - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
+    - {fileID: 7641991234081252202, guid: 7f5d0d76bbc77e743ae2fc40919ae697, type: 3}
     - {fileID: 6929036138399149447, guid: 9f0be00a3936a2c409a6f1fa8142fdb7, type: 3}
     BlockCount: 8
+    Blocks:
+    - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
+    - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
+    - {fileID: 2393340762662837496, guid: 6027af89fb1597a44999f4206cd6f7a8, type: 3}
+    - {fileID: 8466141552890609049, guid: 3d524c63a4dda9148ba2315df582da90, type: 3}
+    - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
+    - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
+  - Level: 6
+    Speed: 27.5
+    SpawnInterval: 0.6
+    EnemyPrefabs:
+    - {fileID: 6929036138399149447, guid: 9f0be00a3936a2c409a6f1fa8142fdb7, type: 3}
+    - {fileID: 4123525256755778715, guid: bfbdaba47723e4d43b58c4e4b27e8e4d, type: 3}
+    BlockCount: 9
+    Blocks:
+    - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
+    - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}
+    - {fileID: 2393340762662837496, guid: 6027af89fb1597a44999f4206cd6f7a8, type: 3}
+    - {fileID: 8466141552890609049, guid: 3d524c63a4dda9148ba2315df582da90, type: 3}
+    - {fileID: 2154642441682575690, guid: 0f3ac81551595f145999154c13d75c96, type: 3}
+    - {fileID: 206078919650316934, guid: f4d2dcbd9fc54f8489a2edc8bf8b47b2, type: 3}
+  - Level: 7
+    Speed: 30
+    SpawnInterval: 0.5
+    EnemyPrefabs:
+    - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
+    - {fileID: 2187384249032897848, guid: 06b2448cdc47e554e965aa0cecdc1fe7, type: 3}
+    - {fileID: 6929036138399149447, guid: 9f0be00a3936a2c409a6f1fa8142fdb7, type: 3}
+    - {fileID: 7641991234081252202, guid: 7f5d0d76bbc77e743ae2fc40919ae697, type: 3}
+    - {fileID: 299270553259185763, guid: b6523669ef645c840b23771bf9600fb9, type: 3}
+    - {fileID: 4123525256755778715, guid: bfbdaba47723e4d43b58c4e4b27e8e4d, type: 3}
+    BlockCount: 10
     Blocks:
     - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
     - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}

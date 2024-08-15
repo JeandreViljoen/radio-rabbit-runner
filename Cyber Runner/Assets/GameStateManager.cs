@@ -119,6 +119,7 @@ public class GameStateManager : MonoService
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<UIManager>().DraftCards(3);
+                ServiceLocator.GetService<PlayerController>().Health.AddHealth(20);
                 break;
             case GameState.Dead:
                 AudioManager.SetSwitch("Music", "Safe");
