@@ -5246,7 +5246,7 @@ MonoBehaviour:
   ProjectileSpeed: 75
   FireRatePerSecond: 0.5
   Spread: 0
-  KnockBack: 1.5
+  KnockBack: 2
   _muzzleFlashes:
   - {fileID: 2709338936502064025, guid: 6269b6a1df5f32f478bf24b8bfb4765b, type: 3}
   _spriteRenderer: {fileID: 570198693}
