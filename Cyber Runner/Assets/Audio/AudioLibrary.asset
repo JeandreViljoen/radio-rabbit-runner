@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 29
+      Data: 30
     - Name: 
       Entry: 7
       Data: 
@@ -380,6 +380,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 1
       Data: WPN_Upgrade_Boombox
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: G_STOPALL
+    - Name: $v
+      Entry: 1
+      Data: G_StopAll
     - Name: 
       Entry: 8
       Data: 

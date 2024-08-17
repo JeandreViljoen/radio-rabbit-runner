@@ -25,6 +25,7 @@ public class ParticleVFX : MonoBehaviour
         }
     }
 
+   
     private void Update()
     {
         if (_followTarget != null)
@@ -62,9 +63,9 @@ public class ParticleVFX : MonoBehaviour
             _followTarget = null;
             _prefabPool.Value.Return(gameObject);
         }
-        
-        VFX.Play();
     }
+
+   
 
     private bool HasStopped()
     {

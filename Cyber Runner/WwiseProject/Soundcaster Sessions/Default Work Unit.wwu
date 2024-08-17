@@ -142,7 +142,7 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}"/>
+						<CurrentSwitchRef Name="Dead" ID="{6BC90B8F-3488-4772-B79C-EF5AC82AAAEB}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

@@ -24,7 +24,10 @@ public class PlayerVisuals : MonoBehaviour
     [SerializeField] private Transform _deadFollowPosition;
     private LazyService<GameStateManager> _stateManager;
 
+    public Transform TransformForShieldVFX;
+
     public ParticleSystem DodgeShieldVFX;
+    public ParticleSystem HealthUpVFX;
    // public ParticleSystem DodgeShieldVFXDamage;
 
    public Material _dashVFXBlue;
@@ -43,6 +46,7 @@ public class PlayerVisuals : MonoBehaviour
     {
         DodgeShieldVFX.Stop();
         DodgeShieldVFX.Clear();
+       // DodgeShieldVFX.transform.DetachChildren();
         ServiceLocator.GetService<UIManager>().MainMenu.UnhighlightShieldedText();
     }
 

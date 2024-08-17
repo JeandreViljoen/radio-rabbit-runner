@@ -12,7 +12,7 @@
 						<Action Name="" ID="{FF7E456C-D1F1-4917-87DE-308FD4CB1990}" ShortID="167393243">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music" ID="{27571320-7D87-4CA4-B6BD-44F23189A1ED}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+									<ObjectRef Name="New Music Switch Container" ID="{A3E270C6-A1E1-4F43-B19F-00F09648F9B9}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -510,7 +510,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Music" ID="{27571320-7D87-4CA4-B6BD-44F23189A1ED}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+									<ObjectRef Name="New Music Switch Container" ID="{A3E270C6-A1E1-4F43-B19F-00F09648F9B9}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -541,6 +541,18 @@
 									<ObjectRef Name="UI_TapeLoop_Start" ID="{975DAF8B-B67C-48C5-86C0-EC29A971F3A6}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
 								</Reference>
 							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="G_StopAll" ID="{65A18CBD-3E88-453D-AF14-CA6D447BF9B8}">
+					<ChildrenList>
+						<Action Name="" ID="{D7912368-3181-4F57-B91A-0C05108810E9}" ShortID="1056893653">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
 						</Action>
 					</ChildrenList>
 				</Event>

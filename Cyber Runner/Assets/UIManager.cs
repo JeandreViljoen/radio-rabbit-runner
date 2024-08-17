@@ -24,6 +24,8 @@ public class UIManager : MonoService
     public MainMenu MainMenu;
 
     public UIAnimation SelectPrompt;
+    public UIAnimation NavKeyUp;
+    public UIAnimation NavKeyDown;
     
     public event Action OnUpgradeSubmitted;
     public event Action OnUpgradeCardsRevealed;
@@ -45,6 +47,14 @@ public class UIManager : MonoService
         DraftCards(0.5f);
     }
 
+    private void ExitButtonClicked()
+    {
+        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+    }
     
     void Update()
     {
@@ -53,6 +63,34 @@ public class UIManager : MonoService
             LoadMainScene();
             AudioManager.PostEvent(AudioEvent.UI_SELECT);
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            AudioManager.PostEvent(AudioEvent.UI_SELECT);
+            ExitButtonClicked();
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            NavKeyUp.PunchHighlight();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            NavKeyDown.PunchHighlight();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            NavKeyUp.PunchHighlight();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            NavKeyDown.PunchHighlight();
+        }
+
+        
         
         if (!_player.Value.IsDead() && Input.GetKeyDown(GlobalGameAssets.Instance.ConfirmKey))
         {
@@ -104,6 +142,7 @@ public class UIManager : MonoService
         AudioManager.PostEvent(AudioEvent.MX_STOP);
         AudioManager.PostEvent(AudioEvent.AMB_ROOFTOP_STOP);
         AudioManager.PostEvent(AudioEvent.AMB_FLYBY_STOP);
+        AudioManager.PostEvent(AudioEvent.G_STOPALL);
         DOTween.KillAll();
     }
 
@@ -150,6 +189,8 @@ public class UIManager : MonoService
             }
             
             SelectPrompt.Show();
+            NavKeyUp.Show();
+            NavKeyDown.Show();
             yield return new WaitForSeconds(0.3f);
             
             Cards[1].Select();
@@ -203,6 +244,8 @@ public class UIManager : MonoService
             }
             
             SelectPrompt.Show();
+            NavKeyUp.Show();
+            NavKeyDown.Show();
             OnUpgradeCardsRevealed?.Invoke();
             yield return new WaitForSeconds(0.3f);
             
@@ -218,6 +261,8 @@ public class UIManager : MonoService
             card.Hide();
         }
         SelectPrompt.Hide();
+        NavKeyUp.Hide();
+        NavKeyDown.Hide();
     }
     
 

@@ -108,7 +108,6 @@ public class GameStateManager : MonoService
                 break;
             case GameState.StartDraft:
                 ServiceLocator.GetService<StatsTracker>().ResetAllStats();
-                AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<HUDManager>().SetHealthDisplay(ServiceLocator.GetService<PlayerController>().Health.CurrentHealth,5f);
                 break;
             case GameState.Playing:
@@ -121,12 +120,15 @@ public class GameStateManager : MonoService
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<UIManager>().DraftCards(3);
                 ServiceLocator.GetService<PlayerController>().Health.AddHealth(20);
+                ServiceLocator.GetService<PlayerController>().PlayerVisuals.HealthUpVFX.Play();
+                
                 break;
             case GameState.Dead:
-                AudioManager.SetSwitch("Music", "Safe");
+                //AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<HUDManager>().ShowDeathBanner(0.5f);
+                AudioManager.SetSwitch("Music", "Dead");
                 ShowStatsScreen(5);
                 break;
             default:

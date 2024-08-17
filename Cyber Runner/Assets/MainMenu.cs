@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     public UIAnimation JumpPrompt;
     public UIAnimation DashPrompt;
     public UIAnimation TutorialPrompt;
+    public UIAnimation SurveyPrompt;
 
     public UIAnimation Logo;
 
@@ -34,6 +35,7 @@ public class MainMenu : MonoBehaviour
         Prompts.Add(JumpPrompt);
         Prompts.Add(DashPrompt);
         Prompts.Add(StartPrompt);
+        Prompts.Add(SurveyPrompt);
 
         StartPrompt.OnHideEnd += MainMenuPromptsHidden;
 
@@ -56,6 +58,7 @@ public class MainMenu : MonoBehaviour
         Prompts.Add(JumpPrompt);
         Prompts.Add(DashPrompt);
         Prompts.Add(StartPrompt);
+        Prompts.Add(SurveyPrompt);
        
         for (var index = 0; index < Prompts.Count; index++)
         {
@@ -104,6 +107,12 @@ public class MainMenu : MonoBehaviour
         if (Input.GetKeyDown(GlobalGameAssets.Instance.DashKey))
         {
             DashPrompt.InteractionFeedback();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            AudioManager.PostEvent(AudioEvent.UI_SELECT);
+            Application.OpenURL("https://forms.gle/EkSRna5Uyx9MwDpZ7");
         }
     }
     

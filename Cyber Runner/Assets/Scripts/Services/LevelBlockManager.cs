@@ -44,6 +44,7 @@ public class LevelBlockManager : MonoService
                 _levelManager.Value.AdvanceLevel();
                 ServiceLocator.GetService<PlayerController>().PlayerVisuals.SetTvPosition(TVPosition.Player, 3);
                ServiceLocator.GetService<GameplayManager>().CameraFollowTarget.UpdateCameraPosition(GameState.None, GameState.Playing);
+               AudioManager.SetSwitch("Music", "Combat");
             }
             //on Enable
             else 

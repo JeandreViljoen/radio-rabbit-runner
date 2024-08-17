@@ -54,7 +54,7 @@ public class ProjectileManager : MonoService
         //projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
         
-        projectile.Renderer.color = color;
+        //projectile.Renderer.color = color;
     }
 
     public void SpawnMinigunSpiral(int bulletCount, Vector3 spawnPos, int damage, float speed, int pierceCount, Color color)
@@ -94,7 +94,7 @@ public class ProjectileManager : MonoService
         //projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
         
-        projectile.Renderer.color = color;
+        //projectile.Renderer.color = color;
     }
     
     public GameObject ExplosionPrefab;

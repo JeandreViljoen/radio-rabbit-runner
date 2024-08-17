@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A434BC1C-45F0-8BAF-158D-8CA7A45A264D}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{57494599-BCDB-FA73-E3F0-E2E76D25869A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -31,12 +31,13 @@
 				<SwitchGroup Id="3991942870" Name="Music">
 					<Switches>
 						<Switch Id="938058686" Name="Safe"/>
+						<Switch Id="2044049779" Name="Dead"/>
 						<Switch Id="2764240573" Name="Combat"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{BA56A474-4FC9-7F7B-9E5A-044CB0BD3413}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C887B25F-C72A-8E0D-067E-B2384F6225C7}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -116,6 +117,10 @@
 					<ShortName>RRR_WEAPONS_UNLOCK_C_04.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_UNLOCK_C_04_818F3B66.wem</CachePath>
 				</File>
+				<File Id="117868854" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RadioRabbit_MX_Raias_Music_98BPM.wav</ShortName>
+					<CachePath>SFX/RadioRabbit_MX_Raias_Music_98BPM_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="145001218" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_Explosion_01.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_Explosion_01_818F3B66.wem</CachePath>
@@ -142,7 +147,7 @@
 				</File>
 				<File Id="190336537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_AMBIENCE_Rooftop.wav</ShortName>
-					<CachePath>SFX/RRR_AMBIENCE_Rooftop_702C4722.wem</CachePath>
+					<CachePath>SFX/RRR_AMBIENCE_Rooftop_1761672F.wem</CachePath>
 				</File>
 				<File Id="197879990" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_TAPELOOP_03.wav</ShortName>
@@ -208,10 +213,6 @@
 					<ShortName>RRR_PLAYER_Footstep_02.wav</ShortName>
 					<CachePath>SFX/RRR_PLAYER_Footstep_02_818F3B66.wem</CachePath>
 				</File>
-				<File Id="274041584" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RRR_MX_Combat.wav</ShortName>
-					<CachePath>SFX/RRR_MX_Combat_FBC78EF0.wem</CachePath>
-				</File>
 				<File Id="286467026" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_DEATH_Debris_09.wav</ShortName>
 					<CachePath>SFX/RRR_ENEMY_DEATH_Debris_09_818F3B66.wem</CachePath>
@@ -264,10 +265,6 @@
 					<ShortName>RRR_PLAYER_Footstep_06.wav</ShortName>
 					<CachePath>SFX/RRR_PLAYER_Footstep_06_818F3B66.wem</CachePath>
 				</File>
-				<File Id="355072962" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RRR_MX_TRANS_CombatToSafe.wav</ShortName>
-					<CachePath>SFX/RRR_MX_TRANS_CombatToSafe_FBC78EF0.wem</CachePath>
-				</File>
 				<File Id="356473362" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_MINIGUN_Fire_08.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_MINIGUN_Fire_08_818F3B66.wem</CachePath>
@@ -311,10 +308,6 @@
 				<File Id="432892381" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_UNLOCK_D_02.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_UNLOCK_D_02_818F3B66.wem</CachePath>
-				</File>
-				<File Id="452411170" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RRR_MX_TRANS_SafeToCombat.wav</ShortName>
-					<CachePath>SFX/RRR_MX_TRANS_SafeToCombat_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="456102319" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_DEATH_Debris_04.wav</ShortName>
@@ -419,6 +412,10 @@
 				<File Id="708798024" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_DEATH_Debris_06.wav</ShortName>
 					<CachePath>SFX/RRR_ENEMY_DEATH_Debris_06_818F3B66.wem</CachePath>
+				</File>
+				<File Id="710031906" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RadioRabbit_MX_Raias_OutroLong_98BPM.wav</ShortName>
+					<CachePath>SFX/RadioRabbit_MX_Raias_OutroLong_98BPM_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="713017535" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_IMPACT_Hollow_03.wav</ShortName>
@@ -532,10 +529,6 @@
 					<ShortName>RRR_WEAPONS_MINIGUN_Fire_07.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_MINIGUN_Fire_07_818F3B66.wem</CachePath>
 				</File>
-				<File Id="919353773" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>RRR_MX_Safe.wav</ShortName>
-					<CachePath>SFX/RRR_MX_Safe_FBC78EF0.wem</CachePath>
-				</File>
 				<File Id="922496681" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_UNLOCK_D_01.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_UNLOCK_D_01_818F3B66.wem</CachePath>
@@ -547,6 +540,10 @@
 				<File Id="937266410" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_PLAYER_JUMP_Gear_04.wav</ShortName>
 					<CachePath>SFX/RRR_PLAYER_JUMP_Gear_04_818F3B66.wem</CachePath>
+				</File>
+				<File Id="950900463" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>RadioRabbit_MX_Raias_Intro_98BPM.wav</ShortName>
+					<CachePath>SFX/RadioRabbit_MX_Raias_Intro_98BPM_FBC78EF0.wem</CachePath>
 				</File>
 				<File Id="952306943" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_PLAYER_GENERAL_Whoosh_01.wav</ShortName>
@@ -605,6 +602,11 @@
 					<CachePath>SFX/RRR_PLAYER_TV_Vocalise_04_818F3B66.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="89833260" Name="RoomVerb (Custom)" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</Custom>
+			</Plugins>
 			<Events>
 				<Event Id="2644939975" Name="AMB_FlyBy_Start" DurationType="Infinite">
 					<MediaRefs>
@@ -643,12 +645,17 @@
 						<MediaRef Id="1056203375"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4175882204" Name="ENEMY_Impact_HitMarker" MaxAttenuation="70" DurationType="OneShot" DurationMin="0.125" DurationMax="0.17479166">
+				<Event Id="4175882204" Name="ENEMY_Impact_HitMarker" MaxAttenuation="70" DurationType="OneShot" DurationMin="0.14441909" DurationMax="0.20194602">
 					<MediaRefs>
 						<MediaRef Id="189663264"/>
 						<MediaRef Id="227466995"/>
 						<MediaRef Id="864286932"/>
 					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="89833260"/>
+						</Custom>
+					</PluginRefs>
 				</Event>
 				<Event Id="1758664366" Name="ENEMY_Impact_Hollow" MaxAttenuation="70" DurationType="OneShot" DurationMin="0.375" DurationMax="0.5">
 					<MediaRefs>
@@ -670,22 +677,23 @@
 						<MediaRef Id="741739096"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1149166268" Name="G_StopAll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="3301075751" Name="MX_Start" DurationType="Infinite">
 					<MediaRefs>
-						<MediaRef Id="355072962"/>
-						<MediaRef Id="452411170"/>
+						<MediaRef Id="710031906"/>
+						<MediaRef Id="950900463"/>
 					</MediaRefs>
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3991942870" Id="2764240573"/>
 							<MediaRefs>
-								<MediaRef Id="274041584"/>
+								<MediaRef Id="117868854"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="3991942870" Id="938058686"/>
 							<MediaRefs>
-								<MediaRef Id="919353773"/>
+								<MediaRef Id="117868854"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -763,7 +771,7 @@
 						<MediaRef Id="1072346224"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="172987527" Name="UI_Perk_Upgrade" DurationType="OneShot" DurationMin="3.8861277" DurationMax="4.117209">
+				<Event Id="172987527" Name="UI_Perk_Upgrade" DurationType="OneShot" DurationMin="4" DurationMax="4">
 					<MediaRefs>
 						<MediaRef Id="345687244"/>
 						<MediaRef Id="376452695"/>
@@ -891,11 +899,12 @@
 				<SwitchGroup Id="3991942870" Name="Music">
 					<Switches>
 						<Switch Id="938058686" Name="Safe"/>
+						<Switch Id="2044049779" Name="Dead"/>
 						<Switch Id="2764240573" Name="Combat"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{B2E6440C-1369-A5D1-FB91-BF1CCB305A74}</FileHash>
+	<FileHash>{438591B3-A483-4195-724E-84D5C8ADC844}</FileHash>
 </SoundBanksInfo>

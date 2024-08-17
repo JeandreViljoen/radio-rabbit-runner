@@ -737,6 +737,777 @@
 						</ObjectList>
 					</ObjectLists>
 				</MusicSwitchContainer>
+				<MusicSegment Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{CA0D3F77-C111-470C-80FB-48BB3E5A8B06}" ShortID="375074347">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="11020.4166666667"/>
+						<Property Name="Tempo" Type="Real64" Value="98"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{CEC58080-30B7-4451-B753-9BF464757CD2}" ShortID="218706221">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{56EDC3F2-0AEC-4AAD-B3BE-CF856D7D3995}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{6A6B0EBF-E627-4E20-B532-4712D2AAEBE8}">
+									<Language>SFX</Language>
+									<AudioFile>RadioRabbit_MX_Raias_Intro_98BPM.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="950900463"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{6102E8BD-2C8C-4D81-ADF3-9AA0A3226006}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{1685FAA0-A328-4588-87D4-18564307852D}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="11020.4166666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{6A6B0EBF-E627-4E20-B532-4712D2AAEBE8}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{B03DA01A-4FB9-4BD0-B3DB-352296DB8857}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{F63D8F1D-C7CA-419A-8566-6F0545DE0F50}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="11020.4166666667"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+				<MusicSegment Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{3AC59F5B-0C5D-496A-91E8-B0C3B787CA84}" ShortID="97798154">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="4897.97916666667"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{9F1B5416-E44B-4C58-A62C-295ADE425B83}" ShortID="431865013">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{9BD84687-C37A-47DD-8F80-297AEBCE28F3}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{F7485CA4-51AD-4531-B7F4-7A8F2EC33F4E}">
+									<Language>SFX</Language>
+									<AudioFile>RadioRabbit_MX_Raias_OutroLong_98BPM.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="710031906"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{7DA676A4-D5D9-49E4-9E4F-9D6E2298C692}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{99BF2764-611D-4B1D-8E96-664A22DE34A1}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="4897.97916666667"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{F7485CA4-51AD-4531-B7F4-7A8F2EC33F4E}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{D87A11A9-6B0D-4B29-A9E8-9A0BE135DCC6}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{59200E10-CC3F-4014-92CF-9A65E400B448}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="4897.97916666667"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+				<MusicSegment Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{61870582-4A30-4141-951A-A2759093A82A}" ShortID="157325143">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{FDAE458F-46C2-4F86-AE72-2E6B9AC927C7}" ShortID="302598534">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{4E2ABBA8-50A4-4B31-AC8C-9D17C4219E1C}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{8120BF21-2148-4BE1-9420-DE55B4ED4195}">
+									<Language>SFX</Language>
+									<AudioFile>RadioRabbit_MX_Raias_OutroShort_98BPM.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="256854368"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{38A04F62-56EB-41A5-BADE-45A28A75E581}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{1A709B40-C71B-4570-B352-123A21693F8D}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="2449"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{8120BF21-2148-4BE1-9420-DE55B4ED4195}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{0FE94ABB-B221-4D88-B474-CB99395AE755}"/>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{8E86F1B4-CA36-4EA0-B596-44ED50377A17}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="2449"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+				<MusicSwitchContainer Name="New Music Switch Container" ID="{A3E270C6-A1E1-4F43-B19F-00F09648F9B9}" ShortID="734413433">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-11</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{C22D723C-F3A0-4093-9D3A-1BB9311A107E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{7D963D9E-6D5E-4D18-A19D-EB7DC071C65E}">
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{C51BABD4-409A-4F84-96AB-6A6DB43D356D}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{CA0D3F77-C111-470C-80FB-48BB3E5A8B06}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{A5B71B47-B6A0-4A45-8B03-152294DAFBCA}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM_Safe" ID="{A735C5BA-9637-4F97-B3DA-4DE703C3EBBB}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{B3D0BACE-32AF-4735-94EA-2A39C8F65847}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeOffset" Type="Real64" Value="3"/>
+															<Property Name="FadeTime" Type="Real64" Value="3"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{0E75EAEA-BBF2-4BE6-ABE1-4EC29D20C6A5}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeTime" Type="Real64" Value="3"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{6DA6E44C-0CD9-4144-81E9-8BACDF03280C}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM_Safe" ID="{A735C5BA-9637-4F97-B3DA-4DE703C3EBBB}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{0F10A7B7-DF28-40DC-8B6D-A19232EE2DEB}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{0B3FEABE-673E-49C2-8041-01CDCF2C9A43}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-1"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{AB29D01F-E1EC-46E5-8C79-2B8D9F5A01BF}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+												<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="Empty" ID="{EEE6A2BC-42D0-4894-BC12-E54161690F5A}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="RadioRabbit_MX_Raias_OutroLong_98BPM" ID="{3AC59F5B-0C5D-496A-91E8-B0C3B787CA84}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+											</TransitionInfo>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="Musicv2" ID="{E38988D8-9FB5-4652-BD58-E72202286067}" ShortID="1039328102">
+							<PropertyList>
+								<Property Name="Tempo" Type="Real64" Value="98"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+								<Reference Name="PlaylistRoot">
+									<Custom>
+										<MusicPlaylistItem Name="" ID="{E0A919EB-DF09-44C2-8BF9-EEA59A2C1219}" ShortID="616521808">
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{DD226192-BB69-4F7E-8D62-C930DAF147A1}" ShortID="244619363">
+													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Segment">
+															<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+														</Reference>
+													</ReferenceList>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Custom>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{EE1F855D-A45A-404D-BB30-DE0BC762E75D}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{F208757F-5D69-43B1-B005-3CE617FE46A1}">
+													<TransitionInfo/>
+												</MusicTransition>
+												<MusicTransition Name="Transition" ID="{760ADB5E-C1CE-47D6-B06B-8A90CCDAB1C0}">
+													<PropertyList>
+														<Property Name="DestinationContextType" Type="int16" Value="2"/>
+														<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="DestinationContextObject">
+															<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionInfo>
+														<TransitionObjectRef Name="RadioRabbit_MX_Raias_Intro_98BPM" ID="{CA0D3F77-C111-470C-80FB-48BB3E5A8B06}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+													</TransitionInfo>
+												</MusicTransition>
+												<MusicTransition Name="Transition" ID="{3648CEEE-F2DB-45F4-93DF-8874EFFA8998}">
+													<PropertyList>
+														<Property Name="DestinationContextType" Type="int16" Value="2"/>
+														<Property Name="PlayDestinationPreEntry" Type="bool" Value="False"/>
+														<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+														<Property Name="SourceContextType" Type="int16" Value="2"/>
+														<Property Name="UseTransitionObject" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="DestinationContextObject">
+															<ObjectRef Name="Empty" ID="{EEE6A2BC-42D0-4894-BC12-E54161690F5A}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+														</Reference>
+														<Reference Name="SourceContextObject">
+															<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+														</Reference>
+													</ReferenceList>
+													<TransitionInfo>
+														<TransitionObjectRef Name="RadioRabbit_MX_Raias_OutroShort_98BPM" ID="{61870582-4A30-4141-951A-A2759093A82A}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+													</TransitionInfo>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" ShortID="1019316824">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="183673.479166667"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{BA576761-E4D7-44E5-9FD2-7EF7760101C2}" ShortID="824772389">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{2C313E32-45A4-4BC8-A372-58D1D5257B5E}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{5FE65C01-7DF5-41E6-9D14-92C42B070872}">
+													<Language>SFX</Language>
+													<AudioFile>RadioRabbit_MX_Raias_Music_98BPM.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="117868854"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{B1E6A34A-0116-4C69-9711-E105BBF512B1}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{CF9A39A9-D3B8-4302-8C42-AE8A95B0D4FE}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="183673.479166667"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{5FE65C01-7DF5-41E6-9D14-92C42B070872}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{925168BC-0D99-417C-9CB3-E3DAD9BAE37A}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{CD0B1768-4C6B-4C89-9A22-11D85E6A448F}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="183673.479166667"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="Empty" ID="{EEE6A2BC-42D0-4894-BC12-E54161690F5A}" ShortID="608576265">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{DAFEA94C-CAF5-4E18-820E-0E2FCEC73EB2}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{C16F82AE-FBFA-42D1-B4F7-A159E61A9D46}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="1000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+								<MusicSegment Name="RadioRabbit_MX_Raias_Music_98BPM_Safe" ID="{A735C5BA-9637-4F97-B3DA-4DE703C3EBBB}" ShortID="404063648">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="183673.479166667"/>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>51</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{4FA4D07E-DFC2-4952-A1F5-B0891A4C3B3D}" ShortID="401651172">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{1E266A65-4939-4CD4-9667-235476945EA7}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{136D64E5-2C2D-4D28-B437-8BD9E7EEAF5D}">
+													<Language>SFX</Language>
+													<AudioFile>RadioRabbit_MX_Raias_Music_98BPM.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="117868854"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{F80BB5B3-4808-4485-A735-22ED45404A81}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{7393A870-EA3F-428E-B171-284CEDF040AA}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="183673.479166667"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{136D64E5-2C2D-4D28-B437-8BD9E7EEAF5D}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{51B340C0-35F1-45FF-B14F-98DE61EC869E}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{1F19B8FE-6951-49C9-9B9C-FF978A64B3DC}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="183673.479166667"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Arguments">
+							<Reference>
+								<ObjectRef Name="Music" ID="{374FBC99-2991-4F3F-B0F6-96B6E458D869}" WorkUnitID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}"/>
+							</Reference>
+						</ObjectList>
+						<ObjectList Name="Entries">
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{9170D46B-8B89-4AAA-B8ED-27FD10A9800C}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM" ID="{3E249A10-EBF2-449B-B6F1-C64D73D9BCD4}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}" WorkUnitID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{9E0346D8-147E-4DCF-85DB-38F831063EB8}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="RadioRabbit_MX_Raias_Music_98BPM_Safe" ID="{A735C5BA-9637-4F97-B3DA-4DE703C3EBBB}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Safe" ID="{B41AB399-2BDD-4B1B-A0D4-F8324943103A}" WorkUnitID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{11C640B3-5001-49B0-9752-7727D3A29E30}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="Empty" ID="{EEE6A2BC-42D0-4894-BC12-E54161690F5A}" WorkUnitID="{7060C11D-3C4D-42FE-8291-A56EAE023D25}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Dead" ID="{6BC90B8F-3488-4772-B79C-EF5AC82AAAEB}" WorkUnitID="{6A3EA7D5-D403-42F4-9A5A-FE9F8852554D}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSwitchContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

@@ -734,7 +734,7 @@
 										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>6</Value>
+												<Value>5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -1392,7 +1392,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1515,8 +1515,8 @@
 								<AudioFileSource Name="RRR_AMBIENCE_Rooftop" ID="{13C2E529-FF71-4955-B5AB-1AC6D6ABA0FB}">
 									<PropertyList>
 										<Property Name="CrossfadeDuration" Type="Real64" Value="20817.2878302642"/>
-										<Property Name="LoopBegin" Type="Real64" Value="10.4086439151321"/>
-										<Property Name="LoopEnd" Type="Real64" Value="418.08053059114"/>
+										<Property Name="LoopBegin" Type="Real64" Value="251.89667280585"/>
+										<Property Name="LoopEnd" Type="Real64" Value="422.203110204507"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -2063,6 +2063,14 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="RC_HitMarker" ID="{32BAE0ED-1725-43DE-8C74-7B0D9EF68975}" ShortID="972815400">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-250</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
@@ -2073,6 +2081,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="RRR_ENEMY_HitMarker_01" ID="{C1832307-0842-42C5-A131-3488C9487DCB}" ShortID="288127671">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
@@ -2095,6 +2110,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RRR_ENEMY_HitMarker_02" ID="{985C5D2B-1615-42CB-8E8F-A6FC744F6403}" ShortID="15909499">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
@@ -2117,6 +2139,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="RRR_ENEMY_HitMarker_03" ID="{B04077FD-C6A7-48EC-A33E-A6D99A5619CF}" ShortID="738222761">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
@@ -2139,6 +2168,29 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{B664364E-0D51-48BD-9F43-D7FCAAA25B71}" ShortID="580103410">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="RoomVerb (Custom)" ID="{CB3D5AF9-47E0-4A38-ABBC-309989EC5C1F}" ShortID="89833260" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+																<PropertyList>
+																	<Property Name="DryLevel" Type="Real32" Value="0"/>
+																	<Property Name="ERPattern" Type="int32" Value="10"/>
+																	<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="RC_Impact_hollow" ID="{2ECA92C3-AA53-441F-B895-32652883D53D}" ShortID="876740069">
 							<ReferenceList>
@@ -2456,8 +2508,6 @@
 											<Modifier Name="" ID="{0CA82790-79FB-4DC6-81A4-34508E03C518}">
 												<PropertyList>
 													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="50"/>
-													<Property Name="Min" Type="Real64" Value="-50"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>
@@ -2465,7 +2515,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>1</Value>
+										<Value>-5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

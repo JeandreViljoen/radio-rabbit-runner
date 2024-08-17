@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
     private LazyService<UpgradesManager> _upgradesManager;
 
     public EnemyState State = EnemyState.Active;
+    private LazyService<VFXManager> _vfx;
+    private LazyService<PrefabPool> _prefabPool;
 
     private void Awake()
     {
@@ -269,6 +271,7 @@ public class Enemy : MonoBehaviour
             Health.RemoveHealth(_player.Value.DashState.KnockbackDamage);
             AudioManager.PostEvent(AudioEvent.ENEMY_IMPACT_HOLLOW);
             _player.Value.PlayerVisuals.FlashDashShieldDamage2();
+            _vfx.Value.OnHitShield(transform.position, _player.Value.PlayerVisuals.TransformForShieldVFX,transform.position - col.transform.position);
         }
     }
     

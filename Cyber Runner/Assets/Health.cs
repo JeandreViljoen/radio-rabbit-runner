@@ -63,6 +63,7 @@ public class Health : MonoBehaviour
         {
             ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
             ServiceLocator.GetService<HUDManager>().FlashRed();
+            AudioManager.PostEvent(AudioEvent.ENEMY_HITMARK);
             ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
         }
         else if (Type == HealthType.Enemy)

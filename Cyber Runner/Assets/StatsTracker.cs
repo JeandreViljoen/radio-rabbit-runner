@@ -53,7 +53,7 @@ public class StatsTracker : MonoService
         Score += RoundReached * ScoreMultiplier;
         Score += DashAmount;
         Score += JumpAmount;
-        Score -= DamageTaken;
+        //Score -= DamageTaken;
         Score += FastestSpeed;
         Score += (int)(DamageDealt / Math.Max(1, ScoreMultiplier));
     }

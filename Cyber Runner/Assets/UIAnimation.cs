@@ -65,6 +65,7 @@ public class UIAnimation : MonoBehaviour
     public Vector3 RelativeHighlightPosition;
     
     private Tween _moveTween;
+    [SerializeField] private bool _loopBetweenHighlightState = false;
 
     public bool IsPlaying => ValidatePlaying();
     void Awake()
@@ -112,7 +113,15 @@ public class UIAnimation : MonoBehaviour
         s.AppendCallback(() => { if(PlayWhooshAudio) AudioManager.PostEvent(AudioEvent.UI_WHOOSH, gameObject); });
         s.AppendCallback(() => { OnShowStart?.Invoke(); });
         s.Append(transform.DOLocalMove(_showPosition, ShowSpeed).SetEase(ShowEase).SetUpdate(ActiveWhilePaused));
-        s.AppendCallback(() => { OnShowEnd?.Invoke(); });
+        s.AppendCallback(() =>
+        {
+            OnShowEnd?.Invoke();
+            if (_loopBetweenHighlightState)
+            {
+                s.Append(transform.DOLocalMove(_highlightPosition, 1.5f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo));
+            }
+
+        });
         _moveTween = s;
     }
 
@@ -143,6 +152,17 @@ public class UIAnimation : MonoBehaviour
         i.Append(transform.DOLocalMove(_showPosition, 0.1f));
         _interactionTween = i;
 
+    }
+
+    private Tween _punchHighlightTween;
+    public void PunchHighlight()
+    {
+        if (_punchHighlightTween != null && _punchHighlightTween.IsPlaying())
+        {
+            return;
+        }
+
+        _punchHighlightTween = transform.DOPunchPosition(_highlightPosition, 0.15f, 5).SetEase(Ease.OutSine);
     }
     
     public void Highlight()

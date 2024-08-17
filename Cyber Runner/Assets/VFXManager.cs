@@ -11,6 +11,7 @@ public class VFXManager : MonoService
     [SerializeField] private GameObject _landingDust;
     [SerializeField] private GameObject _OnHitRailgun;
     [SerializeField] private GameObject _weaponSpawn;
+    [SerializeField] private GameObject _ShieldHit;
 
     public void DashDust(Vector3 position)
     {
@@ -42,6 +43,14 @@ public class VFXManager : MonoService
         ParticleVFX effect = _prefabPool.Value.Get(_OnHitRailgun).GetComponent<ParticleVFX>();
         effect.transform.position = t.position;
         effect.SetFollowTarget(t);
+        effect.Play(direction);
+    }
+    
+    public void OnHitShield(Vector3 position, Transform parent, Vector3 direction)
+    {
+        ParticleVFX effect = _prefabPool.Value.Get(_ShieldHit).GetComponent<ParticleVFX>();
+        effect.transform.position = position;
+        effect.transform.parent = parent;
         effect.Play(direction);
     }
     

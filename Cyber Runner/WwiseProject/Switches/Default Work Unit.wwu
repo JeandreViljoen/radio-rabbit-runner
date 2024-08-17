@@ -7,6 +7,7 @@
 					<ChildrenList>
 						<Switch Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}"/>
 						<Switch Name="Safe" ID="{B41AB399-2BDD-4B1B-A0D4-F8324943103A}"/>
+						<Switch Name="Dead" ID="{6BC90B8F-3488-4772-B79C-EF5AC82AAAEB}"/>
 					</ChildrenList>
 				</SwitchGroup>
 			</ChildrenList>

@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID ENEMY_IMPACT_HITMARKER = 4175882204U;
         static const AkUniqueID ENEMY_IMPACT_HOLLOW = 1758664366U;
         static const AkUniqueID ENEMY_IMPACT_RING = 3810374117U;
+        static const AkUniqueID G_STOPALL = 1149166268U;
         static const AkUniqueID MX_START = 3301075751U;
         static const AkUniqueID MX_STOP = 1775050061U;
         static const AkUniqueID PL_DASH = 3237620440U;
@@ -55,6 +56,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID COMBAT = 2764240573U;
+                static const AkUniqueID DEAD = 2044049779U;
                 static const AkUniqueID SAFE = 938058686U;
             } // namespace SWITCH
         } // namespace MUSIC
