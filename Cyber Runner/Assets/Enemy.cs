@@ -36,6 +36,9 @@ public class Enemy : MonoBehaviour
     private LazyService<VFXManager> _vfx;
     private LazyService<PrefabPool> _prefabPool;
 
+    [SerializeField] private Transform _damageNumberSpawnPoint;
+    [SerializeField] private GameObject _damageNumberPrefab;
+
     private void Awake()
     {
 
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         Health.OnHealthZero += StartOnDeathBehavior;
         Health.OnHealthLost += DamageFlash;
+        Health.OnHealthLost += ShowDamageNumber;
         AudioManager.RegisterGameObj(gameObject);
     }
 
@@ -233,7 +237,7 @@ public class Enemy : MonoBehaviour
     }
 
     private Tween _damageTween;
-    private void DamageFlash()
+    private void DamageFlash(int _)
     {
         _damageTween?.Kill();
         
@@ -241,6 +245,15 @@ public class Enemy : MonoBehaviour
         s.Append(Renderer.DOColor(Color.red, 0.001f));
         s.Append(Renderer.DOColor(Color.white, 0.2f));
         _damageTween = s;
+    }
+
+    private void ShowDamageNumber(int damage)
+    {
+        DamageNumber d = _prefabPool.Value.Get(_damageNumberPrefab).GetComponent<DamageNumber>();
+        d.transform.position = _damageNumberSpawnPoint.position;
+        d.transform.SetParent(_damageNumberSpawnPoint);
+        d.transform.SetAsLastSibling();
+        d.SetDamageAndShow(damage);
     }
 
     private void ClearTargets()

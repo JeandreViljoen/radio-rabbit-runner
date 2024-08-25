@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1768359146784440282, guid: 220052441107f4149a01eb832327c734, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.09
+      objectReference: {fileID: 0}
     - target: {fileID: 5062032849328432999, guid: 220052441107f4149a01eb832327c734, type: 3}
       propertyPath: m_Name
       value: EnemyPortal3

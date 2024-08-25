@@ -24,8 +24,10 @@
  * healed on safe zone popup
  *
  * Better tutorial
+ *
+ * 
  * ------------- Post Test Feedback ---------------------
- * better camera tracking
+ * -----{DONE}------ better camera tracking   
  * Pickups (incl health)
  * Safe zone tracker
  * More content

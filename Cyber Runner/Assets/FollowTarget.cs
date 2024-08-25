@@ -47,6 +47,7 @@ public class FollowTarget : MonoBehaviour
         _stateManager.Value.OnStateChanged += UpdateCameraPosition;
     }
 
+    private float yOffsetFromFalling = 0f;
     private void Update()
     {
         if (_player.ConstantForce.force.x / _player.RB.drag >= 1)
@@ -58,6 +59,16 @@ public class FollowTarget : MonoBehaviour
         else
         {
             _smoothing = _smoothingMax;
+        }
+
+        if (_player.RB.velocity.y < -6f)
+        {
+            float yVelocity = -_player.RB.velocity.y;
+            yOffsetFromFalling = -1f* Help.Map(yVelocity, 6f, 20f, 0f, 10f, true);
+        }
+        else
+        {
+            yOffsetFromFalling = 0f;
         }
 
         if (_stateManager.Value.ActiveState == GameState.Dead)
@@ -75,7 +86,7 @@ public class FollowTarget : MonoBehaviour
     {
         Vector3 targetPos = _player.gameObject.transform.position + _offset;
         
-        targetPos = new Vector3(targetPos.x + xOffsetBasedOnSpeed, targetPos.y, _startZ); //-zOffsetBasedOnSpeed
+        targetPos = new Vector3(targetPos.x + xOffsetBasedOnSpeed, targetPos.y + yOffsetFromFalling, _startZ); //-zOffsetBasedOnSpeed
         transform.position = Vector3.SmoothDamp(transform.position ,targetPos, ref _currentVelocity, _smoothing);
         
     }

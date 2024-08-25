@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     public int CurrentHealth { get; private set; }
 
     public event Action OnHealthZero; 
-    public event Action OnHealthLost; 
+    public event Action<int> OnHealthLost; 
     public event Action OnHealthGained; 
 
 
@@ -51,14 +51,14 @@ public class Health : MonoBehaviour
                     ServiceLocator.GetService<StatsTracker>().EnemiesKilled ++;
                 }
             }
-            OnHealthLost?.Invoke();
+            OnHealthLost?.Invoke(CurrentHealth);
             OnHealthZero?.Invoke();
             return true;
         }
 
         //Normal damage
         CurrentHealth = CurrentHealth - value;
-        OnHealthLost?.Invoke();
+        OnHealthLost?.Invoke(value);
         if (Type == HealthType.Player)
         {
             ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);

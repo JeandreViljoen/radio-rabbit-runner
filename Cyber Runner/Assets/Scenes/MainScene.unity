@@ -51658,6 +51658,7 @@ MonoBehaviour:
   _weaponSpawn: {fileID: 1987020044578485694, guid: 56c760863cf6d5946a3ae65fbe96b823, type: 3}
   _ShieldHit: {fileID: 4075585994899088296, guid: 7969302e3793d6b4a8f1070b0fa9efe0, type: 3}
   _lightningVFX: {fileID: 0}
+  _LightningDamage: {fileID: 181534591978869946, guid: 8514ebdcf06a05d45b9464f65b1cc817, type: 3}
 --- !u!1 &2078929555
 GameObject:
   m_ObjectHideFlags: 0

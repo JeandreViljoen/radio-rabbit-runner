@@ -19,6 +19,7 @@ public class LightningProjectile : ProjectileBase
     private LazyService<ProjectileManager> _projectileManager;
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<PlayerController> _player;
+    private LazyService<VFXManager> _vfxManager;
 
     [SerializeField] private LightningVFX _vfx;
     public FlatLineTester flt;
@@ -30,6 +31,8 @@ public class LightningProjectile : ProjectileBase
         DoLightningDamage(oldTarget);
         TryStun(oldTarget);
         DoImpact();
+        
+        _vfxManager.Value.OnHitElectricity(oldTarget.transform, Vector3.forward);
         
         
         _proximityDetector.EnableProximityDetector(TargetEntity);
@@ -145,7 +148,6 @@ public class LightningProjectile : ProjectileBase
 
     protected virtual void DoImpact()
     {
-
         StartCoroutine(CooldownTillReturn());
 
         IEnumerator CooldownTillReturn()

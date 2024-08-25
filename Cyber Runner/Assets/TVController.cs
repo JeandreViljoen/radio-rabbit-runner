@@ -107,7 +107,7 @@ public class TVController : MonoService
         }
     }
 
-    public void DoHurtFace()
+    public void DoHurtFace(int _)
     {
         if (_lockTVFace) return;
         TVFaceAnim.Play(HurtFace);
