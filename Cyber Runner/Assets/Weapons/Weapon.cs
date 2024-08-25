@@ -66,6 +66,7 @@ public class Weapon : SerializedMonoBehaviour
     protected LazyService<PlayerController> _player;
     protected LazyService<ProjectileManager> _projectileManager;
     protected LazyService<UpgradesManager> _upgradesManager;
+    protected LazyService<PowerUpManager> _powerUpManager;
 
     protected WeaponUpgradeData _upgradesData;
 
@@ -138,7 +139,9 @@ public class Weapon : SerializedMonoBehaviour
                 modifiedFireRate *= 1 + val / 100;
             }
         }
-
+        
+        modifiedFireRate *= _powerUpManager.Value.AttackSpeedMultiplier;
+        
         if (Time.time - _lastFireTime >= 1/modifiedFireRate)
         {
             TryFire();

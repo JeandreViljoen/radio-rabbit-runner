@@ -127,4 +127,9 @@ public class EXPManager : MonoService
 
         CurrentEXP += (int)modifiedAmount;
     }
+
+    public void AddLevel()
+    {
+        AddEXP(Math.Abs( _currentEXPNeeded - _currentEXP));
+    }
 }

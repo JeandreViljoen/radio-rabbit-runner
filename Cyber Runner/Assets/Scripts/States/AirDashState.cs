@@ -14,10 +14,11 @@ public class AirDashState : PlayerState
     private bool _airDashCooldownActive;
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<VFXManager> _vfx;
+    private LazyService<PowerUpManager> _powerUpManager;
     public override void OnEnter()
     {
         _player.InvokeOnDashEnter();
-        ActivateDashKnockbackObject();
+        if(!_powerUpManager.Value.IsShieldPowerUpActive) _player.ActivateDashKnockbackObject(KnockbackObjectActiveTime);
         _player.Collider.excludeLayers = (1<<12);
         Vector2 modifiedDashForce = AirDashForce;
         if (_upgradesManager.Value.HasPerkGroup(PerkGroup.DashDistance, out float val))
@@ -72,8 +73,7 @@ public class AirDashState : PlayerState
     {
         base.OnExit(next);
         _player.Health.SetInvulnerable(false);
-        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
-        _player.PlayerVisuals.StopDodgeShieldVFX();
+        if(!_powerUpManager.Value.IsShieldPowerUpActive) _player.ForceDisableDashKnockbackObject();
         _player.Collider.excludeLayers &= ~(1<<12);
         return;
     }
@@ -91,24 +91,24 @@ public class AirDashState : PlayerState
         _airDashHandle = null;
     }
     
-    private void ActivateDashKnockbackObject()
-    {
-        if (_dashKnockbackHandle != null)
-        {
-            StopCoroutine(_dashKnockbackHandle);
-        }
-        _dashKnockbackHandle = StartCoroutine(DashKnockbackObjectCooldownRoutine(KnockbackObjectActiveTime));
-    }
-
-    private Coroutine _dashKnockbackHandle;
-
-    private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
-    {
-        _player.PlayerVisuals.StartDodgeShieldVFX();
-        _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
-        yield return new WaitForSeconds(activeTime);
-        _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
-        _player.PlayerVisuals.StopDodgeShieldVFX();
-        _dashKnockbackHandle = null;
-    }
+    // private void ActivateDashKnockbackObject()
+    // {
+    //     if (_dashKnockbackHandle != null)
+    //     {
+    //         StopCoroutine(_dashKnockbackHandle);
+    //     }
+    //     _dashKnockbackHandle = StartCoroutine(DashKnockbackObjectCooldownRoutine(KnockbackObjectActiveTime));
+    // }
+    //
+    // private Coroutine _dashKnockbackHandle;
+    //
+    // private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
+    // {
+    //     _player.PlayerVisuals.StartDodgeShieldVFX();
+    //     _player.PlayerVisuals.DashKnockBackCollider.SetActive(true);
+    //     yield return new WaitForSeconds(activeTime);
+    //     _player.PlayerVisuals.DashKnockBackCollider.SetActive(false);
+    //     _player.PlayerVisuals.StopDodgeShieldVFX();
+    //     _dashKnockbackHandle = null;
+    // }
 }

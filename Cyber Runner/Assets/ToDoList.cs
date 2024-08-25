@@ -32,7 +32,7 @@
  * Safe zone tracker
  * More content
  * Make taking damage clearer (shake border)
- * damage numbers
+ * -----{DONE}------ damage numbers
  * add endless scaling
  
  
@@ -44,6 +44,7 @@
  * pickup
  * destructible crash
  * music loop breaking
+ * electricity
 
  
  *---------------ART-------------
@@ -52,6 +53,7 @@
  * EXP bar
  * more decorations (larger stuff, hanging wires etc.)
  * inner tunnel tileset
+ * Tazer weapon
 
 
  * DO user tests

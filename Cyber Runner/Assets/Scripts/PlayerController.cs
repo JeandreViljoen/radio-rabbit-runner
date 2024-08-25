@@ -372,6 +372,35 @@ public class PlayerController : MonoService
         PlayerProjectile
         
     }
+    
+    
+    public void ActivateDashKnockbackObject(float time)
+    {
+        if (_dashKnockbackHandle != null)
+        {
+            StopCoroutine(_dashKnockbackHandle);
+        }
+        _dashKnockbackHandle = StartCoroutine(DashKnockbackObjectCooldownRoutine(time));
+    }
+    
+    private Coroutine _dashKnockbackHandle;
+
+    private IEnumerator DashKnockbackObjectCooldownRoutine(float activeTime)
+    {
+        PlayerVisuals.StartDodgeShieldVFX();
+        PlayerVisuals.DashKnockBackCollider.SetActive(true);
+        yield return new WaitForSeconds(activeTime);
+        PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        PlayerVisuals.StopDodgeShieldVFX();
+        _dashKnockbackHandle = null;
+    }
+
+    public void ForceDisableDashKnockbackObject()
+    {
+        PlayerVisuals.DashKnockBackCollider.SetActive(false);
+        PlayerVisuals.StopDodgeShieldVFX();
+        _dashKnockbackHandle = null;
+    }
 
     
 }
