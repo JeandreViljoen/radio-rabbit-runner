@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dca4cf4d454384bb635cf7c2f26def, type: 3}
+  m_Name: WeaponUpgradeDataLightningGun
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: WeaponType
+      Entry: 3
+      Data: 8
+  Upgrades:
+  - Name: Unlock
+    DisplayName: Unlock Lightning Gun
+    Value: -1
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: The lightning gun will zap multiple targets and have a chance to
+      momentarily stun them in place.
+    ID: 1
+    Type: 8
+  - Name: BounceAmount1
+    DisplayName: Increase Bounces
+    Value: 2
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase the number of lightning bounces by {value}.
+    ID: 2
+    Type: 8
+  - Name: IncreaseFireRate1
+    DisplayName: Increase Attack Speed
+    Value: 30
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase attack speed by {value}%.
+    ID: 3
+    Type: 8
+  - Name: IncreaseStunChance1
+    DisplayName: Increase stun chance I
+    Value: 10
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase chance to stun by {value}%.
+    ID: 4
+    Type: 8
+  - Name: DamageIncreasePerBounce
+    DisplayName: Hypercharge
+    Value: 20
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Each lightning bounce increase damage by {value}%.
+    ID: 5
+    Type: 8
+  - Name: IncreaseStunChance2
+    DisplayName: Increase stun chance II
+    Value: 10
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase chance to stun by {value}%.
+    ID: 6
+    Type: 8
+  - Name: BounceAmount2
+    DisplayName: IncreaseBounces
+    Value: 2
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase the number of lightning bounces by {value}.
+    ID: 7
+    Type: 8
+  - Name: IncreaseDamage
+    DisplayName: Increase Damage
+    Value: 50
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Increase damage by {value}%.
+    ID: 8
+    Type: 8
+  - Name: ChanceToFork
+    DisplayName: Lightning Fork
+    Value: 50
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: Lightning has a {value}% chance to fork, continuing down multiple
+      paths.
+    ID: 9
+    Type: 8
+  - Name: MultipleTargets
+    DisplayName: Lightning Split
+    Value: 2
+    Icon: {fileID: 0}
+    HudIcon: {fileID: 0}
+    Description: The lightningh gun will target {value} enemies at the same time.
+    ID: 10
+    Type: 8

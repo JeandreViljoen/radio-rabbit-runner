@@ -4,7 +4,7 @@
  *--------------- NOW ------------
 
  * Fix safezone breaking if no drafts possible and continue
- screenshake border
+
 
 
  
@@ -19,8 +19,19 @@
  * Safe zone enter explosion
  * XXX UNLOCKED POPUP! after drafting
  * Face on death
+ * screenshake border
 
  * healed on safe zone popup
+ *
+ * Better tutorial
+ * ------------- Post Test Feedback ---------------------
+ * better camera tracking
+ * Pickups (incl health)
+ * Safe zone tracker
+ * More content
+ * Make taking damage clearer (shake border)
+ * damage numbers
+ * add endless scaling
  
  
  

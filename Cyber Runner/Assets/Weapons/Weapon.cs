@@ -215,7 +215,9 @@ public class Weapon : SerializedMonoBehaviour
     
     protected void IncreaseDamageMultiplicative(int damage)
     {
-        Damage *= (1 + damage/100);
+        float damageMult = (1f + damage / 100f);
+        float newDamage = Damage * damageMult;
+        Damage = (int)newDamage;
     }
     
     protected void IncreasePierceCount(int pierce)

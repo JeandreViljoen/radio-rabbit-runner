@@ -11,7 +11,8 @@ using Random = System.Random;
 public enum ProjectileDetectionType
 {
     Collision,
-    Raycast
+    Raycast,
+    Proximity
 }
 
 public class ProjectileBase : MonoBehaviour
@@ -37,6 +38,8 @@ public class ProjectileBase : MonoBehaviour
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<PlayerController> _player;
     private LazyService<VFXManager> _vfx;
+    
+    
 
     private GameObject _targetEntity;
     public GameObject TargetEntity
@@ -156,12 +159,10 @@ public class ProjectileBase : MonoBehaviour
             {
                 CompareAndApplyDamage(hit.collider);
             }
-
-            
-
         }
     }
 
+    
     protected void Update()
     {
 
@@ -182,6 +183,7 @@ public class ProjectileBase : MonoBehaviour
                 DoFire();
                 break;
             case ProjectileType.Ray:
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -221,6 +223,9 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Ray:
                 VisualsParent.transform.position = TargetLocation;
                 break;
+            case ProjectileType.Proximity:
+                
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -240,11 +245,12 @@ public class ProjectileBase : MonoBehaviour
             _inPool = true;
         }
     }
+    
 
     public void DoFire()
     {
         //Fire Range
-        if (Vector2.Distance(transform.localPosition, transform.parent.localPosition) >= _projectileManager.Value.CullDistance)
+        if (Vector2.Distance(transform.localPosition, transform.parent.localPosition) >= _projectileManager.Value.CullDistance && Type != ProjectileType.Proximity)
         {
             DoImpact();
             return;
@@ -256,9 +262,9 @@ public class ProjectileBase : MonoBehaviour
             case ProjectileType.Bullet:
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
                 break;
-            case ProjectileType.Direction:
+            //case ProjectileType.Direction:
                 //transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
-                break;
+                //break;
             case ProjectileType.Homing:
                 Speed *= Acceleration;
                 transform.localPosition += (Vector3) (_direction * Speed * Time.deltaTime);
@@ -272,6 +278,9 @@ public class ProjectileBase : MonoBehaviour
                 {
                     CompareAndApplyDamage(hit.collider);
                 }
+                break;
+            case ProjectileType.Proximity:
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -287,7 +296,7 @@ public class ProjectileBase : MonoBehaviour
        CompareAndApplyDamage(col);
     }
 
-    private void CompareAndApplyDamage(Collider2D col)
+    protected void CompareAndApplyDamage(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
@@ -339,6 +348,7 @@ public enum ProjectileType
     Rocket,
     Direction,
     Homing,
-    Ray
+    Ray,
+    Proximity
 
 }

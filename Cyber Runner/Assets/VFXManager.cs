@@ -12,6 +12,7 @@ public class VFXManager : MonoService
     [SerializeField] private GameObject _OnHitRailgun;
     [SerializeField] private GameObject _weaponSpawn;
     [SerializeField] private GameObject _ShieldHit;
+    [SerializeField] private GameObject _lightningVFX;
 
     public void DashDust(Vector3 position)
     {
@@ -53,5 +54,6 @@ public class VFXManager : MonoService
         effect.transform.parent = parent;
         effect.Play(direction);
     }
+    
     
 }

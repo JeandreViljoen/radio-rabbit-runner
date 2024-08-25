@@ -84,10 +84,8 @@ public class FollowTarget : MonoBehaviour
     private float _zoomLevel;
     private void DoZoom(float speed)
     {
-  
         _zoomTween?.Kill();
         cam.DOOrthoSize(_offset.z, speed).SetEase(Ease.InOutSine);
-
     }
     
     public void UpdateCameraPosition(GameState from, GameState to)

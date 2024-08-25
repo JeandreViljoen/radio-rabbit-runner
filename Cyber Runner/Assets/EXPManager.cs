@@ -104,7 +104,10 @@ public class EXPManager : MonoService
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AddEXP(2000);
+        }
     }
 
     public void AddEXP(int amount)

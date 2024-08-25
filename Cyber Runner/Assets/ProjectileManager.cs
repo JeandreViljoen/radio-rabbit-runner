@@ -119,4 +119,31 @@ public class ProjectileManager : MonoService
         }
     }
 
+    public LightningProjectile SpawnLightningNode(GameObject targetEntity, int damage, int bounces, float stunChance, float stunDuration)
+    {
+        if (bounces == 0)
+        {
+            Debug.Log($"Lightning | {targetEntity.name} -> END");
+            return null;
+        }
+        
+        GameObject ProjectilePrefab = ServiceLocator.GetService<UpgradesManager>().GetWeaponInstance(WeaponType.Lightning)
+            .ProjectilePrefab;
+       
+        
+        LightningProjectile projectile = _prefabPool.Value.Get(ProjectilePrefab).GetComponent<LightningProjectile>();
+
+        projectile.transform.parent = gameObject.transform;
+        projectile.transform.position = targetEntity.transform.position;
+        projectile.Damage = damage;
+        projectile.TargetEntity = targetEntity;
+        projectile.Bounces = bounces;
+        projectile.StunChance = stunChance;
+        projectile.StunDuration = stunDuration;
+        
+        projectile.DoFire();
+        return projectile;
+
+    }
+
 }

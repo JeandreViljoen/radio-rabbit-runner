@@ -14,6 +14,7 @@ public enum EnemyState
 public class Enemy : MonoBehaviour
 {
 
+    private bool _isAlreadyElectrocuted = false;
     public Vector2 Target;
     public float MoveSpeed = 1;
     private float additionalMoveSpeed = 0;
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
+        _isAlreadyElectrocuted = false;
         gameObject.layer = 10;
         Renderer.color = Color.white;
         State = EnemyState.Active;
@@ -153,7 +155,7 @@ public class Enemy : MonoBehaviour
             additionalMoveSpeed = (_player.Value.SpeedDelta * -1 / _player.Value.TheoreticalMaxSpeed) * MomentumMultiplier;
         
             //Vector2 targetUnitVector = (_player.Value.transform.position - transform.position);
-            transform.position =
+            if (!_stunned) transform.position =
                 Vector2.MoveTowards(this.transform.position, _player.Value.transform.position, (MoveSpeed + Math.Abs(additionalMoveSpeed)) * Time.deltaTime);
         }
       
@@ -298,6 +300,45 @@ public class Enemy : MonoBehaviour
         // }
         
         
+    }
+
+    public void SetElectrocutionCooldown(float timer)
+    {
+        StartCoroutine(ElectrocutionTimeout());
+        
+        IEnumerator ElectrocutionTimeout()
+        {
+            _isAlreadyElectrocuted = true;
+            yield return new WaitForSeconds(timer);
+            _isAlreadyElectrocuted = false;
+
+        }
+    }
+
+    public bool IsAlreadyElectrocuted()
+    {
+        return _isAlreadyElectrocuted;
+    }
+
+    private bool _stunned = false;
+    private Coroutine stunHandle;
+    public void Stun(float duration)
+    {
+        if (stunHandle != null)
+        {
+            StopCoroutine(StunRoutine());
+        }
+        
+        stunHandle = StartCoroutine(StunRoutine());
+        
+        IEnumerator StunRoutine()
+        {
+            _stunned = true;
+            Renderer.color = Color.blue;
+            yield return new WaitForSeconds(duration);
+            Renderer.color = Color.white;
+            _stunned = false;
+        }
     }
 
     private void OnDestroy()

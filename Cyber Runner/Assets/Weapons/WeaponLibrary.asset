@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02098e74c0920f1448e2900892c41a2b, type: 2}
   - {fileID: 11400000, guid: aacdb3434a83dcd4f842d6613025a776, type: 2}
   - {fileID: 11400000, guid: 6e492a8e0bdda5f4891425d0f6a5a160, type: 2}
+  - {fileID: 11400000, guid: 6ea408553ffb63946bca6ba2728fef27, type: 2}
   PerkList:
   - {fileID: 11400000, guid: 81d2465c3d38a294f872ae9fe3d2813e, type: 2}
   - {fileID: 11400000, guid: fa9c08519a18a924f9769eee745a9b1b, type: 2}
