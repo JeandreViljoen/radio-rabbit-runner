@@ -23,6 +23,8 @@ public class LevelBlock : MonoBehaviour
 
     public bool IsSafeBlock;
 
+    public List<PowerUpSpawner> PowerUps;
+
     private int _distanceFromPlayer;
 
     public int DistanceFromPlayer
@@ -90,7 +92,16 @@ public class LevelBlock : MonoBehaviour
         OnLevelBlockEnter?.Invoke();
     }
 
-    
+    private void OnEnable()
+    {
+        InitPowerUps();
+    }
+
+    private void OnDisable()
+    {
+        DeactivatePowerupSpawners();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         //If player enters block
@@ -126,6 +137,23 @@ public class LevelBlock : MonoBehaviour
             }
         }
     }
+
+    private void InitPowerUps()
+    {
+        foreach (var pSpawner in PowerUps)
+        {
+            pSpawner.InitPowerUp();
+        }
+    }
+
+    private void DeactivatePowerupSpawners()
+    {
+        foreach (var pSpawner in PowerUps)
+        {
+            pSpawner.gameObject.SetActive(false);
+        }
+    }
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {

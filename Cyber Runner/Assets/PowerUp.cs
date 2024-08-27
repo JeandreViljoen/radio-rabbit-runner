@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Services;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
@@ -14,6 +15,8 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private float _value;
 
     private LazyService<PowerUpManager> _powerUpManager;
+    private LazyService<PrefabPool> _prefabPool;
+    public event Action OnPickup;
    
     
     void Start()
@@ -31,9 +34,26 @@ public class PowerUp : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             _powerUpManager.Value.DoPowerupEffect(_powerupType, _value);
+            _prefabPool.Value.Return(gameObject);
+            OnPickup?.Invoke();
         }
     }
 
+    private Tween _hoverTween;
+    public void Hover()
+    {
+        _hoverTween?.Kill();
+        _hoverTween = transform.DOLocalMove(transform.localPosition + Vector3.up, 1f).SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
+    private void OnDisable()
+    {
+        if (gameObject.activeSelf)
+        {
+            _prefabPool.Value.Return(gameObject);
+        }
+    }
 }
 
 public enum PowerupType

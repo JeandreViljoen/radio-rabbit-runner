@@ -19,3 +19,4 @@ MonoBehaviour:
   StartKey: 99
   RestartKey: 114
   LevelData: {fileID: 11400000, guid: 31c4282194c4b9e4ebb02fbba619b454, type: 2}
+  GlobalPowerupSpawnChance: 0.6
