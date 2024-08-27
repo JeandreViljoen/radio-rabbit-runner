@@ -11,14 +11,14 @@
  
 
  *---------------LATER------------
- * Powerups (Health, attack speed, shield, EXP)
+ * add powerup art (+banners)
  * Implement more weapons (+3)
  * Implement more perks (+5)
- * Fix Combo upgrades
+ * / cancel /Fix Combo upgrades / cancel /
  * Destructible objects
  * Safe zone enter explosion
- * XXX UNLOCKED POPUP! after drafting
- * Face on death
+ * / cancel /XXX UNLOCKED POPUP! after drafting / cancel /
+ * / cancel /Face on death 
  * screenshake border
 
  * healed on safe zone popup
@@ -28,7 +28,7 @@
  * 
  * ------------- Post Test Feedback ---------------------
  * -----{DONE}------ better camera tracking   
- * Pickups (incl health)
+ * -----{DONE}------ Pickups (incl health)
  * Safe zone tracker
  * More content
  * Make taking damage clearer (shake border)
@@ -45,6 +45,7 @@
  * destructible crash
  * music loop breaking
  * electricity
+ * pickups?
 
  
  *---------------ART-------------

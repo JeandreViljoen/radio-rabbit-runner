@@ -12,6 +12,10 @@ public class LevelManager : MonoService
     private LazyService<HUDManager> _hudManager;
     private LazyService<EnemiesManager> _enemiesManager;
     private LazyService<GameStateManager> _stateManager;
+    
+    public float PercentageSpeedIncreasePerEndlessLevel = 0.1f;
+    public float PercentageSpawnRateIncreasePerEndlessLevel = 0.02f;
+        
 
     public int SafeLevelBlockCheckpoint = 3;
 
@@ -19,6 +23,9 @@ public class LevelManager : MonoService
     private int _targetBlockCount = 0;
 
     private int _currentLevelBlockCount = 0;
+
+    public bool IsEndless = false;
+    public int EndlessLevelCount = 0;
     
 
     public void AdvanceBlockCount()
@@ -85,19 +92,25 @@ public class LevelManager : MonoService
         if (level > _data.NumberOfLevels)
         {
             data = _data.GetLevelInfo(_data.NumberOfLevels);
+            IsEndless = true;
+            EndlessLevelCount++;
         }
         else
         {
             data = _data.GetLevelInfo(level);
         }
+
+        float endlessSpeedMult = 1 + PercentageSpeedIncreasePerEndlessLevel * EndlessLevelCount;
+        float endlessSpawnRates = 1 - EndlessLevelCount * PercentageSpawnRateIncreasePerEndlessLevel;
+                
         
         
         //Speed
-        SetSpeed(data.Speed);
+        SetSpeed(data.Speed * endlessSpeedMult);
         //Enemies
         _enemiesManager.Value.SetEnemyTypesToSpawn(data.EnemyPrefabs);
         //Enemy spawn speed;
-        _enemiesManager.Value.SetSpawnRates(data.SpawnInterval);
+        _enemiesManager.Value.SetSpawnRates(data.SpawnInterval * endlessSpawnRates);
         //Refresh Block count + set target
         _blockCounter = 0;
         _targetBlockCount = data.BlockCount;

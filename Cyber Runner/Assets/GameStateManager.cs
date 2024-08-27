@@ -151,6 +151,7 @@ public class GameStateManager : MonoService
         }
     }
 
+    //Used to avoid spiking on Level Block spawns
     private void PreLoadLevels()
     {
         List<GameObject> uniqueLevels = ServiceLocator.GetService<LevelManager>().GetAllUniqueLevelBlocks();

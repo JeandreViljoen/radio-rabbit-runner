@@ -73,7 +73,10 @@ public class EnemiesManager : MonoService
     {
         foreach (var spawner in Spawners)
         {
-            spawner.SpawnRate = rate;
+
+            float safetyRate = Math.Max(rate, 0.1f);
+            
+            spawner.SpawnRate = safetyRate;
         }
     }
 
