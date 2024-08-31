@@ -11,15 +11,13 @@
  
 
  *---------------LATER------------
- * add powerup art (+banners)
  * Implement more weapons (+3)
  * Implement more perks (+5)
- * / cancel /Fix Combo upgrades / cancel /
+ * / cancel / Fix Combo upgrades / cancel /
  * Destructible objects
  * Safe zone enter explosion
- * / cancel /XXX UNLOCKED POPUP! after drafting / cancel /
- * / cancel /Face on death 
- * screenshake border
+ * / cancel / XXX UNLOCKED POPUP! after drafting / cancel /
+ * / cancel / Face on death 
 
  * healed on safe zone popup
  *
@@ -29,9 +27,9 @@
  * ------------- Post Test Feedback ---------------------
  * -----{DONE}------ better camera tracking   
  * -----{DONE}------ Pickups (incl health)
- * Safe zone tracker
+ * -----{DONE}------ Safe zone tracker
  * More content
- * Make taking damage clearer (shake border)
+ * -----{DONE}------ Make taking damage clearer (shake border)
  * -----{DONE}------ damage numbers
  * -----{DONE}------ add endless scaling
  
@@ -39,13 +37,15 @@
 --------------------------------
  Level / Round is not clear
  ---Health is not clear
- Powerup UI not clear enough
+ HUD UI not clear enough
  ---Need more clarity when getting hurt
  Need to tutorialise slightly better explaining spikes / enemies
  need more clarity which floor youre on
- Decorative elements are too busy/clear and players thought to avoid those and not actual obstacles
+ ----Decorative elements are too busy/clear and players thought to avoid those and not actual obstacles
  ---camera is too slow in some instances
  bug with dasshing on the roof
+ cancel destructibles
+ game slightly too fast
  
  
  
@@ -62,17 +62,11 @@
 
  
  *---------------ART-------------
- * Health bar
- * Safety icon + bar
- * EXP bar
  * more decorations (larger stuff, hanging wires etc.)
- * inner tunnel tileset
- * Tazer weapon (+sticker for UI) + yellow Icon
- * Player icon
+ * powerup Popup
+ * flatten colors on decorations
 
 
- * DO user tests
- * 
 
 
 

@@ -30,6 +30,8 @@ public class FollowTarget : MonoBehaviour
     [SerializeField] private Vector3 _startOffset;
     [SerializeField] private Vector3 _StartDraftOffset;
 
+    [SerializeField] private float _maxZoomLevelFromSpeed = 5f;
+    
     private LazyService<GameStateManager> _stateManager;
     private float _startZ;
 
@@ -110,6 +112,7 @@ public class FollowTarget : MonoBehaviour
         if (to == GameState.Playing)
         {
             _offset = _playerOffset;
+            
             DoZoom(1.5f);
         }
         if (to == GameState.Start)

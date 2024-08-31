@@ -17,14 +17,14 @@ public class UIAnimation : MonoBehaviour
     [ShowInInspector]
     
     #endregion
-    public float ShowSpeed { get; private set; } = 0.1f;
+    public float ShowSpeed  = 0.1f;
     #region ShowEaseAttributes
 
     [HorizontalGroup("MAIN/Left/Speeds/one")]
     [ShowInInspector]
 
     #endregion
-    public Ease ShowEase { get; private set; } = Ease.InOutSine;
+    public Ease ShowEase  = Ease.InOutSine;
     #region HideSpeedAttributes
 
     [BoxGroup("MAIN/Left/Speeds")]
@@ -40,7 +40,7 @@ public class UIAnimation : MonoBehaviour
     [ShowInInspector] 
 
     #endregion
-    public Ease HideEase { get; private set; } = Ease.InOutSine;
+    public Ease HideEase  = Ease.InOutSine;
     #region HighlightSpeedAttributes
 
     [BoxGroup("MAIN/Left/Speeds")]
@@ -49,15 +49,15 @@ public class UIAnimation : MonoBehaviour
     [ShowInInspector] 
 
     #endregion
-    public float HighlightSpeed { get; private set; } = 0.1f;
+    public float HighlightSpeed  = 0.1f;
     #region HighlightEaseAttributes
 
     [HorizontalGroup("MAIN/Left/Speeds/three")]
     [ShowInInspector] 
 
     #endregion
-    public Ease HighlightEase { get; private set; } = Ease.InOutSine;
-    [ShowInInspector] public bool ActiveWhilePaused { get; private set; } = true;
+    public Ease HighlightEase  = Ease.InOutSine;
+    [ShowInInspector] public bool ActiveWhilePaused  = true;
     private Vector3 _showPosition;
     private Vector3 _hidePosition;
     private Vector3 _highlightPosition;

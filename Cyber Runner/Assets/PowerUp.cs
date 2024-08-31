@@ -16,6 +16,7 @@ public class PowerUp : MonoBehaviour
 
     private LazyService<PowerUpManager> _powerUpManager;
     private LazyService<PrefabPool> _prefabPool;
+    private LazyService<HUDManager> _hudManager;
     public event Action OnPickup;
    
     

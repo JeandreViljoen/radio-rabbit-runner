@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5375ef0aed4d4cd4f817dfd0a0888fd4, type: 3}
+  m_Name: FreezeOverTime
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: GroupType
+      Entry: 3
+      Data: 5
+  IsImplemented: 1
+  Upgrades:
+  - Name: FreezeOverTime_1
+    DisplayName: Liquid Nitro I
+    Value: 30
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Description: Freezes enemies every {value} seconds.
+    ID: 1
+    GroupType: 5
+  - Name: FreezeOverTime_2
+    DisplayName: Liquid Nitro II
+    Value: 20
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Description: Freezes enemies every {value} seconds.
+    ID: 2
+    GroupType: 5
+  - Name: FreezeOverTime_3
+    DisplayName: Liquid Nitro III
+    Value: 10
+    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
+    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Description: Freezes enemies every {value} seconds.
+    ID: 3
+    GroupType: 5
+  BaseEnumName: FreezeOverTime

@@ -83,6 +83,7 @@ public class PlayerController : MonoService
 
     private LazyService<VFXManager> _vfx;
     private LazyService<StatsTracker> _stats;
+    private LazyService<PowerUpManager> _powerUpManager;
 
     public bool IsDashing = false;
 
@@ -309,7 +310,11 @@ public class PlayerController : MonoService
     {
         if (col.collider.CompareTag("DamageTile"))
         {
-            Health.RemoveHealth(2);
+            if (!_powerUpManager.Value.IsShieldPowerUpActive)
+            {
+                Health.RemoveHealth(2);
+            }
+            
         }
     }
 

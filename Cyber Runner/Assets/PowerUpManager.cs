@@ -7,10 +7,11 @@ using UnityEngine;
 public class PowerUpManager : MonoService
 {
     private LazyService<PlayerController> _player;
-    public float AttackSpeedMultiplier = 1f;
+    [HideInInspector] public float AttackSpeedMultiplier = 1f;
     private LazyService<EXPManager> _expManager;
+    private LazyService<HUDManager> _hudManager;
 
-    [SerializeField] private float PowerupDuration;
+    [SerializeField] private float AttackSpeedPowerupDuration;
     
     public bool IsShieldPowerUpActive = false;
     public bool IsAttackSpeedActive = false;
@@ -40,18 +41,21 @@ public class PowerUpManager : MonoService
     {
         Debug.LogError("HEALTH POWERUP!");
         _player.Value.Health.AddHealth((int)value);
+        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.Health);
     }
     
     private void EXPPowerup(float value)
     {
         Debug.LogError("EXP POWERUP!");
         _expManager.Value.AddLevel();
+        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.EXP);
     }
 
     private Coroutine _attackSpeedHandle;
     private void AttackSpeedPowerup(float value)
     {
         Debug.LogError("ATTACK SPEED POWERUP!");
+        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.AttackSpeed, AttackSpeedPowerupDuration);
         
         if (_attackSpeedHandle != null)
         {
@@ -65,7 +69,7 @@ public class PowerUpManager : MonoService
         {
             IsAttackSpeedActive = true;
             AttackSpeedMultiplier = value;
-            yield return new WaitForSeconds(PowerupDuration);
+            yield return new WaitForSeconds(AttackSpeedPowerupDuration);
             IsAttackSpeedActive = false;
             AttackSpeedMultiplier = 1f;
         }
@@ -74,6 +78,7 @@ public class PowerUpManager : MonoService
     private Coroutine _shieldHandle;
     private void ShieldPowerup(float value)
     {
+        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.AttackSpeed, value);
         Debug.LogError("SHIELD POWERUP!");
         if (_shieldHandle != null)
         {

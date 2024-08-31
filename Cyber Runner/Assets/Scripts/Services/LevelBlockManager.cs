@@ -49,7 +49,12 @@ public class LevelBlockManager : MonoService
             //on Enable
             else 
             {
-                ServiceLocator.GetService<HUDManager>().ShowSafeZoneIncomingBanner();
+                
+                SafezoneTracker tracker = ServiceLocator.GetService<HUDManager>().SafezoneTracker;
+                if (!tracker.IsInit())
+                {
+                    tracker.InitBar(LoadedBlocks[^1]);
+                }
             }
 
             _safeZoneFlag = value;

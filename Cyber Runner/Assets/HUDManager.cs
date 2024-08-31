@@ -22,6 +22,9 @@ public class HUDManager : MonoService
     [SerializeField] private BannerSwipe _getReadyBanner;
     [SerializeField] private BannerSwipe _deathReadyBanner;
 
+    [SerializeField] public SafezoneTracker SafezoneTracker;
+    [SerializeField] public PowerUpPopup PowerUpPopup;
+
     private LazyService<PlayerController> _player;
     public ColorCurves ColorCurves;
     public VolumeProfile VolumeProfile;
