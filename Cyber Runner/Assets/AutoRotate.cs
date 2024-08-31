@@ -12,8 +12,7 @@ public class AutoRotate : MonoBehaviour
 
     private void OnEnable()
     {
-        
-       transform.Rotate(new Vector3(0f,0f,UnityEngine.Random.Range(0,360)));
+        transform.Rotate(new Vector3(0f,0f,UnityEngine.Random.Range(0,360)));
     }
 
     void Update()

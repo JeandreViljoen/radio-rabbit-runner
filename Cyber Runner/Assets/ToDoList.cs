@@ -33,7 +33,20 @@
  * More content
  * Make taking damage clearer (shake border)
  * -----{DONE}------ damage numbers
- * add endless scaling
+ * -----{DONE}------ add endless scaling
+ 
+ What i learned from playtests: (negative)
+--------------------------------
+ Level / Round is not clear
+ ---Health is not clear
+ Powerup UI not clear enough
+ ---Need more clarity when getting hurt
+ Need to tutorialise slightly better explaining spikes / enemies
+ need more clarity which floor youre on
+ Decorative elements are too busy/clear and players thought to avoid those and not actual obstacles
+ ---camera is too slow in some instances
+ bug with dasshing on the roof
+ 
  
  
  
@@ -54,7 +67,8 @@
  * EXP bar
  * more decorations (larger stuff, hanging wires etc.)
  * inner tunnel tileset
- * Tazer weapon
+ * Tazer weapon (+sticker for UI) + yellow Icon
+ * Player icon
 
 
  * DO user tests

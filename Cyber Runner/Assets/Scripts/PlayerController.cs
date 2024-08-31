@@ -205,7 +205,7 @@ public class PlayerController : MonoService
 
     void Update()
     {
-        if (transform.position.y < _killHeight)
+        if (!IsDead() && transform.position.y < _killHeight)
         {
             ServiceLocator.GetService<HUDManager>().SetHealthDisplay(0, 3f);
             Health.RemoveHealth(99999999);

@@ -19,16 +19,6 @@ public class PowerUp : MonoBehaviour
     public event Action OnPickup;
    
     
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
@@ -45,6 +35,8 @@ public class PowerUp : MonoBehaviour
         _hoverTween?.Kill();
         _hoverTween = transform.DOLocalMove(transform.localPosition + Vector3.up, 1f).SetEase(Ease.InOutSine)
             .SetLoops(-1, LoopType.Yoyo);
+        
+        
     }
 
     private void OnDisable()

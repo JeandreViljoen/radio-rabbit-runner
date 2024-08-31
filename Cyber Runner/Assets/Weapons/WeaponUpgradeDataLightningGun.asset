@@ -28,8 +28,8 @@ MonoBehaviour:
   - Name: Unlock
     DisplayName: Unlock Lightning Gun
     Value: -1
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: The lightning gun will zap multiple targets and have a chance to
       momentarily stun them in place.
     ID: 1
@@ -37,64 +37,64 @@ MonoBehaviour:
   - Name: BounceAmount1
     DisplayName: Increase Bounces
     Value: 2
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase the number of lightning bounces by {value}.
     ID: 2
     Type: 8
   - Name: IncreaseFireRate1
     DisplayName: Increase Attack Speed
     Value: 30
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase attack speed by {value}%.
     ID: 3
     Type: 8
   - Name: IncreaseStunChance1
     DisplayName: Increase stun chance I
     Value: 10
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase chance to stun by {value}%.
     ID: 4
     Type: 8
   - Name: DamageIncreasePerBounce
     DisplayName: Hypercharge
     Value: 20
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Each lightning bounce increase damage by {value}%.
     ID: 5
     Type: 8
   - Name: IncreaseStunChance2
     DisplayName: Increase stun chance II
     Value: 10
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase chance to stun by {value}%.
     ID: 6
     Type: 8
   - Name: BounceAmount2
     DisplayName: IncreaseBounces
     Value: 2
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase the number of lightning bounces by {value}.
     ID: 7
     Type: 8
   - Name: IncreaseDamage
     DisplayName: Increase Damage
     Value: 50
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Increase damage by {value}%.
     ID: 8
     Type: 8
   - Name: ChanceToFork
     DisplayName: Lightning Fork
     Value: 50
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: Lightning has a {value}% chance to fork, continuing down multiple
       paths.
     ID: 9
@@ -102,8 +102,8 @@ MonoBehaviour:
   - Name: MultipleTargets
     DisplayName: Lightning Split
     Value: 2
-    Icon: {fileID: 0}
-    HudIcon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 3f4aa064ecce3554cabfdf1abb8c4114, type: 3}
+    HudIcon: {fileID: -2096293312, guid: dca0b76b64345ff4ba6ea9ca78ec5510, type: 3}
     Description: The lightningh gun will target {value} enemies at the same time.
     ID: 10
     Type: 8

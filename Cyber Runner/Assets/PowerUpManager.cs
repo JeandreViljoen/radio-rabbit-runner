@@ -14,20 +14,7 @@ public class PowerUpManager : MonoService
     
     public bool IsShieldPowerUpActive = false;
     public bool IsAttackSpeedActive = false;
-
     
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-
     public void DoPowerupEffect(PowerupType type, float value)
     {
         switch (type)
