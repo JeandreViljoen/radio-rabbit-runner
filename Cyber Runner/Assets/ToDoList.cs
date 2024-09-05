@@ -5,7 +5,6 @@
 
 audio
 is shield visual broken for powerup?
-lightning gun trail color
 ???background stillw hacky???
 add into report about adding hud after games start
 
