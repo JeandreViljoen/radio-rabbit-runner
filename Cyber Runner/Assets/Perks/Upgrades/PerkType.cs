@@ -19,5 +19,10 @@ public enum PerkType
 	PierceBasedOnSpeed_1,
 	PierceBasedOnSpeed_2,
 	PierceBasedOnSpeed_3,
+	FreezeOverTime_1,
+	FreezeOverTime_2,
+	FreezeOverTime_3,
+	AirDamage_1,
+	AirDamage_2,
+	AirDamage_3,
 }
-

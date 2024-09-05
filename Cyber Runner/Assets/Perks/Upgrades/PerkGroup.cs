@@ -7,4 +7,6 @@ public enum PerkGroup
 	IncreaseEXP,
 	Vampirism,
 	PierceBasedOnSpeed,
+	FreezeOverTime,
+	AirDamage,
 }

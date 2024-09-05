@@ -19980,7 +19980,7 @@ MonoBehaviour:
   _deadOffset: {x: -14, y: 2.342, z: 3.2}
   _startOffset: {x: -5, y: 1.2, z: 5}
   _StartDraftOffset: {x: -2, y: 2, z: 4}
-  _maxZoomLevelFromSpeed: 5
+  _maxZoomLevelFromSpeed: 3
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48774,6 +48774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1541217534}
   - component: {fileID: 1541217535}
+  - component: {fileID: 1541217536}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -48855,6 +48856,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1541217536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541217533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fd058dac882e441aa771a80bcb951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thresholdSpeed: 20
+  _scaleAmount: 1.1
 --- !u!224 &1544436676 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8535954004202122592, guid: 8e32e83c50de1d540b6c3303cc85cfa4, type: 3}

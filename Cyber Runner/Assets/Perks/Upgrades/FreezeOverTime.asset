@@ -23,31 +23,31 @@ MonoBehaviour:
     SerializationNodes:
     - Name: GroupType
       Entry: 3
-      Data: 5
+      Data: 7
   IsImplemented: 1
   Upgrades:
   - Name: FreezeOverTime_1
-    DisplayName: Liquid Nitro I
+    DisplayName: Over Charged Battery I
     Value: 30
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: 0e9545c96b2f1a04c8975f528749be4c, type: 3}
+    HudIcon: {fileID: 591155946, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Freezes enemies every {value} seconds.
     ID: 1
-    GroupType: 5
+    GroupType: 7
   - Name: FreezeOverTime_2
-    DisplayName: Liquid Nitro II
+    DisplayName: Over Charged Battery II
     Value: 20
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: 0e9545c96b2f1a04c8975f528749be4c, type: 3}
+    HudIcon: {fileID: 591155946, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Freezes enemies every {value} seconds.
     ID: 2
-    GroupType: 5
+    GroupType: 7
   - Name: FreezeOverTime_3
-    DisplayName: Liquid Nitro III
+    DisplayName: Over Charged Battery III
     Value: 10
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: 0e9545c96b2f1a04c8975f528749be4c, type: 3}
+    HudIcon: {fileID: 591155946, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Freezes enemies every {value} seconds.
     ID: 3
-    GroupType: 5
+    GroupType: 7
   BaseEnumName: FreezeOverTime

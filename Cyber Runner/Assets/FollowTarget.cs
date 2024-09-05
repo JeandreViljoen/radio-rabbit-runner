@@ -111,8 +111,9 @@ public class FollowTarget : MonoBehaviour
         }
         if (to == GameState.Playing)
         {
-            _offset = _playerOffset;
-            
+            float _offsetFromSpeed = Help.Map01(_player.TheoreticalMaxSpeed, 20f, 50f, true) * _maxZoomLevelFromSpeed;
+            Vector3 modifiedOffset = new Vector3(_playerOffset.x, _playerOffset.y, _playerOffset.z + _offsetFromSpeed);
+            _offset = modifiedOffset;
             DoZoom(1.5f);
         }
         if (to == GameState.Start)

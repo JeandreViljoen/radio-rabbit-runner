@@ -9,10 +9,16 @@ public class EnemiesManager : MonoService
     
     public List<EnemySpawner> Spawners = new List<EnemySpawner>();
     public List<Enemy> AllEnemies = new List<Enemy>();
-    
+    private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<VFXManager> _vfx;
+
 
     private bool _forceBlockNewEnemySpawns = false;
     public event Action<Enemy> OnEnemyKilled;
+
+    private float _lastFrozenTime = 0f;
+    private float _freezeInterval = 5f;
+    [SerializeField] float _freezeDuration = 3f;
     
     void Start()
     {
@@ -21,7 +27,25 @@ public class EnemiesManager : MonoService
 
     void Update()
     {
-        
+        if (Time.time - _lastFrozenTime >= _freezeInterval )
+        {
+            if (_upgradesManager.Value.HasPerkGroup(PerkGroup.FreezeOverTime, out float value))
+            {
+                _freezeInterval = value;
+                StunAll();
+            }
+            _lastFrozenTime = Time.time;
+        }
+    }
+
+    private void StunAll()
+    {
+        foreach (var e in AllEnemies)
+        {
+            e.Stun(_freezeDuration);
+            _vfx.Value.OnHitElectricity(e.transform, Vector3.right);
+        }
+
     }
     
     public void ToggleSpawners(bool flag)

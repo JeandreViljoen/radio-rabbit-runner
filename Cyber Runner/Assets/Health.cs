@@ -16,6 +16,9 @@ public class Health : MonoBehaviour
     private bool _isInvulnerable = false;
     public int CurrentHealth { get; private set; }
 
+    private LazyService<UpgradesManager> _upgradesManager;
+    private LazyService<PlayerController> _player;
+
     public event Action OnHealthZero; 
     public event Action<int> OnHealthLost; 
     public event Action OnHealthGained; 
@@ -34,9 +37,25 @@ public class Health : MonoBehaviour
         {
             return false;
         }
+
+        int modifiedValue = value;
+
+        if (Type == HealthType.Enemy)
+        {
+            if (_upgradesManager.Value.HasPerkGroup(PerkGroup.AirDamage, out float damageIncreasePercent))
+            {
+                if (!_player.Value.IsGrounded)
+                {
+                    float temp = 1f +(damageIncreasePercent / 100f);
+                    temp *= modifiedValue;
+                    modifiedValue = (int)temp;
+                    Debug.LogError($"HEALTH.CS   :     Damage Increase from being airborne:  original:{value}|AB:{modifiedValue}");
+                }
+            }
+        }
         
         //Death blow
-        if (CurrentHealth - value <= 0)
+        if (CurrentHealth - modifiedValue <= 0)
         {
             if (Type == HealthType.Player)
             {
@@ -45,9 +64,9 @@ public class Health : MonoBehaviour
             }
             else if (Type == HealthType.Enemy)
             {
-                if (value < 999)
+                if (modifiedValue < 999)
                 {
-                    ServiceLocator.GetService<StatsTracker>().DamageDealt += value;
+                    ServiceLocator.GetService<StatsTracker>().DamageDealt += modifiedValue;
                     ServiceLocator.GetService<StatsTracker>().EnemiesKilled ++;
                 }
             }
@@ -57,20 +76,20 @@ public class Health : MonoBehaviour
         }
 
         //Normal damage
-        CurrentHealth = CurrentHealth - value;
-        OnHealthLost?.Invoke(value);
+        CurrentHealth = CurrentHealth - modifiedValue;
+        OnHealthLost?.Invoke(modifiedValue);
         if (Type == HealthType.Player)
         {
             ServiceLocator.GetService<HUDManager>().SetHealthDisplay(CurrentHealth);
             ServiceLocator.GetService<HUDManager>().FlashRed();
             AudioManager.PostEvent(AudioEvent.ENEMY_HITMARK);
-            ServiceLocator.GetService<StatsTracker>().DamageTaken += value;
+            ServiceLocator.GetService<StatsTracker>().DamageTaken += modifiedValue;
         }
         else if (Type == HealthType.Enemy)
         {
-            if (value < 999)
+            if (modifiedValue < 999)
             {
-                ServiceLocator.GetService<StatsTracker>().DamageDealt += value;
+                ServiceLocator.GetService<StatsTracker>().DamageDealt += modifiedValue;
             }
            
         }

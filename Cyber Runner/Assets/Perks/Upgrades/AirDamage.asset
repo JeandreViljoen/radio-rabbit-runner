@@ -23,31 +23,31 @@ MonoBehaviour:
     SerializationNodes:
     - Name: GroupType
       Entry: 3
-      Data: 5
+      Data: 8
   IsImplemented: 1
   Upgrades:
   - Name: AirDamage_1
     DisplayName: Gravity Spike I
     Value: 15
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: d7dd66a3da2ab1149bf17bc063267036, type: 3}
+    HudIcon: {fileID: -1989942310, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Deal {value}% more damage while airborne.
     ID: 1
-    GroupType: 5
+    GroupType: 8
   - Name: AirDamage_2
     DisplayName: Gravity Spike II
     Value: 30
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: d7dd66a3da2ab1149bf17bc063267036, type: 3}
+    HudIcon: {fileID: -1989942310, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Deal {value}% more damage while airborne.
     ID: 2
-    GroupType: 5
+    GroupType: 8
   - Name: AirDamage_3
     DisplayName: Gravity Spike III
     Value: 50
-    Icon: {fileID: 21300000, guid: 1287b2ab5c257134089fdbadf0a5856c, type: 3}
-    HudIcon: {fileID: 304598814, guid: 610d26886a7acbe4fb590c2356d5ee45, type: 3}
+    Icon: {fileID: 21300000, guid: d7dd66a3da2ab1149bf17bc063267036, type: 3}
+    HudIcon: {fileID: -1989942310, guid: 4325af89b41f5d443983ea038eab1051, type: 3}
     Description: Deal {value}% more damage while airborne.
     ID: 3
-    GroupType: 5
+    GroupType: 8
   BaseEnumName: AirDamage

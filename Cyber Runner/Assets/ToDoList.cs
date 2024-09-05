@@ -6,6 +6,11 @@
  * Fix safezone breaking if no drafts possible and continue
 
 
+change HUD icons
+Add top and bottom floor things
+update tutorial to be a bit better
+implement 2 perks
+bug with endless scaling
 
  
  
