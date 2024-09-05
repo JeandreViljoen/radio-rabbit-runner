@@ -72,10 +72,10 @@ public class MainMenu : MonoBehaviour
         for (var index = 0; index < Prompts.Count; index++)
         {
             var p = Prompts[index];
-            p.Hide(index*RevealInterval + 0.2f);
+            p.Hide( 0.2f);
         }
         
-        Logo.Hide(Prompts.Count * RevealInterval + 0.2f);
+        Logo.Hide(  0.2f);
     }
     void Update()
     {

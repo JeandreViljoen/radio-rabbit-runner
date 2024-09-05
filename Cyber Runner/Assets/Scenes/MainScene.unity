@@ -10715,7 +10715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowSpeed: 0.1
   ShowEase: 4
-  HideSpeed: 0.2
+  HideSpeed: 0.4
   HideEase: 4
   HighlightSpeed: 0.1
   HighlightEase: 4
@@ -40669,6 +40669,7 @@ GameObject:
   - component: {fileID: 1082974753}
   - component: {fileID: 1082974755}
   - component: {fileID: 1082974754}
+  - component: {fileID: 1082974756}
   m_Layer: 5
   m_Name: HealthBarBack
   m_TagString: Untagged
@@ -40692,10 +40693,10 @@ RectTransform:
   - {fileID: 1770337237}
   m_Father: {fileID: 1323259848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -2, y: -88}
-  m_SizeDelta: {x: 1638, y: 96.98}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 452}
+  m_SizeDelta: {x: 1638, y: 96.98001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082974754
 MonoBehaviour:
@@ -40735,6 +40736,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082974752}
   m_CullTransparentMesh: 1
+--- !u!114 &1082974756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082974752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04087503899dc9d4d956082e2258b7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowSpeed: 0.5
+  ShowEase: 4
+  HideSpeed: 0.1
+  HideEase: 4
+  HighlightSpeed: 0.1
+  HighlightEase: 4
+  ActiveWhilePaused: 1
+  RelativeHidePosition: {x: 0, y: 250, z: 0}
+  RelativeHighlightPosition: {x: 0, y: 0, z: 0}
+  _loopBetweenHighlightState: 0
+  PlayWhooshAudio: 0
 --- !u!1 &1096081766
 GameObject:
   m_ObjectHideFlags: 0
@@ -42118,6 +42142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195554352}
   - component: {fileID: 1195554353}
+  - component: {fileID: 1195554354}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -42142,11 +42167,11 @@ RectTransform:
   - {fileID: 2050832293}
   m_Father: {fileID: 1323259848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 1920, y: 35.09}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 527.4551}
+  m_SizeDelta: {x: 1920, y: 35.089996}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1195554353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42172,6 +42197,29 @@ MonoBehaviour:
   _growthRate: 1.2
   Image: {fileID: 1393941939}
   TextField: {fileID: 2050832294}
+--- !u!114 &1195554354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195554351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04087503899dc9d4d956082e2258b7c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowSpeed: 0.5
+  ShowEase: 4
+  HideSpeed: 0.1
+  HideEase: 4
+  HighlightSpeed: 0.1
+  HighlightEase: 4
+  ActiveWhilePaused: 1
+  RelativeHidePosition: {x: 0, y: 250, z: 0}
+  RelativeHighlightPosition: {x: 0, y: 0, z: 0}
+  _loopBetweenHighlightState: 0
+  PlayWhooshAudio: 0
 --- !u!1 &1197168809
 GameObject:
   m_ObjectHideFlags: 0
@@ -42621,6 +42669,8 @@ MonoBehaviour:
   _deathReadyBanner: {fileID: 130063815}
   SafezoneTracker: {fileID: 606288248}
   PowerUpPopup: {fileID: 1109487097}
+  EXPBar: {fileID: 1195554354}
+  HealthBar: {fileID: 1082974756}
   ColorCurves: {fileID: 0}
   VolumeProfile: {fileID: 11400000, guid: fadf88bf07570604c828687269ee8b7c, type: 2}
 --- !u!1 &1325958681
@@ -43112,7 +43162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 277.69, y: -17.66}
+  m_AnchoredPosition: {x: 277.69, y: -17.659973}
   m_SizeDelta: {x: -518.85, y: -10.41}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1393941939

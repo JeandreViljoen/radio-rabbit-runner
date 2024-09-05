@@ -25,6 +25,9 @@ public class HUDManager : MonoService
     [SerializeField] public SafezoneTracker SafezoneTracker;
     [SerializeField] public PowerUpPopup PowerUpPopup;
 
+    [SerializeField] public UIAnimation EXPBar;
+    [SerializeField] public UIAnimation HealthBar;
+
     private LazyService<PlayerController> _player;
     public ColorCurves ColorCurves;
     public VolumeProfile VolumeProfile;
@@ -43,6 +46,12 @@ public class HUDManager : MonoService
     public void ShowDeathBanner(float preDelay = 0f)
     {
         _deathReadyBanner.DoSwipe(preDelay);
+    }
+
+    public void ShowBars()
+    {
+        HealthBar.Show();
+        EXPBar.Show(0.2f);
     }
 
     void Start()

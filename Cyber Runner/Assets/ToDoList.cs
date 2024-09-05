@@ -3,12 +3,11 @@
 
  *--------------- NOW ------------
 
-update tutorial to be a bit better
 audio
 is shield visual broken for powerup?
-hide healthbar and xp baron main menu
 lightning gun trail color
-background stillw hacky
+???background stillw hacky???
+add into report about adding hud after games start
 
  
  

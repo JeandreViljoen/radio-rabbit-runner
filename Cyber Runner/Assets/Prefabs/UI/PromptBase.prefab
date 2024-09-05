@@ -125,9 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04087503899dc9d4d956082e2258b7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HideSpeed: 0.1
+  ShowSpeed: 0.1
+  ShowEase: 4
+  HideSpeed: 0.3
+  HideEase: 4
+  HighlightSpeed: 0.1
+  HighlightEase: 4
+  ActiveWhilePaused: 1
   RelativeHidePosition: {x: 600, y: 0, z: 0}
   RelativeHighlightPosition: {x: 0, y: 0, z: 0}
+  _loopBetweenHighlightState: 0
+  PlayWhooshAudio: 1
 --- !u!1 &4895042318568288940
 GameObject:
   m_ObjectHideFlags: 0

@@ -109,6 +109,7 @@ public class GameStateManager : MonoService
             case GameState.StartDraft:
                 ServiceLocator.GetService<StatsTracker>().ResetAllStats();
                 ServiceLocator.GetService<HUDManager>().SetHealthDisplay(ServiceLocator.GetService<PlayerController>().Health.CurrentHealth,5f);
+                ServiceLocator.GetService<HUDManager>().ShowBars();
                 break;
             case GameState.Playing:
                 AudioManager.SetSwitch("Music", "Combat");
