@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LightningGun : Weapon
 {
+    [Title("SPECIAL PROPERTIES")]
+    
     public TargetingType SecondaryTargetType;
     public int Bounces = 2;
     public float StunChance = 0.2f;

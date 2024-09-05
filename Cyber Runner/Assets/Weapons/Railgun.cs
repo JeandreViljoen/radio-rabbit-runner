@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Railgun : Weapon
 {
+    [Title("SPECIAL PROPERTIES")]
     private bool _doubleFireFlag = false;
     private float _doubleFireChance = 0;
     private bool _damageStack = false;

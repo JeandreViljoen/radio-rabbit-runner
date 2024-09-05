@@ -14,7 +14,7 @@ public class LevelManager : MonoService
     private LazyService<GameStateManager> _stateManager;
     
     public float PercentageSpeedIncreasePerEndlessLevel = 0.1f;
-    public float PercentageSpawnRateIncreasePerEndlessLevel = 0.02f;
+    public float PercentageSpawnRateIncreasePerEndlessLevel = 0.1f;
         
 
     public int SafeLevelBlockCheckpoint = 3;
