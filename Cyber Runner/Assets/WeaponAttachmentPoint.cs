@@ -8,15 +8,6 @@ public class WeaponAttachmentPoint : MonoBehaviour
     [EnumToggleButtons] public AttachmentPosition Slot;
     private Weapon _weapon;
     [ReadOnly] public bool IsSlotted = false;
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
 
     public void InitWeapon(Weapon w)
     {

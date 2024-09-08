@@ -11,8 +11,7 @@ public class LightningProjectile : ProjectileBase
     public float StunChance;
     public float LifeTime = 0.5f;
     public float StunDuration;
-   // [HideInInspector] public float AlreadyElectrocutedTimer;
-    
+
     private List<Enemy> ProximityTargets = new List<Enemy>();
     [SerializeField] private ProximityDetector _proximityDetector;
 
@@ -69,8 +68,6 @@ public class LightningProjectile : ProjectileBase
             }
         }
 
-       
-        
     }
 
     private void TryStun(Enemy e)
@@ -139,9 +136,6 @@ public class LightningProjectile : ProjectileBase
 
     public override void DoOnKillEffects()
     {
-        //_proximityDetector.ForceReturn();
-        //flt.gameObject.SetActive(false);
-        //TargetEntity = null;
         flt.A = null;
         flt.B = null;
     }

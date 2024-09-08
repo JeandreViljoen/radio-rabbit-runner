@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{57494599-BCDB-FA73-E3F0-E2E76D25869A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{33C9009A-4495-D3D9-0021-152A1E68C632}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -37,7 +37,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C887B25F-C72A-8E0D-067E-B2384F6225C7}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9645A0BA-710B-1D3C-6A15-690F4A644708}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -53,9 +53,17 @@
 					<ShortName>RRR_WEAPONS_MINIGUN_Fire_09.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_MINIGUN_Fire_09_818F3B66.wem</CachePath>
 				</File>
+				<File Id="27758663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Impact_Electricity_01.wav</ShortName>
+					<CachePath>SFX/SFX_Impact_Electricity_01_818F3B66.wem</CachePath>
+				</File>
 				<File Id="44502597" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_DEATH_Debris_07.wav</ShortName>
 					<CachePath>SFX/RRR_ENEMY_DEATH_Debris_07_818F3B66.wem</CachePath>
+				</File>
+				<File Id="49400426" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Impact_Electricity_02.wav</ShortName>
+					<CachePath>SFX/SFX_Impact_Electricity_02_818F3B66.wem</CachePath>
 				</File>
 				<File Id="55581108" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_Whoosh_04.wav</ShortName>
@@ -147,7 +155,7 @@
 				</File>
 				<File Id="190336537" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_AMBIENCE_Rooftop.wav</ShortName>
-					<CachePath>SFX/RRR_AMBIENCE_Rooftop_1761672F.wem</CachePath>
+					<CachePath>SFX/RRR_AMBIENCE_Rooftop_5ED4C341.wem</CachePath>
 				</File>
 				<File Id="197879990" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_TAPELOOP_03.wav</ShortName>
@@ -313,6 +321,10 @@
 					<ShortName>RRR_ENEMY_DEATH_Debris_04.wav</ShortName>
 					<CachePath>SFX/RRR_ENEMY_DEATH_Debris_04_818F3B66.wem</CachePath>
 				</File>
+				<File Id="465487562" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Impact_Electricity_04.wav</ShortName>
+					<CachePath>SFX/SFX_Impact_Electricity_04_818F3B66.wem</CachePath>
+				</File>
 				<File Id="470375874" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_WEAPONS_MINIGUN_Fire_01.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_MINIGUN_Fire_01_818F3B66.wem</CachePath>
@@ -369,9 +381,17 @@
 					<ShortName>RRR_WEAPONS_UNLOCK_C_01.wav</ShortName>
 					<CachePath>SFX/RRR_WEAPONS_UNLOCK_C_01_818F3B66.wem</CachePath>
 				</File>
+				<File Id="580980229" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Player_Health_Up.wav</ShortName>
+					<CachePath>SFX/SFX_Player_Health_Up_818F3B66.wem</CachePath>
+				</File>
 				<File Id="593609564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_PLAYER_Footstep_03.wav</ShortName>
 					<CachePath>SFX/RRR_PLAYER_Footstep_03_818F3B66.wem</CachePath>
+				</File>
+				<File Id="599851114" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Impact_Electricity_05.wav</ShortName>
+					<CachePath>SFX/SFX_Impact_Electricity_05_818F3B66.wem</CachePath>
 				</File>
 				<File Id="600309619" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_UI_TAPELOOP_04.wav</ShortName>
@@ -577,6 +597,10 @@
 					<ShortName>RRR_UI_Whoosh_01.wav</ShortName>
 					<CachePath>SFX/RRR_UI_Whoosh_01_818F3B66.wem</CachePath>
 				</File>
+				<File Id="1026571755" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Impact_Electricity_03.wav</ShortName>
+					<CachePath>SFX/SFX_Impact_Electricity_03_818F3B66.wem</CachePath>
+				</File>
 				<File Id="1026823995" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>RRR_ENEMY_DEATH_Debris_08.wav</ShortName>
 					<CachePath>SFX/RRR_ENEMY_DEATH_Debris_08_818F3B66.wem</CachePath>
@@ -761,6 +785,11 @@
 						<MediaRef Id="911818099"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4075572744" Name="PL_Powerup" DurationType="OneShot" DurationMin="2.5" DurationMax="2.5">
+					<MediaRefs>
+						<MediaRef Id="580980229"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3884977549" Name="PL_TV_Vocalise" DurationType="OneShot" DurationMin="0.61249286" DurationMax="1.4732314">
 					<MediaRefs>
 						<MediaRef Id="66216417"/>
@@ -890,6 +919,15 @@
 						<MediaRef Id="1027857955"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2106382402" Name="WPN_ZAP" MaxAttenuation="70" DurationType="OneShot" DurationMin="0.2640401" DurationMax="0.42092326">
+					<MediaRefs>
+						<MediaRef Id="27758663"/>
+						<MediaRef Id="49400426"/>
+						<MediaRef Id="465487562"/>
+						<MediaRef Id="599851114"/>
+						<MediaRef Id="1026571755"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="1557773278" Name="GateVolume"/>
@@ -906,5 +944,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{438591B3-A483-4195-724E-84D5C8ADC844}</FileHash>
+	<FileHash>{9F67FB7A-9E95-DF24-95EA-4EDBDB626E17}</FileHash>
 </SoundBanksInfo>

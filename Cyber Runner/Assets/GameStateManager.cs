@@ -73,7 +73,6 @@ public class GameStateManager : MonoService
             case GameState.Start:
                 break;
             case GameState.StartDraft:
-                //ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(true);
                 break;
             case GameState.Playing:
                 break;
@@ -125,7 +124,6 @@ public class GameStateManager : MonoService
                 
                 break;
             case GameState.Dead:
-                //AudioManager.SetSwitch("Music", "Safe");
                 ServiceLocator.GetService<EnemiesManager>().ToggleSpawners(false);
                 ServiceLocator.GetService<EnemiesManager>().KillAllEnemies(1);
                 ServiceLocator.GetService<HUDManager>().ShowDeathBanner(0.5f);
@@ -155,8 +153,10 @@ public class GameStateManager : MonoService
     //Used to avoid spiking on Level Block spawns
     private void PreLoadLevels()
     {
+        //all unique blocks used in the level data. Copies are omitted.
         List<GameObject> uniqueLevels = ServiceLocator.GetService<LevelManager>().GetAllUniqueLevelBlocks();
 
+        
         foreach (var levelblock in uniqueLevels)
         {
             LevelBlockManager levelBlockManager = ServiceLocator.GetService<LevelBlockManager>();

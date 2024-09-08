@@ -102,6 +102,10 @@
 							<Position X="5" Y="3"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="PL_Powerup" ID="{A872DF07-A197-4C9C-B04A-001D959939BF}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
+							<Position X="5" Y="4"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="WPN_Explosion" ID="{31F540CB-5F3E-4B00-88B8-F444B3E58061}" WorkUnitID="{387C6217-BE6B-4812-A3AE-FAC76AF9FE40}"/>
 							<Position X="7" Y="0"/>
 						</Module>
@@ -142,7 +146,7 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dead" ID="{6BC90B8F-3488-4772-B79C-EF5AC82AAAEB}"/>
+						<CurrentSwitchRef Name="Combat" ID="{02F44939-6D81-4250-A524-9C7ACA045566}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

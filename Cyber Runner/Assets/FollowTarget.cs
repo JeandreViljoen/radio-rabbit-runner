@@ -77,8 +77,7 @@ public class FollowTarget : MonoBehaviour
         {
             _smoothing = 0.3f;
         }
-
-       // zOffsetBasedOnSpeed = Help.Map(_player.CurrentRunSpeed, 20, 30, 20f, 30f, true);
+        
         zOffsetBasedOnSpeed = 30f;
         xOffsetBasedOnSpeed = Help.Map(_player.TheoreticalMaxSpeed, 0, 35, 10, 17, true);
     }

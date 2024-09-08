@@ -28,11 +28,6 @@ public class PowerUpPopup : MonoBehaviour
         uiAnim.OnHideEnd += DisableAll;
         DisableAll();
     }
-    
-    void Update()
-    {
-        
-    }
 
     public void ShowPopup(PowerupType type, float time = 0)
     {

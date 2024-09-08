@@ -62,6 +62,7 @@ public class VFXManager : MonoService
         effect.transform.position = t.position;
         effect.SetFollowTarget(t);
         effect.Play(direction);
+        AudioManager.PostEvent(AudioEvent.WPN_ZAP, t.gameObject);
     }
     
     

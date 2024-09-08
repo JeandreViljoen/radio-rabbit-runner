@@ -33,7 +33,6 @@ using UnityEngine.Pool;
                 if (candidate.hash == hashCode)
                 {
                     pool = candidate;
-
                     break;
                 }
             }

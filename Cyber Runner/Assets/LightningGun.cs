@@ -50,10 +50,7 @@ public class LightningGun : Weapon
                 return;
         }
     }
-    
-    
-    
-    
+
     protected override void TryFire()
     {
         GameObject targetEntity = GetTarget(TargetType);
@@ -72,7 +69,6 @@ public class LightningGun : Weapon
         
        LightningProjectile p = _projectileManager.Value.SpawnLightningNode(targetEntity, Damage, Bounces, StunChance, StunDuration);
        p.DoLightningVFXStart(targetEntity.GetComponent<Enemy>(), SpawnPoint.gameObject.transform);
-       Debug.Log($"Lightning | Start -> {targetEntity.name}");
 
        InvokeOnFireEvent();
         _lastFireTime = Time.time;

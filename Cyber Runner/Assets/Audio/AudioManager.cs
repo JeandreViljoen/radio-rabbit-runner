@@ -20,20 +20,6 @@ public class AudioManager : MonoService
 		}
 	}
 	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-   
-    
     public static void PostEvent(string eventName, GameObject audioObject = null)
     {
 

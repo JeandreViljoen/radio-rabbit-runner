@@ -256,11 +256,6 @@ public class UpgradeCard : Selectable
         DisableSelectState();
     }
 
-    // public void OnSubmit(BaseEventData eventData)
-    // {
-    //     //OnSubmitBehavior();
-    // }
-
     public void Submit()
     {
         switch (_panelType)
@@ -281,13 +276,6 @@ public class UpgradeCard : Selectable
         interactable = false;
         IsInit = false;
     }
-
-    // private void OnSubmitBehavior()
-    // {
-    //     _upgradesManager.Value.GetWeaponInstance(_data.Type).LevelUp();
-    // }
-    
-    
     
     public void SetPanelState(InfoPanelState state)
     {

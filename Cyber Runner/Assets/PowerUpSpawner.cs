@@ -14,17 +14,6 @@ public class PowerUpSpawner : MonoBehaviour
 
     private LazyService<PrefabPool> _prefabPool;
 
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
     public void InitPowerUp()
     {
         gameObject.SetActive(true);

@@ -16,6 +16,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1775050061	MX_Stop			\Default Work Unit\MX_Stop	
 	1836034669	AMB_FlyBy_Stop			\Default Work Unit\AMB_FlyBy_Stop	
 	1936162809	UI_TapeLoop_Start			\Default Work Unit\UI_TapeLoop_Start	
+	2106382402	WPN_ZAP			\Default Work Unit\WPN_ZAP	
 	2644939975	AMB_FlyBy_Start			\Default Work Unit\AMB_FlyBy_Start	
 	2662795557	WPN_Fire_Minigun			\Default Work Unit\WPN_Fire_Minigun	
 	2774129122	UI_Select			\Default Work Unit\UI_Select	
@@ -30,6 +31,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3810374117	ENEMY_Impact_Ring			\Default Work Unit\ENEMY_Impact_Ring	
 	3884977549	PL_TV_Vocalise			\Default Work Unit\PL_TV_Vocalise	
 	3903660881	UI_Upgrade_Select			\Default Work Unit\UI_Upgrade_Select	
+	4075572744	PL_Powerup			\Default Work Unit\PL_Powerup	
 	4175882204	ENEMY_Impact_HitMarker			\Default Work Unit\ENEMY_Impact_HitMarker	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
@@ -51,7 +53,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	2156266	RRR_PLAYER_Landing_06	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_Landing_06_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\RC_Landing\RRR_PLAYER_Landing_06		96096
 	2316956	RRR_WEAPONS_MINIGUN_Fire_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_MINIGUN_Fire_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Minigun_Fire\RRR_WEAPONS_MINIGUN_Fire_05		388036
 	15238941	RRR_WEAPONS_MINIGUN_Fire_09	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_MINIGUN_Fire_09_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Minigun_Fire\RRR_WEAPONS_MINIGUN_Fire_09		406396
+	27758663	SFX_Impact_Electricity_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Impact_Electricity_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Zap\SFX_Impact_Electricity_01		28918
 	44502597	RRR_ENEMY_DEATH_Debris_07	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_07_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_07		144096
+	49400426	SFX_Impact_Electricity_02	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Impact_Electricity_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Zap\SFX_Impact_Electricity_02		30296
 	55581108	RRR_UI_Whoosh_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_Whoosh_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_Whoosh\RRR_UI_Whoosh_04		48096
 	59326100	RRR_ENEMY_DEATH_Debris_02	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_02		128088
 	61641785	RRR_ENEMY_DEATH_Voice_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Voice_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Voice\RRR_ENEMY_DEATH_Voice_04		321616
@@ -74,7 +78,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	174955667	RRR_UI_Whoosh_06	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_Whoosh_06_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_Whoosh\RRR_UI_Whoosh_06		54096
 	177759795	RRR_PLAYER_TV_Vocalise_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_TV_Vocalise_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\RC_TV_Vocalise\RRR_PLAYER_TV_Vocalise_03		228096
 	189663264	RRR_ENEMY_HitMarker_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_HitMarker_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_HitMarker\RRR_ENEMY_HitMarker_03		33656
-	190336537	RRR_AMBIENCE_Rooftop	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_AMBIENCE_Rooftop_1761672F.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\RRR_AMBIENCE_Rooftop		83202680
+	190336537	RRR_AMBIENCE_Rooftop	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_AMBIENCE_Rooftop_5ED4C341.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\RRR_AMBIENCE_Rooftop		83202680
 	197879990	RRR_UI_TAPELOOP_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_TAPELOOP_03_1B4B550C.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_TapeLoop\RRR_UI_TAPELOOP_03		2887168
 	202538812	RRR_PLAYER_Landing_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_Landing_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\RC_Landing\RRR_PLAYER_Landing_01		84620
 	211459194	RRR_WEAPONS_MINIGUN_Fire_10	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_MINIGUN_Fire_10_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Minigun_Fire\RRR_WEAPONS_MINIGUN_Fire_10		386956
@@ -116,6 +120,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	430414234	RRR_PLAYER_JUMP_Swish_02	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_JUMP_Swish_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\RC_Player_Jump_Swish\RRR_PLAYER_JUMP_Swish_02		96096
 	432892381	RRR_WEAPONS_UNLOCK_D_02	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_UNLOCK_D_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BoomBox\RC_Upgrade_D\RRR_WEAPONS_UNLOCK_D_02		240096
 	456102319	RRR_ENEMY_DEATH_Debris_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_04		135972
+	465487562	SFX_Impact_Electricity_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Impact_Electricity_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Zap\SFX_Impact_Electricity_04		28548
 	470375874	RRR_WEAPONS_MINIGUN_Fire_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_MINIGUN_Fire_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Minigun_Fire\RRR_WEAPONS_MINIGUN_Fire_01		384096
 	485413753	RRR_ENEMY_IMPACT_Hollow_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_IMPACT_Hollow_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Impact_hollow\RRR_ENEMY_IMPACT_Hollow_05		72096
 	485640771	RRR_PLAYER_DASH_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_DASH_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\RC_Player_Dash\RRR_PLAYER_DASH_05		384096
@@ -130,7 +135,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	556907215	RRR_ENEMY_DEATH_Debris_11	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_11_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_11		192096
 	574033115	RRR_PLAYER_JUMP_Swish_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_JUMP_Swish_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Jump\RC_Player_Jump_Swish\RRR_PLAYER_JUMP_Swish_05		96096
 	577170160	RRR_WEAPONS_UNLOCK_C_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_UNLOCK_C_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Upgrade_C\RRR_WEAPONS_UNLOCK_C_01		144096
+	580980229	SFX_Player_Health_Up	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Player_Health_Up_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\SFX_Player_Health_Up		480096
 	593609564	RRR_PLAYER_Footstep_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_PLAYER_Footstep_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\RC_Footsteps\RRR_PLAYER_Footstep_03		48096
+	599851114	SFX_Impact_Electricity_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Impact_Electricity_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Zap\SFX_Impact_Electricity_05		36096
 	600309619	RRR_UI_TAPELOOP_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_TAPELOOP_04_50940694.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_TapeLoop\RRR_UI_TAPELOOP_04		5526144
 	621020609	RRR_WEAPONS_MINIGUN_Fire_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_MINIGUN_Fire_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Minigun\RC_Minigun_Fire\RRR_WEAPONS_MINIGUN_Fire_03		374320
 	651815549	RRR_UI_TAPELOOP_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_TAPELOOP_05_502E49AE.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_TapeLoop\RRR_UI_TAPELOOP_05		7680144
@@ -182,6 +189,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1004220842	RRR_ENEMY_DEATH_Thud_02	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Thud_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Thud\RRR_ENEMY_DEATH_Thud_02		192096
 	1008562948	RRR_ENEMY_DEATH_Debris_05	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_05		168096
 	1019680245	RRR_UI_Whoosh_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_UI_Whoosh_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\RC_Whoosh\RRR_UI_Whoosh_01		54096
+	1026571755	SFX_Impact_Electricity_03	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\SFX_Impact_Electricity_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Zap\SFX_Impact_Electricity_03		33292
 	1026823995	RRR_ENEMY_DEATH_Debris_08	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_ENEMY_DEATH_Debris_08_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\RC_Enemy_death_Debris\RRR_ENEMY_DEATH_Debris_08		144096
 	1027857955	RRR_WEAPONS_UNLOCK_B_01	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_UNLOCK_B_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\Railgain\RC_Upgrade_B\RRR_WEAPONS_UNLOCK_B_01		192096
 	1033764940	RRR_WEAPONS_Boombxo_Fire_04	G:\UoL-FP\cyber-runner\Cyber Runner\WwiseProject\.cache\Windows\SFX\RRR_WEAPONS_Boombxo_Fire_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Weapons\BoomBox\RC_Boombox_Fire\RRR_WEAPONS_Boombxo_Fire_04		768096

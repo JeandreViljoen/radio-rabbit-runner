@@ -58,15 +58,14 @@ public class TargetFinder : MonoBehaviour
     }
     
 
-    /*void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         if (Application.isPlaying)
         {
             Gizmos.color = gizmoColor;
             Gizmos.DrawLine(transform.position, _player.transform.position);
         }
-        
-    }*/
+    }
 
     
 }

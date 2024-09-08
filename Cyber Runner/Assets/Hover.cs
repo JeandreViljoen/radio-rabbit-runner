@@ -11,7 +11,6 @@ public class Hover : MonoBehaviour
     private Vector3 _startPosition;
     private Vector3 _endPosition;
 
-
     private void Awake()
     {
         _startPosition = transform.localPosition;
@@ -23,17 +22,10 @@ public class Hover : MonoBehaviour
         DoHover();
     }
 
-    
-    void Update()
-    {
-        
-    }
-
     void DoHover()
     {
         transform.DOLocalMove(_endPosition, _speed).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         
     }
     
-   
 }

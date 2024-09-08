@@ -26,9 +26,7 @@ public class SafezoneTracker : MonoBehaviour
     void Start()
     {
         uiAnim.InstantHide();
-        //gameObject.SetActive(false);
     }
-
     
     void Update()
     {
@@ -48,7 +46,6 @@ public class SafezoneTracker : MonoBehaviour
         PreFirstSafeBlock = preFirstSafeBlock;
         _referenceDistance = Vector3.Distance(preFirstSafeBlock.EndConnection.position,
             _player.Value.transform.position);
-        //gameObject.SetActive(true);
         uiAnim.Show();
     }
 
@@ -67,7 +64,6 @@ public class SafezoneTracker : MonoBehaviour
 
         if (PreFirstSafeBlock.NextBlock != null && PreFirstSafeBlock.NextBlock.IsPlayerInBlock) 
         {
-            //gameObject.SetActive(false);
             PreFirstSafeBlock = null;
             uiAnim.Hide();
         }

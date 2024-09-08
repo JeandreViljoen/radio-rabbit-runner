@@ -19,13 +19,6 @@ public class HUDItemsManager : MonoBehaviour
         _upgradesManager.Value.OnPerkActivated += OnPerkUpgrade;
     }
     
-    void Update()
-    {
-        
-    }
-
-
-
     private void OnWeaponUpgrade(UpgradeType upgradeType)
     {
         UpgradeData data = _upgradesManager.Value.GetUpgradeData(upgradeType);

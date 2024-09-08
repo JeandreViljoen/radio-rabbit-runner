@@ -12,17 +12,6 @@ public class ProjectileManager : MonoService
 
     private LazyService<PrefabPool> _prefabPool;
 
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-    
     void OnDrawGizmos()
     {
 
@@ -30,13 +19,9 @@ public class ProjectileManager : MonoService
         {
             return;
         }
-
-        //if (Application.isPlaying)
-        //{
-            Gizmos.color = Color.white;
-            Help.DrawGizmoCircle(transform.position, CullDistance);
-        //}
         
+        Gizmos.color = Color.white;
+        Help.DrawGizmoCircle(transform.position, CullDistance);
     }
 
     public void SpawnMinigunProjectile(Vector3 spawnPos, int damage, float speed, int spread, Vector2 direction, int pierceCount, Color color)
@@ -51,10 +36,7 @@ public class ProjectileManager : MonoService
         projectile.Speed = speed;
         projectile.Spread = spread;
         projectile.OverrideDirectionTarget(direction);
-        //projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
-        
-        //projectile.Renderer.color = color;
     }
 
     public void SpawnMinigunSpiral(int bulletCount, Vector3 spawnPos, int damage, float speed, int pierceCount, Color color)
@@ -91,10 +73,7 @@ public class ProjectileManager : MonoService
         projectile.Speed = speed;
         projectile.Spread = spread;
         projectile.OverrideDirectionTarget(direction);
-        //projectile.TargetEntity = targetEntity;
         projectile.PierceCount = pierceCount;
-        
-        //projectile.Renderer.color = color;
     }
     
     public GameObject ExplosionPrefab;
@@ -104,7 +83,6 @@ public class ProjectileManager : MonoService
         exp.Damage = damage;
         exp.Knockback = knockback;
         exp.transform.localScale *= sizeMultiplier;
-        //exp.transform.parent = gameObject.transform;
         exp.transform.position = position;
         exp.DoExplosion();
     }

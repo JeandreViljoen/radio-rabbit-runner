@@ -77,11 +77,6 @@ public class LevelManager : MonoService
             AdvanceLevel();
         }
     }
-    
-    void Update()
-    {
-        
-    }
 
     private void SetRoundProperties(int level)
     {
@@ -103,7 +98,7 @@ public class LevelManager : MonoService
         float endlessSpeedMult = 1 + PercentageSpeedIncreasePerEndlessLevel * EndlessLevelCount;
         float endlessSpawnRates = 1 - EndlessLevelCount * PercentageSpawnRateIncreasePerEndlessLevel;
 
-        Debug.LogError($"LEVEL DATA SET:    E:speed: {endlessSpeedMult}   |    E:spawn  {endlessSpawnRates}");
+        //Debug.LogError($"LEVEL DATA SET:    E:speed: {endlessSpeedMult}   |    E:spawn  {endlessSpawnRates}");
         
         //Speed
         SetSpeed(data.Speed * endlessSpeedMult);

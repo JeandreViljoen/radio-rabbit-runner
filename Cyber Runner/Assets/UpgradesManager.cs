@@ -48,11 +48,6 @@ public class UpgradesManager : MonoService
         loadPerks();
     }
 
-    void Update()
-    {
-
-    }
-
     public void AddWeaponToComboDrafts(WeaponType weapon)
     {
         if (!HasCombo(weapon))
@@ -231,9 +226,7 @@ public class UpgradesManager : MonoService
 
         return WeaponLibrary.GetPerkData(group).GetUpgradeData(perkUpgrade);
     }
-
-
-
+    
     public WeaponType GetWeaponTypeFromUpgrade(UpgradeType upgrade)
     {
         string wpn = upgrade.ToString().Split('_')[0];

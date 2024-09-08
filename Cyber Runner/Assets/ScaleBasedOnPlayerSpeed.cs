@@ -22,7 +22,6 @@ public class ScaleBasedOnPlayerSpeed : MonoBehaviour
 
         if (_player.Value.TheoreticalMaxSpeed > _thresholdSpeed)
         {
-
             transform.DOScale(gameObject.transform.localScale * _scaleAmount, 10f).SetEase(Ease.InOutSine);
             _triggered = true;
         }

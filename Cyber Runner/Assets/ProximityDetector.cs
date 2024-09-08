@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class ProximityDetector : MonoBehaviour
 {
-
     public int DetectionAmount = 1;
     [SerializeField] private Collider2D _detectionTrigger;
     private List<Enemy> DetectedTargets = new List<Enemy>();
@@ -17,12 +16,6 @@ public class ProximityDetector : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(false);
-    }
-
-    
-    void Update()
-    {
-        
     }
 
     private void OnDisable()

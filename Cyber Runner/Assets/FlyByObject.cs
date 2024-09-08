@@ -16,17 +16,6 @@ public class FlyByObject : MonoBehaviour
         AudioManager.SetObjectPosition(gameObject,transform);
     }
 
-    private void OnEnable()
-    {
-        //AudioManager.PostEvent(AudioEvent.AMB_FLYBY_START, gameObject);
-        
-    }
-
-    private void OnDisable()
-    {
-        //AudioManager.PostEvent(AudioEvent.AMB_FLYBY_STOP, gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))

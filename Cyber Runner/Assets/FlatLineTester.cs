@@ -12,11 +12,6 @@ public class FlatLineTester : MonoBehaviour
     private Enemy _b;
     public Transform GunStartPos = null;
     
-    
-    
-    
-    
-    
     public float MinTime = 0.1f;
     public float MaxTime = 0.5f;
 
@@ -31,18 +26,7 @@ public class FlatLineTester : MonoBehaviour
     private float _nextTime;
     private float _offTime;
 
-    //private PrefabPoolObject _poolObjectRef;
-
     private Vector3[] _positions;
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public Enemy A
     {
@@ -122,26 +106,6 @@ public class FlatLineTester : MonoBehaviour
     void Update()
     {
         
-        
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         if (GunStartPos != null)
         {
 
@@ -181,7 +145,6 @@ public class FlatLineTester : MonoBehaviour
             bPositionOverride = B.transform.position;
         }
         
-        
             TryInit();
             SetNextTime();
             _lineRenderer.GetPositions(_positions);
@@ -204,8 +167,6 @@ public class FlatLineTester : MonoBehaviour
 
             _lineRenderer.SetPositions(_positions);
             _lineRenderer.positionCount = _positions.Length;
-        
-        
         
        
     }
@@ -253,9 +214,6 @@ public class FlatLineTester : MonoBehaviour
             _lineRenderer.SetPositions(_positions);
             _lineRenderer.positionCount = _positions.Length;
         }
-        
-        // if(A != null) lr.SetPosition(0, A.transform.position);
-        // if(B != null && GunStartPos == null) lr.SetPosition(1, B.transform.position);
-        // if(GunStartPos != null) lr.SetPosition(1, GunStartPos.position);
+  
     }
 }

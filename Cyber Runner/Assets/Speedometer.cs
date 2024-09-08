@@ -20,9 +20,6 @@ public class Speedometer : MonoBehaviour
     private Tween _rotationTween;
     private void Update()
     {
-        
-        //Vector3 f = Quaternion.Euler(0f,0f, GetAngleFromSpeed());
-        
         Vector3 rotation = new Vector3(0f, 0f, GetAngleFromSpeed());
         
         _rotationTween?.Kill();

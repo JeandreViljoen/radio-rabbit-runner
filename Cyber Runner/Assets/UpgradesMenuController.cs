@@ -10,17 +10,6 @@ public class UpgradesMenuController : MonoBehaviour
 
     private LazyService<PrefabPool> _prefabPool;
     private LazyService<EXPManager> _expManager;
-    
-
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
 
     private void AddUpgradeIcon()
     {

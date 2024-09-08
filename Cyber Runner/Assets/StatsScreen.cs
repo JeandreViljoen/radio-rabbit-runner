@@ -31,14 +31,6 @@ public class StatsScreen : MonoBehaviour
         _background.color = c;
     }
 
-   
-    void Update()
-    {
-        
-    }
-
-   
-
     private void SetFlyInOffsets()
     {
         foreach (var stat in Stats)
@@ -64,8 +56,7 @@ public class StatsScreen : MonoBehaviour
 
         _background.DOFade(1f, 1f).SetEase(Ease.InOutSine);
         _titleBar.Show(1f);
-        //ShowDeadCharacterSprite();
-    
+
         if (OverrideWithGlobalFlyInOffset)
         {
             SetFlyInOffsets();

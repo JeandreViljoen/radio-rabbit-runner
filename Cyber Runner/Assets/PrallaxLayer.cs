@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PrallaxLayer : MonoBehaviour
 {
-    
     public float Speed;
     public SpriteRenderer Renderer;
     private Sprite _sprite;
@@ -15,9 +14,7 @@ public class PrallaxLayer : MonoBehaviour
     void Start()
     {
         _sprite = Renderer.sprite;
-        
     }
-
     void Update()
     {
         transform.localPosition += Speed * Time.deltaTime * Vector3.left;
@@ -27,7 +24,6 @@ public class PrallaxLayer : MonoBehaviour
             transform.localPosition = Vector3.zero;
         }
     }
-
     private void ResetSprite()
     {
         

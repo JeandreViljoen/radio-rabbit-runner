@@ -33,7 +33,6 @@ public class ProjectileBase : MonoBehaviour
 
     //Used to store already hit entities so that they don't take multiple instances of damage with wacky raycasts
     HashSet<string> _raycastHitBuffers = new HashSet<string>();
-    //private List<GameObject> _raycastHitBuffers;
 
     private LazyService<UpgradesManager> _upgradesManager;
     private LazyService<PlayerController> _player;
@@ -79,23 +78,6 @@ public class ProjectileBase : MonoBehaviour
             }
         }
     }
-
-    // private Vector3 _targetStatic;
-    //
-    // public Vector3 TargetStatic
-    // {
-    //     get
-    //     {
-    //         return _targetStatic;
-    //     }
-    //     set
-    //     {
-    //         _targetStatic = value;
-    //
-    //         _targetLocation = value;
-    //         direction = (_targetLocation - transform.localPosition).normalized;
-    //     }
-    // }
 
     private void Awake()
     {
@@ -162,7 +144,6 @@ public class ProjectileBase : MonoBehaviour
         }
     }
 
-    
     protected void Update()
     {
 
@@ -188,9 +169,7 @@ public class ProjectileBase : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
-        //UpdateTargets();
-       // DoFire();
+
     }
 
     public void OverrideDirectionTarget(Vector2 direction)
@@ -255,8 +234,7 @@ public class ProjectileBase : MonoBehaviour
             DoImpact();
             return;
         }
-        //Vector2 direction = (_targetLocation - transform.localPosition).normalized;
-        
+
         switch (Type)
         {
             case ProjectileType.Bullet:
@@ -288,7 +266,6 @@ public class ProjectileBase : MonoBehaviour
     }
     
     
-
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (DetectionType == ProjectileDetectionType.Raycast) return;
@@ -311,8 +288,7 @@ public class ProjectileBase : MonoBehaviour
                 {
                     int healthDifference = _player.Value.Health.MaxHealth - _player.Value.Health.CurrentHealth;
                     float damageIncrease = Help.PercentToMultiplier(value * healthDifference);
-
-                    //modifiedDamage = (int)(modifiedDamage * damageIncrease);
+                    
                     modifiedDamage = (int)Math.Round(modifiedDamage * damageIncrease, MidpointRounding.AwayFromZero);
                     
                     Debug.Log($"Base damage: {Damage}          |      Modified:    {modifiedDamage}");

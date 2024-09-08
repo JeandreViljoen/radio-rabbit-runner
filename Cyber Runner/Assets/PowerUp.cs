@@ -27,6 +27,7 @@ public class PowerUp : MonoBehaviour
             _powerUpManager.Value.DoPowerupEffect(_powerupType, _value);
             _prefabPool.Value.Return(gameObject);
             OnPickup?.Invoke();
+            AudioManager.PostEvent(AudioEvent.PL_POWERUP);
         }
     }
 
@@ -36,7 +37,6 @@ public class PowerUp : MonoBehaviour
         _hoverTween?.Kill();
         _hoverTween = transform.DOLocalMove(transform.localPosition + Vector3.up, 1f).SetEase(Ease.InOutSine)
             .SetLoops(-1, LoopType.Yoyo);
-        
         
     }
 

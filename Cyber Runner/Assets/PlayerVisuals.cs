@@ -28,9 +28,8 @@ public class PlayerVisuals : MonoBehaviour
 
     public ParticleSystem DodgeShieldVFX;
     public ParticleSystem HealthUpVFX;
-   // public ParticleSystem DodgeShieldVFXDamage;
 
-   public Material _dashVFXBlue;
+    public Material _dashVFXBlue;
    public Material _dashVFXRed;
 
     private Tween _moveTween;
@@ -46,7 +45,6 @@ public class PlayerVisuals : MonoBehaviour
     {
         DodgeShieldVFX.Stop();
         DodgeShieldVFX.Clear();
-       // DodgeShieldVFX.transform.DetachChildren();
         ServiceLocator.GetService<UIManager>().MainMenu.UnhighlightShieldedText();
     }
 
@@ -90,11 +88,6 @@ public class PlayerVisuals : MonoBehaviour
         _stateManager.Value.OnStateChanged += UpdateTvPosition;
         DashKnockBackCollider.SetActive(false);
         DodgeShieldVFX.Stop();
-    }
-    
-    void Update()
-    {
-        
     }
 
     public void UpdateTvPosition(GameState from, GameState to)
@@ -168,8 +161,6 @@ public class PlayerVisuals : MonoBehaviour
                 return _playerFollowPosition;
         }
     }
-    
-    
 }
 
 public enum TVPosition

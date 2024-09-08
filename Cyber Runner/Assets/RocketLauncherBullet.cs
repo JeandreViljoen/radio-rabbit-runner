@@ -39,18 +39,4 @@ public class RocketLauncherBullet : ProjectileBase
       }
    }
 
-   // public override void DoOnKillEffects()
-   // {
-   //    
-   // }
-
-
-   // private void SpawnExplosion()
-   // {
-   //    Explosion exp = _prefabPool.Value.Get(ExplosionPrefab).GetComponent<Explosion>();
-   //    exp.Damage = Damage;
-   //    exp.transform.parent = _projectileManager.Value.gameObject.transform;
-   //    exp.transform.position = transform.position;
-   //    exp.DoExplosion();
-   // }
 }

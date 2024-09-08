@@ -34,7 +34,7 @@ MonoBehaviour:
     SpawnInterval: 0.8
     EnemyPrefabs:
     - {fileID: 6740138203258939861, guid: 9fd808f13150ef148a518fb88da4684c, type: 3}
-    BlockCount: 1
+    BlockCount: 4
     Blocks:
     - {fileID: 2949942415736523875, guid: c77557fb70e6e5b4bb9356aa9a8dd9c4, type: 3}
     - {fileID: 7603963016284166123, guid: 4d2387377cf25294b818443135a4195b, type: 3}

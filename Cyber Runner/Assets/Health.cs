@@ -49,7 +49,7 @@ public class Health : MonoBehaviour
                     float temp = 1f +(damageIncreasePercent / 100f);
                     temp *= modifiedValue;
                     modifiedValue = (int)temp;
-                    Debug.LogError($"HEALTH.CS   :     Damage Increase from being airborne:  original:{value}|AB:{modifiedValue}");
+                    //Debug.LogError($"HEALTH.CS   :     Damage Increase from being airborne:  original:{value}|AB:{modifiedValue}");
                 }
             }
         }

@@ -42,13 +42,7 @@ public class LevelData : SerializedScriptableObject
                 _uniqueLevels.Add(block);
             }
         }
-        
-        // foreach (var l in _uniqueLevels)
-        // {
-        //     Debug.Log(l.name);
-        // }
         return _uniqueLevels.ToList();
-        
     }
 
 }

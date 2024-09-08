@@ -10,11 +10,8 @@ public class WeaponHUDItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelField;
     [SerializeField] private Image _background;
     [SerializeField] private Image _icon;
-
     [SerializeField] private Sprite _disabledSprite;
     [SerializeField] private Sprite _enabledSprite;
-
-    
 
     public bool IsInit { get; private set; } = false;
 
@@ -24,7 +21,6 @@ public class WeaponHUDItem : MonoBehaviour
         _background.color = new Color(1f, 1f, 1f, 0.3f);
         _icon.gameObject.SetActive(false);
         _levelField.gameObject.SetActive(false);
-
     }
 
     public void InitHUDItem(Sprite icon)

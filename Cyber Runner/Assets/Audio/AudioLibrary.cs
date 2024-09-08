@@ -9,7 +9,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AudioLibrary", menuName = "Custom Assets/Audio/Audio Library")]
 public class AudioLibrary : SerializedScriptableObject
 {
-
     
     [SerializeField] public Dictionary<string, string> Events;
 

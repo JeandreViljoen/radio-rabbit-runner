@@ -7,6 +7,4 @@ public class GameplayManager : MonoService
 {
     public FollowTarget CameraFollowTarget;
     
-
-   
 }

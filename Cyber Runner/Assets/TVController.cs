@@ -22,7 +22,6 @@ public class TVController : MonoService
     [FoldoutGroup("Face Animations")] public AnimationClip HappyFace;
     [FoldoutGroup("Face Animations")] public AnimationClip HurtFace;
     [FoldoutGroup("Face Animations")] public AnimationClip AngryFace;
-
     [FoldoutGroup("Face Animations")] public List<AnimationClip> NumberFaces;
 
     private LazyService<UIManager> _uiManager;
@@ -55,11 +54,6 @@ public class TVController : MonoService
     void DoRotate()
     {
         transform.DOLocalRotate(new Vector3(0,0,3), 1f).SetEase(Ease.InOutCubic).SetLoops(-1, LoopType.Yoyo);
-    }
-    
-    void Update()
-    {
-        
     }
 
     private void SetNumberFaceAuto()

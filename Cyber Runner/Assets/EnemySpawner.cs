@@ -20,11 +20,6 @@ public class EnemySpawner : MonoBehaviour
         IsActive = false;
         StartCoroutine(SpawnTicker());
     }
-    
-    void Update()
-    {
-        
-    }
 
     private IEnumerator SpawnTicker()
     {

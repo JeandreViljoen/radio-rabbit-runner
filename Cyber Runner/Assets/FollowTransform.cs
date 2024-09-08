@@ -11,11 +11,7 @@ public class FollowTransform : MonoBehaviour
     [SerializeField] private float _smoothing;
     [ShowInInspector]private float _smoothingDelta;
     private Vector3 _currentVelocity = Vector3.zero;
-    void Start()
-    {
-        
-    }
-    
+   
     void Update()
     {
         _smoothingDelta = Help.Map(ServiceLocator.GetService<PlayerController>().CurrentRunSpeed, 30, 50, 0f, 0.05f,

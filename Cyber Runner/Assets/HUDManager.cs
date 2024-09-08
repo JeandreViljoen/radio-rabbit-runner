@@ -60,11 +60,6 @@ public class HUDManager : MonoService
        if (VolumeProfile.TryGet<ColorCurves>(out ColorCurves)) ;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void SetSpeedValue(float speed)
     {
         _speedField.text =   (int)(speed)   + " K/ph";

@@ -556,6 +556,36 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PL_Powerup" ID="{A872DF07-A197-4C9C-B04A-001D959939BF}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{75D6B372-4D65-448C-8A50-8C5F3A8E043C}" ShortID="797977665">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="SFX_Player_Health_Up" ID="{B9AC1EE2-EE50-4864-8F20-1088C58C0598}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="WPN_ZAP" ID="{DC090FBF-25B4-4ACB-A8F4-4A5B5FCF5C54}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="8"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Action Name="" ID="{0BB74FD5-42D5-4CC1-848C-139DC57F3FCC}" ShortID="289001297">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Zap" ID="{8854BEAA-1F42-4902-AD0E-5248F34E50C3}" WorkUnitID="{13CC8A03-D73D-4C25-B933-D24EBC1B682F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

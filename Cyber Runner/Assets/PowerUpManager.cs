@@ -39,14 +39,14 @@ public class PowerUpManager : MonoService
 
     private void HealthPowerup(float value)
     {
-        Debug.LogError("HEALTH POWERUP!");
+       
         _player.Value.Health.AddHealth((int)value);
         _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.Health);
     }
     
     private void EXPPowerup(float value)
     {
-        Debug.LogError("EXP POWERUP!");
+        
         _expManager.Value.AddLevel();
         _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.EXP);
     }
@@ -54,7 +54,7 @@ public class PowerUpManager : MonoService
     private Coroutine _attackSpeedHandle;
     private void AttackSpeedPowerup(float value)
     {
-        Debug.LogError("ATTACK SPEED POWERUP!");
+        
         _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.AttackSpeed, AttackSpeedPowerupDuration);
         
         if (_attackSpeedHandle != null)
@@ -78,8 +78,8 @@ public class PowerUpManager : MonoService
     private Coroutine _shieldHandle;
     private void ShieldPowerup(float value)
     {
-        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.AttackSpeed, value);
-        Debug.LogError("SHIELD POWERUP!");
+        _hudManager.Value.PowerUpPopup.ShowPopup(PowerupType.Shield, value);
+        
         if (_shieldHandle != null)
         {
             StopCoroutine(ShieldCountdown());

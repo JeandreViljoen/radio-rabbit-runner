@@ -4,11 +4,9 @@
  *--------------- NOW ------------
 
 audio
-is shield visual broken for powerup?
-???background stillw hacky???
-add into report about adding hud after games start
-
- 
+icon
+build
+repo
  
 
  *---------------LATER------------

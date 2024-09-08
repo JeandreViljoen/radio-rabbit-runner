@@ -1348,6 +1348,35 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="SFX_Player_Health_Up" ID="{B9AC1EE2-EE50-4864-8F20-1088C58C0598}" ShortID="189616034">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="SFX_Player_Health_Up" ID="{51AD8C71-C8EB-453E-B5D8-751F7E22F48D}">
+									<Language>SFX</Language>
+									<AudioFile>SFX_Player_Health_Up.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="580980229"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="SFX_Player_Health_Up" ID="{51AD8C71-C8EB-453E-B5D8-751F7E22F48D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Ambience" ID="{43A538A8-9898-4B19-8596-C39EB8B88400}" ShortID="756926300">
@@ -2479,6 +2508,155 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Zap" ID="{8854BEAA-1F42-4902-AD0E-5248F34E50C3}" ShortID="74409245">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{752401F9-6233-47A1-A4A8-22C9973F9363}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="200"/>
+													<Property Name="Min" Type="Real64" Value="-200"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="General" ID="{74873492-CC54-4975-8F93-90C73A5F9AD8}" WorkUnitID="{B6D31B88-62AD-4B7A-89E1-2DB8FE05296D}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{BBDF80F6-857B-4F23-A6BB-4A7F640B2445}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="SFX_Impact_Electricity_01" ID="{7A272D42-769D-48BA-97A9-07E6AAAC5267}" ShortID="290528302">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Impact_Electricity_01" ID="{4B2F64A3-3D87-4A61-BEB0-82C53DE37879}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Impact_Electricity_01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="27758663"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Impact_Electricity_01" ID="{4B2F64A3-3D87-4A61-BEB0-82C53DE37879}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Impact_Electricity_02" ID="{FD0781F7-D9D0-4531-8C26-2CCCE788EA46}" ShortID="564526125">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Impact_Electricity_02" ID="{019D800E-F720-4C26-8469-D44BB68D2926}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Impact_Electricity_02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="49400426"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Impact_Electricity_02" ID="{019D800E-F720-4C26-8469-D44BB68D2926}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Impact_Electricity_03" ID="{A799C21B-3B0F-4F10-8A4E-891D9A4B332F}" ShortID="999718005">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Impact_Electricity_03" ID="{2115073E-36E4-4838-B9A9-B129E9C06F7C}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Impact_Electricity_03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1026571755"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Impact_Electricity_03" ID="{2115073E-36E4-4838-B9A9-B129E9C06F7C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Impact_Electricity_04" ID="{36921573-66BE-4CB8-92DD-DF50E3DD5A98}" ShortID="380184766">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Impact_Electricity_04" ID="{EFB472DE-0D8C-4825-B7DE-46D58003081D}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Impact_Electricity_04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="465487562"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Impact_Electricity_04" ID="{EFB472DE-0D8C-4825-B7DE-46D58003081D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="SFX_Impact_Electricity_05" ID="{CAE48440-846A-4EE5-B209-4115ED7D6B62}" ShortID="331354214">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D47F0E52-3DDF-4EE2-BBFF-2C8569F3B86C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C96B9E7A-971E-48F2-8984-25853CB5DD60}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFX_Impact_Electricity_05" ID="{ABE7F498-2AE7-4D8B-BDC6-225673E319FE}">
+											<Language>SFX</Language>
+											<AudioFile>SFX_Impact_Electricity_05.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="599851114"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="SFX_Impact_Electricity_05" ID="{ABE7F498-2AE7-4D8B-BDC6-225673E319FE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{F9F290E9-967D-4A52-923C-EB17616BDF41}"/>
+							</PositioningInfo>
 						</RandomSequenceContainer>
 					</ChildrenList>
 					<PositioningInfo>

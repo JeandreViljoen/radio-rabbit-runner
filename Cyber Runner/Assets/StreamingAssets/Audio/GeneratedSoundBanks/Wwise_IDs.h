@@ -30,6 +30,7 @@ namespace AK
         static const AkUniqueID PL_GENERAL_WHOOSH = 3136688869U;
         static const AkUniqueID PL_JUMP = 3480935424U;
         static const AkUniqueID PL_LAND = 613485755U;
+        static const AkUniqueID PL_POWERUP = 4075572744U;
         static const AkUniqueID PL_TV_VOCALISE = 3884977549U;
         static const AkUniqueID UI_PERK_UPGRADE = 172987527U;
         static const AkUniqueID UI_SELECT = 2774129122U;
@@ -45,6 +46,7 @@ namespace AK
         static const AkUniqueID WPN_UPGRADE_BOOMBOX = 3593462838U;
         static const AkUniqueID WPN_UPGRADE_MINIGUN = 1225993347U;
         static const AkUniqueID WPN_UPGRADE_RAILGUN = 2786082744U;
+        static const AkUniqueID WPN_ZAP = 2106382402U;
     } // namespace EVENTS
 
     namespace SWITCHES

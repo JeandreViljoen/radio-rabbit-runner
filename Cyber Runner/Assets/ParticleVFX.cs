@@ -14,7 +14,7 @@ public class ParticleVFX : MonoBehaviour
 
     private void Start()
     {
-        
+        AudioManager.RegisterGameObj(gameObject);
     }
 
     private void OnEnable()
@@ -25,7 +25,6 @@ public class ParticleVFX : MonoBehaviour
         }
     }
 
-   
     private void Update()
     {
         if (_followTarget != null)
@@ -64,8 +63,6 @@ public class ParticleVFX : MonoBehaviour
             _prefabPool.Value.Return(gameObject);
         }
     }
-
-   
 
     private bool HasStopped()
     {
