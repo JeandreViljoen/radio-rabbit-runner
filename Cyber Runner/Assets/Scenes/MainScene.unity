@@ -10107,7 +10107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -10175,20 +10175,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 2b010a0000004900730055006e006c006f0063006b0065006400001f0105000000520061006e00670065000000a041
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: IsUnlocked
-      Entry: 5
-      Data: false
-    - Name: Range
-      Entry: 4
-      Data: 20
+    SerializationNodes: []
   _showGizmos: 1
   TargetType: 4
   SpawnPoint: {fileID: 178088636}
@@ -10363,7 +10357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v. 0.5 alpha
+  m_text: v. 0.50 alpha
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c91125352b79435419d4a1c9e1edb7a0, type: 2}
   m_sharedMaterial: {fileID: 7539703593532964058, guid: c91125352b79435419d4a1c9e1edb7a0, type: 2}
@@ -11980,7 +11974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -18851,7 +18845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -18943,20 +18937,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 2b010a0000004900730055006e006c006f0063006b0065006400001f0105000000520061006e00670065000000a041
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: IsUnlocked
-      Entry: 5
-      Data: false
-    - Name: Range
-      Entry: 4
-      Data: 20
+    SerializationNodes: []
   _showGizmos: 1
   TargetType: 3
   SpawnPoint: {fileID: 1951409065}
@@ -20106,20 +20094,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 2b010a0000004900730055006e006c006f0063006b0065006400001f0105000000520061006e006700650000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: IsUnlocked
-      Entry: 5
-      Data: false
-    - Name: Range
-      Entry: 4
-      Data: 0
+    SerializationNodes: []
   _showGizmos: 1
   TargetType: 1
   SpawnPoint: {fileID: 2139688411}
@@ -20364,7 +20346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -26877,7 +26859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -36813,20 +36795,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 2b010a0000004900730055006e006c006f0063006b0065006400001f0105000000520061006e006700650000000000
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: IsUnlocked
-      Entry: 5
-      Data: false
-    - Name: Range
-      Entry: 4
-      Data: 0
+    SerializationNodes: []
   _showGizmos: 1
   TargetType: 1
   SpawnPoint: {fileID: 2014368683}
@@ -37783,7 +37759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -38990,7 +38966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -39457,7 +39433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -39650,7 +39626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -40311,7 +40287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -45749,7 +45725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -46608,7 +46584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -47484,20 +47460,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 0301070000005f0070006c0061007900650072002f00000000014c000000530065007200760069006300650073002e004c0061007a0079005300650072007600690063006500600031005b005b0050006c00610079006500720043006f006e00740072006f006c006c00650072002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c00200041007300730065006d0062006c0079002d0043005300680061007200700005
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _player
-      Entry: 7
-      Data: Services.LazyService`1[[PlayerController, Assembly-CSharp]], Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   TVBaseRenderer: {fileID: 362554814}
   TVBaseAnim: {fileID: 362554815}
   TVFaceRenderer: {fileID: 466514426}
@@ -47574,7 +47544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -48126,20 +48096,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 2b010a0000004900730055006e006c006f0063006b0065006400011f0105000000520061006e0067006500713df841
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: IsUnlocked
-      Entry: 5
-      Data: true
-    - Name: Range
-      Entry: 4
-      Data: 31.03
+    SerializationNodes: []
   _showGizmos: 1
   TargetType: 3
   SpawnPoint: {fileID: 1106458533}
@@ -48819,7 +48783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -49010,7 +48974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -49266,17 +49230,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1f010c000000430075006c006c00440069007300740061006e006300650000008841
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: CullDistance
-      Entry: 4
-      Data: 17
+    SerializationNodes: []
   _showGizmos: 1
   ExplosionPrefab: {fileID: 656355157138846430, guid: 3b13ab135933a3444a02f3288a698607, type: 3}
 --- !u!1 &2096751209
